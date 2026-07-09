@@ -40,6 +40,7 @@ switch ($Target) {
     "test-m3"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m3_extract.py tests/pipeline/test_m3_grounding.py -v }
     "test-m4"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m4_audit.py -v }
     "test-m5"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m5_complete.py -v }
+    "eval"           { Need-Venv; & $Py -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md }
     "api"            { Need-Venv; & $Py -m uvicorn api.app:app --reload }
     "lint"           { Need-Venv; & $Py -m ruff check . }
     "fmt"            { Need-Venv; & $Py -m ruff format . }

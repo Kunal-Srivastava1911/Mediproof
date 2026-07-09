@@ -72,7 +72,7 @@ test-m5:
 	$(PYTHON) -m pytest tests/pipeline/test_m5_complete.py -v
 
 eval:
-	@echo "eval harness lands in W3+ (see evals/README.md)"
+	$(PYTHON) -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md
 
 demo:
 	@echo "make demo lands in W7 (compose + seeded claim + dashboard)"
