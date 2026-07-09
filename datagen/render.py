@@ -17,12 +17,15 @@ from schemas.ground_truth import ClaimGroundTruth
 
 _TEMPLATE_DIR = Path(__file__).parent / "templates"
 
-# Only these doc types have templates today (plan W1). Others live in ground truth and get
-# templates in W2; the renderer skips them cleanly rather than guessing a layout.
+# Doc types with an HTML template. The renderer skips any type not listed here cleanly
+# rather than guessing a layout. (claim_form / id_document / pre_auth have no ground-truth
+# model yet, so they are intentionally absent — adding them is a schema change, human-owned.)
 TEMPLATE_FOR: dict[DocType, str] = {
     DocType.hospital_bill: "hospital_bill.html",
     DocType.discharge_summary: "discharge_summary.html",
     DocType.pharmacy_bill: "pharmacy_bill.html",
+    DocType.lab_report: "lab_report.html",
+    DocType.prescription: "prescription.html",
 }
 
 _env = Environment(

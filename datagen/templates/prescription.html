@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead(doc.hospital.name, doc.hospital.address, doc.hospital.registration_no,
+              "Prescription", doc.document_id, doc.prescription_date.strftime("%d %b %Y"), initials) }}
+
+<div class="doc-heading">Prescription (Rx)</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient.name }}</span></div>
+  <div class="row"><span class="k">UHID</span><span class="v">{{ doc.patient.patient_id }}</span></div>
+  <div class="row"><span class="k">Age / Sex</span><span class="v">{{ doc.patient.age }} / {{ doc.patient.gender.value }}</span></div>
+  <div class="row"><span class="k">Prescribing Doctor</span><span class="v">{{ doc.doctor }}{% if doc.doctor_reg_no %} ({{ doc.doctor_reg_no }}){% endif %}</span></div>
+  <div class="row"><span class="k">Date</span><span class="v">{{ doc.prescription_date.strftime("%d %b %Y") }}</span></div>
+</div>
+
+{% if doc.diagnosis_text %}
+<div class="section">
+  <h3>Diagnosis</h3>
+  <p>{{ doc.diagnosis_text }}</p>
+</div>
+{% endif %}
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Medication</th><th>Frequency</th><th>Duration</th></tr>
+  </thead>
+  <tbody>
+    {% for m in doc.medications %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ m.drug_name }}{% if m.strength %} {{ m.strength }}{% endif %}</td>
+      <td>{{ m.frequency or "-" }}</td>
+      <td>{{ m.duration or "-" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="section">
+  <p style="font-size:10.5px;color:#666;">Take medication as directed. Complete the full
+     course of any antibiotic. Review in the out-patient department after 7 days.</p>
+</div>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>{{ doc.doctor }}</div>
+</div>
+{% endblock %}

@@ -181,6 +181,18 @@ DOCTORS: list[tuple[str, str]] = [
 ]
 
 
+# Curated specialty-marker drugs: drug key -> ICD-10 prefix that justifies it. A marker
+# drug appearing on a claim whose diagnosis codes don't start with the prefix is
+# *implausible* and gets flagged. Kept deliberately tiny and high-confidence (plan §M4):
+# no general clinical inference — only this curated set is ever flagged. Both the fault
+# injector (datagen) and the M4 audit rule read this same table so injection and detection
+# can never drift apart.
+SPECIALTY_MARKER_DRUGS: dict[str, str] = {
+    "clopidogrel": "I2",   # antiplatelet — acute coronary syndrome / IHD (ICD I20–I25)
+    "enoxaparin": "I2",    # anticoagulant — cardiac / thromboembolic disease
+}
+
+
 def money(x: float) -> float:
     """Round to 2 decimals so synthetic arithmetic stays exact."""
     return round(x + 1e-9, 2)

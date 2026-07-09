@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead(doc.lab_name, "Accredited Diagnostic Laboratory", none,
+              "Lab Report", doc.document_id, doc.report_date.strftime("%d %b %Y"), initials) }}
+
+<div class="doc-heading">Laboratory Report</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient.name }}</span></div>
+  <div class="row"><span class="k">UHID</span><span class="v">{{ doc.patient.patient_id }}</span></div>
+  <div class="row"><span class="k">Age / Sex</span><span class="v">{{ doc.patient.age }} / {{ doc.patient.gender.value }}</span></div>
+  <div class="row"><span class="k">Panel</span><span class="v">{{ doc.panel_name }}</span></div>
+  <div class="row"><span class="k">Report Date</span><span class="v">{{ doc.report_date.strftime("%d %b %Y") }}</span></div>
+  {% if doc.referring_doctor %}<div class="row"><span class="k">Referring Doctor</span><span class="v">{{ doc.referring_doctor }}</span></div>{% endif %}
+</div>
+
+<table>
+  <thead>
+    <tr><th>Test</th><th>Result</th><th>Unit</th><th>Reference Range</th><th>Flag</th></tr>
+  </thead>
+  <tbody>
+    {% for r in doc.results %}
+    <tr>
+      <td>{{ r.test_name }}</td>
+      <td>{{ r.value }}</td>
+      <td>{{ r.unit or "-" }}</td>
+      <td>{{ r.reference_range or "-" }}</td>
+      <td>{{ r.flag or "" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="section">
+  <p style="font-size:10px;color:#777;margin-top:14px;">This is a computer-generated report
+     and does not require a physical signature. Results should be interpreted by the
+     referring physician in clinical context.</p>
+</div>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>Lab Technician</div>
+  <div class="sign-box"><div class="sign-line"></div>Consultant Pathologist</div>
+</div>
+{% endblock %}
