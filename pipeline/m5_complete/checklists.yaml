@@ -1,0 +1,12 @@
+# M5 required-document checklists (plan §M5). Which document types a claim of each type must
+# contain. Config-driven so a new claim type is a data change, not a code change.
+
+claim_types:
+  cashless_hospitalization:
+    required: [hospital_bill, discharge_summary, pharmacy_bill, lab_report, prescription]
+  reimbursement:
+    required: [hospital_bill, discharge_summary, pharmacy_bill, prescription, claim_form, id_document]
+
+# Fallback when the claim type is unknown.
+default:
+  required: [hospital_bill, discharge_summary]
