@@ -1,0 +1,36 @@
+# Render Blueprint for the MediProof stack (FastAPI API + static React UI).
+#
+# Deploy: render.com -> New + -> Blueprint -> connect this GitHub repo -> Apply.
+# Both services build straight from the repo; the UI's VITE_API_BASE is wired to the
+# API's public host automatically (see fromService below).
+#
+# Free-plan caveats (fine for a demo, call them out to viewers):
+#   - services sleep after ~15 min idle, so the first request after a nap cold-starts;
+#   - the API's SQLite DB + uploaded PDFs live on ephemeral disk and reset on any
+#     restart/redeploy. For durable data, give mediproof-api a paid disk mounted at
+#     /data, or point DATABASE_URL at a managed Postgres (the schema is PG-compatible).
+services:
+  - type: web
+    name: mediproof-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: .
+    dockerCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+
+  - type: web
+    name: mediproof-ui
+    runtime: static
+    buildCommand: cd ui && npm install && npm run build
+    staticPublishPath: ui/dist
+    envVars:
+      - key: VITE_API_BASE
+        fromService:
+          type: web
+          name: mediproof-api
+          property: host
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

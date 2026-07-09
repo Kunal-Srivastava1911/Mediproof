@@ -1,7 +1,14 @@
 import type { ClaimFile, ClaimSummary } from "./types";
 
-const API: string =
-  (import.meta.env.VITE_API_BASE as string | undefined) ?? "http://localhost:8000";
+// VITE_API_BASE may arrive as a bare host (e.g. Render injects "mediproof-api.onrender.com"
+// via fromService); prepend https so fetch treats it as an absolute origin, not a path.
+function resolveApiBase(): string {
+  const raw = (import.meta.env.VITE_API_BASE as string | undefined)?.trim();
+  if (!raw) return "http://localhost:8000";
+  return /^https?:\/\//.test(raw) ? raw.replace(/\/$/, "") : `https://${raw}`;
+}
+
+const API: string = resolveApiBase();
 
 async function json<T>(res: Response): Promise<T> {
   if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
