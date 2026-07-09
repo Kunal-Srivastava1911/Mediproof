@@ -1,0 +1,66 @@
+# M4 audit rule pack (plan §M4). Config drives id / finding type / severity / reviewer title
+# and per-rule params; the detection logic for each id lives in audit.py's registry.
+#
+# Framing (non-negotiable, CLAUDE.md): every rule is a *documentation review item*, never an
+# accusation. Titles/details use "requires review / inconsistent / unmatched" language only.
+
+rules:
+  - id: name_inconsistent
+    type: name_inconsistent
+    severity: warning
+    title: "Patient name inconsistent across documents"
+    enabled: true
+    params:
+      threshold: 85          # rapidfuzz token_sort_ratio below this = a mismatch
+
+  - id: date_inconsistent
+    type: date_inconsistent
+    severity: warning
+    title: "Admission/discharge dates inconsistent across documents"
+    enabled: true
+
+  - id: bill_arithmetic_mismatch
+    type: bill_arithmetic_mismatch
+    severity: warning
+    title: "Bill total does not reconcile"
+    enabled: true
+
+  - id: inflated_line_item
+    type: inflated_line_item
+    severity: critical
+    title: "Line item amount exceeds quantity x unit price"
+    enabled: true
+
+  - id: duplicate_line_item
+    type: duplicate_line_item
+    severity: warning
+    title: "Duplicate line item on the bill"
+    enabled: true
+
+  - id: missing_lab_report
+    type: missing_lab_report
+    severity: warning
+    title: "Investigation billed but no lab report present"
+    enabled: true
+
+  - id: drug_diagnosis_implausible
+    type: drug_diagnosis_implausible
+    severity: critical
+    title: "Medication not supported by recorded diagnosis"
+    enabled: true
+    params:
+      # Curated, high-confidence markers only (plan §M4): drug substring -> ICD-10 prefix
+      # that justifies it. Anything outside this set is never flagged. Mirrors datagen's
+      # SPECIALTY_MARKER_DRUGS (a parity test guards against drift).
+      markers:
+        clopidogrel: "I2"
+        enoxaparin: "I2"
+
+  - id: non_payable_consumable
+    type: non_payable_consumable
+    severity: info
+    title: "Non-payable consumable billed"
+    enabled: true
+    params:
+      keywords: ["gloves", "disposables", "administrative", "record charges",
+                 "attendant", "meal"]
