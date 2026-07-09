@@ -1,0 +1,31 @@
+# MediProof demo stack: FastAPI backend + React dashboard.
+#   docker compose up -d --build     (or run `make demo` / `./run.ps1 demo` to also seed a claim)
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - mediproof-data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+      args:
+        VITE_API_BASE: "http://localhost:8000"
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
+volumes:
+  mediproof-data:

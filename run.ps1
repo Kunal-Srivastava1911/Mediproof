@@ -42,6 +42,13 @@ switch ($Target) {
     "test-m5"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m5_complete.py -v }
     "eval"           { Need-Venv; & $Py -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md }
     "api"            { Need-Venv; & $Py -m uvicorn api.app:app --reload }
+    "demo"           {
+        Need-Venv
+        & $Py -m datagen.cli sample --fault inflated_line_item --out data/demo
+        docker compose up -d --build
+        & $Py scripts/demo_seed.py
+        Start-Process "http://localhost:5173"
+    }
     "lint"           { Need-Venv; & $Py -m ruff check . }
     "fmt"            { Need-Venv; & $Py -m ruff format . }
     default          { Write-Host "Unknown target '$Target'. Try ./run.ps1 help" -ForegroundColor Red; exit 1 }

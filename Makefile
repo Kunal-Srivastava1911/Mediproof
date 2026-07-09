@@ -75,7 +75,10 @@ eval:
 	$(PYTHON) -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md
 
 demo:
-	@echo "make demo lands in W7 (compose + seeded claim + dashboard)"
+	$(PYTHON) -m datagen.cli sample --fault inflated_line_item --out data/demo
+	docker compose up -d --build
+	$(PYTHON) scripts/demo_seed.py
+	@echo "Dashboard: http://localhost:5173   API: http://localhost:8000"
 
 lint:
 	$(PYTHON) -m ruff check .
