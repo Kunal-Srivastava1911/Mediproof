@@ -26,12 +26,21 @@ switch ($Target) {
     }
     "venv"           { & (Join-Path $env:LOCALAPPDATA "Programs\Python\Python311\python.exe") -m venv (Join-Path $Root ".venv") }
     "install"        { Need-Venv; & $Py -m pip install -e $Root }
-    "install-dev"    { Need-Venv; & $Py -m pip install -e "$Root[datagen,dev]"; & $Py -m playwright install chromium }
+    "install-dev"    { Need-Venv; & $Py -m pip install -e "$Root[datagen,pipeline,api,dev]"; & $Py -m playwright install chromium }
+    "install-pipeline" { Need-Venv; & $Py -m pip install -e "$Root[pipeline]" }
     "datagen-sample" { Need-Venv; & $Py -m datagen.cli sample --seed 42 --out data/sample }
     "datagen-bulk"   { Need-Venv; & $Py -m datagen.cli bulk --count 300 --start-seed 1000 --out data/bench }
     "test"           { Need-Venv; & $Py -m pytest }
+    "test-fast"      { Need-Venv; & $Py -m pytest -m "not slow" }
     "test-datagen"   { Need-Venv; & $Py -m pytest tests/datagen -v }
     "test-schemas"   { Need-Venv; & $Py -m pytest tests/schemas -v }
+    "test-pipeline"  { Need-Venv; & $Py -m pytest tests/pipeline -v }
+    "test-m1"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m1_ingest.py -v }
+    "test-m2"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m2_segment.py -v }
+    "test-m3"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m3_extract.py tests/pipeline/test_m3_grounding.py -v }
+    "test-m4"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m4_audit.py -v }
+    "test-m5"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m5_complete.py -v }
+    "api"            { Need-Venv; & $Py -m uvicorn api.app:app --reload }
     "lint"           { Need-Venv; & $Py -m ruff check . }
     "fmt"            { Need-Venv; & $Py -m ruff format . }
     default          { Write-Host "Unknown target '$Target'. Try ./run.ps1 help" -ForegroundColor Red; exit 1 }

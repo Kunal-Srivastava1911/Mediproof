@@ -7,8 +7,9 @@ else
 endif
 export PYTHONPATH := $(CURDIR)
 
-.PHONY: help venv install install-dev datagen-sample datagen-bulk \
-        test test-datagen test-schemas eval demo lint fmt clean
+.PHONY: help venv install install-dev install-pipeline datagen-sample datagen-bulk \
+        test test-fast test-datagen test-schemas test-pipeline test-m1 test-m2 test-m3 \
+        test-m4 test-m5 eval demo lint fmt clean
 
 help:
 	@echo "MediProof targets:"
@@ -28,8 +29,11 @@ install:
 	$(PYTHON) -m pip install -e .
 
 install-dev:
-	$(PYTHON) -m pip install -e ".[datagen,dev]"
+	$(PYTHON) -m pip install -e ".[datagen,pipeline,api,dev]"
 	$(PYTHON) -m playwright install chromium
+
+install-pipeline:
+	$(PYTHON) -m pip install -e ".[pipeline]"
 
 datagen-sample:
 	$(PYTHON) -m datagen.cli sample --seed 42 --out data/sample
@@ -40,11 +44,32 @@ datagen-bulk:
 test:
 	$(PYTHON) -m pytest
 
+test-fast:
+	$(PYTHON) -m pytest -m "not slow"
+
 test-datagen:
 	$(PYTHON) -m pytest tests/datagen -v
 
 test-schemas:
 	$(PYTHON) -m pytest tests/schemas -v
+
+test-pipeline:
+	$(PYTHON) -m pytest tests/pipeline -v
+
+test-m1:
+	$(PYTHON) -m pytest tests/pipeline/test_m1_ingest.py -v
+
+test-m2:
+	$(PYTHON) -m pytest tests/pipeline/test_m2_segment.py -v
+
+test-m3:
+	$(PYTHON) -m pytest tests/pipeline/test_m3_extract.py tests/pipeline/test_m3_grounding.py -v
+
+test-m4:
+	$(PYTHON) -m pytest tests/pipeline/test_m4_audit.py -v
+
+test-m5:
+	$(PYTHON) -m pytest tests/pipeline/test_m5_complete.py -v
 
 eval:
 	@echo "eval harness lands in W3+ (see evals/README.md)"

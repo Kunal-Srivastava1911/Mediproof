@@ -29,12 +29,16 @@ datagen = [
     "pypdf>=4.2,<6",
 ]
 pipeline = [
-    "opencv-python-headless>=4.9,<5",
-    "numpy>=1.26,<3",
-    "pillow>=10.3,<12",
+    # Digital-PDF path: read the text layer with word bounding boxes (no OCR needed for
+    # our synthetic digital PDFs). PaddleOCR/opencv are the scanned-image upgrade path.
+    "pdfplumber>=0.11,<0.12",
     "rapidfuzz>=3.9,<4",
     "pyyaml>=6.0,<7",
-    # OCR / classifier / VLM added when M1–M3 land (kept out of default install).
+    # Scanned-image OCR path (opencv preprocess + PaddleOCR) is a documented upgrade;
+    # kept out of the default install so the pipeline stays light on the digital path.
+    # "opencv-python-headless>=4.9,<5",
+    # "numpy>=1.26,<3",
+    # "pillow>=10.3,<12",
 ]
 api = [
     "fastapi>=0.111,<1",
