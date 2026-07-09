@@ -27,6 +27,28 @@ export const SEVERITY_CHIP: Record<string, string> = {
   critical: "bg-red-100 text-band-red",
 };
 
+// Submitter-facing status. The pipeline's granular states are hidden from claimants: anything
+// still in flight (received/processing/processed/needs_review/failed) collapses to "not reviewed".
+export type SubmitterBucket = "not_reviewed" | "denied" | "approved";
+
+export function submitterBucket(status: string): SubmitterBucket {
+  if (status === "approved") return "approved";
+  if (status === "denied") return "denied";
+  return "not_reviewed";
+}
+
+export const BUCKET_LABEL: Record<SubmitterBucket, string> = {
+  not_reviewed: "Not reviewed",
+  denied: "Reviewed — denied",
+  approved: "Reviewed — approved",
+};
+
+export const BUCKET_STYLES: Record<SubmitterBucket, string> = {
+  not_reviewed: "bg-slate-100 text-slate-700 border-slate-300",
+  denied: "bg-red-100 text-band-red border-red-300",
+  approved: "bg-green-100 text-band-green border-green-300",
+};
+
 function isField(node: unknown): node is ExtractedField {
   return (
     typeof node === "object" &&

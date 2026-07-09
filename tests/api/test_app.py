@@ -48,6 +48,16 @@ def test_healthz_and_404(tmp_path):
     assert client.get("/claims/nope").status_code == 404
 
 
+def test_status_unknown_is_404(tmp_path):
+    client = _client(tmp_path)
+    assert client.get("/claims/nope/status").status_code == 404
+
+
+def test_approve_unknown_is_404(tmp_path):
+    client = _client(tmp_path)
+    assert client.post("/claims/nope/approve").status_code == 404
+
+
 # ---------------------------------------------------------------- integration (slow)
 
 @pytest.mark.slow
@@ -75,6 +85,45 @@ def test_upload_process_fetch_and_review(tmp_path, rendered_claim, render_claim_
     assert review.status_code == 200
     updated = review.json()
     assert any(c["new_value"] == "Reviewed Name" for c in updated["corrections"])
+
+
+@pytest.mark.slow
+def test_status_reflects_processing_result(tmp_path, render_claim_factory):
+    client = _client(tmp_path)
+    rc = render_claim_factory(42)
+    with open(rc.merged, "rb") as fh:
+        client.post("/claims", params={"claim_id": "CLAIM-S"},
+                    files={"file": ("claim.pdf", fh, "application/pdf")})
+    status = client.get("/claims/CLAIM-S/status")
+    assert status.status_code == 200
+    body = status.json()
+    assert body["claim_id"] == "CLAIM-S" and "status" in body
+    # TestClient runs BackgroundTasks synchronously, so the row status now matches the graph.
+    assert body["status"] == client.get("/claims/CLAIM-S").json()["status"]
+
+
+@pytest.mark.slow
+def test_approve_persists_status(tmp_path, render_claim_factory):
+    client = _client(tmp_path)
+    rc = render_claim_factory(42)
+    with open(rc.merged, "rb") as fh:
+        client.post("/claims", params={"claim_id": "CLAIM-A"},
+                    files={"file": ("claim.pdf", fh, "application/pdf")})
+    resp = client.post("/claims/CLAIM-A/approve")
+    assert resp.status_code == 200 and resp.json()["status"] == "approved"
+    assert client.get("/claims/CLAIM-A/status").json()["status"] == "approved"
+
+
+@pytest.mark.slow
+def test_deny_persists_status(tmp_path, render_claim_factory):
+    client = _client(tmp_path)
+    rc = render_claim_factory(42)
+    with open(rc.merged, "rb") as fh:
+        client.post("/claims", params={"claim_id": "CLAIM-D"},
+                    files={"file": ("claim.pdf", fh, "application/pdf")})
+    resp = client.post("/claims/CLAIM-D/deny")
+    assert resp.status_code == 200 and resp.json()["status"] == "denied"
+    assert client.get("/claims/CLAIM-D/status").json()["status"] == "denied"
 
 
 @pytest.mark.slow

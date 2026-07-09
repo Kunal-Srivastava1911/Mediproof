@@ -10,14 +10,13 @@ import {
 } from "./lib";
 import type { ClaimFile, ClaimSummary, Evidence, FieldRow } from "./types";
 
-export default function App() {
+export default function ReviewApp() {
   const [claims, setClaims] = useState<ClaimSummary[]>([]);
   const [claimId, setClaimId] = useState<string>("");
   const [claim, setClaim] = useState<ClaimFile | null>(null);
   const [docIdx, setDocIdx] = useState(0);
   const [active, setActive] = useState<Evidence | null>(null);
   const [error, setError] = useState<string>("");
-  const [approved, setApproved] = useState(false);
 
   useEffect(() => {
     api.listClaims().then((c) => {
@@ -30,7 +29,6 @@ export default function App() {
     if (!claimId) return;
     setActive(null);
     setDocIdx(0);
-    setApproved(false);
     api.getClaim(claimId).then(setClaim).catch((e) => setError(String(e)));
   }, [claimId]);
 
@@ -49,6 +47,18 @@ export default function App() {
     setClaim(updated);
   }
 
+  async function decide(kind: "approve" | "deny") {
+    if (!claim) return;
+    try {
+      const updated = kind === "approve"
+        ? await api.approve(claim.claim_id)
+        : await api.deny(claim.claim_id);
+      setClaim(updated);
+    } catch (e) {
+      setError(String(e));
+    }
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header claim={claim} />
@@ -63,8 +73,8 @@ export default function App() {
           docIdx={docIdx}
           onDoc={(i) => { setDocIdx(i); setActive(null); }}
           onFinding={(ev) => setActive(ev)}
-          approved={approved}
-          onApprove={() => setApproved(true)}
+          onApprove={() => decide("approve")}
+          onDeny={() => decide("deny")}
         />
 
         <main className="col-span-5 bg-white rounded-lg shadow-sm p-3">
@@ -111,6 +121,7 @@ function Header({ claim }: { claim: ClaimFile | null }) {
         <div>
           <span className="font-bold text-lg">MediProof</span>
           <span className="ml-3 text-slate-300 text-sm">claim-readiness review</span>
+          <a href="/" className="ml-4 text-slate-400 hover:text-white text-xs">← Submitter site</a>
         </div>
         <div className="flex items-center gap-3">
           {claim && <StatusPill status={claim.status} />}
@@ -124,7 +135,9 @@ function Header({ claim }: { claim: ClaimFile | null }) {
 }
 
 function StatusPill({ status }: { status: string }) {
-  const cls = status === "needs_review" ? "bg-amber-400 text-amber-950"
+  const cls = status === "approved" ? "bg-green-400 text-green-950"
+    : status === "denied" ? "bg-red-400 text-red-950"
+    : status === "needs_review" ? "bg-amber-400 text-amber-950"
     : status === "processed" ? "bg-green-400 text-green-950"
     : "bg-slate-500 text-white";
   return <span className={`text-xs font-semibold px-2 py-1 rounded ${cls}`}>{status.replace(/_/g, " ")}</span>;
@@ -138,10 +151,11 @@ function Sidebar(props: {
   docIdx: number;
   onDoc: (i: number) => void;
   onFinding: (ev: Evidence) => void;
-  approved: boolean;
   onApprove: () => void;
+  onDeny: () => void;
 }) {
-  const { claims, claimId, onPick, claim, docIdx, onDoc, onFinding, approved, onApprove } = props;
+  const { claims, claimId, onPick, claim, docIdx, onDoc, onFinding, onApprove, onDeny } = props;
+  const decided = claim?.status === "approved" || claim?.status === "denied";
   return (
     <aside className="col-span-3 space-y-4">
       <div className="bg-white rounded-lg shadow-sm p-3">
@@ -158,15 +172,25 @@ function Sidebar(props: {
           ))}
         </select>
         {claim && (
-          approved ? (
-            <div className="mt-2 text-sm text-band-green font-semibold">✓ Approved for filing</div>
+          decided ? (
+            <div className={`mt-2 text-sm font-semibold ${claim.status === "approved" ? "text-band-green" : "text-band-red"}`}>
+              {claim.status === "approved" ? "✓ Approved for filing" : "✗ Denied"}
+            </div>
           ) : (
-            <button
-              onClick={onApprove}
-              className="mt-2 w-full bg-green-700 hover:bg-green-800 text-white text-sm font-semibold rounded py-1.5"
-            >
-              Approve claim
-            </button>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <button
+                onClick={onApprove}
+                className="bg-green-700 hover:bg-green-800 text-white text-sm font-semibold rounded py-1.5"
+              >
+                Approve
+              </button>
+              <button
+                onClick={onDeny}
+                className="bg-red-700 hover:bg-red-800 text-white text-sm font-semibold rounded py-1.5"
+              >
+                Deny
+              </button>
+            </div>
           )
         )}
       </div>

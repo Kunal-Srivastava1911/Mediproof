@@ -22,6 +22,8 @@ class ClaimStatus(str, Enum):
     processed = "processed"
     needs_review = "needs_review"
     failed = "failed"
+    approved = "approved"
+    denied = "denied"
 
 
 class PageInfo(BaseModel):

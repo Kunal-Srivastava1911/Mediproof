@@ -4,7 +4,10 @@ Endpoints:
   POST /claims                 upload a claim PDF; processed async via BackgroundTasks
   GET  /claims                 list claim summaries
   GET  /claims/{id}            the full claim graph (ClaimFile)
+  GET  /claims/{id}/status     the claim's status (read from the row; works mid-processing)
   POST /claims/{id}/review     apply a reviewer correction (logged as training data)
+  POST /claims/{id}/approve    mark the claim reviewed — approved
+  POST /claims/{id}/deny       mark the claim reviewed — denied
   GET  /healthz                liveness
 
 Async is FastAPI BackgroundTasks (Celery/Redis is a documented upgrade path, not MVP).
@@ -34,6 +37,10 @@ class ReviewIn(BaseModel):
     document_id: str
     field_path: str
     new_value: str
+    reviewer: str | None = None
+
+
+class DecisionIn(BaseModel):
     reviewer: str | None = None
 
 
@@ -106,6 +113,15 @@ def create_app(database_url: str | None = None, storage_dir: str | None = None) 
             graph = row.graph
         return json.loads(graph) if graph else {}
 
+    @app.get("/claims/{claim_id}/status")
+    def get_status(claim_id: str) -> dict:
+        """The claim's status from the row (reliable even while `graph` is still '{}')."""
+        with Session(engine) as session:
+            row = session.get(ClaimRow, claim_id)
+            if row is None:
+                raise HTTPException(404, f"claim {claim_id} not found")
+            return {"claim_id": row.id, "status": row.status}
+
     @app.get("/claims/{claim_id}/pages/{page}.png")
     def page_image(claim_id: str, page: int) -> Response:
         """Rasterize one page of the uploaded claim PDF (for the dashboard's bbox overlay)."""
@@ -144,6 +160,29 @@ def create_app(database_url: str | None = None, storage_dir: str | None = None) 
                 include={"document_id", "field_path", "old_value", "new_value", "reviewer"})))
             session.commit()
         return json.loads(updated)
+
+    def _decide(claim_id: str, decision: ClaimStatus) -> dict:
+        with Session(engine) as session:
+            row = session.get(ClaimRow, claim_id)
+            if row is None or not row.graph or row.graph == "{}":
+                raise HTTPException(404, f"claim {claim_id} not processed")
+            if row.status == ClaimStatus.failed.value:
+                raise HTTPException(409, f"claim {claim_id} failed to process")
+            claim = ClaimFile.model_validate_json(row.graph)
+            claim.status = decision
+            updated = claim.model_dump_json()
+            row.graph, row.status = updated, decision.value
+            session.add(row)
+            session.commit()
+        return json.loads(updated)
+
+    @app.post("/claims/{claim_id}/approve")
+    def approve_claim(claim_id: str, decision: DecisionIn | None = None) -> dict:
+        return _decide(claim_id, ClaimStatus.approved)
+
+    @app.post("/claims/{claim_id}/deny")
+    def deny_claim(claim_id: str, decision: DecisionIn | None = None) -> dict:
+        return _decide(claim_id, ClaimStatus.denied)
 
     return app
 

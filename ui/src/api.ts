@@ -8,6 +8,11 @@ async function json<T>(res: Response): Promise<T> {
   return res.json() as Promise<T>;
 }
 
+export interface ClaimStatusResponse {
+  claim_id: string;
+  status: string;
+}
+
 export const api = {
   listClaims: () => fetch(`${API}/claims`).then((r) => json<ClaimSummary[]>(r)),
 
@@ -21,4 +26,22 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     }).then((r) => json<ClaimFile>(r)),
+
+  uploadClaim: (file: File, claimType?: string) => {
+    const body = new FormData();
+    body.append("file", file);
+    const qs = claimType ? `?claim_type=${encodeURIComponent(claimType)}` : "";
+    return fetch(`${API}/claims${qs}`, { method: "POST", body }).then((r) =>
+      json<ClaimStatusResponse>(r),
+    );
+  },
+
+  getStatus: (id: string) =>
+    fetch(`${API}/claims/${id}/status`).then((r) => json<ClaimStatusResponse>(r)),
+
+  approve: (id: string) =>
+    fetch(`${API}/claims/${id}/approve`, { method: "POST" }).then((r) => json<ClaimFile>(r)),
+
+  deny: (id: string) =>
+    fetch(`${API}/claims/${id}/deny`, { method: "POST" }).then((r) => json<ClaimFile>(r)),
 };

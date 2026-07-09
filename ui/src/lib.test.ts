@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { band, flattenFields } from "./lib";
+import { band, flattenFields, submitterBucket } from "./lib";
 
 describe("confidence bands", () => {
   it("maps scores to bands like schemas.common.band_for", () => {
@@ -38,5 +38,21 @@ describe("flattenFields", () => {
 
   it("returns [] for a null document", () => {
     expect(flattenFields(null)).toEqual([]);
+  });
+});
+
+describe("submitterBucket", () => {
+  it("collapses every in-flight pipeline state to not_reviewed", () => {
+    expect(submitterBucket("received")).toBe("not_reviewed");
+    expect(submitterBucket("processing")).toBe("not_reviewed");
+    expect(submitterBucket("processed")).toBe("not_reviewed");
+    expect(submitterBucket("needs_review")).toBe("not_reviewed");
+    // failed is an in-flight state to the claimant, not a fourth bucket
+    expect(submitterBucket("failed")).toBe("not_reviewed");
+  });
+
+  it("surfaces the two reviewed decisions", () => {
+    expect(submitterBucket("approved")).toBe("approved");
+    expect(submitterBucket("denied")).toBe("denied");
   });
 });
