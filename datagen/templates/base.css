@@ -1,0 +1,112 @@
+/* Shared print styles for synthetic claim documents. A4, print backgrounds on. */
+
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #1a1a1a;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 16mm 16mm 20mm;
+  position: relative;
+  background: #fff;
+}
+
+/* ---- letterhead themes (one per fictional institution) ---- */
+.theme-hospital-a { --accent: #b8323a; --accent-soft: #fbeced; }
+.theme-hospital-b { --accent: #1f7a4d; --accent-soft: #e8f5ee; }
+.theme-hospital-c { --accent: #2456a6; --accent-soft: #e9f0fb; }
+.theme-hospital-d { --accent: #6b3fa0; --accent-soft: #f1ebf8; }
+.theme-hospital-e { --accent: #b5651d; --accent-soft: #f8efe5; }
+.theme-pharmacy-a { --accent: #0d7377; --accent-soft: #e4f2f2; }
+.theme-pharmacy-b { --accent: #874356; --accent-soft: #f6ebee; }
+.theme-lab-a { --accent: #37474f; --accent-soft: #eceff1; }
+.theme-lab-b { --accent: #455a64; --accent-soft: #eceff1; }
+:root { --accent: #333; --accent-soft: #f0f0f0; }
+
+.letterhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 10px;
+}
+.letterhead .brand { display: flex; align-items: center; gap: 12px; }
+.logo-mark {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: var(--accent); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 20px;
+}
+.org-name { font-size: 20px; font-weight: 700; color: var(--accent); }
+.org-meta { font-size: 10.5px; color: #555; max-width: 300px; }
+.doc-tag { text-align: right; font-size: 10.5px; color: #555; }
+.doc-tag .doc-title {
+  font-size: 13px; font-weight: 700; color: #222;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.doc-heading {
+  margin: 18px 0 10px; font-size: 15px; font-weight: 700;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px;
+  background: var(--accent-soft); padding: 10px 12px; border-radius: 6px;
+  margin: 10px 0;
+}
+.info-grid .row { display: flex; gap: 6px; }
+.info-grid .k { color: #666; min-width: 110px; }
+.info-grid .v { font-weight: 600; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th {
+  background: var(--accent); color: #fff; text-align: left;
+  padding: 6px 8px; font-size: 11px; font-weight: 600;
+}
+td { padding: 5px 8px; border-bottom: 1px solid #e4e4e4; font-size: 11px; }
+tr:nth-child(even) td { background: #fafafa; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.nonpay { color: #9a6a00; font-size: 9.5px; }
+
+.totals { margin-top: 10px; margin-left: auto; width: 250px; }
+.totals .row { display: flex; justify-content: space-between; padding: 3px 0; }
+.totals .grand {
+  border-top: 2px solid var(--accent); margin-top: 4px; padding-top: 6px;
+  font-weight: 700; font-size: 13px; color: var(--accent);
+}
+
+.section { margin: 12px 0; }
+.section h3 {
+  font-size: 12px; margin: 0 0 4px; color: #333;
+  border-left: 3px solid var(--accent); padding-left: 8px;
+}
+ul.tight { margin: 4px 0; padding-left: 20px; }
+ul.tight li { margin: 2px 0; }
+
+.footer {
+  position: absolute; bottom: 12mm; left: 16mm; right: 16mm;
+  border-top: 1px solid #ddd; padding-top: 6px;
+  font-size: 9px; color: #888; display: flex; justify-content: space-between;
+}
+
+/* SPECIMEN watermark — region is masked out of OCR evaluation (plan §5). */
+.watermark {
+  position: absolute; top: 42%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 58px; font-weight: 800; letter-spacing: 6px;
+  color: rgba(150, 150, 150, 0.13); white-space: nowrap; pointer-events: none;
+  user-select: none;
+}
+.sign-row { display: flex; justify-content: space-between; margin-top: 40px; }
+.sign-box { text-align: center; font-size: 10.5px; color: #444; }
+.sign-line { border-top: 1px solid #999; width: 160px; margin: 24px auto 4px; }

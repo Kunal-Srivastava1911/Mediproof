@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead(doc.hospital.name, doc.hospital.address, doc.hospital.registration_no,
+              "In-Patient Bill", doc.bill_no, doc.bill_date.strftime("%d %b %Y"), initials) }}
+
+<div class="doc-heading">Final In-Patient Bill</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient.name }}</span></div>
+  <div class="row"><span class="k">UHID</span><span class="v">{{ doc.patient.patient_id }}</span></div>
+  <div class="row"><span class="k">Age / Sex</span><span class="v">{{ doc.patient.age }} / {{ doc.patient.gender.value }}</span></div>
+  <div class="row"><span class="k">Bill No</span><span class="v">{{ doc.bill_no }}</span></div>
+  <div class="row"><span class="k">Admission Date</span><span class="v">{{ doc.admission_date.strftime("%d %b %Y") }}</span></div>
+  <div class="row"><span class="k">Discharge Date</span><span class="v">{{ doc.discharge_date.strftime("%d %b %Y") }}</span></div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Description</th><th>Category</th><th class="num">Qty</th>
+        <th class="num">Unit (₹)</th><th class="num">Amount (₹)</th></tr>
+  </thead>
+  <tbody>
+    {% for it in doc.line_items %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ it.description }}{% if it.is_non_payable %} <span class="nonpay">(non-payable)</span>{% endif %}</td>
+      <td>{{ it.category.value }}</td>
+      <td class="num">{{ "%g"|format(it.quantity) }}</td>
+      <td class="num">{{ "%.2f"|format(it.unit_price) }}</td>
+      <td class="num">{{ "%.2f"|format(it.amount) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="totals">
+  <div class="row"><span>Subtotal</span><span class="num">₹ {{ "%.2f"|format(doc.subtotal) }}</span></div>
+  <div class="row"><span>Discount</span><span class="num">₹ {{ "%.2f"|format(doc.discount) }}</span></div>
+  <div class="row"><span>Tax (5%)</span><span class="num">₹ {{ "%.2f"|format(doc.tax) }}</span></div>
+  <div class="row grand"><span>Total Payable</span><span class="num">₹ {{ "%.2f"|format(doc.total) }}</span></div>
+</div>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>Billing Officer</div>
+  <div class="sign-box"><div class="sign-line"></div>Authorised Signatory</div>
+</div>
+{% endblock %}

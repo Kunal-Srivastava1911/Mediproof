@@ -1,0 +1,207 @@
+# MediProof
+
+**A claim-readiness audit engine for Indian health-insurance claim files.**
+
+![status](https://img.shields.io/badge/build-W1%20of%208%20complete-blue)
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
+![license](https://img.shields.io/badge/license-Apache--2.0-green)
+![data](https://img.shields.io/badge/data-synthetic%20only-brightgreen)
+
+MediProof takes a merged claim file — discharge summary, hospital bill, pharmacy bills, lab
+reports, prescriptions, and so on — and produces three things:
+
+1. **Structured JSON** of every extracted field, each with a confidence score and evidence.
+2. A severity-scored **audit report** of documentation problems (inconsistencies,
+   arithmetic errors, missing documents, tampering signals).
+3. A reviewer **dashboard** with confidence-coloured fields and click-to-source highlighting.
+
+Positioning: a patient/hospital-side **pre-submission audit** — catch the documentation
+problems that get claims rejected *before* the file is ever submitted.
+
+> [!IMPORTANT]
+> MediProof is **documentation QA**. It does **not** make clinical judgments, adjudicate
+> claims, or determine payment. Every output is an input to human review. Findings are
+> *review items*, never accusations — the words "fraud" and "reject" appear nowhere in the
+> product.
+
+---
+
+## The problem, in one paragraph
+
+A health-insurance claim in India is a stack of 20–40 pages from half a dozen sources: a
+hospital bill, a discharge summary, pharmacy receipts, lab reports, a claim form, ID proofs.
+Claims get rejected not because the treatment was wrong but because the *paperwork* is
+inconsistent — the bill totals don't add up, a medication is billed but never prescribed, a
+lab test is charged for but the report is missing, a date is off. MediProof reads the whole
+bundle, extracts every field, and cross-checks the documents against each other so a human
+reviewer can fix the problems before filing.
+
+## How it works
+
+```mermaid
+flowchart TD
+    A([Upload: merged PDF or phone photos]) --> M1
+
+    subgraph M1 [M1 · Ingest &amp; Preprocess]
+        direction TB
+        B[Deskew · denoise · orientation fix<br/>OCR to words + boxes<br/>per-page quality gate]
+    end
+
+    subgraph M2 [M2 · Segment &amp; Classify]
+        C[Split the page stream into<br/>~9 typed documents]
+    end
+
+    subgraph M3 [M3 · Hybrid Extraction]
+        direction TB
+        D1[Deterministic layer<br/>regex · checksums · table math · date logic]
+        D2[LLM / VLM fallback<br/>unseen layouts, low-structure fields]
+        FUSE[Confidence fusion<br/>per-field score 0..1]
+        D1 --> FUSE
+        D2 --> FUSE
+    end
+
+    subgraph M35 [M3.5 · Value Grounding]
+        E[Map every value back to OCR word boxes<br/>= page + bbox evidence]
+    end
+
+    subgraph M4 [M4 · Cross-Document Audit]
+        F[Consistency rules across documents<br/>severity-scored review items]
+    end
+
+    subgraph M5 [M5 · Completeness]
+        G[Required-docs checklist<br/>per claim type]
+    end
+
+    H([M6 · API + HITL Dashboard<br/>approve / correct / click-to-evidence]) 
+    I([M7 · Outputs<br/>JSON claim graph + PDF audit report])
+
+    M1 --> M2 --> M3
+    FUSE --> M35 --> M4 --> M5 --> H --> I
+```
+
+The core idea is **hybrid extraction**: cheap, deterministic rules do most of the work and
+carry the highest confidence; an LLM is only called for the fields rules can't fill. Every
+field then gets a confidence score that decides whether a human ever needs to look at it.
+
+```mermaid
+flowchart LR
+    X[Extracted field<br/>+ confidence] --> Q{confidence band}
+    Q -->|&ge; 0.8| Green[🟢 auto-accept]
+    Q -->|0.5 – 0.8| Amber[🟡 review queue]
+    Q -->|&lt; 0.5| Red[🔴 mandatory review]
+```
+
+This is what makes the headline metric possible: *"review the bottom X% of fields by
+confidence to reach Y% accuracy."*
+
+## Build status
+
+Built in the open, one module per session, against a fixed 8-week plan
+(see [plan.md](plan.md)).
+
+| Week | Module | State |
+|------|--------|-------|
+| **W1** | Repo scaffold · contracts (`schemas/`) · synthetic datagen (bill · discharge · pharmacy) | ✅ **done** |
+| W2 | Remaining templates · Augraphy degradation · fault injection · dataset v1 | ⬜ next |
+| W3 | M1 ingest + OCR + quality gate · M2 classifier | ⬜ |
+| W4 | M3 deterministic extraction | ⬜ |
+| W5 | M3 LLM fallback · confidence fusion · M3.5 grounding | ⬜ |
+| W6 | M4 audit engine · M5 completeness | ⬜ |
+| W7 | M6 API + dashboard · Docker · `make demo` | ⬜ |
+| W8 | Benchmark · calibration · cost table · write-up | ⬜ |
+
+### What works today (W1)
+
+- **`schemas/`** — the Pydantic v2 contracts that every module imports. Ground truth is
+  *certain* (plain typed values); extraction output is *uncertain* (every field wrapped in
+  `ExtractedField` = value + confidence + bbox evidence + flags).
+- **`datagen/`** — a fully seeded synthetic generator that renders hospital bills, discharge
+  summaries, and pharmacy bills (HTML/Jinja → headless-Chromium PDF) plus a byte-identical
+  ground-truth JSON answer key. `make datagen-sample` produces one complete claim file.
+- **`tests/`** — golden-file, contract, and render tests. A fixed seed reproduces
+  byte-identical ground truth, enforced in CI.
+
+## Quickstart
+
+Requires Python 3.11+. On Windows, `make` is optional — use `./run.ps1 <target>` instead.
+
+```bash
+# 1. create the environment and install deps (+ headless Chromium for PDF rendering)
+python -m venv .venv
+make install-dev          # or: ./run.ps1 install-dev
+
+# 2. generate one synthetic claim file: PDFs + a ground-truth answer key
+make datagen-sample       # or: ./run.ps1 datagen-sample
+#    -> data/sample/claim.pdf, data/sample/docs/*.pdf, data/sample/ground_truth.json
+
+# 3. run the test suite (golden-file + contract + render tests)
+make test                 # or: ./run.ps1 test
+```
+
+A generated ground-truth record looks like this (seed 42, abridged):
+
+```json
+{
+  "claim_id": "CLAIM-000042",
+  "claim_type": "cashless_hospitalization",
+  "patient": { "name": "Advik Maharaj", "age": 68, "gender": "M", "patient_id": "UHID207473" },
+  "documents": [
+    {
+      "doc_type": "hospital_bill",
+      "hospital": { "name": "Sunrise Multispeciality Hospital", "registration_no": "KA/HOSP/2011/4471" },
+      "admission_date": "2024-09-09",
+      "discharge_date": "2024-09-12",
+      "line_items": [
+        { "description": "Room Rent (Semi-Private)", "quantity": 3.0, "unit_price": 3719.62, "amount": 11158.86 }
+      ]
+    }
+  ]
+}
+```
+
+## Repo layout
+
+```
+schemas/     Pydantic v2 contracts — the single source of truth (see CLAUDE.md)
+datagen/     synthetic generator (MediClaim-Bench) + fault injector
+pipeline/    m1_ingest · m2_segment · m3_extract · m4_audit · m5_complete
+api/         FastAPI app
+ui/          React dashboard
+evals/       eval harness (CLI) + golden files
+tests/       pytest; golden-file tests per module
+```
+
+## Design principles
+
+These are enforced conventions, not aspirations (full text in [CLAUDE.md](CLAUDE.md)):
+
+- **Contracts-first.** `schemas/` is the single source of truth. Every module imports its
+  types from there; a schema change is a breaking change to everything downstream.
+- **Deterministic seeds everywhere.** A fixed seed reproduces byte-identical ground truth —
+  reproducibility is non-negotiable and CI checks it.
+- **LLM record/replay.** Every LLM call goes through one thin client that records responses
+  to fixtures. Tests and CI replay from fixtures — deterministic, free, fast. Live calls
+  only behind `LLM_LIVE=1`, under a hard `LLM_BUDGET_USD` cap.
+- **The pipeline never crashes on a bad LLM reply.** A reply must parse into the target
+  field's schema; on failure it retries with error feedback (max 2), then emits
+  `value=null, confidence=0`.
+- **Golden-file tests per module.** Input fixtures → expected JSON outputs, checked in.
+  Regressions fail CI.
+
+## Data, safety & ethics
+
+- **Synthetic only.** The public repo and the MediClaim-Bench dataset contain synthetic data
+  only. All hospitals, labs, and insurers are fictional; every page carries a
+  `SPECIMEN — SYNTHETIC DATA` watermark.
+- **Privacy (DPDP posture).** Health data is sensitive personal data. Any real sample used
+  for the synthetic-to-real honesty check stays local, is de-identified first, and is
+  **never** committed. A CI PII scan (Aadhaar / PAN / phone patterns) guards every push.
+- **Reproducible & auditable.** Because datagen is fully seeded, every reported number can be
+  regenerated from a seed.
+- **Sources.** ICD-10 (WHO), drug names from open government lists (Jan Aushadhi / NLEM),
+  non-payable consumables from the IRDAI-aligned standard list — cited as the datasets land.
+
+## License
+
+[Apache-2.0](LICENSE). Contracts in `schemas/` are human-owned; see [CLAUDE.md](CLAUDE.md)
+for the agent conventions that keep this AI-assisted codebase coherent.

@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.python-version
+
+# Env / secrets
+.env
+*.local
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Datagen / data (generated + real samples NEVER committed)
+data/
+!data/.gitkeep
+real_samples/
+*.pdf
+!tests/**/*.pdf
+
+# LLM live artifacts (fixtures ARE committed; raw dumps are not)
+llm_live_dumps/
+
+# Node / UI
+node_modules/
+ui/dist/
+
+# OS
+.DS_Store
+Thumbs.db

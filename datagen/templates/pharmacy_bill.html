@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead(doc.pharmacy_name, doc.pharmacy_address, none,
+              "Pharmacy Invoice", doc.bill_no, doc.bill_date.strftime("%d %b %Y"), initials) }}
+
+<div class="doc-heading">Pharmacy Invoice</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient_name }}</span></div>
+  <div class="row"><span class="k">Bill No</span><span class="v">{{ doc.bill_no }}</span></div>
+  <div class="row"><span class="k">Date</span><span class="v">{{ doc.bill_date.strftime("%d %b %Y") }}</span></div>
+  {% if doc.prescription_ref %}<div class="row"><span class="k">Rx Ref</span><span class="v">{{ doc.prescription_ref }}</span></div>{% endif %}
+</div>
+
+<table>
+  <thead>
+    <tr><th>#</th><th>Medication</th><th>Batch</th><th class="num">Qty</th>
+        <th class="num">MRP (₹)</th><th class="num">Amount (₹)</th></tr>
+  </thead>
+  <tbody>
+    {% for it in doc.line_items %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ it.drug_name }}</td>
+      <td>{{ it.batch_no }}</td>
+      <td class="num">{{ "%g"|format(it.quantity) }}</td>
+      <td class="num">{{ "%.2f"|format(it.mrp) }}</td>
+      <td class="num">{{ "%.2f"|format(it.amount) }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="totals">
+  <div class="row grand"><span>Total</span><span class="num">₹ {{ "%.2f"|format(doc.total) }}</span></div>
+</div>
+
+<p style="font-size:10px;color:#777;margin-top:14px;">
+  Goods once sold are subject to standard pharmacy return policy. This is a
+  computer-generated invoice.
+</p>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>Pharmacist (D.Pharm)</div>
+</div>
+{% endblock %}

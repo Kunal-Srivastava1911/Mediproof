@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mediproof"
+version = "0.1.0"
+description = "A claim-readiness audit engine for Indian health-insurance claim files."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+
+# Core contracts + settings. Kept intentionally small; heavy deps live in extras
+# so each module can be installed independently (see CLAUDE.md).
+dependencies = [
+    "pydantic>=2.6,<3",
+    "pydantic-settings>=2.2,<3",
+    "python-dateutil>=2.9,<3",
+]
+
+[project.optional-dependencies]
+datagen = [
+    "jinja2>=3.1,<4",
+    # HTML->PDF via headless Chromium. Chosen over WeasyPrint because it needs no
+    # native GTK/Pango libraries on Windows and renders modern CSS (flex/grid) faithfully.
+    "playwright>=1.44,<2",
+    "faker>=25,<38",
+    "num2words>=0.5.13,<0.6",
+    "pypdf>=4.2,<6",
+]
+pipeline = [
+    "opencv-python-headless>=4.9,<5",
+    "numpy>=1.26,<3",
+    "pillow>=10.3,<12",
+    "rapidfuzz>=3.9,<4",
+    "pyyaml>=6.0,<7",
+    # OCR / classifier / VLM added when M1–M3 land (kept out of default install).
+]
+api = [
+    "fastapi>=0.111,<1",
+    "uvicorn[standard]>=0.30,<1",
+    "sqlmodel>=0.0.19,<0.1",
+    "python-multipart>=0.0.9,<0.1",
+]
+dev = [
+    "pytest>=8.2,<9",
+    "pytest-cov>=5.0,<7",
+    "ruff>=0.5,<1",
+]
+
+[tool.setuptools.packages.find]
+include = ["schemas*", "datagen*", "pipeline*", "api*", "evals*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = [
+    "llm: tests that touch the LLM client (replayed from fixtures unless LLM_LIVE=1)",
+    "slow: slow tests (rendering, model load)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# `class Foo(str, Enum)` is intentional (JSON-friendly enums, broad compatibility).
+ignore = ["UP042"]

@@ -1,0 +1,301 @@
+{
+  "claim_id": "CLAIM-000042",
+  "claim_type": "cashless_hospitalization",
+  "seed": 42,
+  "patient": {
+    "name": "Advik Maharaj",
+    "age": 68,
+    "gender": "M",
+    "patient_id": "UHID207473",
+    "phone": "9826600539"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-000042-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "bill_no": "INV/2024/8359",
+      "bill_date": "2024-09-12",
+      "admission_date": "2024-09-09",
+      "discharge_date": "2024-09-12",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3719.62,
+          "amount": 11158.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 747.13,
+          "amount": 2241.39,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1185.01,
+          "amount": 3555.03,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2219.44,
+          "amount": 2219.44,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21009.61,
+          "amount": 21009.61,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9007.71,
+          "amount": 9007.71,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5915.17,
+          "amount": 5915.17,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 55857.21,
+      "discount": 0.0,
+      "tax": 2792.86,
+      "total": 58650.07
+    },
+    {
+      "document_id": "CLAIM-000042-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "admission_date": "2024-09-09",
+      "discharge_date": "2024-09-12",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210"
+    },
+    {
+      "document_id": "CLAIM-000042-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/2519",
+      "bill_date": "2024-09-11",
+      "patient_name": "Advik Maharaj",
+      "prescription_ref": "RX7224",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B30926",
+          "quantity": 1.0,
+          "mrp": 78.0,
+          "amount": 78.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B65392",
+          "quantity": 3.0,
+          "mrp": 22.0,
+          "amount": 66.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B46421",
+          "quantity": 2.0,
+          "mrp": 18.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B38221",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B23396",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 364.0
+    },
+    {
+      "document_id": "CLAIM-000042-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "prescription_date": "2024-09-12",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-000042-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-12",
+      "referring_doctor": "Dr. S. Reddy"
+    },
+    {
+      "document_id": "CLAIM-000042-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-12",
+      "referring_doctor": "Dr. S. Reddy"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-a"
+  }
+}

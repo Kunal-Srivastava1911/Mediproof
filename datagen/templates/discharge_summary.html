@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead(doc.hospital.name, doc.hospital.address, doc.hospital.registration_no,
+              "Discharge Summary", doc.document_id, doc.discharge_date.strftime("%d %b %Y"), initials) }}
+
+<div class="doc-heading">Discharge Summary</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient.name }}</span></div>
+  <div class="row"><span class="k">UHID</span><span class="v">{{ doc.patient.patient_id }}</span></div>
+  <div class="row"><span class="k">Age / Sex</span><span class="v">{{ doc.patient.age }} / {{ doc.patient.gender.value }}</span></div>
+  <div class="row"><span class="k">Treating Doctor</span><span class="v">{{ doc.treating_doctor }}{% if doc.doctor_reg_no %} ({{ doc.doctor_reg_no }}){% endif %}</span></div>
+  <div class="row"><span class="k">Admission Date</span><span class="v">{{ doc.admission_date.strftime("%d %b %Y") }}</span></div>
+  <div class="row"><span class="k">Discharge Date</span><span class="v">{{ doc.discharge_date.strftime("%d %b %Y") }}</span></div>
+</div>
+
+<div class="section">
+  <h3>Final Diagnosis</h3>
+  <p>{{ doc.diagnosis_text }}</p>
+  {% if doc.icd10_codes %}<p><strong>ICD-10:</strong> {{ doc.icd10_codes | join(", ") }}</p>{% endif %}
+</div>
+
+<div class="section">
+  <h3>Procedures Performed</h3>
+  <ul class="tight">
+    {% for p in doc.procedures %}<li>{{ p }}</li>{% endfor %}
+  </ul>
+</div>
+
+<div class="section">
+  <h3>Course in Hospital</h3>
+  <p>Patient was admitted with the above complaints, evaluated and managed as per standard
+     protocol. Condition improved steadily and the patient was discharged in a stable
+     condition with advice to follow up in the out-patient department.</p>
+</div>
+
+<div class="section">
+  <h3>Advice on Discharge</h3>
+  <p>Continue prescribed medication. Review after 7 days. Report earlier if symptoms worsen.</p>
+</div>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>{{ doc.treating_doctor }}</div>
+  <div class="sign-box"><div class="sign-line"></div>Medical Records Dept.</div>
+</div>
+{% endblock %}
