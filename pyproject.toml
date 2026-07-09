@@ -45,6 +45,9 @@ api = [
     "uvicorn[standard]>=0.30,<1",
     "sqlmodel>=0.0.19,<0.1",
     "python-multipart>=0.0.9,<0.1",
+    # Rasterize PDF pages to PNG for the dashboard's bbox overlay.
+    "pypdfium2>=4.30,<6",
+    "pillow>=10.3,<12",
 ]
 dev = [
     "pytest>=8.2,<9",

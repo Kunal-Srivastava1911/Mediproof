@@ -78,6 +78,20 @@ def test_upload_process_fetch_and_review(tmp_path, rendered_claim, render_claim_
 
 
 @pytest.mark.slow
+def test_page_image_renders_png(tmp_path, render_claim_factory):
+    client = _client(tmp_path)
+    rc = render_claim_factory(42)
+    with open(rc.merged, "rb") as fh:
+        client.post("/claims", params={"claim_id": "CLAIM-IMG"},
+                    files={"file": ("claim.pdf", fh, "application/pdf")})
+    img = client.get("/claims/CLAIM-IMG/pages/0.png")
+    assert img.status_code == 200
+    assert img.headers["content-type"] == "image/png"
+    assert img.content[:8] == b"\x89PNG\r\n\x1a\n"       # valid PNG for the bbox overlay
+    assert client.get("/claims/CLAIM-IMG/pages/99.png").status_code == 404
+
+
+@pytest.mark.slow
 def test_review_unknown_field_is_422(tmp_path, render_claim_factory):
     client = _client(tmp_path)
     rc = render_claim_factory(42)

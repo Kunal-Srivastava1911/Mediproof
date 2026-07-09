@@ -18,7 +18,7 @@ import os
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import BackgroundTasks, FastAPI, HTTPException, UploadFile
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlmodel import Session, select
@@ -105,6 +105,26 @@ def create_app(database_url: str | None = None, storage_dir: str | None = None) 
                 raise HTTPException(404, f"claim {claim_id} not found")
             graph = row.graph
         return json.loads(graph) if graph else {}
+
+    @app.get("/claims/{claim_id}/pages/{page}.png")
+    def page_image(claim_id: str, page: int) -> Response:
+        """Rasterize one page of the uploaded claim PDF (for the dashboard's bbox overlay)."""
+        import pypdfium2 as pdfium
+
+        pdf_path = storage / f"{claim_id}.pdf"
+        if not pdf_path.exists():
+            raise HTTPException(404, f"claim {claim_id} pdf not found")
+        doc = pdfium.PdfDocument(str(pdf_path))
+        try:
+            if page < 0 or page >= len(doc):
+                raise HTTPException(404, f"page {page} out of range")
+            image = doc[page].render(scale=2.0).to_pil()
+        finally:
+            doc.close()
+        import io
+        buf = io.BytesIO()
+        image.save(buf, format="PNG")
+        return Response(content=buf.getvalue(), media_type="image/png")
 
     @app.post("/claims/{claim_id}/review")
     def review_claim(claim_id: str, review: ReviewIn) -> dict:
