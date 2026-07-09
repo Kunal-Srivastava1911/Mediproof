@@ -29,10 +29,19 @@ Every call goes through one thin client: **record/replay** to `tests/fixtures/ll
 missing fixture or malformed reply degrades to `value=None, confidence=0`. **The pipeline
 never crashes on the LLM.**
 
-## M3.5 Value Grounding — *next*
+## M3.5 Value Grounding (`grounding.py`) — implemented
 
-Fuzzy-match each extracted value against the page's word tokens to recover `{page, bbox}`
-evidence; no grounding → confidence capped and flagged. This makes click-to-highlight and the
-audit report's evidence refs work. (See `grounding.py`.)
+Every extracted value is fuzzy-matched (rapidfuzz, normalized Levenshtein over token
+n-grams) against the page's word tokens to recover `{page, bbox}` evidence. A value that
+can't be grounded (match < 85) has its confidence **capped at 0.5** and is flagged
+`ungrounded`. On a digital claim ≥ 90% of fields ground to an exact box — this is what makes
+click-to-highlight and the audit report's evidence refs point at something real.
 
+```python
+from pipeline.m3_extract import extract_claim, ground_claim
+recs = ground_claim(ir, extract_claim(ir, segment_claim(ir)))
+# each Extracted* field now carries .evidence = [{page, bbox}]
+```
+
+**DoD:** end-to-end JSON for a full claim; every field carries confidence + bbox or a flag.
 Run `make test-m3`.

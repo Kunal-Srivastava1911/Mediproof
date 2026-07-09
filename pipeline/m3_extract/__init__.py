@@ -6,6 +6,7 @@ from pipeline.m3_extract.fuse import (
     fuse_field,
     llm_confidence,
 )
+from pipeline.m3_extract.grounding import ground_claim, ground_document, ground_field
 from pipeline.m3_extract.llm_client import BudgetExceeded, LLMClient, MissingFixture
 
 __all__ = [
@@ -14,6 +15,9 @@ __all__ = [
     "apply_llm_fallback",
     "fuse_field",
     "llm_confidence",
+    "ground_claim",
+    "ground_document",
+    "ground_field",
     "LLMClient",
     "BudgetExceeded",
     "MissingFixture",
