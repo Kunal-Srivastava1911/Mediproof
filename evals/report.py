@@ -22,9 +22,9 @@ def render_markdown(report: Report) -> str:
                  f"Fully reproducible from seeds._\n")
 
     # classification
+    cc, ct = report.classification_correct, report.classification_total
     lines.append("**Document classification** (P0 keyword baseline)\n")
-    lines.append(f"- accuracy: **{_pct(report.classification_correct, report.classification_total)}** "
-                 f"({report.classification_correct}/{report.classification_total} documents)\n")
+    lines.append(f"- accuracy: **{_pct(cc, ct)}** ({cc}/{ct} documents)\n")
 
     # extraction
     lines.append("**Field extraction** (deterministic layer, vs ground truth)\n")
@@ -35,7 +35,10 @@ def render_markdown(report: Report) -> str:
     for t in sorted(report.exact_by_type):
         ec, et = report.exact_by_type[t]
         nc, nt = report.norm_by_type[t]
-        tot_e[0] += ec; tot_e[1] += et; tot_n[0] += nc; tot_n[1] += nt
+        tot_e[0] += ec
+        tot_e[1] += et
+        tot_n[0] += nc
+        tot_n[1] += nt
         lines.append(f"| {t} | {_pct(ec, et)} | {_pct(nc, nt)} |")
     lines.append(f"| **all** | **{_pct(*tot_e)}** | **{_pct(*tot_n)}** |\n")
 
@@ -71,7 +74,8 @@ def render_markdown(report: Report) -> str:
     lines.append(f"- deterministic layer fills **{100*rule/total_fields:.1f}%** of extracted "
                  f"fields; **{llm} LLM calls** were needed across the whole set "
                  f"(the LLM only touches low-confidence fields).")
-    lines.append(f"- median end-to-end latency: **{med*1000:.0f} ms/claim** (digital path, no OCR).\n")
+    lines.append(f"- median end-to-end latency: **{med*1000:.0f} ms/claim** "
+                 f"(digital path, no OCR).\n")
     return "\n".join(lines)
 
 

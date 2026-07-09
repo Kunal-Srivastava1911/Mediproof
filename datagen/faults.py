@@ -22,6 +22,7 @@ import random
 from datetime import timedelta
 
 from datagen import fake_data as fd
+from schemas.common import Severity
 from schemas.ground_truth import (
     FAULT_TO_FINDING,
     BillLineItem,
@@ -33,9 +34,7 @@ from schemas.ground_truth import (
     LabReportGT,
     PharmacyBillGT,
     PharmacyLineItem,
-    PrescriptionGT,
 )
-from schemas.common import Severity
 
 _SEVERITY: dict[FaultType, Severity] = {
     FaultType.inflated_line_item: Severity.critical,
