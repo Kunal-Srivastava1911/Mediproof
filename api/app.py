@@ -269,8 +269,9 @@ def create_app(
         try:
             return ask(body.question, build_dossier(ir, claim.documents), texts, llm)
         except MissingFixture as exc:
-            raise HTTPException(503, "Claim chat needs Claude: set ANTHROPIC_API_KEY and "
-                                     "LLM_LIVE=1 on the API server.") from exc
+            raise HTTPException(503, "Claim chat needs an AI model: set GEMINI_API_KEY or "
+                                     "ANTHROPIC_API_KEY, and LLM_LIVE=1, on the API "
+                                     "server.") from exc
         except (BudgetExceeded, LLMError, ValueError) as exc:
             raise HTTPException(503, f"Claim chat is unavailable right now ({exc}).") from exc
 

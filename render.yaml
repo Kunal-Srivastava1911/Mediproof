@@ -19,8 +19,12 @@ services:
     dockerCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /healthz
     envVars:
-      # Set the key in the Render dashboard (sync: false = never stored in this file), then
+      # Set a key in the Render dashboard (sync: false = never stored in this file), then
       # set LLM_LIVE=1 to turn on the agent auditor, Hindi translation and claim chat.
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: LLM_LIVE

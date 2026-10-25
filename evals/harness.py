@@ -135,6 +135,7 @@ class Report:
     llm_calls: int = 0
     llm_cost_usd: float = 0.0
     agent_note: str | None = None
+    agent_model: str | None = None                        # provider:model behind the agents
     coverage_points: list = field(default_factory=list)   # (confidence, correct)
     source_counts: dict = field(default_factory=dict)     # source -> n
     latencies: list = field(default_factory=list)
@@ -181,6 +182,7 @@ def _score_claim(report: Report, gt: ClaimGroundTruth, claim_file, faulty: bool)
     if meta is not None:
         if meta.agents_run:
             report.agent_claims += 1
+            report.agent_model = meta.model
         elif meta.note:
             report.agent_note = meta.note
         report.llm_calls += meta.llm_calls

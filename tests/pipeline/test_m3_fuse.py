@@ -79,6 +79,38 @@ def test_live_records_then_replays(tmp_path):
     assert replay.cached and replay.text == resp.text
 
 
+def test_gemini_provider_records_structured_json(tmp_path, monkeypatch):
+    """The Gemini path sends the JSON schema, drops Anthropic-only block keys, records."""
+    from types import SimpleNamespace
+
+    monkeypatch.setenv("LLM_PROVIDER", "gemini")
+    monkeypatch.setenv("LLM_MIN_INTERVAL_S", "0")
+    seen = {}
+
+    def generate_content(model, contents, config):
+        seen.update(model=model, contents=contents, config=config)
+        return SimpleNamespace(
+            candidates=[SimpleNamespace(finish_reason="STOP")], text='{"findings": []}',
+            usage_metadata=SimpleNamespace(prompt_token_count=10, candidates_token_count=5,
+                                           thoughts_token_count=0))
+
+    client = LLMClient(tmp_path, live=True)
+    client._sdk = SimpleNamespace(models=SimpleNamespace(generate_content=generate_content))
+    schema = {"type": "object", "properties": {"findings": {"type": "array"}},
+              "required": ["findings"], "additionalProperties": False}
+    blocks = [{"type": "text", "text": "dossier", "cache_control": {"type": "ephemeral"}},
+              {"type": "text", "text": "role"}]
+    out = client.complete_json("system", blocks, schema)
+
+    assert client.provider == "gemini" and client.model == "gemini-3.8-flash"
+    assert out == {"findings": []} and client.spent_usd == 0.0     # free tier booked at $0
+    assert seen["contents"] == ["dossier", "role"]
+    assert seen["config"].response_json_schema == schema
+    assert seen["config"].system_instruction == "system"
+    replay = LLMClient(tmp_path, live=False)                           # recorded -> replays
+    assert replay.complete_json("system", blocks, schema) == {"findings": []}
+
+
 def test_budget_cap_hard_stops(tmp_path):
     broke = _FakeLiveClient(tmp_path, live=True, budget_usd=0.0)
     with pytest.raises(BudgetExceeded):

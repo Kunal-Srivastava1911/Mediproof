@@ -1,8 +1,14 @@
 """The one thin LLM client every call goes through (CLAUDE.md 'LLM usage').
 
-Provider: Claude, through the official Anthropic SDK (`anthropic`). Credentials resolve the
-SDK's usual way (`ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or an `ant auth login`
-profile); a key in the repo's gitignored `.env` is loaded too.
+Providers (`LLM_PROVIDER`):
+  * `anthropic` — Claude through the official Anthropic SDK. Credentials resolve the SDK's
+    usual way (`ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or an `ant auth login` profile).
+  * `gemini` — Google Gemini through the official `google-genai` SDK (`GEMINI_API_KEY`).
+    Its free tier is rate-limited, so live calls are paced (`LLM_MIN_INTERVAL_S`) and
+    retried on 429. Free-tier content may be used by Google to improve its products — fine
+    for the synthetic benchmark, not for real patient files.
+Unset, the provider is `gemini` when only a Gemini key is configured, else `anthropic`.
+Keys in the repo's gitignored `.env` are loaded too.
 
 Record/replay: responses are keyed and cached under `tests/fixtures/llm/`. Tests and CI
 replay from fixtures — deterministic, free, fast. A live provider call happens **only** when
@@ -23,6 +29,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -30,12 +37,23 @@ _REPO_ROOT = Path(__file__).resolve().parents[2]
 _DEFAULT_FIXTURES = _REPO_ROOT / "tests" / "fixtures" / "llm"
 
 DEFAULT_MODEL = "claude-opus-5-5"
+DEFAULT_MODELS = {"anthropic": DEFAULT_MODEL, "gemini": "gemini-3.8-flash"}
 # USD per million (input, output) tokens. Cache writes bill at 1.25x input, reads at 0.1x.
+# Gemini is booked at $0: the free tier is the intended use (set LLM_PRICE_IN/OUT for paid).
 _PRICES: dict[str, tuple[float, float]] = {
     "claude-opus-5-5": (4.00, 20.00),
     "claude-sonnet-5-5": (2.00, 10.00),
     "claude-haiku-5-5": (0.10, 0.50),
 }
+
+
+def _provider() -> str:
+    explicit = os.getenv("LLM_PROVIDER", "").strip().lower()
+    if explicit in DEFAULT_MODELS:
+        return explicit
+    if os.getenv("GEMINI_API_KEY") and not os.getenv("ANTHROPIC_API_KEY"):
+        return "gemini"
+    return "anthropic"
 
 
 class BudgetExceeded(RuntimeError):
@@ -90,15 +108,20 @@ class LLMClient:
         self.live = (os.getenv("LLM_LIVE") == "1") if live is None else live
         self.budget_usd = float(os.getenv("LLM_BUDGET_USD", "1.00")) if budget_usd is None \
             else budget_usd
-        self.model = model or os.getenv("LLM_MODEL", DEFAULT_MODEL)
+        self.provider = _provider()
+        self.model = model or os.getenv("LLM_MODEL") or DEFAULT_MODELS[self.provider]
         self.effort = effort or os.getenv("LLM_EFFORT", "medium")
         # Server-side refusal fallback (Claude API only). Set LLM_FALLBACKS=0 on platforms
         # that reject it.
         self.fallbacks = os.getenv("LLM_FALLBACKS", "1") != "0"
+        # Minimum seconds between live calls (free tiers are rate-limited per minute).
+        default_gap = "6" if self.provider == "gemini" else "0"
+        self.min_interval_s = float(os.getenv("LLM_MIN_INTERVAL_S", default_gap))
         self.spent_usd = 0.0
         self.calls = 0          # answered calls this run (replayed + live)
         self.live_calls = 0
         self._sdk = None
+        self._last_call = 0.0
 
     def _fixture_path(self, key: str) -> Path:
         return self.fixtures_dir / f"{key}.json"
@@ -176,17 +199,84 @@ class LLMClient:
         path.write_text(text, encoding="utf-8")
         return LLMResponse(text=text, cost_usd=cost, cached=False)
 
+    def _prices(self) -> tuple[float, float]:
+        if os.getenv("LLM_PRICE_IN") or os.getenv("LLM_PRICE_OUT"):
+            return float(os.getenv("LLM_PRICE_IN", "0")), float(os.getenv("LLM_PRICE_OUT", "0"))
+        if self.provider == "gemini":
+            return 0.0, 0.0
+        return _PRICES.get(self.model, _PRICES[DEFAULT_MODEL])
+
     def _estimate_cost(self, prompt: str) -> float:
         # ~4 chars/token on the input side; the output side is booked from real usage.
-        in_price, _ = _PRICES.get(self.model, _PRICES[DEFAULT_MODEL])
+        in_price, _ = self._prices()
         return round((len(prompt) / 4) / 1_000_000 * in_price, 6)
 
     def _cost_from_usage(self, usage) -> float:
-        in_price, out_price = _PRICES.get(self.model, _PRICES[DEFAULT_MODEL])
+        in_price, out_price = self._prices()
         cache_write = getattr(usage, "cache_creation_input_tokens", 0) or 0
         cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
         tokens_in = usage.input_tokens + 1.25 * cache_write + 0.1 * cache_read
         return round((tokens_in * in_price + usage.output_tokens * out_price) / 1_000_000, 6)
+
+    def _pace(self) -> None:
+        wait = self._last_call + self.min_interval_s - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
+        self._last_call = time.monotonic()
+
+    # ------------------------------------------------------------------ Gemini
+    def _gemini(self):  # pragma: no cover - needs a live key
+        if self._sdk is None:
+            from google import genai
+
+            key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+            if not key:
+                raise LLMError("LLM_PROVIDER=gemini but GEMINI_API_KEY is unset")
+            self._sdk = genai.Client(api_key=key)
+        return self._sdk
+
+    def _gemini_generate(self, system: str | None, content, schema: dict | None,
+                         max_tokens: int) -> tuple[str, float]:
+        """One Gemini call (paced, retried on rate limits). Content blocks become parts;
+        Anthropic-only keys such as cache_control are dropped."""
+        from google.genai import errors, types
+
+        if isinstance(content, str):
+            parts = [content]
+        else:
+            parts = [b["text"] for b in content if b.get("type") == "text"]
+        config = types.GenerateContentConfig(
+            system_instruction=system or None,
+            max_output_tokens=max_tokens,
+            response_mime_type="application/json" if schema else None,
+            response_json_schema=schema,
+        )
+        client = self._gemini()
+        for attempt in range(5):
+            self._pace()
+            try:
+                resp = client.models.generate_content(model=self.model, contents=parts,
+                                                      config=config)
+                break
+            except errors.APIError as exc:
+                if exc.code == 429 and attempt < 4:
+                    time.sleep(min(60, 10 * (attempt + 1)))  # free-tier per-minute quota
+                    continue
+                raise LLMError(f"Gemini API error {exc.code}: {exc.message}") from exc
+        if not resp.candidates:
+            raise LLMError("Gemini returned no answer (prompt blocked)")
+        reason = str(resp.candidates[0].finish_reason or "")
+        if "MAX_TOKENS" in reason:
+            raise LLMError("reply truncated at max_output_tokens")
+        text = resp.text
+        if not text:
+            raise LLMError(f"Gemini returned no text (finish reason {reason or 'unknown'})")
+        u = resp.usage_metadata
+        in_price, out_price = self._prices()
+        tokens_out = (u.candidates_token_count or 0) + (u.thoughts_token_count or 0) if u else 0
+        cost = ((u.prompt_token_count or 0) * in_price + tokens_out * out_price) / 1e6 \
+            if u else 0.0
+        return text, round(cost, 6)
 
     def _client(self):  # pragma: no cover - needs a live key
         if self._sdk is None:
@@ -218,6 +308,9 @@ class LLMClient:
 
     def _call_provider(self, prompt: str) -> str:  # pragma: no cover - needs a live key
         """Plain-text completion. Only reached under LLM_LIVE=1."""
+        if self.provider == "gemini":
+            return self._gemini_generate(None, prompt, None, 16000)[0]
+        self._pace()
         text, _ = self._create(
             model=self.model, max_tokens=16000,
             output_config={"effort": self.effort},
@@ -229,6 +322,9 @@ class LLMClient:
         self, system: str, content: list[dict] | str, schema: dict, max_tokens: int
     ) -> tuple[str, float]:  # pragma: no cover - needs a live key
         """Structured-output completion. Only reached under LLM_LIVE=1."""
+        if self.provider == "gemini":
+            return self._gemini_generate(system, content, schema, max_tokens)
+        self._pace()
         return self._create(
             model=self.model, max_tokens=max_tokens, system=system,
             output_config={"effort": self.effort,

@@ -37,6 +37,8 @@ pipeline = [
     # Claude (agent auditor, extraction fallback, checklist, claim chat). Record/replay
     # means tests and CI never need a key.
     "anthropic>=2.3,<3",
+    # Gemini (LLM_PROVIDER=gemini) — free-tier option for the same agents.
+    "google-genai>=2.33,<3",
     # Scanned-image OCR path (opencv preprocess + PaddleOCR) is a documented upgrade;
     # kept out of the default install so the pipeline stays light on the digital path.
     # "opencv-python-headless>=4.9,<5",

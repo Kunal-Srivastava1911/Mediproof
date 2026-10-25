@@ -98,6 +98,7 @@ class AuditMeta(BaseModel):
     """What the audit engine ran for this claim (shown in the dashboard, used by evals)."""
 
     agents_run: list[str] = Field(default_factory=list)
+    model: str | None = Field(default=None, description="provider:model that produced it")
     llm_calls: int = 0
     llm_cost_usd: float = 0.0
     verifier_threshold: float | None = None

@@ -31,7 +31,8 @@ def run_agent_audit(
 ) -> AgentAuditResult:
     """Run the agent auditor. Never raises: anything that can't run is reported in `meta`."""
     threshold = load_threshold()
-    result = AgentAuditResult(meta=AuditMeta(verifier_threshold=threshold))
+    result = AgentAuditResult(meta=AuditMeta(verifier_threshold=threshold,
+                                             model=f"{client.provider}:{client.model}"))
     if not agents_enabled():
         result.meta.note = "Agent auditor disabled (LLM_AGENTS=0)."
         return result
@@ -42,8 +43,9 @@ def run_agent_audit(
     result.meta.agents_run = run.agents_run
     if not run.agents_run:
         result.meta.note = (
-            "Agent auditor skipped: no recorded Claude responses for this file and live calls "
-            "are off. Set ANTHROPIC_API_KEY and LLM_LIVE=1 to run it." if not client.live
+            "Agent auditor skipped: no recorded AI responses for this file and live calls "
+            "are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, "
+            "to run it." if not client.live
             else f"Agent auditor could not run ({'; '.join(run.skipped)}).")
         return result
 

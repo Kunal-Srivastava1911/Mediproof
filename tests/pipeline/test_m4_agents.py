@@ -157,4 +157,4 @@ def test_no_fixtures_means_rules_only_with_a_note(icu_claim, tmp_path):
     rc, ir, recs = icu_claim
     result = run_agent_audit(ir, recs, run_audit(recs), LLMClient(tmp_path, live=False))
     assert result.findings == []
-    assert "no recorded Claude responses" in result.meta.note
+    assert "no recorded AI responses" in result.meta.note

@@ -132,7 +132,7 @@ def test_checklist_decisions_and_offline_chat(tmp_path, render_claim_factory):
                     files={"file": ("claim.pdf", fh, "application/pdf")})
 
     listing = client.get("/claims/CLAIM-CF/checklist").json()
-    assert listing["ready"] and "no recorded Claude responses" in listing["audit_note"]
+    assert listing["ready"] and "no recorded AI responses" in listing["audit_note"]
     titles = [i["title"] for i in listing["items"]]
     assert "Dates don't match across your documents" in titles
     assert all(i["sources"] and i["sources"][0]["page"] is not None for i in listing["items"])
@@ -148,7 +148,7 @@ def test_checklist_decisions_and_offline_chat(tmp_path, render_claim_factory):
     assert fid not in [i["id"] for i in after["items"]]
 
     chat = client.post("/claims/CLAIM-CF/ask", json={"question": "Why is my date flagged?"})
-    assert chat.status_code == 503 and "ANTHROPIC_API_KEY" in chat.json()["detail"]
+    assert chat.status_code == 503 and "GEMINI_API_KEY" in chat.json()["detail"]
 
 
 @pytest.mark.slow

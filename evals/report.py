@@ -75,9 +75,11 @@ def render_markdown(report: Report) -> str:
         lines.append(f"- **Clean claims showing ≥ 1 agent item:** {report.clean_with_agent_item}"
                      f"/{report.n_clean}; agent items held back by the verifier: "
                      f"{report.held_back}.")
-        lines.append(f"- **Agent auditor cost:** {report.llm_calls} Claude calls, "
+        lines.append(f"- **Agent auditor model:** `{report.agent_model}` — the agent column "
+                     f"measures this model, not any other.")
+        lines.append(f"- **Agent auditor cost:** {report.llm_calls} LLM calls, "
                      f"${report.llm_cost_usd:.2f} live spend this run "
-                     f"(replayed calls cost $0).\n")
+                     f"(replayed and free-tier calls cost $0).\n")
     else:
         lines.append(f"- **Agent auditor: not run in this eval.** "
                      f"{report.agent_note or ''} The rules-only column is the baseline the "
