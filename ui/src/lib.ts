@@ -1,4 +1,91 @@
-import type { ExtractedField, FieldRow } from "./types";
+import type { EvidenceCell, ExtractedField, FieldRow, Finding, TimelineEvent } from "./types";
+
+// ------------------------------------------------------------------ review items
+
+const SEVERITY_RANK: Record<string, number> = { critical: 0, warning: 1, info: 2 };
+
+/** Shown items (what reviewers and patients see) and held-back agent items, worst first. */
+export function splitFindings(findings: Finding[]): { shown: Finding[]; held: Finding[] } {
+  const bySeverity = (a: Finding, b: Finding) =>
+    (SEVERITY_RANK[a.severity] ?? 3) - (SEVERITY_RANK[b.severity] ?? 3) || a.id.localeCompare(b.id);
+  return {
+    shown: findings.filter((f) => !f.held_back).sort(bySeverity),
+    held: findings.filter((f) => f.held_back).sort(bySeverity),
+  };
+}
+
+/** Who raised an item, for its badge. */
+export function originLabel(f: Finding): string {
+  if (f.origin === "reviewer") return "Promoted by reviewer";
+  if (f.origin === "agent") return f.agent ?? "Agent";
+  return "Rule";
+}
+
+/** Every evidence box of a finding: its own boxes plus each grounded quote's. */
+export function findingEvidence(f: Finding) {
+  const fromProof = f.proof.flatMap((q) => q.evidence);
+  return fromProof.length ? fromProof : f.evidence;
+}
+
+export function docLabel(docType: string): string {
+  return docType.replace(/_/g, " ");
+}
+
+// ------------------------------------------------------------------ timeline grid
+
+const DAY = 24 * 60 * 60 * 1000;
+const toDay = (iso: string) => Math.round(Date.parse(`${iso}T00:00:00Z`) / DAY);
+
+export interface TimelineRow {
+  document_id: string;
+  doc_type: string;
+  cells: Array<{ event: TimelineEvent; col: number; span: number }>;
+}
+
+/**
+ * Lay events out on a day grid: one column per calendar day from the earliest to the latest
+ * event (plus one day either side), one row per document. `col` is 0-based.
+ */
+export function timelineGrid(events: TimelineEvent[]): { days: string[]; rows: TimelineRow[] } {
+  if (!events.length) return { days: [], rows: [] };
+  const starts = events.map((e) => toDay(e.start));
+  const ends = events.map((e) => toDay(e.end ?? e.start));
+  const first = Math.min(...starts) - 1;
+  const last = Math.max(...ends) + 1;
+  const days: string[] = [];
+  for (let d = first; d <= last; d++) days.push(new Date(d * DAY).toISOString().slice(0, 10));
+  const rows: TimelineRow[] = [];
+  for (const e of events) {
+    let row = rows.find((r) => r.document_id === e.document_id);
+    if (!row) {
+      row = { document_id: e.document_id, doc_type: e.doc_type, cells: [] };
+      rows.push(row);
+    }
+    const s = toDay(e.start) - first;
+    const span = toDay(e.end ?? e.start) - toDay(e.start) + 1;
+    row.cells.push({ event: e, col: s, span });
+  }
+  return { days, rows };
+}
+
+// ------------------------------------------------------------------ evidence map
+
+/** Facts × documents matrix of the claim evidence graph. */
+export function evidenceMatrix(cells: EvidenceCell[]) {
+  const facts = [...new Set(cells.map((c) => c.fact))];
+  const docs: Array<{ document_id: string; doc_type: string }> = [];
+  for (const c of cells) {
+    if (!docs.some((d) => d.document_id === c.document_id)) {
+      docs.push({ document_id: c.document_id, doc_type: c.doc_type });
+    }
+  }
+  const lookup = new Map(cells.map((c) => [`${c.fact}\u0000${c.document_id}`, c]));
+  return {
+    facts,
+    docs,
+    get: (fact: string, documentId: string) => lookup.get(`${fact}\u0000${documentId}`),
+  };
+}
 
 // Confidence bands mirror schemas.common.band_for (green >= 0.8, amber 0.5–0.8, red < 0.5).
 export type Band = "green" | "amber" | "red";
