@@ -4,12 +4,15 @@ Import types from this package, e.g. `from schemas import ClaimFile, DocType`.
 """
 
 from schemas.claim import (
+    AuditMeta,
     ClaimFile,
     ClaimStatus,
     CompletenessReport,
     Correction,
     DocumentRecord,
+    EvidenceCell,
     PageInfo,
+    TimelineEvent,
 )
 from schemas.common import (
     AMBER_THRESHOLD,
@@ -26,6 +29,7 @@ from schemas.common import (
     band_for,
 )
 from schemas.documents import (
+    ExtractedClaimForm,
     ExtractedDischargeSummary,
     ExtractedDocument,
     ExtractedHospitalBill,
@@ -33,11 +37,19 @@ from schemas.documents import (
     ExtractedPharmacyBill,
     ExtractedPrescription,
 )
-from schemas.findings import Finding, FindingType
+from schemas.findings import (
+    Finding,
+    FindingDecision,
+    FindingOrigin,
+    FindingType,
+    ProofQuote,
+)
 from schemas.ground_truth import (
     FAULT_TO_FINDING,
+    HELD_OUT_FAULTS,
     BillCategory,
     BillLineItem,
+    ClaimFormGT,
     ClaimGroundTruth,
     DischargeSummaryGT,
     DocumentGT,
@@ -56,11 +68,20 @@ from schemas.ground_truth import (
 __all__ = [
     "AMBER_THRESHOLD",
     "GREEN_THRESHOLD",
+    "HELD_OUT_FAULTS",
+    "AuditMeta",
     "BBox",
     "BillCategory",
     "BillLineItem",
     "ClaimFile",
+    "ClaimFormGT",
     "ClaimGroundTruth",
+    "EvidenceCell",
+    "ExtractedClaimForm",
+    "FindingDecision",
+    "FindingOrigin",
+    "ProofQuote",
+    "TimelineEvent",
     "ClaimStatus",
     "CompletenessReport",
     "ConfidenceBand",

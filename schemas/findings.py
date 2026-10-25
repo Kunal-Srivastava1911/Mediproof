@@ -30,6 +30,41 @@ class FindingType(str, Enum):
     non_payable_consumable = "non_payable_consumable"
     missing_document = "missing_document"
     tampering_signal = "tampering_signal"
+    # Cross-document semantic/temporal checks (the agent auditor, plus the rules that cover
+    # the "seen" fault families of these kinds).
+    temporal_inconsistency = "temporal_inconsistency"
+    unsupported_by_documentation = "unsupported_by_documentation"
+    missing_report = "missing_report"
+    cross_document_contradiction = "cross_document_contradiction"
+
+
+class FindingOrigin(str, Enum):
+    """Who raised a review item."""
+
+    rule = "rule"          # deterministic YAML rule pack
+    agent = "agent"        # an LLM specialist agent, then verified (see `verified_by`)
+    reviewer = "reviewer"  # a held-back agent item a human promoted
+
+
+class FindingDecision(str, Enum):
+    """The reviewer's per-item decision (logged as verifier training data)."""
+
+    open = "open"
+    confirmed = "confirmed"
+    dismissed = "dismissed"
+
+
+class ProofQuote(BaseModel):
+    """A verbatim quote an agent cites as evidence, and where it was found on the page.
+
+    An agent finding is *proof-carrying*: every quote must be located on the cited
+    document's page tokens (`grounded`) or the finding cannot pass verification.
+    """
+
+    document_id: str
+    quote: str
+    grounded: bool = False
+    evidence: list[Evidence] = Field(default_factory=list)
 
 
 class Finding(BaseModel):
@@ -49,3 +84,19 @@ class Finding(BaseModel):
         default_factory=list, description="ids of documents this finding spans"
     )
     rule_id: str | None = Field(default=None, description="id of the YAML rule that fired")
+
+    origin: FindingOrigin = FindingOrigin.rule
+    agent: str | None = Field(default=None, description="specialist agent that proposed it")
+    proof: list[ProofQuote] = Field(default_factory=list)
+    verified_by: list[str] = Field(
+        default_factory=list, description="checks it passed, e.g. 'grounding', 'code check', "
+                                          "'skeptic agent'")
+    verifier_score: float | None = Field(default=None, ge=0.0, le=1.0)
+    held_back: bool = Field(
+        default=False, description="scored below the calibrated threshold: shown to reviewers "
+                                   "only, never to the patient")
+    patient_facing: bool = Field(
+        default=True, description="false for reviewer-only items (e.g. payability notes)")
+    trail: list[str] = Field(default_factory=list, description="how the item was found")
+    decision: FindingDecision = FindingDecision.open
+    decision_reason: str | None = None

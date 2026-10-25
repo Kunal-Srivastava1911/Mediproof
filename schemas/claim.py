@@ -6,8 +6,9 @@ types, M3 fills each document's `extracted`, M4 fills `findings`, M5 fills `comp
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import date, datetime
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -70,6 +71,39 @@ class Correction(BaseModel):
     at: datetime = Field(default_factory=datetime.utcnow)
 
 
+class TimelineEvent(BaseModel):
+    """One dated event read from one document, placed on the claim's shared timeline."""
+
+    document_id: str
+    doc_type: DocType
+    label: str = Field(description="e.g. 'Admission', 'ICU stay', 'Pharmacy bill'")
+    start: date
+    end: date | None = Field(default=None, description="set for spans (stays)")
+    conflict: bool = Field(default=False, description="disagrees with another document")
+    finding_ids: list[str] = Field(default_factory=list)
+
+
+class EvidenceCell(BaseModel):
+    """One edge of the claim evidence graph: a fact as one document states it."""
+
+    fact: str = Field(description="e.g. 'Patient name', 'Admission date'")
+    document_id: str
+    doc_type: DocType
+    value: str
+    status: Literal["agrees", "conflicts", "missing"] = "agrees"
+    finding_ids: list[str] = Field(default_factory=list)
+
+
+class AuditMeta(BaseModel):
+    """What the audit engine ran for this claim (shown in the dashboard, used by evals)."""
+
+    agents_run: list[str] = Field(default_factory=list)
+    llm_calls: int = 0
+    llm_cost_usd: float = 0.0
+    verifier_threshold: float | None = None
+    note: str | None = Field(default=None, description="e.g. why the agent auditor was skipped")
+
+
 class ClaimFile(BaseModel):
     """Top-level claim graph."""
 
@@ -81,3 +115,6 @@ class ClaimFile(BaseModel):
     findings: list[Finding] = Field(default_factory=list)
     completeness: CompletenessReport | None = None
     corrections: list[Correction] = Field(default_factory=list)
+    timeline: list[TimelineEvent] = Field(default_factory=list)
+    evidence_map: list[EvidenceCell] = Field(default_factory=list)
+    audit: AuditMeta | None = None

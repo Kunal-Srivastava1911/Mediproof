@@ -40,13 +40,35 @@ total is re-reconciled so it isn't *also* an arithmetic mismatch).
 | `name_mismatch` | `name_inconsistent` |
 | `missing_lab_report` | `missing_lab_report` |
 | `drug_diagnosis_mismatch` | `drug_diagnosis_implausible` |
+| `claim_form_date_mismatch` | `date_inconsistent` |
+| `pharmacy_after_discharge` | `temporal_inconsistency` |
+| `icu_days_mismatch` ★ | `unsupported_by_documentation` |
+| `missing_imaging_report` ★ | `missing_report` |
+| `name_variant` ★ | `name_inconsistent` |
+
+★ = **held-out family** (`schemas.ground_truth.HELD_OUT_FAULTS`): the rule pack deliberately
+has no rule for it. These need a reader of the narrative or of the whole file, and measure
+what the agent auditor catches that nobody wrote a rule for.
 
 ## Coherence guarantees (a *clean* file)
 
-- one canonical patient on every document
+- one canonical patient on every document, including the claim form
 - `admission_date < discharge_date`; pharmacy dates within the admission window
-- bill line items sum exactly to subtotal/total
+- bill line items sum exactly to subtotal/total; the claim form's amount = bill + pharmacy
 - drugs, procedures and labs all drawn from one clinical scenario
+- the discharge narrative ("Course in Hospital") is built from the same facts as the bill:
+  billed ICU days = ICU days in the narrative, and every billed imaging study is described
+  in the narrative and has a radiology report
+
+## Benchmark set
+
+```bash
+python -m datagen.cli bulk --count 240 --start-seed 5000 --fault-rate 0.5 --balanced \
+    --gt-only --out bench/mediclaim-bench-v2
+```
+
+`--balanced` spreads the faulty claims evenly over all 12 fault families; `--gt-only` writes
+ground-truth JSON only (committed), since the PDFs regenerate byte-identically from each seed.
 
 ## Safety
 
@@ -58,7 +80,8 @@ watermark whose region is masked out of OCR evaluation (plan §5).
 - ✅ **W1** — bill, discharge, pharmacy templates; deterministic sampler; merged claim PDF; golden tests
 - ✅ **W2** — lab + prescription templates; deterministic **fault injection** (7 fault types, each
   isolated + labelled); `bulk --fault-rate`; `sample --fault`
-- ⬜ claim-form / ID / pre-auth templates (need new ground-truth models — a human-owned schema change);
-  Augraphy degradation for the scanned-image OCR path
+- ✅ claim form, per-claim narratives, ICU stays, radiology reports; 5 cross-document fault
+  families (3 held out); balanced, ground-truth-only benchmark mode
+- ⬜ ID / pre-auth templates; Augraphy degradation for the scanned-image OCR path
 
 Run `make test-datagen`.

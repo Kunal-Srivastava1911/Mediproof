@@ -33,18 +33,31 @@ def _cmd_sample(args: argparse.Namespace) -> None:
 
 def _cmd_bulk(args: argparse.Namespace) -> None:
     out_root = Path(args.out)
+    out_root.mkdir(parents=True, exist_ok=True)
     index: list[dict] = []
     n_faulty = 0
+    fault_cycle = list(FaultType)
     for i in range(args.count):
         seed = args.start_seed + i
         claim = sample_claim(seed=seed)
-        maybe_inject_fault(claim, seed=seed, rate=args.fault_rate)
+        if args.balanced:
+            # Every k-th claim is faulty; faulty claims cycle through all fault families so
+            # each family gets an equal share (open-world eval needs every family covered).
+            every = max(1, round(1 / args.fault_rate)) if args.fault_rate > 0 else 0
+            if every and i % every == every - 1:
+                wanted = fault_cycle[(i // every) % len(fault_cycle)]
+                inject_fault(claim, seed=seed, fault_type=wanted)
+        else:
+            maybe_inject_fault(claim, seed=seed, rate=args.fault_rate)
         n_faulty += not claim.is_clean
-        render_claim(claim, out_root / claim.claim_id)
+        if args.gt_only:
+            (out_root / f"{claim.claim_id}.json").write_text(
+                claim.model_dump_json(indent=2), encoding="utf-8")
+        else:
+            render_claim(claim, out_root / claim.claim_id)
         index.append({"claim_id": claim.claim_id, "seed": seed,
                       "template_meta": claim.template_meta,
                       "faults": [f.fault_type.value for f in claim.faults]})
-    out_root.mkdir(parents=True, exist_ok=True)
     (out_root / "index.json").write_text(json.dumps(index, indent=2), encoding="utf-8")
     print(f"[datagen] generated {args.count} claims ({n_faulty} with a seeded fault) "
           f"-> {out_root.resolve()}")
@@ -67,6 +80,11 @@ def main(argv: list[str] | None = None) -> None:
     p_bulk.add_argument("--out", default="data/bench")
     p_bulk.add_argument("--fault-rate", type=float, default=0.1,
                         help="fraction of claims that get a seeded fault (plan §5)")
+    p_bulk.add_argument("--balanced", action="store_true",
+                        help="spread faults evenly over every fault family")
+    p_bulk.add_argument("--gt-only", action="store_true",
+                        help="write ground-truth JSON only (no PDF render); PDFs regenerate "
+                             "byte-identically from the seed")
     p_bulk.set_defaults(func=_cmd_bulk)
 
     args = parser.parse_args(argv)

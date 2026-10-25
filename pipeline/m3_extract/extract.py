@@ -20,6 +20,7 @@ from schemas.claim import DocumentRecord
 from schemas.common import DocType, ExtractedField, Gender
 from schemas.documents import (
     ExtractedBillLine,
+    ExtractedClaimForm,
     ExtractedDischargeSummary,
     ExtractedDocument,
     ExtractedHospitalBill,
@@ -33,7 +34,7 @@ from schemas.documents import (
 from schemas.ground_truth import BillCategory
 
 _DOC_TITLES = ("IN-PATIENT BILL", "DISCHARGE SUMMARY", "PHARMACY INVOICE",
-               "LAB REPORT", "PRESCRIPTION")
+               "LAB REPORT", "RADIOLOGY REPORT", "PRESCRIPTION", "CLAIM FORM")
 _CATEGORIES = "|".join(c.value for c in BillCategory)
 _BILL_ROW = re.compile(
     rf"^\s*\d+\s+(.+?)\s+({_CATEGORIES})\s+(\d+(?:\.\d+)?)\s+(\d+\.\d{{2}})\s+(\d+\.\d{{2}})\s*$"
@@ -171,6 +172,49 @@ def _extract_discharge(text: str, lines: list[str]) -> ExtractedDischargeSummary
         codes = [c.strip() for c in icd.split(",") if c.strip()]
         valid = re.compile(r"^[A-TV-Z]\d{2}(\.\d{1,2})?$")  # ICD-10 code format validator
         doc.icd10_codes = [rule_field(c, validated=bool(valid.match(c))) for c in codes]
+    # narrative: every line between the "Course in Hospital" and "Advice on Discharge" headings
+    course: list[str] = []
+    inside = False
+    for ln in lines:
+        head = ln.strip().lower()
+        if head == "course in hospital":
+            inside = True
+            continue
+        if inside and head.startswith("advice on discharge"):
+            break
+        if inside:
+            course.append(ln.strip())
+    if course:
+        doc.course_in_hospital = rule_field(" ".join(course))
+    return doc
+
+
+def _parse_slash_date(s: str | None) -> date | None:
+    if not s:
+        return None
+    try:
+        return datetime.strptime(s.strip(), "%d/%m/%Y").date()
+    except ValueError:
+        return None
+
+
+def _extract_claim_form(text: str, lines: list[str]) -> ExtractedClaimForm:
+    doc = ExtractedClaimForm()
+    if (name := _search(r"Insured Name (.+?)(?: Policy No|$)", text)):
+        doc.insured_name = rule_field(name)
+    if (pol := _search(r"Policy No (\S+)", text)):
+        doc.policy_no = rule_field(pol)
+    if (hosp := _search(r"Hospital (.+?)(?: Date of Admission|$)", text)):
+        doc.hospital_name = rule_field(hosp)
+    admit = _parse_slash_date(_search(r"Date of Admission (\d{2}/\d{2}/\d{4})", text))
+    disch = _parse_slash_date(_search(r"Date of Discharge (\d{2}/\d{2}/\d{4})", text))
+    ok = bool(admit and disch and admit < disch)
+    if admit:
+        doc.admission_date = rule_field(admit, validated=ok)
+    if disch:
+        doc.discharge_date = rule_field(disch, validated=ok)
+    if (amt := _search(r"Amount Claimed (\d+\.\d{2})", text)):
+        doc.claimed_amount = rule_field(float(amt))
     return doc
 
 
@@ -250,6 +294,7 @@ _EXTRACTORS = {
     DocType.pharmacy_bill: _extract_pharmacy,
     DocType.prescription: _extract_prescription,
     DocType.lab_report: _extract_lab,
+    DocType.claim_form: _extract_claim_form,
 }
 
 

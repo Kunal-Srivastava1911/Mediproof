@@ -34,7 +34,10 @@ DOC_KEYWORDS: dict[DocType, dict[str, int]] = {
     },
     DocType.lab_report: {
         "laboratory report": 4, "lab report": 2, "reference range": 3, "panel": 2,
-        "consultant pathologist": 2, "referring doctor": 1,
+        "consultant pathologist": 2, "referring doctor": 1, "radiology report": 4,
+    },
+    DocType.claim_form: {
+        "claim form": 4, "policy no": 3, "amount claimed": 3, "declaration by the insured": 2,
     },
     DocType.prescription: {
         "prescription (rx)": 4, "prescription": 2, "prescribing doctor": 3,
@@ -45,7 +48,7 @@ DOC_KEYWORDS: dict[DocType, dict[str, int]] = {
 # Title cues that mark the first page of a document (boundary signal).
 _FIRST_PAGE_CUES = (
     "in-patient bill", "discharge summary", "pharmacy invoice",
-    "laboratory report", "lab report", "prescription",
+    "laboratory report", "lab report", "prescription", "radiology report", "claim form",
 )
 
 

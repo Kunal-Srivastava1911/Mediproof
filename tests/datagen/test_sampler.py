@@ -6,7 +6,13 @@ import pytest
 
 from datagen import fake_data as fd
 from datagen import sample_claim
-from schemas import DischargeSummaryGT, HospitalBillGT, PharmacyBillGT
+from schemas import (
+    ClaimFormGT,
+    DischargeSummaryGT,
+    HospitalBillGT,
+    LabReportGT,
+    PharmacyBillGT,
+)
 
 GOLDEN_SEED = 42
 
@@ -58,6 +64,34 @@ def test_pharmacy_drugs_belong_to_a_scenario():
     known_drug_names = {f"{d.name} {d.strength}" for d in fd.DRUGS.values()}
     for line in pharm.line_items:
         assert line.drug_name in known_drug_names
+
+
+def test_claim_form_agrees_with_the_bill():
+    claim = sample_claim(seed=GOLDEN_SEED)
+    form = _docs_by_type(claim, ClaimFormGT)[0]
+    bill = _docs_by_type(claim, HospitalBillGT)[0]
+    pharm = _docs_by_type(claim, PharmacyBillGT)[0]
+    assert (form.admission_date, form.discharge_date) == (bill.admission_date,
+                                                          bill.discharge_date)
+    assert form.insured_name == claim.patient.name
+    assert form.claimed_amount == fd.money(bill.total + pharm.total)
+
+
+@pytest.mark.parametrize("seed", range(1, 40))
+def test_narrative_agrees_with_the_bill(seed):
+    """On a clean claim the ICU days and imaging in the narrative match the bill exactly."""
+    claim = sample_claim(seed=seed)
+    bill = _docs_by_type(claim, HospitalBillGT)[0]
+    disch = _docs_by_type(claim, DischargeSummaryGT)[0]
+    icu = [i for i in bill.line_items if i.description == fd.ICU_CHARGE.description]
+    assert (icu[0].quantity if icu else 0) == disch.icu_days
+    if disch.icu_days:
+        assert f"ward on day {disch.icu_days + 1} of admission" in disch.course_in_hospital
+    billed = {i.description for i in bill.line_items}
+    imaging_reports = {d.panel_name for d in _docs_by_type(claim, LabReportGT)
+                       if d.kind == "imaging"}
+    for study in disch.imaging:
+        assert study in billed and study in imaging_reports and study in disch.course_in_hospital
 
 
 def test_clean_claim_has_no_faults():

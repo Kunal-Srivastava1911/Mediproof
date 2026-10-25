@@ -85,11 +85,33 @@ def _best_match(display: str, pages: list[PageIR]) -> tuple[float, int, BBox, fl
     return best
 
 
+def _displays(value) -> list[str]:
+    """Every way the value may be printed. Claim forms write dates DD/MM/YYYY; a long
+    narrative wraps over several visual lines, so it is grounded by its opening words."""
+    if isinstance(value, date):
+        return [value.strftime("%d %b %Y"), value.strftime("%d/%m/%Y")]
+    shown = _display(value)
+    words = shown.split()
+    if len(words) > _NARRATIVE_WORDS:
+        return [" ".join(words[:_NARRATIVE_WORDS])]
+    return [shown]
+
+
+# A value longer than this many words is grounded on its first words (one visual line).
+_NARRATIVE_WORDS = 8
+
+
+def best_match(text: str, pages: list[PageIR]) -> tuple[float, int, BBox, float] | None:
+    """Public form of the token matcher, used by the agent verifier to locate quotes."""
+    return _best_match(text, pages)
+
+
 def ground_field(field: ExtractedField, pages: list[PageIR]) -> ExtractedField:
     """Attach `{page, bbox}` evidence to a field, or cap+flag it if it can't be grounded."""
     if field.value is None:
         return field
-    match = _best_match(_display(field.value), pages)
+    matches = [m for d in _displays(field.value) if (m := _best_match(d, pages))]
+    match = max(matches, key=lambda m: m[0]) if matches else None
     if match and match[0] >= GROUND_THRESHOLD:
         _, page, bbox, oconf = match
         field.evidence = [Evidence(page=page, bbox=bbox, ocr_confidence=round(oconf, 4))]

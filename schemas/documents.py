@@ -55,6 +55,7 @@ class ExtractedDischargeSummary(BaseModel):
     diagnosis_text: ExtractedField[str] = Field(default_factory=ExtractedField)
     icd10_codes: list[ExtractedField[str]] = Field(default_factory=list)
     treating_doctor: ExtractedField[str] = Field(default_factory=ExtractedField)
+    course_in_hospital: ExtractedField[str] = Field(default_factory=ExtractedField)
 
 
 class ExtractedPharmacyLine(BaseModel):
@@ -99,11 +100,22 @@ class ExtractedPrescription(BaseModel):
     medications: list[ExtractedField[str]] = Field(default_factory=list)
 
 
+class ExtractedClaimForm(BaseModel):
+    doc_type: Literal[DocType.claim_form] = DocType.claim_form
+    insured_name: ExtractedField[str] = Field(default_factory=ExtractedField)
+    policy_no: ExtractedField[str] = Field(default_factory=ExtractedField)
+    hospital_name: ExtractedField[str] = Field(default_factory=ExtractedField)
+    admission_date: ExtractedField[date] = Field(default_factory=ExtractedField)
+    discharge_date: ExtractedField[date] = Field(default_factory=ExtractedField)
+    claimed_amount: ExtractedField[float] = Field(default_factory=ExtractedField)
+
+
 ExtractedDocument = Annotated[
     ExtractedHospitalBill
     | ExtractedDischargeSummary
     | ExtractedPharmacyBill
     | ExtractedLabReport
-    | ExtractedPrescription,
+    | ExtractedPrescription
+    | ExtractedClaimForm,
     Field(discriminator="doc_type"),
 ]

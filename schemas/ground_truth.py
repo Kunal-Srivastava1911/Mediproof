@@ -112,6 +112,9 @@ class DischargeSummaryGT(_DocBase):
     procedures: list[str] = Field(default_factory=list)
     treating_doctor: str
     doctor_reg_no: str | None = None
+    course_in_hospital: str = Field(default="", description="per-claim clinical narrative")
+    icu_days: int = Field(default=0, ge=0, description="days in ICU per the narrative")
+    imaging: list[str] = Field(default_factory=list, description="imaging studies mentioned")
 
 
 class PharmacyBillGT(_DocBase):
@@ -134,6 +137,8 @@ class LabReportGT(_DocBase):
     results: list[LabResult]
     report_date: date
     referring_doctor: str | None = None
+    kind: Literal["lab", "imaging"] = Field(
+        default="lab", description="imaging reports reuse the lab layout with a radiology title")
 
 
 class PrescriptionGT(_DocBase):
@@ -145,6 +150,19 @@ class PrescriptionGT(_DocBase):
     doctor_reg_no: str | None = None
     diagnosis_text: str | None = None
     medications: list[Medication]
+
+
+class ClaimFormGT(_DocBase):
+    """The insured's claim form (Part A). Dates are written DD/MM/YYYY, as on real forms."""
+
+    doc_type: Literal[DocType.claim_form] = DocType.claim_form
+    insured_name: str
+    policy_no: str
+    hospital_name: str
+    admission_date: date
+    discharge_date: date
+    diagnosis_text: str
+    claimed_amount: float
 
 
 # --------------------------------------------------------------- faults & claim
@@ -161,6 +179,12 @@ class FaultType(str, Enum):
     duplicate_billing = "duplicate_billing"
     name_mismatch = "name_mismatch"
     bill_arithmetic_error = "bill_arithmetic_error"
+    # Cross-document semantic / temporal families.
+    claim_form_date_mismatch = "claim_form_date_mismatch"
+    pharmacy_after_discharge = "pharmacy_after_discharge"
+    icu_days_mismatch = "icu_days_mismatch"
+    missing_imaging_report = "missing_imaging_report"
+    name_variant = "name_variant"
 
 
 # Which finding a given seeded fault is expected to trigger (eval harness join key).
@@ -172,7 +196,21 @@ FAULT_TO_FINDING: dict[FaultType, FindingType] = {
     FaultType.duplicate_billing: FindingType.duplicate_line_item,
     FaultType.name_mismatch: FindingType.name_inconsistent,
     FaultType.bill_arithmetic_error: FindingType.bill_arithmetic_mismatch,
+    FaultType.claim_form_date_mismatch: FindingType.date_inconsistent,
+    FaultType.pharmacy_after_discharge: FindingType.temporal_inconsistency,
+    FaultType.icu_days_mismatch: FindingType.unsupported_by_documentation,
+    FaultType.missing_imaging_report: FindingType.missing_report,
+    FaultType.name_variant: FindingType.name_inconsistent,
 }
+
+# Fault families the deterministic rule pack deliberately has NO rule for. The eval harness
+# reports recall on these separately: it measures what the agent auditor catches that nobody
+# wrote a rule for (the open-world split).
+HELD_OUT_FAULTS: frozenset[FaultType] = frozenset({
+    FaultType.icu_days_mismatch,
+    FaultType.missing_imaging_report,
+    FaultType.name_variant,
+})
 
 
 class FaultLabel(BaseModel):
@@ -188,7 +226,8 @@ class FaultLabel(BaseModel):
 # Discriminated union over doc_type, so reloading a claim routes each document to the exact
 # model regardless of overlapping fields.
 DocumentGT = Annotated[
-    HospitalBillGT | DischargeSummaryGT | PharmacyBillGT | LabReportGT | PrescriptionGT,
+    HospitalBillGT | DischargeSummaryGT | PharmacyBillGT | LabReportGT | PrescriptionGT
+    | ClaimFormGT,
     Field(discriminator="doc_type"),
 ]
 

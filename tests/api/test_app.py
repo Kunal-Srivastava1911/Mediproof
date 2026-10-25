@@ -71,14 +71,15 @@ def test_upload_process_fetch_and_review(tmp_path, rendered_claim, render_claim_
 
     graph = client.get("/claims/CLAIM-42").json()
     assert graph["status"] == "needs_review"            # inflated line -> flagged
-    assert len(graph["documents"]) == 6
+    assert len(graph["documents"]) == len(faulty.claim.documents)
     assert any(f["type"] == "inflated_line_item" for f in graph["findings"])
     assert graph["findings"][0]["evidence"], "finding carries clickable bbox evidence"
 
     listing = client.get("/claims").json()
     assert listing and listing[0]["claim_id"] == "CLAIM-42"
 
-    bill_doc = graph["documents"][0]["document_id"]
+    bill_doc = next(d["document_id"] for d in graph["documents"]
+                    if d["doc_type"] == "hospital_bill")
     review = client.post("/claims/CLAIM-42/review", json={
         "document_id": bill_doc, "field_path": "patient.name",
         "new_value": "Reviewed Name", "reviewer": "qa"})

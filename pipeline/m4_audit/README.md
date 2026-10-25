@@ -25,6 +25,11 @@ ids (`F-001`, …) and evidence pulled from the offending fields' grounded boxes
 | `missing_lab_report` | warning | investigation billed but no lab report present |
 | `drug_diagnosis_implausible` | critical | curated marker drug without a justifying ICD |
 | `non_payable_consumable` | info | standard non-payable consumable billed |
+| `claim_form_dates` | warning | claim-form admission/discharge differs from the bill |
+| `pharmacy_outside_stay` | warning | pharmacy bill dated outside the stay |
+
+The held-out families (ICU days vs the narrative, billed imaging with no report, one-letter
+name variants) intentionally have no rule — see `schemas.ground_truth.HELD_OUT_FAULTS`.
 
 The drug↔diagnosis check uses **only** a small curated marker map (`rules.yaml`), mirrored
 from datagen with a parity test — anything outside the set is never flagged (no general
