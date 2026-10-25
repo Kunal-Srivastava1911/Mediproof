@@ -36,6 +36,31 @@ from datagen with a parity test — anything outside the set is never flagged (n
 clinical inference, plan §M4). Prescription↔pharmacy matching and tampering signals (PDF
 metadata, font inconsistency; copy-move is cut-line 2) are the documented next rules.
 
+## Agent auditor (`agents.py` → `verify.py`)
+
+Rules only find what someone anticipated. Five specialist Claude agents — **billing,
+clinical record, pharmacy, timeline, identity** — each read the whole file (one shared,
+prompt-cached dossier of every document's text, narrative included) and propose review
+items. A **skeptic agent** then cross-examines every proposal. Nothing an agent says is
+shown as-is; `verify.py` turns proposals into findings only through:
+
+1. **Grounding** — every quote must appear in the document it cites and is located on the
+   page (bbox evidence). An ungrounded quote scores 0 and is held back.
+2. **Code check** — dates must really differ / fall outside the stay, counts must really
+   differ, a "missing" report's keyword must really be absent from every other document.
+3. **Skeptic verdict.**
+
+`verifier_score = 0.1 + 0.45·check + 0.45·skeptic` (grounding gates it; absent check or
+skeptic = neutral 0.5). Below the calibrated threshold (`calibration.json`, written by
+`evals/conformal.py`; default 0.6) a finding is `held_back`: reviewers see it, patients
+never do. An agent finding that repeats a rule finding is folded into it as corroboration.
+
+Without recorded fixtures and with `LLM_LIVE` off, the auditor is skipped and the claim's
+`audit.note` says so — the rule pack still runs.
+
+`timeline.py` builds the claim's shared **timeline** and **evidence map** (facts × documents,
+the within-claim evidence graph) from extracted fields and marks the cells findings touch.
+
 ## Verified
 
 - **Every injected fault type raises its expected finding** (end-to-end test over all 7).

@@ -15,7 +15,7 @@ from pipeline.m2_segment import segment_claim
 from pipeline.m3_extract import apply_llm_fallback, extract_claim, ground_claim
 from pipeline.m3_extract.grounding import _walk_fields
 from pipeline.m3_extract.llm_client import LLMClient
-from pipeline.m4_audit import run_audit
+from pipeline.m4_audit import build_evidence_map, build_timeline, run_agent_audit, run_audit
 from pipeline.m5_complete import complete_claim
 from schemas.claim import ClaimFile, ClaimStatus
 from schemas.common import AMBER_THRESHOLD, Severity
@@ -53,9 +53,12 @@ def run_pipeline(
     ground_claim(ir, records)
 
     findings = run_audit(records)
+    agent = run_agent_audit(ir, records, findings, client)
+    findings = findings + agent.findings
     completeness = complete_claim(claim_type, records)
 
-    needs_review = any(f.severity in (Severity.warning, Severity.critical) for f in findings) \
+    shown = [f for f in findings if not f.held_back]
+    needs_review = any(f.severity in (Severity.warning, Severity.critical) for f in shown) \
         or any(p.unreadable for p in ir.pages) \
         or any(_has_red_field(r.extracted) for r in records if r.extracted is not None)
 
@@ -66,4 +69,7 @@ def run_pipeline(
         documents=records,
         findings=findings,
         completeness=completeness,
+        timeline=build_timeline(records, findings),
+        evidence_map=build_evidence_map(records, findings),
+        audit=agent.meta,
     )

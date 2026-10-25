@@ -1,15 +1,21 @@
 """The one thin LLM client every call goes through (CLAUDE.md 'LLM usage').
 
+Provider: Claude, through the official Anthropic SDK (`anthropic`). Credentials resolve the
+SDK's usual way (`ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or an `ant auth login`
+profile); a key in the repo's gitignored `.env` is loaded too.
+
 Record/replay: responses are keyed and cached under `tests/fixtures/llm/`. Tests and CI
 replay from fixtures — deterministic, free, fast. A live provider call happens **only** when
-`LLM_LIVE=1` (and a key is set); it records its reply so the next run replays it.
+`LLM_LIVE=1`; it records its reply so the next run replays it. A fixture key hashes the
+model, system prompt, content and output schema, so changing any of them re-records.
 
 Budget cap: cumulative live spend is checked against `LLM_BUDGET_USD` and hard-stops with a
-`BudgetExceeded` before any call that would breach it.
+`BudgetExceeded` before any call that would breach it; actual spend is then booked from the
+response's token usage.
 
-Output contract (enforced by callers, see `fuse.py`): a reply must parse into the target
-field's schema; on failure the caller falls back to `value=None, confidence=0` — the pipeline
-never crashes on a malformed reply.
+Output contract: `complete_json` constrains the reply to a JSON schema (structured outputs)
+and returns the parsed object. Callers treat any failure as "no answer" — the pipeline never
+crashes on a malformed reply.
 """
 
 from __future__ import annotations
@@ -20,7 +26,16 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-_DEFAULT_FIXTURES = Path(__file__).resolve().parents[2] / "tests" / "fixtures" / "llm"
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+_DEFAULT_FIXTURES = _REPO_ROOT / "tests" / "fixtures" / "llm"
+
+DEFAULT_MODEL = "claude-opus-5-5"
+# USD per million (input, output) tokens. Cache writes bill at 1.25x input, reads at 0.1x.
+_PRICES: dict[str, tuple[float, float]] = {
+    "claude-opus-5-5": (4.00, 20.00),
+    "claude-sonnet-5-5": (2.00, 10.00),
+    "claude-haiku-5-5": (0.10, 0.50),
+}
 
 
 class BudgetExceeded(RuntimeError):
@@ -29,6 +44,10 @@ class BudgetExceeded(RuntimeError):
 
 class MissingFixture(LookupError):
     """No recorded fixture for this key and live calls are disabled."""
+
+
+class LLMError(RuntimeError):
+    """The provider returned no usable answer (refusal, truncation, API error)."""
 
 
 @dataclass
@@ -42,8 +61,20 @@ def _key_for(model: str, prompt: str) -> str:
     return hashlib.sha1(f"{model}\n{prompt}".encode()).hexdigest()[:16]
 
 
+def _load_dotenv(path: Path = _REPO_ROOT / ".env") -> None:
+    """Load KEY=VALUE lines from the repo's .env without overriding the real environment."""
+    if not path.exists():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if "=" in line:
+            k, v = line.split("=", 1)
+            if k.strip() and v.strip():
+                os.environ.setdefault(k.strip(), v.strip())
+
+
 class LLMClient:
-    """Deterministic-by-default gateway to the (V)LM used for M3's fallback layer."""
+    """Deterministic-by-default gateway to Claude for extraction fallback and the agents."""
 
     def __init__(
         self,
@@ -52,58 +83,155 @@ class LLMClient:
         live: bool | None = None,
         budget_usd: float | None = None,
         model: str | None = None,
+        effort: str | None = None,
     ) -> None:
+        _load_dotenv()
         self.fixtures_dir = Path(fixtures_dir or os.getenv("LLM_FIXTURES", _DEFAULT_FIXTURES))
         self.live = (os.getenv("LLM_LIVE") == "1") if live is None else live
         self.budget_usd = float(os.getenv("LLM_BUDGET_USD", "1.00")) if budget_usd is None \
             else budget_usd
-        self.model = model or os.getenv("LLM_MODEL", "gemini-1.5-flash")
+        self.model = model or os.getenv("LLM_MODEL", DEFAULT_MODEL)
+        self.effort = effort or os.getenv("LLM_EFFORT", "medium")
+        # Server-side refusal fallback (Claude API only). Set LLM_FALLBACKS=0 on platforms
+        # that reject it.
+        self.fallbacks = os.getenv("LLM_FALLBACKS", "1") != "0"
         self.spent_usd = 0.0
+        self.calls = 0          # answered calls this run (replayed + live)
+        self.live_calls = 0
+        self._sdk = None
 
     def _fixture_path(self, key: str) -> Path:
         return self.fixtures_dir / f"{key}.json"
 
+    # ------------------------------------------------------------------ text (M3 fallback)
     def complete(self, prompt: str, *, key: str | None = None) -> LLMResponse:
         """Return the model's reply text for `prompt`, from fixture if recorded."""
         key = key or _key_for(self.model, prompt)
         path = self._fixture_path(key)
         if path.exists():
+            self.calls += 1
             return LLMResponse(text=path.read_text(encoding="utf-8"), cost_usd=0.0, cached=True)
         if not self.live:
             raise MissingFixture(
                 f"no LLM fixture {key}.json and LLM_LIVE!=1 (run with LLM_LIVE=1 to record)"
             )
-        return self._call_live_and_record(prompt, key, path)
+        self._precheck(self._estimate_cost(prompt))
+        text = self._call_provider(prompt)
+        cost = self._estimate_cost(prompt)
+        return self._record(path, text, cost)
+
+    # ------------------------------------------------------------------ structured JSON
+    def json_key(self, system: str, content: list[dict] | str, schema: dict) -> str:
+        blob = json.dumps({"model": self.model, "system": system, "content": content,
+                           "schema": schema}, sort_keys=True, ensure_ascii=False)
+        return hashlib.sha1(blob.encode()).hexdigest()[:16]
+
+    def complete_json(
+        self,
+        system: str,
+        content: list[dict] | str,
+        schema: dict,
+        *,
+        key: str | None = None,
+        max_tokens: int = 16000,
+    ) -> dict:
+        """Ask for a reply constrained to `schema` and return the parsed JSON object.
+
+        `content` is the user turn: a string, or content blocks (so a shared dossier block can
+        carry `cache_control` and be reused across the specialist agents' calls).
+        Raises MissingFixture (replay miss), BudgetExceeded, LLMError or ValueError (bad JSON).
+        """
+        key = key or self.json_key(system, content, schema)
+        path = self._fixture_path(key)
+        if path.exists():
+            self.calls += 1
+            text = path.read_text(encoding="utf-8")
+        elif not self.live:
+            raise MissingFixture(
+                f"no LLM fixture {key}.json and LLM_LIVE!=1 (run with LLM_LIVE=1 to record)")
+        else:
+            prompt_chars = len(system) + len(json.dumps(content, ensure_ascii=False))
+            self._precheck(self._estimate_cost("x" * prompt_chars))
+            text, cost = self._call_provider_json(system, content, schema, max_tokens)
+            text = self._record(path, text, cost).text
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"LLM fixture {key}.json is not valid JSON") from exc
 
     # ------------------------------------------------------------------ live path
-    def _call_live_and_record(self, prompt: str, key: str, path: Path) -> LLMResponse:
-        # Estimate cost before spending so the budget cap is a hard pre-check (plan §8).
-        est = self._estimate_cost(prompt)
+    def _precheck(self, est: float) -> None:
+        # Estimate before spending so the budget cap is a hard pre-check (plan §8).
         if self.spent_usd + est > self.budget_usd:
             raise BudgetExceeded(
-                f"live call would spend ${est:.4f}, over LLM_BUDGET_USD=${self.budget_usd:.2f}"
+                f"live call would spend ~${est:.4f}; ${self.spent_usd:.4f} of "
+                f"LLM_BUDGET_USD=${self.budget_usd:.2f} already used"
             )
-        text = self._call_provider(prompt)  # provider-specific; not exercised in tests
-        self.spent_usd += est
+
+    def _record(self, path: Path, text: str, cost: float) -> LLMResponse:
+        self.spent_usd += cost
+        self.calls += 1
+        self.live_calls += 1
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
-        return LLMResponse(text=text, cost_usd=est, cached=False)
+        return LLMResponse(text=text, cost_usd=cost, cached=False)
 
     def _estimate_cost(self, prompt: str) -> float:
-        # Rough Flash-tier estimate: ~$0.075 / 1M input tokens, ~4 chars/token.
-        return round((len(prompt) / 4) / 1_000_000 * 0.075, 6)
+        # ~4 chars/token on the input side; the output side is booked from real usage.
+        in_price, _ = _PRICES.get(self.model, _PRICES[DEFAULT_MODEL])
+        return round((len(prompt) / 4) / 1_000_000 * in_price, 6)
+
+    def _cost_from_usage(self, usage) -> float:
+        in_price, out_price = _PRICES.get(self.model, _PRICES[DEFAULT_MODEL])
+        cache_write = getattr(usage, "cache_creation_input_tokens", 0) or 0
+        cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
+        tokens_in = usage.input_tokens + 1.25 * cache_write + 0.1 * cache_read
+        return round((tokens_in * in_price + usage.output_tokens * out_price) / 1_000_000, 6)
+
+    def _client(self):  # pragma: no cover - needs a live key
+        if self._sdk is None:
+            import anthropic
+
+            self._sdk = anthropic.Anthropic()
+        return self._sdk
+
+    def _create(self, **kwargs):  # pragma: no cover - needs a live key
+        import anthropic
+
+        client = self._client()
+        try:
+            if self.fallbacks:
+                resp = client.beta.messages.create(
+                    betas=["server-side-fallback-2026-07-01"], fallbacks="default", **kwargs)
+            else:
+                resp = client.messages.create(**kwargs)
+        except anthropic.APIStatusError as exc:
+            raise LLMError(f"Claude API error {exc.status_code}: {exc.message}") from exc
+        except anthropic.APIConnectionError as exc:
+            raise LLMError("could not reach the Claude API") from exc
+        if resp.stop_reason == "refusal":
+            raise LLMError("Claude declined this request")
+        if resp.stop_reason == "max_tokens":
+            raise LLMError("reply truncated at max_tokens")
+        text = "".join(b.text for b in resp.content if b.type == "text")
+        return text, self._cost_from_usage(resp.usage)
 
     def _call_provider(self, prompt: str) -> str:  # pragma: no cover - needs a live key
-        """Call Gemini's generateContent REST endpoint. Only reached under LLM_LIVE=1."""
-        import urllib.request
+        """Plain-text completion. Only reached under LLM_LIVE=1."""
+        text, _ = self._create(
+            model=self.model, max_tokens=16000,
+            output_config={"effort": self.effort},
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return text
 
-        api_key = os.getenv("GEMINI_API_KEY")
-        if not api_key:
-            raise RuntimeError("LLM_LIVE=1 but GEMINI_API_KEY is unset")
-        url = (f"https://generativelanguage.googleapis.com/v1beta/models/"
-               f"{self.model}:generateContent?key={api_key}")
-        body = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode()
-        req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read())
-        return data["candidates"][0]["content"]["parts"][0]["text"]
+    def _call_provider_json(
+        self, system: str, content: list[dict] | str, schema: dict, max_tokens: int
+    ) -> tuple[str, float]:  # pragma: no cover - needs a live key
+        """Structured-output completion. Only reached under LLM_LIVE=1."""
+        return self._create(
+            model=self.model, max_tokens=max_tokens, system=system,
+            output_config={"effort": self.effort,
+                           "format": {"type": "json_schema", "schema": schema}},
+            messages=[{"role": "user", "content": content}],
+        )

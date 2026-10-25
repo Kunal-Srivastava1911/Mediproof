@@ -23,11 +23,14 @@ model (`schemas/documents.py`), every field carrying confidence + (after M3.5) b
 
 ## LLM client (`llm_client.py`)
 
-Every call goes through one thin client: **record/replay** to `tests/fixtures/llm/`
-(deterministic, free, offline; live only when `LLM_LIVE=1` with `GEMINI_API_KEY`), a hard
-**budget cap** `LLM_BUDGET_USD` checked *before* each live call, and graceful failure — a
-missing fixture or malformed reply degrades to `value=None, confidence=0`. **The pipeline
-never crashes on the LLM.**
+Every call goes through one thin client — **Claude via the Anthropic SDK** (default model
+`claude-opus-5-5`, `LLM_MODEL` / `LLM_EFFORT` to change): **record/replay** to
+`tests/fixtures/llm/` (deterministic, free, offline; live only when `LLM_LIVE=1` with
+`ANTHROPIC_API_KEY` set or in `.env`), a hard **budget cap** `LLM_BUDGET_USD` checked
+*before* each live call with spend booked from real token usage, structured JSON outputs
+(`complete_json`, used by the M4 agents), server-side refusal fallback (`LLM_FALLBACKS`),
+and graceful failure — a missing fixture or malformed reply degrades to
+`value=None, confidence=0`. **The pipeline never crashes on the LLM.**
 
 ## M3.5 Value Grounding (`grounding.py`) — implemented
 

@@ -79,6 +79,7 @@ rules:
     severity: info
     title: "Non-payable consumable billed"
     enabled: true
+    patient_facing: false      # a payability note for reviewers, not a patient to-do
     params:
       keywords: ["gloves", "disposables", "administrative", "record charges",
                  "attendant", "meal"]

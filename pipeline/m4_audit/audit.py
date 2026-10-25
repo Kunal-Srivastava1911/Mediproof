@@ -283,5 +283,8 @@ def run_audit(docs: list[DocumentRecord], config: dict | None = None) -> list[Fi
                 evidence=hit.evidence,
                 document_ids=hit.document_ids,
                 rule_id=spec["id"],
+                verified_by=["deterministic rule"],
+                patient_facing=spec.get("patient_facing", True),
+                trail=[f"Deterministic rule {spec['id']} (runs on every claim, no AI call)."],
             ))
     return findings
