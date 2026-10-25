@@ -3,18 +3,23 @@
 **A claim-readiness audit engine for Indian health-insurance claim files.**
 
 ![pipeline](https://img.shields.io/badge/pipeline-M1→M7%20end--to--end-brightgreen)
-![tests](https://img.shields.io/badge/tests-87%20passing-brightgreen)
+![tests](https://img.shields.io/badge/tests-166%20passing-brightgreen)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![license](https://img.shields.io/badge/license-Apache--2.0-green)
 ![data](https://img.shields.io/badge/data-synthetic%20only-brightgreen)
 
-MediProof takes a merged claim file — discharge summary, hospital bill, pharmacy bills, lab
-reports, prescriptions, and so on — and produces three things:
+MediProof takes a merged claim file — claim form, discharge summary, hospital bill, pharmacy
+bills, lab and radiology reports, prescriptions — and produces:
 
 1. **Structured JSON** of every extracted field, each with a confidence score and evidence.
-2. A severity-scored **audit report** of documentation problems (inconsistencies,
-   arithmetic errors, missing documents, tampering signals).
-3. A reviewer **dashboard** with confidence-coloured fields and click-to-source highlighting.
+2. A severity-scored **audit** of documentation problems, from a deterministic rule pack
+   **plus a team of Claude agents** that read the whole file — narrative included — and
+   must *prove* every item they raise (quotes found on the page, re-checked in code,
+   cross-examined by a skeptic agent), with a **certified false-flag rate**.
+3. A **patient fix-it checklist** (English / हिन्दी) with the evidence for each item, and a
+   claim chat that answers only from the file.
+4. A reviewer **dashboard**: click-to-source evidence, the proof and trail behind each agent
+   item, confirm / dismiss / promote, a cross-document **timeline** and **evidence map**.
 
 Positioning: a patient/hospital-side **pre-submission audit** — catch the documentation
 problems that get claims rejected *before* the file is ever submitted.
@@ -41,7 +46,7 @@ reviewer can fix the problems before filing.
 
 ```mermaid
 flowchart TD
-    A([Upload: merged PDF or phone photos]) --> M1
+    A([Upload: merged claim PDF]) --> M1
 
     subgraph M1 [M1 · Ingest &amp; Preprocess]
         direction TB
@@ -66,7 +71,12 @@ flowchart TD
     end
 
     subgraph M4 [M4 · Cross-Document Audit]
-        F[Consistency rules across documents<br/>severity-scored review items]
+        direction TB
+        F[Rule pack<br/>the problems someone anticipated]
+        AG[5 Claude specialist agents<br/>billing · clinical record · pharmacy · timeline · identity]
+        SK[Skeptic agent]
+        V[Verifier: quotes found on the page ·<br/>dates / counts re-checked in code ·<br/>conformal threshold → shown or held back]
+        AG --> SK --> V
     end
 
     subgraph M5 [M5 · Completeness]
@@ -94,6 +104,44 @@ flowchart LR
 
 This is what makes the headline metric possible: *"review the bottom X% of fields by
 confidence to reach Y% accuracy."*
+
+## The agent auditor: open-world, proof-carrying, certified
+
+A rule pack only catches the problems someone thought of in advance. MediProof adds five
+specialist Claude agents that read the whole file — including the discharge narrative — and
+propose review items. Nothing they say reaches a person unverified:
+
+1. **Proof-carrying.** Every item must quote the documents verbatim; each quote is located on
+   its page (that box is what the reviewer and patient click). An unfound quote = held back.
+2. **Re-checked in code.** Items about dates, counts or missing reports carry a machine
+   check (the two dates must really differ, the date must really fall outside the stay, the
+   report's keyword must really be absent from the file).
+3. **Cross-examined.** A skeptic agent upholds or rejects each item.
+4. **Certified false-flag rate.** The verifier threshold is calibrated by conformal risk
+   control on separate clean claims so that P(a clean claim shows ≥ 1 agent item) ≤ α.
+   Items below it are *held back*: reviewers see them, patients never do.
+
+The benchmark is built to measure exactly this. Three of the twelve fault families —
+**ICU days billed vs. the narrative, a billed imaging study with no report, a one-letter
+name variant** — have **no rule on purpose** (`HELD_OUT_FAULTS`). Rules score 0% on them by
+construction; the question the eval answers is what the verified agents add without raising
+false flags on clean files. Each cross-document check also feeds the claim's shared
+**timeline** (every dated event from every document on one calendar) and **evidence map**
+(each fact × each document that states it — the within-claim evidence graph).
+
+### Turning Claude on
+
+```bash
+cp .env.example .env        # then set ANTHROPIC_API_KEY=... (console.anthropic.com)
+make eval-live              # calibrate the threshold on 20 clean claims, then evaluate
+```
+
+Everything goes through one client (`pipeline/m3_extract/llm_client.py`): Claude
+(`claude-opus-5-5` by default) via the Anthropic SDK, structured JSON outputs, a shared
+prompt-cached dossier across the agents, server-side refusal fallback, and a hard
+`LLM_BUDGET_USD` cap per run. Live replies are **recorded** to `tests/fixtures/llm/`, so later
+runs, tests and CI replay them for free. Without a key, the rule pack runs, the agent
+auditor is skipped with a note, Hindi details stay in English, and the chat says it's off.
 
 ## Benchmarks
 
@@ -163,25 +211,26 @@ _Auto-generated by `make eval` over 28 synthetic claims (16 clean, 12 with a see
 
 ## Build status
 
-Built in the open, one module per session, against a fixed 8-week plan
-(see [plan.md](plan.md)). The end-to-end pipeline, API, dashboard, and eval harness are all
-in — **87 tests passing**.
+Built in the open, one module per slice, against [plan.md](plan.md). The end-to-end
+pipeline, agent auditor, API, dashboards and eval harness are all in — **166 tests
+passing** (pytest + vitest).
 
 | Module | What's in | State |
 |--------|-----------|-------|
-| `schemas/` | Pydantic v2 contracts (ground-truth *certain* · extraction *uncertain*) | ✅ done |
-| `datagen/` | seeded generator, 5 doc templates, **7-fault injector** (MediClaim-Bench) | ✅ done |
+| `schemas/` | Pydantic v2 contracts; proof-carrying findings; timeline + evidence map | ✅ done |
+| `datagen/` | seeded generator, 6 doc templates incl. claim form + radiology, per-claim narratives, **12-family fault injector** (3 held out) | ✅ done |
+| `bench/` | **MediClaim-Bench v2**: 240 claims (121 clean, 119 faulty) as ground-truth JSON | ✅ done |
 | `m1_ingest` | digital text-layer words+boxes, watermark mask, quality gate | ✅ done |
 | `m2_segment` | P0 keyword classifier + boundary detection | ✅ done |
-| `m3_extract` | deterministic regex+validators · LLM fallback (record/replay) · confidence fusion | ✅ done |
-| `m3.5 ground` | value → bbox evidence (rapidfuzz) | ✅ done |
-| `m4_audit` | config-driven rule pack → severity-scored review items | ✅ done |
+| `m3_extract` | deterministic regex+validators · Claude fallback (record/replay) · confidence fusion | ✅ done |
+| `m3.5 ground` | value → bbox evidence (rapidfuzz), incl. DD/MM dates and narratives | ✅ done |
+| `m4_audit` | rule pack · **5 Claude agents + skeptic · proof-carrying verifier** · timeline · evidence map | ✅ done |
 | `m5_complete` | required-docs checklist | ✅ done |
-| `api/` | FastAPI + SQLModel; upload · process · review · page images | ✅ done |
-| `ui/` | React + Vite + Tailwind HITL dashboard (4 interactions) | ✅ done |
-| `evals/` | metrics harness → auto-generated README tables | ✅ done |
-| Docker | `docker-compose` (api + dashboard) · `make demo` | ✅ done |
-| W8 polish | OCR path for scans · LayoutLMv3 upgrade · calibration (ECE) · real-sample gap | ⬜ next |
+| `api/` | FastAPI + SQLModel; review · decisions · **patient checklist (en/hi)** · **claim chat** | ✅ done |
+| `ui/` | patient site (checklist, chat, Hindi) · reviewer dashboard (proof, trail, decisions, timeline, evidence map) | ✅ done |
+| `evals/` | open-world eval (rules vs rules + agents, seen vs held-out) · **conformal calibration** | ✅ done |
+| Docker | `docker-compose` (api + dashboard) · `make demo` · Render blueprint | ✅ done |
+| Next | first live Claude run + recorded fixtures · OCR / vision path for scans and phone photos · rule distillation from confirmed items · real-sample gap | ⬜ next |
 
 ### What works today
 
@@ -192,11 +241,12 @@ clicks a finding to see its evidence and corrects fields inline. See the **Bench
 for the numbers, all produced by `make eval`.
 
 > **Honest scope.** Extraction runs on the **digital text layer** of the synthetic PDFs, so the
-> numbers are near-perfect. Real scanned/phone-photo documents need the OCR path (OpenCV +
-> PaddleOCR) — that's the next block of work, and its synthetic-to-real gap will be reported
-> here openly. The LLM fallback is fully wired via record/replay but rarely fires on clean
-> digital claims (the deterministic layer fills ~96% of fields) — which is exactly the hybrid
-> cost argument.
+> numbers are near-perfect. Real scanned/phone-photo documents need the OCR / vision path —
+> the next block of work, and its synthetic-to-real gap will be reported here openly. The
+> **agent auditor's numbers are not in the table yet**: it needs a first live run with an
+> Anthropic API key (`make eval-live`), which also records the fixtures so CI replays it. The
+> conformal guarantee holds for claims like the synthetic calibration set; on real files it is
+> an estimate.
 
 ## Quickstart
 
@@ -260,10 +310,11 @@ A generated ground-truth record looks like this (seed 42, abridged):
 ```
 schemas/     Pydantic v2 contracts — the single source of truth (see CLAUDE.md)
 datagen/     synthetic generator (MediClaim-Bench) + fault injector
-pipeline/    m1_ingest · m2_segment · m3_extract · m4_audit · m5_complete
-api/         FastAPI app
-ui/          React dashboard
-evals/       eval harness (CLI) + golden files
+bench/       MediClaim-Bench v2 ground truth (240 claims; PDFs regenerate from seeds)
+pipeline/    m1_ingest · m2_segment · m3_extract · m4_audit (rules + agents) · m5_complete
+api/         FastAPI app (+ patient checklist and claim chat)
+ui/          React: patient site + reviewer dashboard
+evals/       eval harness (CLI), conformal calibration
 tests/       pytest; golden-file tests per module
 ```
 
