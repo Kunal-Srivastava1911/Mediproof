@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "warning",
+      "title": "Amount claimed differs from total bills",
+      "detail": "The claim form amount claimed (33182.75) does not match the sum of the hospital bill total (32367.75) and the pharmacy bill (815.00), which equals 33182.75.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000401-DOC01",
+          "quote": "Amount Claimed 33182.75"
+        },
+        {
+          "document_id": "CLAIM-000401-DOC02",
+          "quote": "Total Payable \u20B9 32367.75"
+        },
+        {
+          "document_id": "CLAIM-000401-DOC04",
+          "quote": "Total \u20B9 815.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill location and date context differs",
+      "detail": "The pharmacy invoice is from Noida while the hospital is in Bengaluru, and the pharmacy bill date matches discharge but was issued outside the hospital context.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000401-DOC04",
+          "quote": "12 Station Road, Noida 201301 Date: 06 Nov 2024"
+        },
+        {
+          "document_id": "CLAIM-000401-DOC02",
+          "quote": "Discharge Date 06 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

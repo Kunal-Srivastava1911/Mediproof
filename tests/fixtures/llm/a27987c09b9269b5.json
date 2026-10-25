@@ -1,0 +1,53 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The claim form's amount claimed does not equal the sum of the hospital bill total and pharmacy bills.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable \u20B9 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total \u20B9 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Hospital Bill Discharge Date Differs from Discharge Summary",
+      "detail": "The discharge date on the hospital bill differs from the discharge summary.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Discharge Date 21 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC03",
+          "quote": "Discharge Date 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-09-21",
+          "2024-09-16"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

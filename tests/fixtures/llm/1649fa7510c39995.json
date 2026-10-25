@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claim form amount claimed of 44018.19 exactly matches the sum of the hospital total payable (43180.19) and the pharmacy bill (838.00).",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill date of 22 Oct 2024 falls within the admission window of 21 Oct 2024 to 25 Oct 2024.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The item acknowledges that the numbers actually match and only suggests a non-existent missing report.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is from a different city on the discharge date, indicating an impossible purchase location during hospital discharge.",
+      "verdict": "real_problem"
+    }
+  ]
+}

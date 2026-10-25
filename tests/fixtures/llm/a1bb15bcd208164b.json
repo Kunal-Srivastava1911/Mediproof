@@ -1,0 +1,29 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claim form amount actually matches the sum of the hospital bill total payable and the pharmacy bill.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Being shifted on day 3 of admission means the patient spent day 1 and day 2 in the ICU, which correctly totals 2 days.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy bill references an external prescription that is not included in the hospital records.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The pharmacy bill is from Noida while the patient was hospitalized in Pune during the same dates.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 4,
+      "reason": "The review item only states that things are consistent without identifying any real problem.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

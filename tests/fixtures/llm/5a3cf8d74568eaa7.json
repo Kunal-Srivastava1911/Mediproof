@@ -1,0 +1,78 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital total payable and the pharmacy bill total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000410-DOC01",
+          "quote": "Amount Claimed 77672.87"
+        },
+        {
+          "document_id": "CLAIM-000410-DOC02",
+          "quote": "Total Payable ₹ 76308.87"
+        },
+        {
+          "document_id": "CLAIM-000410-DOC04",
+          "quote": "Total ₹ 1364.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "ICU Stay Duration in Discharge Summary Differs from Bill",
+      "detail": "The discharge summary states the patient was shifted to the ward on day 3 of admission, implying 2 ICU days, whereas the hospital bill charges for 2 ICU days and 2 room rent days (totaling 4 days of stay).",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000410-DOC03",
+          "quote": "Shifted to the ward on day 3 of admission"
+        },
+        {
+          "document_id": "CLAIM-000410-DOC02",
+          "quote": "ICU Charges room 2 9037.17 18074.34"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "3",
+          "2"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy Bill Date Falls Outside Hospital Stay",
+      "detail": "The pharmacy bill is dated 17 Nov 2024, but the pharmacy is located in Bengaluru while the hospital is in Chennai, and outside medicines were purchased before admission or at a distant location.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000410-DOC04",
+          "quote": "Date: 17 Nov 2024"
+        },
+        {
+          "document_id": "CLAIM-000410-DOC01",
+          "quote": "Date of Admission 16/11/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-17",
+          "2024-11-16",
+          "2024-11-20"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

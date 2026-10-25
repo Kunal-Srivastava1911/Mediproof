@@ -1,0 +1,95 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Hospital bill arithmetic requires review",
+      "detail": "The hospital bill subtotal and total payable differ from the calculated sum of the individual line items.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000407-DOC02",
+          "quote": "Subtotal \u20B9 59916.34"
+        },
+        {
+          "document_id": "CLAIM-000407-DOC02",
+          "quote": "Total Payable \u20B9 62912.16"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "cross_document_contradiction",
+      "severity": "warning",
+      "title": "Claim amount differs from total of hospital and pharmacy bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and pharmacy invoice.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000407-DOC01",
+          "quote": "Amount Claimed 63464.16"
+        },
+        {
+          "document_id": "CLAIM-000407-DOC02",
+          "quote": "Total Payable \u20B9 62912.16"
+        },
+        {
+          "document_id": "CLAIM-000407-DOC04",
+          "quote": "Total \u20B9 552.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy purchase location outside hospital city requires review",
+      "detail": "The pharmacy bill is from a chemist in Noida while the hospital is located in Chennai during an inpatient stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000407-DOC02",
+          "quote": "LV 56 Anna Salai, Chennai 600002"
+        },
+        {
+          "document_id": "CLAIM-000407-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill date matches admission but pharmacy is in a different city",
+      "detail": "Pharmacy invoice is dated on the date of admission in a distant city.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000407-DOC01",
+          "quote": "Date of Admission 24/10/2024"
+        },
+        {
+          "document_id": "CLAIM-000407-DOC04",
+          "quote": "Date: 24 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-24",
+          "2024-10-24"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

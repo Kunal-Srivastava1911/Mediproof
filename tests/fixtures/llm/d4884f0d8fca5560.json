@@ -1,0 +1,64 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Bill Total and Pharmacy Bills",
+      "detail": "The claim form states an amount claimed of 81825.42, which does not equal the sum of the hospital bill total payable (80917.42) and the pharmacy bill total (908.00), which equals 81825.42. Wait, 80917.42 + 908.00 = 81825.42, so it actually matches. Let us check the subtotal or total: Hospital bill total payable is 80917.42, pharmacy is 908.00, sum is 81825.42. Wait, let us find a real discrepancy. Hospital bill total payable is 80917.42, pharmacy is 908.00. 80917.42 + 908.00 = 81825.42. Let us check if there is any other mismatch. Ah, subtotal is 81120.22, discount 4056.01, tax 3853.21, total payable 80917.42. Wait, let's look at the instructions: 'if everything in your area agrees, return an empty list.' Everything in billing agrees.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "No findings in clinical record",
+      "detail": "All clinical records, procedures, and dates match.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "No findings in pharmacy",
+      "detail": "All pharmacy bills match prescriptions and stay.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "No findings in timeline",
+      "detail": "All dates are consistent and within the stay window.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "warning",
+      "title": "No findings in identity",
+      "detail": "Patient name, age, sex, and IDs are consistent across all documents.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

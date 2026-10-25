@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Total Bill and Pharmacy",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total and pharmacy bills.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000415-DOC01",
+          "quote": "Amount Claimed 44214.02"
+        },
+        {
+          "document_id": "CLAIM-000415-DOC02",
+          "quote": "Total Payable \u20B9 43692.02"
+        },
+        {
+          "document_id": "CLAIM-000415-DOC04",
+          "quote": "Total \u20B9 522.00"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "44214.02",
+          "44214.02"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Discharge Summary Room Transfer Day Differs from Bill Room Charges",
+      "detail": "The discharge summary states the patient shifted to the ward on day 2 of admission, which conflicts with the billed ICU and ward days.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000415-DOC03",
+          "quote": "Shifted to the ward on day 2 of admission"
+        },
+        {
+          "document_id": "CLAIM-000415-DOC02",
+          "quote": "1 ICU Charges room 1 9023.44\n2 Room Rent (Semi-Private) room 3 3745.92"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "1",
+          "3"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Discharge Prescription Date Differs from Discharge Date",
+      "detail": "The discharge prescription is dated 19 Oct 2024, whereas the admission date is 15 Oct 2024 and discharge is also 19 Oct 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000415-DOC05",
+          "quote": "Date 19 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-19",
+          "2024-10-19"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

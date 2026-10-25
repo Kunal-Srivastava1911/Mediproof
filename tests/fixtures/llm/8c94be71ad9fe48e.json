@@ -1,0 +1,118 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed differs from the sum of hospital bill and pharmacy bills",
+      "detail": "The claim form states an amount claimed of 76939.83, while the hospital bill total payable (75659.83) plus the pharmacy bill total (1280.00) equals 76939.83, but there is a discrepancy with the hospital bill subtotal and calculations.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000313-DOC01",
+          "quote": "Amount Claimed 76939.83"
+        },
+        {
+          "document_id": "CLAIM-000313-DOC02",
+          "quote": "Total Payable ₹ 75659.83"
+        },
+        {
+          "document_id": "CLAIM-000313-DOC04",
+          "quote": "Total ₹ 1280.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "ICU stay duration in hospital bill differs from clinical record description",
+      "detail": "The hospital bill charges for 2 days of ICU, whereas the discharge summary states the patient was managed in the ICU and shifted to the ward on day 3 of admission.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000313-DOC02",
+          "quote": "ICU Charges room 2 8960.91 17921.82"
+        },
+        {
+          "document_id": "CLAIM-000313-DOC03",
+          "quote": "Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "2",
+          "3"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy bill purchased outside hospital lacks matching prescription reference",
+      "detail": "Pharmacy bill from CarePlus Chemists is dated 11 Dec 2024 with reference RX5723, but no corresponding external prescription document with reference RX5723 is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000313-DOC04",
+          "quote": "Rx Ref RX5723"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "RX5723"
+        ]
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill date falls during admission but purchased at an external location",
+      "detail": "Pharmacy bill is dated 11 Dec 2024 from Noida during an admission at a hospital in Pune.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000313-DOC02",
+          "quote": "Admission Date 10 Dec 2024 Discharge Date 14 Dec 2024"
+        },
+        {
+          "document_id": "CLAIM-000313-DOC04",
+          "quote": "Date: 11 Dec 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-12-11",
+          "2024-12-10",
+          "2024-12-14"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "info",
+      "title": "Patient identity is consistent across all documents",
+      "detail": "No discrepancies found in patient identity.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000313-DOC01",
+          "quote": "Insured Name Tanay Sood"
+        },
+        {
+          "document_id": "CLAIM-000313-DOC02",
+          "quote": "Patient Name Tanay Sood"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

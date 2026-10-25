@@ -1,0 +1,57 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount differs from total bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000303-DOC01",
+          "quote": "Amount Claimed 62758.54"
+        },
+        {
+          "document_id": "CLAIM-000303-DOC02",
+          "quote": "Total Payable ₹ 62394.54"
+        },
+        {
+          "document_id": "CLAIM-000303-DOC04",
+          "quote": "Total ₹ 364.00"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "62758.54",
+          "62758.54"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy invoice address and location differs from hospital location",
+      "detail": "The pharmacy bill is from Bengaluru while the hospital and patient are in Noida, and the date falls within the hospital stay while outside.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000303-DOC02",
+          "quote": "Plot 22, Sector 18, Noida 201301"
+        },
+        {
+          "document_id": "CLAIM-000303-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001 Date: 24 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-24",
+          "2024-11-22",
+          "2024-11-25"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

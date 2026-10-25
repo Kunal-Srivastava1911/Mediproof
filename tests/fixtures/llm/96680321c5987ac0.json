@@ -1,0 +1,53 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Total Bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000404-DOC01",
+          "quote": "Amount Claimed 60919.42"
+        },
+        {
+          "document_id": "CLAIM-000404-DOC02",
+          "quote": "Total Payable ₹ 60319.42"
+        },
+        {
+          "document_id": "CLAIM-000404-DOC04",
+          "quote": "Total ₹ 600.00"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "60919.42",
+          "60919.42"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy Bill Address and City Location Mismatch with Hospital Stay",
+      "detail": "The pharmacy bill is from a different city (Bengaluru) than the hospital in Pune during the inpatient stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000404-DOC02",
+          "quote": "SM 3 FC Road, Pune 411004"
+        },
+        {
+          "document_id": "CLAIM-000404-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

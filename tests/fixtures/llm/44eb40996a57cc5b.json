@@ -1,0 +1,76 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total of hospital bill and pharmacy bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital final bill and the outside pharmacy invoice.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable \u20B9 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total \u20B9 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed investigation has no corresponding lab or radiology report in the file",
+      "detail": "Investigation Charges of 2384.56 are billed on the hospital bill, but no matching report is present in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Investigation Charges investigation 1 2384.56 2384.56"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Admission date on claim form differs from hospital bill and discharge summary",
+      "detail": "The admission date reported on the claim form is 10/09/2024, whereas the hospital bill and discharge summary state 13 Sep 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Date of Admission 10/09/2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Admission Date 13 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC03",
+          "quote": "Admission Date 13 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-09-10",
+          "2024-09-13"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

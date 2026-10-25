@@ -1,0 +1,139 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount does not match hospital bill total plus pharmacy bill",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital total payable and the pharmacy invoice total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC01",
+          "quote": "Amount Claimed 58341.26"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC02",
+          "quote": "Total Payable ₹ 57787.26"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC04",
+          "quote": "Total ₹ 554.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed investigation lacks a corresponding report",
+      "detail": "Investigation Charges of 2213.75 are billed on the final bill, but no matching lab report or investigation result is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC02",
+          "quote": "Investigation Charges investigation 1 2213.75 2213.75"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed laboratory reports not mentioned in clinical record narrative",
+      "detail": "Complete Blood Count and Serum Electrolytes reports are present in the file, but are not mentioned in the clinical course narrative of the discharge summary.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC03",
+          "quote": "USG Abdomen on 04 Nov 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy."
+        },
+        {
+          "document_id": "CLAIM-000405-DOC06",
+          "quote": "Panel Complete Blood Count"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC07",
+          "quote": "Panel Serum Electrolytes"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy bill items not supported by discharge prescription",
+      "detail": "Medicines purchased from the outside pharmacy have no corresponding prescription in the file matching the outside pharmacy bill date and invoice.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC04",
+          "quote": "Ceftriaxone Injection 1g B12134 3 78.00 234.00"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC05",
+          "quote": "No: CLAIM-000405-RX Date: 07 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "info",
+      "title": "Claim form admission date format differs from internal documents",
+      "detail": "The admission date on the claim form is formatted as DD/MM/YYYY whereas hospital records use DD Mon YYYY.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC01",
+          "quote": "Date of Admission 04/11/2024"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC02",
+          "quote": "Admission Date 04 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-11-04",
+          "2024-11-04"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "info",
+      "title": "Identity is consistent across all documents",
+      "detail": "No identity discrepancies found.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000405-DOC01",
+          "quote": "Insured Name George Sharaf"
+        },
+        {
+          "document_id": "CLAIM-000405-DOC02",
+          "quote": "Patient Name George Sharaf UHID UHID525402"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

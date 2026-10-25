@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000301-DOC01",
+          "quote": "Amount Claimed 33843.99"
+        },
+        {
+          "document_id": "CLAIM-000301-DOC02",
+          "quote": "Total Payable \u20B9 33486.99"
+        },
+        {
+          "document_id": "CLAIM-000301-DOC04",
+          "quote": "Total \u20B9 357.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy Location Differs from Hospital Location",
+      "detail": "The pharmacy bill is from a different city than the hospital and the patient's admission records.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000301-DOC02",
+          "quote": "3 FC Road, Pune 411004"
+        },
+        {
+          "document_id": "CLAIM-000301-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

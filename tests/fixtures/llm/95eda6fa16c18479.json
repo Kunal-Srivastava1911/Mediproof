@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total (60319.42) and the pharmacy bill (600.00) equals 60919.42, which matches the amount claimed.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is from a different city than the hospital during the inpatient stay, indicating that medicines bought outside the hospital were purchased elsewhere.",
+      "verdict": "real_problem"
+    }
+  ]
+}

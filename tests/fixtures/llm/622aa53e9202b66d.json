@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed differs from sum of bills",
+      "detail": "The claim form amount claimed of 33588.19 differs from the sum of the hospital total payable (33090.19) and pharmacy bill (498.00), which equals 33588.19.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000306-DOC01",
+          "quote": "Amount Claimed 33588.19"
+        },
+        {
+          "document_id": "CLAIM-000306-DOC02",
+          "quote": "Total Payable \u20B9 33090.19"
+        },
+        {
+          "document_id": "CLAIM-000306-DOC04",
+          "quote": "Total \u20B9 498.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy bill location outside hospital city",
+      "detail": "The pharmacy bill is from Bengaluru while the hospital is located in Kolkata during the stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000306-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001"
+        },
+        {
+          "document_id": "CLAIM-000306-DOC02",
+          "quote": "MS 9 Park Street, Kolkata 700016"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

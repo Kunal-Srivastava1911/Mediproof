@@ -1,0 +1,9 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The hospital bill total payable of 42071.70 plus the pharmacy bill of 758.00 equals 42829.70, which exactly matches the claim form amount claimed.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total (60200.77) and the pharmacy bill (678.00) equals 60888.77, which does not match the amount claimed of 60878.77.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The discharge date on the hospital bill is 21 Sep 2024, whereas the discharge summary states 16 Sep 2024, showing a genuine discrepancy in discharge dates.",
+      "verdict": "real_problem"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital total payable (31290.18) and the pharmacy bill (517.00) equals 31807.18, exactly matching the amount claimed.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is dated within the admission window, and checking the geographic location difference is a coverage or administrative policy matter rather than a documentation disagreement.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total (60200.77) and the pharmacy bill (678.00) equals the amount claimed (60878.77), so there is no arithmetic mismatch.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "General investigation charges are billed, but specific lab reports for CBC and serum electrolytes as well as a radiology report are present in the file.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The admission date on the claim form (10/09/2024) genuinely conflicts with the admission date on the hospital bill and discharge summary (13 Sep 2024).",
+      "verdict": "real_problem"
+    }
+  ]
+}

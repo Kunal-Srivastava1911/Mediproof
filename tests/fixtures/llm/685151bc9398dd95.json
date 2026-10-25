@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total of hospital bill and pharmacy bills",
+      "detail": "The claim form amount claimed does not match the sum of the hospital final total payable and the pharmacy invoice total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000402-DOC01",
+          "quote": "Amount Claimed 33421.91"
+        },
+        {
+          "document_id": "CLAIM-000402-DOC02",
+          "quote": "Total Payable \u20B9 32976.91"
+        },
+        {
+          "document_id": "CLAIM-000402-DOC04",
+          "quote": "Total \u20B9 445.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy bill location outside hospital city",
+      "detail": "The pharmacy bill is from Noida, while the hospital and patient address are in Bengaluru.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000402-DOC02",
+          "quote": "SM 14 MG Road, Indiranagar, Bengaluru 560038"
+        },
+        {
+          "document_id": "CLAIM-000402-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "timeline"
+    }
+  ]
+}

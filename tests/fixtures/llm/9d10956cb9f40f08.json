@@ -1,0 +1,29 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The claim form states an amount claimed of 42829.70, whereas the hospital bill total payable is 42071.70 and the pharmacy bill total is 758.00, summing to 42829.70, but the hospital bill final net total payable after discount and tax does not equal the base sum expected by the claim form.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000300-DOC01",
+          "quote": "Amount Claimed 42829.70"
+        },
+        {
+          "document_id": "CLAIM-000300-DOC02",
+          "quote": "Total Payable \u2022 42071.70"
+        },
+        {
+          "document_id": "CLAIM-000300-DOC04",
+          "quote": "Total \u2022 758.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    }
+  ]
+}
