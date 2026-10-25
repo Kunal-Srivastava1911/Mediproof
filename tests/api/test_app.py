@@ -6,17 +6,52 @@ import pytest
 from fastapi.testclient import TestClient
 
 from api.app import create_app
+from api.patient import checklist
 from api.service import _coerce, _resolve_field, apply_correction
 from pipeline.m3_extract.confidence import rule_field
+from pipeline.m3_extract.llm_client import LLMClient
 from schemas.claim import ClaimFile, Correction, DocumentRecord
-from schemas.common import DocType
+from schemas.common import DocType, Severity
 from schemas.documents import ExtractedHospitalBill
+from schemas.findings import Finding, FindingDecision, FindingOrigin, FindingType, ProofQuote
 
 
 def _client(tmp_path) -> TestClient:
+    # Replay-only client over an empty fixture dir: tests never make live Claude calls.
     app = create_app(database_url=f"sqlite:///{tmp_path / 'test.db'}",
-                     storage_dir=str(tmp_path / "uploads"))
+                     storage_dir=str(tmp_path / "uploads"),
+                     llm_client=LLMClient(tmp_path / "llm", live=False))
     return TestClient(app)
+
+
+def _finding(fid, **kw):
+    base = dict(id=fid, type=FindingType.date_inconsistent, severity=Severity.warning,
+                title="t", detail=f"detail {fid}", document_ids=["D1"])
+    return Finding(**{**base, **kw})
+
+
+def test_checklist_shows_only_verified_patient_items(tmp_path):
+    claim = ClaimFile(claim_id="C1", documents=[
+        DocumentRecord(document_id="D1", doc_type=DocType.claim_form, page_range=[0])])
+    claim.findings = [
+        _finding("F-001", origin=FindingOrigin.agent,
+                 proof=[ProofQuote(document_id="D1", quote="Date of Admission 06/09/2024",
+                                   grounded=True)]),
+        _finding("F-002", held_back=True, origin=FindingOrigin.agent),
+        _finding("F-003", type=FindingType.non_payable_consumable, severity=Severity.info,
+                 patient_facing=False),
+        _finding("F-004", decision=FindingDecision.dismissed),
+    ]
+    en = checklist(claim, "en", LLMClient(tmp_path, live=False))
+    assert [i["id"] for i in en["items"]] == ["F-001"]
+    item = en["items"][0]
+    assert item["sources"][0]["quote"] == "Date of Admission 06/09/2024"
+    assert item["sources"][0]["label"] == "Claim form"
+    hi = checklist(claim, "hi", LLMClient(tmp_path, live=False))
+    assert hi["items"][0]["title"] == "आपके दस्तावेज़ों में तारीखें मेल नहीं खातीं"
+    assert hi["detail_translated"] is False   # offline: English detail kept, and flagged
+    for text in (item["title"], item["action"], hi["items"][0]["action"]):
+        assert "fraud" not in text.lower() and "reject" not in text.lower()
 
 
 # ---------------------------------------------------------------- unit (fast)
@@ -86,6 +121,34 @@ def test_upload_process_fetch_and_review(tmp_path, rendered_claim, render_claim_
     assert review.status_code == 200
     updated = review.json()
     assert any(c["new_value"] == "Reviewed Name" for c in updated["corrections"])
+
+
+@pytest.mark.slow
+def test_checklist_decisions_and_offline_chat(tmp_path, render_claim_factory):
+    client = _client(tmp_path)
+    rc = render_claim_factory(42, "claim_form_date_mismatch")
+    with open(rc.merged, "rb") as fh:
+        client.post("/claims", params={"claim_id": "CLAIM-CF"},
+                    files={"file": ("claim.pdf", fh, "application/pdf")})
+
+    listing = client.get("/claims/CLAIM-CF/checklist").json()
+    assert listing["ready"] and "no recorded Claude responses" in listing["audit_note"]
+    titles = [i["title"] for i in listing["items"]]
+    assert "Dates don't match across your documents" in titles
+    assert all(i["sources"] and i["sources"][0]["page"] is not None for i in listing["items"])
+
+    graph = client.get("/claims/CLAIM-CF").json()
+    assert graph["timeline"] and graph["evidence_map"]
+    assert any(ev["conflict"] for ev in graph["timeline"])
+    fid = next(f["id"] for f in graph["findings"] if f["rule_id"] == "claim_form_dates")
+    resp = client.post(f"/claims/CLAIM-CF/findings/{fid}/decision",
+                       json={"decision": "dismissed", "reason": "claim form already fixed"})
+    assert resp.status_code == 200
+    after = client.get("/claims/CLAIM-CF/checklist").json()
+    assert fid not in [i["id"] for i in after["items"]]
+
+    chat = client.post("/claims/CLAIM-CF/ask", json={"question": "Why is my date flagged?"})
+    assert chat.status_code == 503 and "ANTHROPIC_API_KEY" in chat.json()["detail"]
 
 
 @pytest.mark.slow
