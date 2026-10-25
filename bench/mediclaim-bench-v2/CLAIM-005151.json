@@ -1,0 +1,283 @@
+{
+  "claim_id": "CLAIM-005151",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5151,
+  "patient": {
+    "name": "Upadhriti Kannan",
+    "age": 26,
+    "gender": "F",
+    "patient_id": "UHID420784",
+    "phone": "9840602422"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005151-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Upadhriti Kannan",
+      "policy_no": "HLT-20-7990713",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 75176.92
+    },
+    {
+      "document_id": "CLAIM-005151-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Upadhriti Kannan",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID420784",
+        "phone": "9840602422"
+      },
+      "bill_no": "INV/2024/8480",
+      "bill_date": "2024-12-13",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10039.7,
+          "amount": 10039.7,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3249.21,
+          "amount": 9747.63,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 770.04,
+          "amount": 3080.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1189.69,
+          "amount": 4758.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2215.87,
+          "amount": 2215.87,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21084.7,
+          "amount": 21084.7,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8801.91,
+          "amount": 8801.91,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5957.86,
+          "amount": 5957.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 71086.59,
+      "discount": 0.0,
+      "tax": 3554.33,
+      "total": 74640.92
+    },
+    {
+      "document_id": "CLAIM-005151-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Upadhriti Kannan",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID420784",
+        "phone": "9840602422"
+      },
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 09 Dec 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 10 Dec 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005151-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/5972",
+      "bill_date": "2024-12-11",
+      "patient_name": "Upadhriti Kannan",
+      "prescription_ref": "RX4403",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B39511",
+          "quantity": 1.0,
+          "mrp": 142.0,
+          "amount": 142.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B45179",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B91191",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B12652",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 536.0
+    },
+    {
+      "document_id": "CLAIM-005151-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Upadhriti Kannan",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID420784",
+        "phone": "9840602422"
+      },
+      "prescription_date": "2024-12-13",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_lab_report",
+      "severity": "warning",
+      "description": "Bill includes investigation charges but no lab report is present in the file.",
+      "document_ids": [
+        "CLAIM-005151-LAB0",
+        "CLAIM-005151-LAB1",
+        "CLAIM-005151-IMG0"
+      ],
+      "expected_finding": "missing_lab_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-d"
+  }
+}

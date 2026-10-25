@@ -1,0 +1,358 @@
+{
+  "claim_id": "CLAIM-005057",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5057,
+  "patient": {
+    "name": "Qushi Basu",
+    "age": 48,
+    "gender": "F",
+    "patient_id": "UHID581733",
+    "phone": "9426022837"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005057-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Qushi Basu",
+      "policy_no": "HLT-11-6124367",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-28",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 82304.18
+    },
+    {
+      "document_id": "CLAIM-005057-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "bill_no": "INV/2024/8334",
+      "bill_date": "2024-10-28",
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-28",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8902.76,
+          "amount": 8902.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3350.89,
+          "amount": 6701.78,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 830.45,
+          "amount": 2491.35,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1231.78,
+          "amount": 3695.34,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2395.95,
+          "amount": 2395.95,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20311.61,
+          "amount": 20311.61,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8605.6,
+          "amount": 8605.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6490.46,
+          "amount": 6490.46,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20311.61,
+          "amount": 20311.61,
+          "is_non_payable": false
+        }
+      ],
+      "subtotal": 80656.46,
+      "discount": 3017.24,
+      "tax": 3881.96,
+      "total": 81521.18
+    },
+    {
+      "document_id": "CLAIM-005057-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-28",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 25 Oct 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005057-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/5908",
+      "bill_date": "2024-10-27",
+      "patient_name": "Qushi Basu",
+      "prescription_ref": "RX4714",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B90281",
+          "quantity": 3.0,
+          "mrp": 145.0,
+          "amount": 435.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B52944",
+          "quantity": 1.0,
+          "mrp": 24.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B86617",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B20149",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 783.0
+    },
+    {
+      "document_id": "CLAIM-005057-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "prescription_date": "2024-10-28",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005057-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-28",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005057-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-28",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005057-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Qushi Basu",
+        "age": 48,
+        "gender": "F",
+        "patient_id": "UHID581733",
+        "phone": "9426022837"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-28",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "duplicate_billing",
+      "severity": "warning",
+      "description": "Line item 'Surgeon / Procedure Fee' appears more than once on the bill.",
+      "document_ids": [
+        "CLAIM-005057-BILL"
+      ],
+      "expected_finding": "duplicate_line_item"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-e",
+    "lab_report": "lab-a"
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "claim_id": "CLAIM-005115",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5115,
+  "patient": {
+    "name": "Damini Buch",
+    "age": 52,
+    "gender": "F",
+    "patient_id": "UHID597588",
+    "phone": "9553138680"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005115-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Damini Buch",
+      "policy_no": "HLT-90-5746015",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-12-06",
+      "discharge_date": "2024-12-09",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 62218.15
+    },
+    {
+      "document_id": "CLAIM-005115-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Damini Buch",
+        "age": 52,
+        "gender": "F",
+        "patient_id": "UHID597588",
+        "phone": "9553138680"
+      },
+      "bill_no": "INV/2024/2658",
+      "bill_date": "2024-12-09",
+      "admission_date": "2024-12-06",
+      "discharge_date": "2024-12-09",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3507.9,
+          "amount": 10523.7,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 806.41,
+          "amount": 2419.23,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1217.58,
+          "amount": 3652.74,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2523.03,
+          "amount": 2523.03,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21377.09,
+          "amount": 21377.09,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8967.57,
+          "amount": 8967.57,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6621.54,
+          "amount": 6621.54,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 58784.9,
+      "discount": 0.0,
+      "tax": 2939.25,
+      "total": 61724.15
+    },
+    {
+      "document_id": "CLAIM-005115-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Damini Buch",
+        "age": 52,
+        "gender": "F",
+        "patient_id": "UHID597588",
+        "phone": "9553138680"
+      },
+      "admission_date": "2024-12-06",
+      "discharge_date": "2024-12-09",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 06 Dec 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 06 Dec 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005115-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/4890",
+      "bill_date": "2024-12-07",
+      "patient_name": "Damini Buch",
+      "prescription_ref": "RX3884",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B29095",
+          "quantity": 3.0,
+          "mrp": 78.0,
+          "amount": 234.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B47059",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B41748",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B41174",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B50915",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 494.0
+    },
+    {
+      "document_id": "CLAIM-005115-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Damini Buch",
+        "age": 52,
+        "gender": "F",
+        "patient_id": "UHID597588",
+        "phone": "9553138680"
+      },
+      "prescription_date": "2024-12-09",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005115-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Damini Buch",
+        "age": 52,
+        "gender": "F",
+        "patient_id": "UHID597588",
+        "phone": "9553138680"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-09",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005115-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Damini Buch",
+        "age": 52,
+        "gender": "F",
+        "patient_id": "UHID597588",
+        "phone": "9553138680"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-09",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_imaging_report",
+      "severity": "warning",
+      "description": "An imaging study is billed and described in the discharge summary, but its report is not in the file.",
+      "document_ids": [
+        "CLAIM-005115-IMG0"
+      ],
+      "expected_finding": "missing_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-a",
+    "lab_report": "lab-b"
+  }
+}

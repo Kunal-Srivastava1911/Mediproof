@@ -36,17 +36,25 @@ def _cmd_bulk(args: argparse.Namespace) -> None:
     out_root.mkdir(parents=True, exist_ok=True)
     index: list[dict] = []
     n_faulty = 0
-    fault_cycle = list(FaultType)
+    owed: list[FaultType] = []  # balanced mode: families still owed a claim, in order
     for i in range(args.count):
         seed = args.start_seed + i
         claim = sample_claim(seed=seed)
         if args.balanced:
-            # Every k-th claim is faulty; faulty claims cycle through all fault families so
-            # each family gets an equal share (open-world eval needs every family covered).
+            # Every k-th claim is faulty. Each faulty slot takes the first owed family whose
+            # recipe genuinely applies to this claim (an ICU or imaging family needs a claim
+            # with an ICU stay or a study), so every family ends up with an equal share.
             every = max(1, round(1 / args.fault_rate)) if args.fault_rate > 0 else 0
             if every and i % every == every - 1:
-                wanted = fault_cycle[(i // every) % len(fault_cycle)]
-                inject_fault(claim, seed=seed, fault_type=wanted)
+                if not owed:
+                    owed = list(FaultType)
+                for ft in list(owed):
+                    trial = sample_claim(seed=seed)
+                    inject_fault(trial, seed=seed, fault_type=ft)
+                    if trial.faults[0].fault_type is ft:
+                        claim = trial
+                        owed.remove(ft)
+                        break
         else:
             maybe_inject_fault(claim, seed=seed, rate=args.fault_rate)
         n_faulty += not claim.is_clean

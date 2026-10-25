@@ -1,0 +1,350 @@
+{
+  "claim_id": "CLAIM-005133",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5133,
+  "patient": {
+    "name": "Nisha Singh",
+    "age": 42,
+    "gender": "F",
+    "patient_id": "UHID362865",
+    "phone": "9399822574"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005133-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Nisha Singh",
+      "policy_no": "HLT-23-7347580",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-11-09",
+      "discharge_date": "2024-11-12",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 71860.4
+    },
+    {
+      "document_id": "CLAIM-005133-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "bill_no": "INV/2024/9621",
+      "bill_date": "2024-11-12",
+      "admission_date": "2024-11-09",
+      "discharge_date": "2024-11-12",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10232.57,
+          "amount": 10232.57,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3442.22,
+          "amount": 6884.44,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 783.9,
+          "amount": 2351.7,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1230.95,
+          "amount": 3692.85,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2252.71,
+          "amount": 2252.71,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22974.37,
+          "amount": 22974.37,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8508.94,
+          "amount": 8508.94,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5988.28,
+          "amount": 5988.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 63785.86,
+      "discount": 3189.29,
+      "tax": 3029.83,
+      "total": 71126.4
+    },
+    {
+      "document_id": "CLAIM-005133-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "admission_date": "2024-11-09",
+      "discharge_date": "2024-11-12",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 09 Nov 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005133-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/8982",
+      "bill_date": "2024-11-10",
+      "patient_name": "Nisha Singh",
+      "prescription_ref": "RX3421",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B50902",
+          "quantity": 2.0,
+          "mrp": 145.0,
+          "amount": 290.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B32406",
+          "quantity": 1.0,
+          "mrp": 24.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B61531",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B84231",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 734.0
+    },
+    {
+      "document_id": "CLAIM-005133-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "prescription_date": "2024-11-12",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005133-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-12",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005133-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-12",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005133-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Nisha Singh",
+        "age": 42,
+        "gender": "F",
+        "patient_id": "UHID362865",
+        "phone": "9399822574"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-12",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "bill_arithmetic_error",
+      "severity": "warning",
+      "description": "Stated bill total does not equal subtotal - discount + tax.",
+      "document_ids": [
+        "CLAIM-005133-BILL"
+      ],
+      "expected_finding": "bill_arithmetic_mismatch"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-c",
+    "lab_report": "lab-a"
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "claim_id": "CLAIM-005157",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5157,
+  "patient": {
+    "name": "Alka Oommen",
+    "age": 25,
+    "gender": "F",
+    "patient_id": "UHID200051",
+    "phone": "9484269807"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005157-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Alka Oommen",
+      "policy_no": "HLT-96-8045136",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-29",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 84605.83
+    },
+    {
+      "document_id": "CLAIM-005157-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "bill_no": "INV/2024/6668",
+      "bill_date": "2024-10-29",
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-29",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8767.4,
+          "amount": 8767.4,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3538.17,
+          "amount": 10614.51,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 836.51,
+          "amount": 3346.04,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1130.81,
+          "amount": 4523.24,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2538.46,
+          "amount": 2538.46,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22214.79,
+          "amount": 22214.79,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9338.1,
+          "amount": 9338.1,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6336.82,
+          "amount": 6336.82,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 72929.36,
+      "discount": 0.0,
+      "tax": 3646.47,
+      "total": 84075.83
+    },
+    {
+      "document_id": "CLAIM-005157-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "admission_date": "2024-10-25",
+      "discharge_date": "2024-10-29",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 25 Oct 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 26 Oct 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005157-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/9052",
+      "bill_date": "2024-10-27",
+      "patient_name": "Alka Oommen",
+      "prescription_ref": "RX6364",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B33022",
+          "quantity": 2.0,
+          "mrp": 142.0,
+          "amount": 284.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B79976",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B64417",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B67809",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 530.0
+    },
+    {
+      "document_id": "CLAIM-005157-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "prescription_date": "2024-10-29",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005157-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-29",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005157-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-29",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005157-IMG0",
+      "template_id": "hospital-a",
+      "doc_type": "lab_report",
+      "lab_name": "Sunrise Multispeciality Hospital Radiology",
+      "patient": {
+        "name": "Alka Oommen",
+        "age": 25,
+        "gender": "F",
+        "patient_id": "UHID200051",
+        "phone": "9484269807"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-26",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "bill_arithmetic_error",
+      "severity": "warning",
+      "description": "Stated bill total does not equal subtotal - discount + tax.",
+      "document_ids": [
+        "CLAIM-005157-BILL"
+      ],
+      "expected_finding": "bill_arithmetic_mismatch"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-b"
+  }
+}

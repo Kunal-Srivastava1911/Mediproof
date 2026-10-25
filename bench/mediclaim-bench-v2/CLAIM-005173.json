@@ -1,0 +1,298 @@
+{
+  "claim_id": "CLAIM-005173",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5173,
+  "patient": {
+    "name": "Vidhi Barad",
+    "age": 47,
+    "gender": "F",
+    "patient_id": "UHID564975",
+    "phone": "9456714947"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005173-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Vidhi Barad",
+      "policy_no": "HLT-56-4307310",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 83538.06
+    },
+    {
+      "document_id": "CLAIM-005173-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vidhi Barad",
+        "age": 47,
+        "gender": "F",
+        "patient_id": "UHID564975",
+        "phone": "9456714947"
+      },
+      "bill_no": "INV/2024/1462",
+      "bill_date": "2024-09-27",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 10161.9,
+          "amount": 20323.8,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3595.79,
+          "amount": 7191.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 794.67,
+          "amount": 3178.68,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1199.29,
+          "amount": 4797.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2490.3,
+          "amount": 2490.3,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21652.83,
+          "amount": 21652.83,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8481.16,
+          "amount": 8481.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6345.02,
+          "amount": 6345.02,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 78410.53,
+      "discount": 0.0,
+      "tax": 3920.53,
+      "total": 82331.06
+    },
+    {
+      "document_id": "CLAIM-005173-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vidhi Barad",
+        "age": 47,
+        "gender": "F",
+        "patient_id": "UHID564975",
+        "phone": "9456714947"
+      },
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 23 Sep 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 24 Sep 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005173-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/7661",
+      "bill_date": "2024-09-25",
+      "patient_name": "Vidhi Barad",
+      "prescription_ref": "RX6337",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B76991",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B53839",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B90057",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B81400",
+          "quantity": 2.0,
+          "mrp": 310.0,
+          "amount": 620.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B52043",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        }
+      ],
+      "total": 1207.0
+    },
+    {
+      "document_id": "CLAIM-005173-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vidhi Barad",
+        "age": 47,
+        "gender": "F",
+        "patient_id": "UHID564975",
+        "phone": "9456714947"
+      },
+      "prescription_date": "2024-09-27",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_lab_report",
+      "severity": "warning",
+      "description": "Bill includes investigation charges but no lab report is present in the file.",
+      "document_ids": [
+        "CLAIM-005173-LAB0",
+        "CLAIM-005173-LAB1",
+        "CLAIM-005173-LAB2",
+        "CLAIM-005173-IMG0"
+      ],
+      "expected_finding": "missing_lab_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-d"
+  }
+}

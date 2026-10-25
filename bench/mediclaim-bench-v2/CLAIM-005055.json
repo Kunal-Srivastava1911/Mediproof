@@ -1,0 +1,368 @@
+{
+  "claim_id": "CLAIM-005055",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5055,
+  "patient": {
+    "name": "Dhriti Wagle",
+    "age": 74,
+    "gender": "F",
+    "patient_id": "UHID342053",
+    "phone": "9366678097"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005055-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Dhriti Wagle",
+      "policy_no": "HLT-74-4842022",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-11-30",
+      "discharge_date": "2024-12-04",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 79221.56
+    },
+    {
+      "document_id": "CLAIM-005055-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "bill_no": "INV/2024/5093",
+      "bill_date": "2024-12-04",
+      "admission_date": "2024-11-30",
+      "discharge_date": "2024-12-04",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10020.91,
+          "amount": 10020.91,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3416.0,
+          "amount": 10248.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 845.39,
+          "amount": 3381.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1144.0,
+          "amount": 4576.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2362.92,
+          "amount": 2362.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 23180.35,
+          "amount": 23180.35,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8836.22,
+          "amount": 8836.22,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6662.67,
+          "amount": 6662.67,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 74818.63,
+      "discount": 0.0,
+      "tax": 3740.93,
+      "total": 78559.56
+    },
+    {
+      "document_id": "CLAIM-005055-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "admission_date": "2024-11-30",
+      "discharge_date": "2024-12-04",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 30 Nov 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 01 Dec 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005055-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/1013",
+      "bill_date": "2024-12-02",
+      "patient_name": "Dhriti Wagle",
+      "prescription_ref": "RX6595",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B84532",
+          "quantity": 2.0,
+          "mrp": 142.0,
+          "amount": 284.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B82686",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B48477",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B78189",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B47745",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 662.0
+    },
+    {
+      "document_id": "CLAIM-005055-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "prescription_date": "2024-12-04",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005055-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-04",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005055-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-04",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005055-IMG0",
+      "template_id": "hospital-a",
+      "doc_type": "lab_report",
+      "lab_name": "Sunrise Multispeciality Hospital Radiology",
+      "patient": {
+        "name": "Dhriti Wagle",
+        "age": 74,
+        "gender": "F",
+        "patient_id": "UHID342053",
+        "phone": "9366678097"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-01",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "drug_diagnosis_mismatch",
+      "severity": "critical",
+      "description": "'Clopidogrel' billed but the recorded diagnosis does not support it.",
+      "document_ids": [
+        "CLAIM-005055-PHARM",
+        "CLAIM-005055-DISCH"
+      ],
+      "expected_finding": "drug_diagnosis_implausible"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-b"
+  }
+}

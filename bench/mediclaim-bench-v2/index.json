@@ -1,0 +1,3350 @@
+[
+  {
+    "claim_id": "CLAIM-005000",
+    "seed": 5000,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005001",
+    "seed": 5001,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005002",
+    "seed": 5002,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005003",
+    "seed": 5003,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005004",
+    "seed": 5004,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005005",
+    "seed": 5005,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005006",
+    "seed": 5006,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005007",
+    "seed": 5007,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005008",
+    "seed": 5008,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005009",
+    "seed": 5009,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005010",
+    "seed": 5010,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005011",
+    "seed": 5011,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005012",
+    "seed": 5012,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005013",
+    "seed": 5013,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005014",
+    "seed": 5014,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005015",
+    "seed": 5015,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005016",
+    "seed": 5016,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005017",
+    "seed": 5017,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005018",
+    "seed": 5018,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005019",
+    "seed": 5019,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005020",
+    "seed": 5020,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005021",
+    "seed": 5021,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005022",
+    "seed": 5022,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005023",
+    "seed": 5023,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005024",
+    "seed": 5024,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005025",
+    "seed": 5025,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005026",
+    "seed": 5026,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005027",
+    "seed": 5027,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005028",
+    "seed": 5028,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005029",
+    "seed": 5029,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005030",
+    "seed": 5030,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005031",
+    "seed": 5031,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005032",
+    "seed": 5032,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005033",
+    "seed": 5033,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005034",
+    "seed": 5034,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005035",
+    "seed": 5035,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005036",
+    "seed": 5036,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005037",
+    "seed": 5037,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005038",
+    "seed": 5038,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005039",
+    "seed": 5039,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005040",
+    "seed": 5040,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005041",
+    "seed": 5041,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005042",
+    "seed": 5042,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005043",
+    "seed": 5043,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005044",
+    "seed": 5044,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005045",
+    "seed": 5045,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005046",
+    "seed": 5046,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005047",
+    "seed": 5047,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005048",
+    "seed": 5048,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005049",
+    "seed": 5049,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005050",
+    "seed": 5050,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005051",
+    "seed": 5051,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005052",
+    "seed": 5052,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005053",
+    "seed": 5053,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005054",
+    "seed": 5054,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005055",
+    "seed": 5055,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005056",
+    "seed": 5056,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005057",
+    "seed": 5057,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005058",
+    "seed": 5058,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005059",
+    "seed": 5059,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005060",
+    "seed": 5060,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005061",
+    "seed": 5061,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005062",
+    "seed": 5062,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005063",
+    "seed": 5063,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005064",
+    "seed": 5064,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005065",
+    "seed": 5065,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005066",
+    "seed": 5066,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005067",
+    "seed": 5067,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005068",
+    "seed": 5068,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005069",
+    "seed": 5069,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005070",
+    "seed": 5070,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005071",
+    "seed": 5071,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005072",
+    "seed": 5072,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005073",
+    "seed": 5073,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005074",
+    "seed": 5074,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005075",
+    "seed": 5075,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005076",
+    "seed": 5076,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005077",
+    "seed": 5077,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005078",
+    "seed": 5078,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005079",
+    "seed": 5079,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005080",
+    "seed": 5080,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005081",
+    "seed": 5081,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005082",
+    "seed": 5082,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005083",
+    "seed": 5083,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005084",
+    "seed": 5084,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005085",
+    "seed": 5085,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005086",
+    "seed": 5086,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005087",
+    "seed": 5087,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005088",
+    "seed": 5088,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005089",
+    "seed": 5089,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005090",
+    "seed": 5090,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005091",
+    "seed": 5091,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005092",
+    "seed": 5092,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005093",
+    "seed": 5093,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005094",
+    "seed": 5094,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005095",
+    "seed": 5095,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005096",
+    "seed": 5096,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005097",
+    "seed": 5097,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005098",
+    "seed": 5098,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005099",
+    "seed": 5099,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005100",
+    "seed": 5100,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005101",
+    "seed": 5101,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005102",
+    "seed": 5102,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005103",
+    "seed": 5103,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005104",
+    "seed": 5104,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005105",
+    "seed": 5105,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005106",
+    "seed": 5106,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005107",
+    "seed": 5107,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005108",
+    "seed": 5108,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005109",
+    "seed": 5109,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005110",
+    "seed": 5110,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005111",
+    "seed": 5111,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005112",
+    "seed": 5112,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005113",
+    "seed": 5113,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005114",
+    "seed": 5114,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005115",
+    "seed": 5115,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005116",
+    "seed": 5116,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005117",
+    "seed": 5117,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005118",
+    "seed": 5118,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005119",
+    "seed": 5119,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005120",
+    "seed": 5120,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005121",
+    "seed": 5121,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005122",
+    "seed": 5122,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005123",
+    "seed": 5123,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005124",
+    "seed": 5124,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005125",
+    "seed": 5125,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005126",
+    "seed": 5126,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005127",
+    "seed": 5127,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005128",
+    "seed": 5128,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005129",
+    "seed": 5129,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005130",
+    "seed": 5130,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005131",
+    "seed": 5131,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005132",
+    "seed": 5132,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005133",
+    "seed": 5133,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005134",
+    "seed": 5134,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005135",
+    "seed": 5135,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005136",
+    "seed": 5136,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005137",
+    "seed": 5137,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005138",
+    "seed": 5138,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005139",
+    "seed": 5139,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005140",
+    "seed": 5140,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005141",
+    "seed": 5141,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005142",
+    "seed": 5142,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005143",
+    "seed": 5143,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005144",
+    "seed": 5144,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005145",
+    "seed": 5145,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005146",
+    "seed": 5146,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005147",
+    "seed": 5147,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005148",
+    "seed": 5148,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005149",
+    "seed": 5149,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005150",
+    "seed": 5150,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005151",
+    "seed": 5151,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005152",
+    "seed": 5152,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005153",
+    "seed": 5153,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005154",
+    "seed": 5154,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005155",
+    "seed": 5155,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005156",
+    "seed": 5156,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005157",
+    "seed": 5157,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005158",
+    "seed": 5158,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005159",
+    "seed": 5159,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005160",
+    "seed": 5160,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005161",
+    "seed": 5161,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005162",
+    "seed": 5162,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005163",
+    "seed": 5163,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005164",
+    "seed": 5164,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005165",
+    "seed": 5165,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005166",
+    "seed": 5166,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005167",
+    "seed": 5167,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005168",
+    "seed": 5168,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005169",
+    "seed": 5169,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005170",
+    "seed": 5170,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005171",
+    "seed": 5171,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005172",
+    "seed": 5172,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005173",
+    "seed": 5173,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005174",
+    "seed": 5174,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005175",
+    "seed": 5175,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005176",
+    "seed": 5176,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005177",
+    "seed": 5177,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005178",
+    "seed": 5178,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005179",
+    "seed": 5179,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005180",
+    "seed": 5180,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005181",
+    "seed": 5181,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005182",
+    "seed": 5182,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005183",
+    "seed": 5183,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005184",
+    "seed": 5184,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005185",
+    "seed": 5185,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005186",
+    "seed": 5186,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005187",
+    "seed": 5187,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005188",
+    "seed": 5188,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005189",
+    "seed": 5189,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005190",
+    "seed": 5190,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005191",
+    "seed": 5191,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005192",
+    "seed": 5192,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005193",
+    "seed": 5193,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005194",
+    "seed": 5194,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005195",
+    "seed": 5195,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005196",
+    "seed": 5196,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005197",
+    "seed": 5197,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005198",
+    "seed": 5198,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005199",
+    "seed": 5199,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005200",
+    "seed": 5200,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005201",
+    "seed": 5201,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005202",
+    "seed": 5202,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005203",
+    "seed": 5203,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005204",
+    "seed": 5204,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005205",
+    "seed": 5205,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005206",
+    "seed": 5206,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005207",
+    "seed": 5207,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005208",
+    "seed": 5208,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005209",
+    "seed": 5209,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005210",
+    "seed": 5210,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005211",
+    "seed": 5211,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "missing_imaging_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005212",
+    "seed": 5212,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005213",
+    "seed": 5213,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005214",
+    "seed": 5214,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005215",
+    "seed": 5215,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005216",
+    "seed": 5216,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005217",
+    "seed": 5217,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005218",
+    "seed": 5218,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005219",
+    "seed": 5219,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "inflated_line_item"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005220",
+    "seed": 5220,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005221",
+    "seed": 5221,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005222",
+    "seed": 5222,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005223",
+    "seed": 5223,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-a"
+    },
+    "faults": [
+      "missing_lab_report"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005224",
+    "seed": 5224,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005225",
+    "seed": 5225,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "duplicate_billing"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005226",
+    "seed": 5226,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-a",
+      "discharge_summary": "hospital-a",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-a",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005227",
+    "seed": 5227,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-b",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "drug_diagnosis_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005228",
+    "seed": 5228,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005229",
+    "seed": 5229,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005230",
+    "seed": 5230,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005231",
+    "seed": 5231,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "bill_arithmetic_error"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005232",
+    "seed": 5232,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005233",
+    "seed": 5233,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "claim_form_date_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005234",
+    "seed": 5234,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-d",
+      "discharge_summary": "hospital-d",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-d",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005235",
+    "seed": 5235,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-b",
+      "discharge_summary": "hospital-b",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-b",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "pharmacy_after_discharge"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005236",
+    "seed": 5236,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-e",
+      "discharge_summary": "hospital-e",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-e",
+      "lab_report": "lab-b"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005237",
+    "seed": 5237,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": [
+      "icu_days_mismatch"
+    ]
+  },
+  {
+    "claim_id": "CLAIM-005238",
+    "seed": 5238,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-b",
+      "prescription": "hospital-c",
+      "lab_report": "lab-a"
+    },
+    "faults": []
+  },
+  {
+    "claim_id": "CLAIM-005239",
+    "seed": 5239,
+    "template_meta": {
+      "claim_form": "claimform-a",
+      "hospital_bill": "hospital-c",
+      "discharge_summary": "hospital-c",
+      "pharmacy_bill": "pharmacy-a",
+      "prescription": "hospital-c",
+      "lab_report": "lab-b"
+    },
+    "faults": [
+      "name_variant"
+    ]
+  }
+]

@@ -1,0 +1,351 @@
+{
+  "claim_id": "CLAIM-005233",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5233,
+  "patient": {
+    "name": "Kritika De",
+    "age": 28,
+    "gender": "F",
+    "patient_id": "UHID891509",
+    "phone": "9567458799"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005233-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Kritika De",
+      "policy_no": "HLT-84-8094169",
+      "hospital_name": "Greenfield Care Institute",
+      "admission_date": "2024-09-04",
+      "discharge_date": "2024-09-10",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 68412.76
+    },
+    {
+      "document_id": "CLAIM-005233-BILL",
+      "template_id": "hospital-b",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "bill_no": "INV/2024/5275",
+      "bill_date": "2024-09-10",
+      "admission_date": "2024-09-07",
+      "discharge_date": "2024-09-10",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10096.57,
+          "amount": 10096.57,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3695.37,
+          "amount": 7390.74,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 851.91,
+          "amount": 2555.73,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1236.4,
+          "amount": 3709.2,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2279.05,
+          "amount": 2279.05,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21665.21,
+          "amount": 21665.21,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9513.33,
+          "amount": 9513.33,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6467.56,
+          "amount": 6467.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 64727.39,
+      "discount": 0.0,
+      "tax": 3236.37,
+      "total": 67963.76
+    },
+    {
+      "document_id": "CLAIM-005233-DISCH",
+      "template_id": "hospital-b",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "admission_date": "2024-09-07",
+      "discharge_date": "2024-09-10",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 07 Sep 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005233-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/3524",
+      "bill_date": "2024-09-07",
+      "patient_name": "Kritika De",
+      "prescription_ref": "RX3008",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B60731",
+          "quantity": 1.0,
+          "mrp": 145.0,
+          "amount": 145.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B57822",
+          "quantity": 1.0,
+          "mrp": 24.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B98152",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B81370",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 449.0
+    },
+    {
+      "document_id": "CLAIM-005233-RX",
+      "template_id": "hospital-b",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "prescription_date": "2024-09-10",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005233-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005233-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005233-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Kritika De",
+        "age": 28,
+        "gender": "F",
+        "patient_id": "UHID891509",
+        "phone": "9567458799"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "claim_form_date_mismatch",
+      "severity": "warning",
+      "description": "Admission date on the claim form differs from the hospital bill and discharge summary.",
+      "document_ids": [
+        "CLAIM-005233-CF",
+        "CLAIM-005233-BILL"
+      ],
+      "expected_finding": "date_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-b",
+    "discharge_summary": "hospital-b",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-b",
+    "lab_report": "lab-b"
+  }
+}

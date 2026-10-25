@@ -1,0 +1,350 @@
+{
+  "claim_id": "CLAIM-005085",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5085,
+  "patient": {
+    "name": "Raghav Suresh",
+    "age": 23,
+    "gender": "M",
+    "patient_id": "UHID499836",
+    "phone": "9932029132"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005085-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Raghav Suresh",
+      "policy_no": "HLT-56-2027465",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-11-26",
+      "discharge_date": "2024-11-29",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 73359.26
+    },
+    {
+      "document_id": "CLAIM-005085-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "bill_no": "INV/2024/3843",
+      "bill_date": "2024-11-29",
+      "admission_date": "2024-11-26",
+      "discharge_date": "2024-11-29",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8886.43,
+          "amount": 8886.43,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3483.53,
+          "amount": 6967.06,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 837.59,
+          "amount": 2512.77,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1291.57,
+          "amount": 3874.71,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2441.08,
+          "amount": 2441.08,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21688.86,
+          "amount": 21688.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8930.45,
+          "amount": 8930.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6110.79,
+          "amount": 6110.79,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 62162.15,
+      "discount": 0.0,
+      "tax": 3108.11,
+      "total": 72770.26
+    },
+    {
+      "document_id": "CLAIM-005085-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "admission_date": "2024-11-26",
+      "discharge_date": "2024-11-29",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 26 Nov 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005085-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6870",
+      "bill_date": "2024-11-27",
+      "patient_name": "Raghav Suresh",
+      "prescription_ref": "RX2820",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B14197",
+          "quantity": 1.0,
+          "mrp": 145.0,
+          "amount": 145.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B11582",
+          "quantity": 1.0,
+          "mrp": 24.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B93220",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B52787",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 589.0
+    },
+    {
+      "document_id": "CLAIM-005085-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "prescription_date": "2024-11-29",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005085-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-29",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005085-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-29",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005085-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Raghav Suresh",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID499836",
+        "phone": "9932029132"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-29",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "bill_arithmetic_error",
+      "severity": "warning",
+      "description": "Stated bill total does not equal subtotal - discount + tax.",
+      "document_ids": [
+        "CLAIM-005085-BILL"
+      ],
+      "expected_finding": "bill_arithmetic_mismatch"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

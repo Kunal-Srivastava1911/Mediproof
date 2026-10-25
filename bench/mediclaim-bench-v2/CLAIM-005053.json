@@ -1,0 +1,298 @@
+{
+  "claim_id": "CLAIM-005053",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5053,
+  "patient": {
+    "name": "Saumya Basak",
+    "age": 26,
+    "gender": "F",
+    "patient_id": "UHID166038",
+    "phone": "9693280739"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005053-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Saumya Basak",
+      "policy_no": "HLT-43-1463321",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-10-14",
+      "discharge_date": "2024-10-18",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 82299.85
+    },
+    {
+      "document_id": "CLAIM-005053-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Saumya Basak",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID166038",
+        "phone": "9693280739"
+      },
+      "bill_no": "INV/2024/1127",
+      "bill_date": "2024-10-18",
+      "admission_date": "2024-10-14",
+      "discharge_date": "2024-10-18",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9948.86,
+          "amount": 19897.72,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3233.12,
+          "amount": 6466.24,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 750.23,
+          "amount": 3000.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1259.98,
+          "amount": 5039.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2524.36,
+          "amount": 2524.36,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20486.54,
+          "amount": 20486.54,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8964.59,
+          "amount": 8964.59,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6907.66,
+          "amount": 6907.66,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 77537.95,
+      "discount": 0.0,
+      "tax": 3876.9,
+      "total": 81414.85
+    },
+    {
+      "document_id": "CLAIM-005053-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Saumya Basak",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID166038",
+        "phone": "9693280739"
+      },
+      "admission_date": "2024-10-14",
+      "discharge_date": "2024-10-18",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 14 Oct 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 15 Oct 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005053-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/2666",
+      "bill_date": "2024-10-15",
+      "patient_name": "Saumya Basak",
+      "prescription_ref": "RX4026",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B97606",
+          "quantity": 1.0,
+          "mrp": 12.0,
+          "amount": 12.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B40705",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B46495",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B54753",
+          "quantity": 1.0,
+          "mrp": 310.0,
+          "amount": 310.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B59952",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        }
+      ],
+      "total": 885.0
+    },
+    {
+      "document_id": "CLAIM-005053-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Saumya Basak",
+        "age": 26,
+        "gender": "F",
+        "patient_id": "UHID166038",
+        "phone": "9693280739"
+      },
+      "prescription_date": "2024-10-18",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_lab_report",
+      "severity": "warning",
+      "description": "Bill includes investigation charges but no lab report is present in the file.",
+      "document_ids": [
+        "CLAIM-005053-LAB0",
+        "CLAIM-005053-LAB1",
+        "CLAIM-005053-LAB2",
+        "CLAIM-005053-IMG0"
+      ],
+      "expected_finding": "missing_lab_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-e"
+  }
+}

@@ -38,7 +38,14 @@ switch ($Target) {
     "test-m1"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m1_ingest.py -v }
     "test-m2"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m2_segment.py -v }
     "test-m3"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m3_extract.py tests/pipeline/test_m3_grounding.py -v }
-    "test-m4"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m4_audit.py -v }
+    "test-m4"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m4_audit.py tests/pipeline/test_m4_agents.py -v }
+    "bench"          { Need-Venv; & $Py -m datagen.cli bulk --count 240 --start-seed 5000 --fault-rate 0.5 --balanced --gt-only --out bench/mediclaim-bench-v2 }
+    "calibrate"      { Need-Venv; & $Py -m evals.cli --out data/bench_eval --calibrate 20 --alpha 0.1 }
+    "eval-live"      {
+        Need-Venv
+        $env:LLM_LIVE = "1"
+        & $Py -m evals.cli --out data/bench_eval --calibrate 20 --alpha 0.1 --readme README.md --results evals/RESULTS.md
+    }
     "test-m5"        { Need-Venv; & $Py -m pytest tests/pipeline/test_m5_complete.py -v }
     "eval"           { Need-Venv; & $Py -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md }
     "api"            { Need-Venv; & $Py -m uvicorn api.app:app --reload }

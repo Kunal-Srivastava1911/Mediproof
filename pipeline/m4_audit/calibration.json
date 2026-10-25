@@ -1,0 +1,8 @@
+{
+  "threshold": 0.6,
+  "feasible": false,
+  "alpha": 0.1,
+  "n_calibration": 0,
+  "reason": "default: not yet calibrated. Run `make calibrate` (needs recorded or live Claude responses) to replace it with a conformal threshold.",
+  "method": "conformal risk control: P(clean claim shows >= 1 agent item) <= alpha"
+}
