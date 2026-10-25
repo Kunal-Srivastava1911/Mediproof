@@ -94,6 +94,16 @@ def test_narrative_agrees_with_the_bill(seed):
         assert study in billed and study in imaging_reports and study in disch.course_in_hospital
 
 
+@pytest.mark.parametrize("seed", range(1, 40))
+def test_only_surgical_admissions_bill_procedure_fees(seed):
+    claim = sample_claim(seed=seed)
+    bill = _docs_by_type(claim, HospitalBillGT)[0]
+    disch = _docs_by_type(claim, DischargeSummaryGT)[0]
+    scenario = next(s for s in fd.SCENARIOS if s.diagnosis_text == disch.diagnosis_text)
+    billed_procedure = any(i.category.value == "procedure" for i in bill.line_items)
+    assert billed_procedure == scenario.surgical
+
+
 def test_clean_claim_has_no_faults():
     claim = sample_claim(seed=GOLDEN_SEED)
     assert claim.faults == []

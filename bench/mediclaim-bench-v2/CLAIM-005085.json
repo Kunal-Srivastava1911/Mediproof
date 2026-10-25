@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Raghav Suresh",
-      "policy_no": "HLT-56-2027465",
+      "policy_no": "HLT-24-7120330",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-26",
       "discharge_date": "2024-11-29",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 73359.26
+      "claimed_amount": 41282.62
     },
     {
       "document_id": "CLAIM-005085-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID499836",
         "phone": "9932029132"
       },
-      "bill_no": "INV/2024/3843",
+      "bill_no": "INV/2024/8127",
       "bill_date": "2024-11-29",
       "admission_date": "2024-11-26",
       "discharge_date": "2024-11-29",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21688.86,
-          "amount": 21688.86,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8930.45,
-          "amount": 8930.45,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6110.79,
-          "amount": 6110.79,
+          "unit_price": 6309.49,
+          "amount": 6309.49,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 62162.15,
+      "subtotal": 31741.54,
       "discount": 0.0,
-      "tax": 3108.11,
-      "total": 72770.26
+      "tax": 1587.08,
+      "total": 40828.62
     },
     {
       "document_id": "CLAIM-005085-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/6870",
+      "bill_no": "PH/2024/6348",
       "bill_date": "2024-11-27",
       "patient_name": "Raghav Suresh",
-      "prescription_ref": "RX2820",
+      "prescription_ref": "RX6870",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B14197",
-          "quantity": 1.0,
+          "batch_no": "B32751",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B11582",
+          "batch_no": "B23761",
           "quantity": 1.0,
           "mrp": 24.0,
           "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B93220",
-          "quantity": 3.0,
+          "batch_no": "B26414",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B52787",
-          "quantity": 3.0,
+          "batch_no": "B83659",
+          "quantity": 1.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 44.0
         }
       ],
-      "total": 589.0
+      "total": 454.0
     },
     {
       "document_id": "CLAIM-005085-RX",

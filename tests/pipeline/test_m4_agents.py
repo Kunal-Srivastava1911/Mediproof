@@ -152,6 +152,41 @@ def test_agent_repeating_a_rule_corroborates_it(render_claim_factory, tmp_path):
     assert "Timeline agent (agreed)" in rule.verified_by
 
 
+def test_combined_mode_is_one_call_and_keeps_areas(tmp_path):
+    from pipeline.m4_audit.agents import run_specialists
+
+    class _OneCall(LLMClient):
+        def complete_json(self, system, content, schema, *, key=None, max_tokens=16000):
+            self.calls += 1
+            assert "area" in schema["properties"]["findings"]["items"]["required"]
+            return {"findings": [{"area": "timeline", "type": "date_inconsistent",
+                                  "severity": "warning", "title": "t", "detail": "d",
+                                  "quotes": [{"document_id": "D", "quote": "q"}],
+                                  "check": {"kind": "none", "values": []}}]}
+
+    client = _OneCall(tmp_path, live=False)
+    client.agent_mode = "combined"
+    run = run_specialists(client, "dossier")
+    assert client.calls == 1 and run.agents_run == list(AGENT_ROLES)
+    assert [p.agent for p in run.proposals] == ["timeline"]
+
+
+def test_exhausted_quota_stops_further_agent_calls(tmp_path):
+    from pipeline.m4_audit.agents import run_specialists
+
+    class _Exhausted(LLMClient):
+        def complete_json(self, *a, **k):
+            self.calls += 1
+            self.quota_exhausted = True
+            raise RuntimeError("429")
+
+    client = _Exhausted(tmp_path, live=False)
+    client.agent_mode = "separate"
+    run = run_specialists(client, "dossier")
+    assert client.calls == 1 and not run.agents_run
+    assert sum("quota exhausted" in s for s in run.skipped) == 4
+
+
 @pytest.mark.slow
 def test_no_fixtures_means_rules_only_with_a_note(icu_claim, tmp_path):
     rc, ir, recs = icu_claim

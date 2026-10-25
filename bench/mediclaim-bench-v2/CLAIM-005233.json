@@ -20,7 +20,7 @@
       "admission_date": "2024-09-04",
       "discharge_date": "2024-09-10",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 68412.76
+      "claimed_amount": 35502.1
     },
     {
       "document_id": "CLAIM-005233-BILL",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21665.21,
-          "amount": 21665.21,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9513.33,
-          "amount": 9513.33,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6467.56,
-          "amount": 6467.56,
+          "unit_price": 6302.61,
+          "amount": 6302.61,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 64727.39,
+      "subtotal": 33383.9,
       "discount": 0.0,
-      "tax": 3236.37,
-      "total": 67963.76
+      "tax": 1669.2,
+      "total": 35053.1
     },
     {
       "document_id": "CLAIM-005233-DISCH",

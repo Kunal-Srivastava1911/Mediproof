@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Oviya Guha",
-      "policy_no": "HLT-88-5631271",
+      "policy_no": "HLT-51-5631271",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-11-13",
       "discharge_date": "2024-11-16",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 65073.93
+      "claimed_amount": 32913.92
     },
     {
       "document_id": "CLAIM-005222-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID737803",
         "phone": "9318482685"
       },
-      "bill_no": "INV/2024/9413",
+      "bill_no": "INV/2024/3068",
       "bill_date": "2024-11-16",
       "admission_date": "2024-11-13",
       "discharge_date": "2024-11-16",
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20936.36,
-          "amount": 20936.36,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9105.14,
-          "amount": 9105.14,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6699.56,
-          "amount": 6699.56,
+          "unit_price": 6090.58,
+          "amount": 6090.58,
           "is_non_payable": false
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         },
         {
           "description": "Attendant Meal Charges",
@@ -122,12 +98,20 @@
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 61436.12,
+      "subtotal": 30785.64,
       "discount": 0.0,
-      "tax": 3071.81,
-      "total": 64507.93
+      "tax": 1539.28,
+      "total": 32324.92
     },
     {
       "document_id": "CLAIM-005222-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/8281",
+      "bill_no": "PH/2024/6404",
       "bill_date": "2024-11-14",
       "patient_name": "Oviya Guha",
-      "prescription_ref": "RX6275",
+      "prescription_ref": "RX8281",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B98970",
-          "quantity": 2.0,
+          "batch_no": "B77311",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B82069",
-          "quantity": 2.0,
+          "batch_no": "B42769",
+          "quantity": 1.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B93664",
-          "quantity": 1.0,
+          "batch_no": "B49422",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B53239",
+          "batch_no": "B25448",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 566.0
+      "total": 589.0
     },
     {
       "document_id": "CLAIM-005222-RX",

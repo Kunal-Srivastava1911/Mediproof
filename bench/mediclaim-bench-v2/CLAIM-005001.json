@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Siddharth Dar",
-      "policy_no": "HLT-74-3511306",
+      "policy_no": "HLT-20-5309851",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-10-14",
       "discharge_date": "2024-10-18",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 177048.54
+      "claimed_amount": 84377.77
     },
     {
       "document_id": "CLAIM-005001-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID499924",
         "phone": "9598245491"
       },
-      "bill_no": "INV/2024/3322",
+      "bill_no": "INV/2024/4671",
       "bill_date": "2024-10-18",
       "admission_date": "2024-10-14",
       "discharge_date": "2024-10-18",
@@ -56,7 +56,7 @@
           "category": "room",
           "quantity": 3.0,
           "unit_price": 3328.1,
-          "amount": 9984.3,
+          "amount": 49921.5,
           "is_non_payable": false
         },
         {
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23389.44,
-          "amount": 116947.2,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9035.56,
-          "amount": 9035.56,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6467.63,
-          "amount": 6467.63,
+          "unit_price": 6804.2,
+          "amount": 6804.2,
           "is_non_payable": false
         },
         {
@@ -124,18 +108,18 @@
           "is_non_payable": true
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
           "is_non_payable": true
         }
       ],
-      "subtotal": 167869.09,
-      "discount": 0.0,
-      "tax": 8393.45,
-      "total": 176262.54
+      "subtotal": 82010.1,
+      "discount": 2103.65,
+      "tax": 3995.32,
+      "total": 83901.77
     },
     {
       "document_id": "CLAIM-005001-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/2396",
-      "bill_date": "2024-10-17",
+      "bill_no": "PH/2024/9637",
+      "bill_date": "2024-10-16",
       "patient_name": "Siddharth Dar",
-      "prescription_ref": "RX5208",
+      "prescription_ref": "RX6256",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B11406",
-          "quantity": 3.0,
+          "batch_no": "B62339",
+          "quantity": 1.0,
           "mrp": 142.0,
-          "amount": 426.0
+          "amount": 142.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B60032",
-          "quantity": 2.0,
+          "batch_no": "B11406",
+          "quantity": 3.0,
           "mrp": 18.0,
-          "amount": 36.0
+          "amount": 54.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B64480",
+          "batch_no": "B60032",
           "quantity": 2.0,
           "mrp": 96.0,
           "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B52050",
-          "quantity": 3.0,
+          "batch_no": "B64480",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 786.0
+      "total": 476.0
     },
     {
       "document_id": "CLAIM-005001-RX",
@@ -342,7 +326,7 @@
     {
       "fault_type": "inflated_line_item",
       "severity": "critical",
-      "description": "Billed amount for 'Surgeon / Procedure Fee' is far above quantity x unit price.",
+      "description": "Billed amount for 'Room Rent (Semi-Private)' is far above quantity x unit price.",
       "document_ids": [
         "CLAIM-005001-BILL"
       ],

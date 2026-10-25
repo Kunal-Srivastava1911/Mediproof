@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Anusha Kant",
-      "policy_no": "HLT-83-9758387",
+      "policy_no": "HLT-96-7859871",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-10-16",
       "discharge_date": "2024-10-19",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66923.05
+      "claimed_amount": 32537.93
     },
     {
       "document_id": "CLAIM-005158-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID601395",
         "phone": "9579856542"
       },
-      "bill_no": "INV/2024/3720",
+      "bill_no": "INV/2024/9301",
       "bill_date": "2024-10-19",
       "admission_date": "2024-10-16",
       "discharge_date": "2024-10-19",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23016.17,
-          "amount": 23016.17,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8362.67,
-          "amount": 8362.67,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6555.48,
-          "amount": 6555.48,
+          "unit_price": 6695.61,
+          "amount": 6695.61,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63266.71,
-      "discount": 0.0,
-      "tax": 3163.34,
-      "total": 66430.05
+      "subtotal": 32028.0,
+      "discount": 1601.4,
+      "tax": 1521.33,
+      "total": 31947.93
     },
     {
       "document_id": "CLAIM-005158-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/6900",
-      "bill_date": "2024-10-17",
+      "bill_no": "PH/2024/5324",
+      "bill_date": "2024-10-16",
       "patient_name": "Anusha Kant",
-      "prescription_ref": "RX8987",
+      "prescription_ref": "RX8036",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B89318",
-          "quantity": 1.0,
+          "batch_no": "B55727",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B93309",
-          "quantity": 1.0,
+          "batch_no": "B31763",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B66292",
-          "quantity": 2.0,
+          "batch_no": "B38638",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B63592",
+          "batch_no": "B30199",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 493.0
+      "total": 590.0
     },
     {
       "document_id": "CLAIM-005158-RX",

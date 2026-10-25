@@ -93,6 +93,7 @@ class Scenario:
     presenting: str = "the above complaints"
     management: str = "standard medical management"
     icu_days: int = 0  # days in ICU before transfer to the ward
+    surgical: bool = False  # only procedural admissions bill surgeon/procedure and OT fees
     # (study, finding, day-of-admission offset) — each is billed and has a radiology report.
     imaging: tuple[tuple[str, str, int], ...] = ()
 
@@ -109,6 +110,7 @@ SCENARIOS: list[Scenario] = [
         presenting="right lower abdominal pain, fever and vomiting",
         management="IV antibiotics, analgesics and surgical care",
         imaging=(("USG Abdomen", "an inflamed, non-compressible appendix", 0),),
+        surgical=True,
     ),
     Scenario(
         key="acute_mi",
@@ -123,6 +125,7 @@ SCENARIOS: list[Scenario] = [
         icu_days=2,
         imaging=(("2D Echocardiography", "inferior wall hypokinesia with an ejection fraction "
                   "of 48%", 1),),
+        surgical=True,  # PTCA: procedure fee + cath-lab (OT) charges
     ),
     Scenario(
         key="pneumonia",

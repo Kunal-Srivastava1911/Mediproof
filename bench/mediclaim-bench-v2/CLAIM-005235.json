@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Frado Chada",
-      "policy_no": "HLT-58-6952232",
+      "policy_no": "HLT-13-5731742",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-11-10",
       "discharge_date": "2024-11-13",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 67171.25
+      "claimed_amount": 34538.42
     },
     {
       "document_id": "CLAIM-005235-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID901627",
         "phone": "9720431734"
       },
-      "bill_no": "INV/2024/4611",
+      "bill_no": "INV/2024/7359",
       "bill_date": "2024-11-13",
       "admission_date": "2024-11-10",
       "discharge_date": "2024-11-13",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21223.74,
-          "amount": 21223.74,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9065.74,
-          "amount": 9065.74,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6880.25,
-          "amount": 6880.25,
+          "unit_price": 6174.18,
+          "amount": 6174.18,
           "is_non_payable": false
         },
         {
@@ -116,18 +100,18 @@
           "is_non_payable": true
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         }
       ],
-      "subtotal": 63269.76,
+      "subtotal": 32424.21,
       "discount": 0.0,
-      "tax": 3163.49,
-      "total": 66433.25
+      "tax": 1621.21,
+      "total": 34045.42
     },
     {
       "document_id": "CLAIM-005235-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/1436",
+      "bill_no": "PH/2024/8378",
       "bill_date": "2024-11-16",
       "patient_name": "Frado Chada",
-      "prescription_ref": "RX5620",
+      "prescription_ref": "RX6580",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B44240",
-          "quantity": 2.0,
+          "batch_no": "B87022",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B16570",
-          "quantity": 3.0,
+          "batch_no": "B74618",
+          "quantity": 1.0,
           "mrp": 24.0,
-          "amount": 72.0
+          "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B90277",
-          "quantity": 3.0,
+          "batch_no": "B16570",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B54646",
-          "quantity": 2.0,
+          "batch_no": "B90277",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 738.0
+      "total": 493.0
     },
     {
       "document_id": "CLAIM-005235-RX",

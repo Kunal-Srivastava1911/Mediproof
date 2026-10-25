@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Qushi Basu",
-      "policy_no": "HLT-11-6124367",
+      "policy_no": "HLT-39-1228993",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-25",
       "discharge_date": "2024-10-28",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 82304.18
+      "claimed_amount": 42427.21
     },
     {
       "document_id": "CLAIM-005057-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID581733",
         "phone": "9426022837"
       },
-      "bill_no": "INV/2024/8334",
+      "bill_no": "INV/2024/4960",
       "bill_date": "2024-10-28",
       "admission_date": "2024-10-25",
       "discharge_date": "2024-10-28",
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20311.61,
-          "amount": 20311.61,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8605.6,
-          "amount": 8605.6,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6490.46,
-          "amount": 6490.46,
+          "unit_price": 5908.83,
+          "amount": 5908.83,
           "is_non_payable": false
-        },
-        {
-          "description": "Administrative / Record Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
-          "is_non_payable": true
         },
         {
           "description": "Gloves & Disposables",
@@ -124,18 +100,26 @@
           "is_non_payable": true
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 20311.61,
-          "amount": 20311.61,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8902.76,
+          "amount": 8902.76,
           "is_non_payable": false
         }
       ],
-      "subtotal": 80656.46,
-      "discount": 3017.24,
-      "tax": 3881.96,
-      "total": 81521.18
+      "subtotal": 39748.77,
+      "discount": 0.0,
+      "tax": 1987.44,
+      "total": 41736.21
     },
     {
       "document_id": "CLAIM-005057-DISCH",
@@ -174,41 +158,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5908",
-      "bill_date": "2024-10-27",
+      "bill_no": "PH/2024/2268",
+      "bill_date": "2024-10-28",
       "patient_name": "Qushi Basu",
-      "prescription_ref": "RX4714",
+      "prescription_ref": "RX5908",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B90281",
+          "batch_no": "B56684",
           "quantity": 3.0,
           "mrp": 145.0,
           "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B52944",
-          "quantity": 1.0,
+          "batch_no": "B90281",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B86617",
-          "quantity": 2.0,
+          "batch_no": "B52944",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B20149",
-          "quantity": 3.0,
+          "batch_no": "B86617",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 783.0
+      "total": 691.0
     },
     {
       "document_id": "CLAIM-005057-RX",
@@ -340,7 +324,7 @@
     {
       "fault_type": "duplicate_billing",
       "severity": "warning",
-      "description": "Line item 'Surgeon / Procedure Fee' appears more than once on the bill.",
+      "description": "Line item 'ICU Charges' appears more than once on the bill.",
       "document_ids": [
         "CLAIM-005057-BILL"
       ],

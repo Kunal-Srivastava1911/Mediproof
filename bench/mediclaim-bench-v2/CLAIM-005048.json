@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Aadi Mukherjee",
-      "policy_no": "HLT-16-4417881",
+      "policy_no": "HLT-34-4209927",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-11-10",
       "discharge_date": "2024-11-14",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 78586.53
+      "claimed_amount": 43006.97
     },
     {
       "document_id": "CLAIM-005048-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID800515",
         "phone": "9282419383"
       },
-      "bill_no": "INV/2024/9974",
+      "bill_no": "INV/2024/7737",
       "bill_date": "2024-11-14",
       "admission_date": "2024-11-10",
       "discharge_date": "2024-11-14",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23559.41,
-          "amount": 23559.41,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8661.0,
-          "amount": 8661.0,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6449.81,
-          "amount": 6449.81,
+          "unit_price": 6853.65,
+          "amount": 6853.65,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 74029.08,
-      "discount": 0.0,
-      "tax": 3701.45,
-      "total": 77730.53
+      "subtotal": 42212.51,
+      "discount": 2110.63,
+      "tax": 2005.09,
+      "total": 42106.97
     },
     {
       "document_id": "CLAIM-005048-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/4190",
+      "bill_no": "PH/2024/5573",
       "bill_date": "2024-11-12",
       "patient_name": "Aadi Mukherjee",
-      "prescription_ref": "RX4134",
+      "prescription_ref": "RX9266",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B39063",
+          "batch_no": "B43960",
           "quantity": 3.0,
           "mrp": 142.0,
           "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B14566",
+          "batch_no": "B39063",
           "quantity": 3.0,
           "mrp": 18.0,
           "amount": 54.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B11496",
+          "batch_no": "B14566",
           "quantity": 3.0,
           "mrp": 96.0,
           "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B76129",
-          "quantity": 2.0,
+          "batch_no": "B11496",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 856.0
+      "total": 900.0
     },
     {
       "document_id": "CLAIM-005048-RX",

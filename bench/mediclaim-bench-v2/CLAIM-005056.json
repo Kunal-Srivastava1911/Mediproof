@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Chavvi Dubey",
-      "policy_no": "HLT-49-8262905",
+      "policy_no": "HLT-72-6173419",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-09-05",
       "discharge_date": "2024-09-08",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 69381.6
+      "claimed_amount": 35327.73
     },
     {
       "document_id": "CLAIM-005056-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID666917",
         "phone": "9376467755"
       },
-      "bill_no": "INV/2024/8115",
+      "bill_no": "INV/2024/3748",
       "bill_date": "2024-09-08",
       "admission_date": "2024-09-05",
       "discharge_date": "2024-09-08",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22028.93,
-          "amount": 22028.93,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9666.64,
-          "amount": 9666.64,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6866.05,
-          "amount": 6866.05,
+          "unit_price": 6408.41,
+          "amount": 6408.41,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 65462.48,
+      "subtotal": 33309.27,
       "discount": 0.0,
-      "tax": 3273.12,
-      "total": 68735.6
+      "tax": 1665.46,
+      "total": 34974.73
     },
     {
       "document_id": "CLAIM-005056-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/6587",
-      "bill_date": "2024-09-06",
+      "bill_no": "PH/2024/1047",
+      "bill_date": "2024-09-08",
       "patient_name": "Chavvi Dubey",
-      "prescription_ref": "RX8985",
+      "prescription_ref": "RX6587",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B24304",
-          "quantity": 2.0,
+          "batch_no": "B47231",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B40831",
+          "batch_no": "B40517",
           "quantity": 1.0,
           "mrp": 24.0,
           "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B47820",
-          "quantity": 3.0,
+          "batch_no": "B84953",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B10379",
-          "quantity": 1.0,
+          "batch_no": "B41435",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 646.0
+      "total": 353.0
     },
     {
       "document_id": "CLAIM-005056-RX",

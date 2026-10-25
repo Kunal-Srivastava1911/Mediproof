@@ -63,7 +63,10 @@ def _build_bill(
     los = max(1, (discharge - admit).days)
     icu = min(scenario.icu_days, los - 1) if los > 1 else 0
     items: list[BillLineItem] = []
-    charges = list(fd.BASE_CHARGES)
+    # Medical admissions (no surgery) bill no surgeon/procedure or OT fees: the narrative and
+    # "Procedures Performed" would not support them (found by the agent auditor's first run).
+    charges = [ch for ch in fd.BASE_CHARGES
+               if scenario.surgical or ch.category != "procedure"]
     if icu:
         charges.insert(0, fd.ICU_CHARGE)
     for ch in charges:

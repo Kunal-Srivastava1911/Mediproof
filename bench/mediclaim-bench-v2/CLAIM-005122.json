@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Shivansh Basu",
-      "policy_no": "HLT-63-5668460",
+      "policy_no": "HLT-31-4767384",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-28",
       "discharge_date": "2024-12-02",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 75335.97
+      "claimed_amount": 43267.53
     },
     {
       "document_id": "CLAIM-005122-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID163547",
         "phone": "9823726920"
       },
-      "bill_no": "INV/2024/3258",
+      "bill_no": "INV/2024/4116",
       "bill_date": "2024-12-02",
       "admission_date": "2024-11-28",
       "discharge_date": "2024-12-02",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23392.08,
-          "amount": 23392.08,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9032.27,
-          "amount": 9032.27,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6820.16,
-          "amount": 6820.16,
+          "unit_price": 6804.97,
+          "amount": 6804.97,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 75045.58,
-      "discount": 3752.28,
-      "tax": 3564.67,
-      "total": 74857.97
+      "subtotal": 42606.04,
+      "discount": 2130.3,
+      "tax": 2023.79,
+      "total": 42499.53
     },
     {
       "document_id": "CLAIM-005122-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/8318",
+      "bill_no": "PH/2024/4361",
       "bill_date": "2024-11-29",
       "patient_name": "Shivansh Basu",
-      "prescription_ref": "RX1116",
+      "prescription_ref": "RX4572",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B37342",
-          "quantity": 2.0,
+          "batch_no": "B83812",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 284.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B25363",
-          "quantity": 3.0,
+          "batch_no": "B41692",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B38578",
-          "quantity": 1.0,
+          "batch_no": "B37342",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B39432",
-          "quantity": 1.0,
+          "batch_no": "B25363",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 132.0
         }
       ],
-      "total": 478.0
+      "total": 768.0
     },
     {
       "document_id": "CLAIM-005122-RX",

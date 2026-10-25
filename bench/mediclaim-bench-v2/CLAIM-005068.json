@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Manbir Nayar",
-      "policy_no": "HLT-56-6888144",
+      "policy_no": "HLT-81-8507934",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-09-21",
       "discharge_date": "2024-09-24",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 63602.24
+      "claimed_amount": 34351.15
     },
     {
       "document_id": "CLAIM-005068-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID865656",
         "phone": "9658551400"
       },
-      "bill_no": "INV/2024/2850",
+      "bill_no": "INV/2024/9335",
       "bill_date": "2024-09-24",
       "admission_date": "2024-09-21",
       "discharge_date": "2024-09-24",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21733.9,
-          "amount": 21733.9,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9353.81,
-          "amount": 9353.81,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6390.86,
-          "amount": 6390.86,
+          "unit_price": 6322.59,
+          "amount": 6322.59,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63194.22,
-      "discount": 3159.71,
-      "tax": 3001.73,
-      "total": 63036.24
+      "subtotal": 32038.24,
+      "discount": 0.0,
+      "tax": 1601.91,
+      "total": 33640.15
     },
     {
       "document_id": "CLAIM-005068-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/8331",
-      "bill_date": "2024-09-23",
+      "bill_no": "PH/2024/3158",
+      "bill_date": "2024-09-24",
       "patient_name": "Manbir Nayar",
-      "prescription_ref": "RX1300",
+      "prescription_ref": "RX1115",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B28825",
-          "quantity": 2.0,
+          "batch_no": "B24802",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B27884",
+          "batch_no": "B69493",
           "quantity": 2.0,
           "mrp": 24.0,
           "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B10925",
+          "batch_no": "B52842",
           "quantity": 1.0,
           "mrp": 96.0,
           "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B82931",
+          "batch_no": "B27884",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 566.0
+      "total": 711.0
     },
     {
       "document_id": "CLAIM-005068-RX",

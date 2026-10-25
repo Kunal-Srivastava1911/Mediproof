@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Lavanya Kanda",
-      "policy_no": "HLT-71-2827106",
+      "policy_no": "HLT-33-3105778",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-12-09",
       "discharge_date": "2024-12-12",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 67643.46
+      "claimed_amount": 32805.09
     },
     {
       "document_id": "CLAIM-005147-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID867946",
         "phone": "9181719662"
       },
-      "bill_no": "INV/2024/8268",
+      "bill_no": "INV/2024/8462",
       "bill_date": "2024-12-12",
       "admission_date": "2024-12-09",
       "discharge_date": "2024-12-16",
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22939.57,
-          "amount": 22939.57,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8924.58,
-          "amount": 8924.58,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6527.69,
-          "amount": 6527.69,
+          "unit_price": 6673.33,
+          "amount": 6673.33,
           "is_non_payable": false
-        },
-        {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
         },
         {
           "description": "Administrative / Record Charges",
@@ -122,12 +98,20 @@
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 63990.91,
-      "discount": 0.0,
-      "tax": 3199.55,
-      "total": 67190.46
+      "subtotal": 32122.4,
+      "discount": 1606.12,
+      "tax": 1525.81,
+      "total": 32042.09
     },
     {
       "document_id": "CLAIM-005147-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/3056",
+      "bill_no": "PH/2024/8956",
       "bill_date": "2024-12-11",
       "patient_name": "Lavanya Kanda",
-      "prescription_ref": "RX1516",
+      "prescription_ref": "RX4908",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B56747",
-          "quantity": 1.0,
+          "batch_no": "B68148",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B70871",
-          "quantity": 3.0,
+          "batch_no": "B14990",
+          "quantity": 2.0,
           "mrp": 24.0,
-          "amount": 72.0
+          "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B73648",
+          "batch_no": "B92537",
           "quantity": 2.0,
           "mrp": 96.0,
           "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B33856",
-          "quantity": 1.0,
+          "batch_no": "B55073",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 453.0
+      "total": 763.0
     },
     {
       "document_id": "CLAIM-005147-RX",

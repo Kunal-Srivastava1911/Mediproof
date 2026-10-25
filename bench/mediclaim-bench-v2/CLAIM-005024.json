@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Sai Sampath",
-      "policy_no": "HLT-88-4282880",
+      "policy_no": "HLT-32-5433653",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-12",
       "discharge_date": "2024-11-15",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 61393.44
+      "claimed_amount": 32062.81
     },
     {
       "document_id": "CLAIM-005024-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID281263",
         "phone": "9624374572"
       },
-      "bill_no": "INV/2024/9156",
+      "bill_no": "INV/2024/9942",
       "bill_date": "2024-11-15",
       "admission_date": "2024-11-12",
       "discharge_date": "2024-11-15",
@@ -84,28 +84,20 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20831.72,
-          "amount": 20831.72,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8665.53,
-          "amount": 8665.53,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6155.88,
-          "amount": 6155.88,
+          "unit_price": 6060.14,
+          "amount": 6060.14,
           "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         },
         {
           "description": "Attendant Meal Charges",
@@ -114,20 +106,12 @@
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 61193.42,
-      "discount": 3059.67,
-      "tax": 2906.69,
-      "total": 61040.44
+      "subtotal": 31450.43,
+      "discount": 1572.52,
+      "tax": 1493.9,
+      "total": 31371.81
     },
     {
       "document_id": "CLAIM-005024-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5785",
+      "bill_no": "PH/2024/5559",
       "bill_date": "2024-11-13",
       "patient_name": "Sai Sampath",
-      "prescription_ref": "RX3977",
+      "prescription_ref": "RX3970",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B60834",
-          "quantity": 1.0,
+          "batch_no": "B75253",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B46473",
-          "quantity": 1.0,
+          "batch_no": "B79915",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B33242",
+          "batch_no": "B28890",
           "quantity": 1.0,
           "mrp": 96.0,
           "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B45849",
+          "batch_no": "B18723",
           "quantity": 2.0,
           "mrp": 44.0,
           "amount": 88.0
         }
       ],
-      "total": 353.0
+      "total": 691.0
     },
     {
       "document_id": "CLAIM-005024-RX",

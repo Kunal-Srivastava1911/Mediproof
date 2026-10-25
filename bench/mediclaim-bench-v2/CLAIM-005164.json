@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Anamika Ramanathan",
-      "policy_no": "HLT-27-6301693",
+      "policy_no": "HLT-30-8252789",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-21",
       "discharge_date": "2024-10-25",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 74387.81
+      "claimed_amount": 44280.14
     },
     {
       "document_id": "CLAIM-005164-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID758768",
         "phone": "9988063296"
       },
-      "bill_no": "INV/2024/4077",
+      "bill_no": "INV/2024/9715",
       "bill_date": "2024-10-25",
       "admission_date": "2024-10-21",
       "discharge_date": "2024-10-25",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22719.44,
-          "amount": 22719.44,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9618.52,
-          "amount": 9618.52,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6404.31,
-          "amount": 6404.31,
+          "unit_price": 6609.29,
+          "amount": 6609.29,
           "is_non_payable": false
         },
         {
@@ -116,11 +100,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
           "is_non_payable": true
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 73856.45,
-      "discount": 3692.82,
-      "tax": 3508.18,
-      "total": 73671.81
+      "subtotal": 41573.47,
+      "discount": 0.0,
+      "tax": 2078.67,
+      "total": 43652.14
     },
     {
       "document_id": "CLAIM-005164-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/3616",
+      "bill_no": "PH/2024/4446",
       "bill_date": "2024-10-21",
       "patient_name": "Anamika Ramanathan",
-      "prescription_ref": "RX8082",
+      "prescription_ref": "RX5066",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B16624",
+          "batch_no": "B34623",
           "quantity": 3.0,
           "mrp": 142.0,
           "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B69600",
-          "quantity": 3.0,
+          "batch_no": "B84211",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B97717",
-          "quantity": 2.0,
+          "batch_no": "B88685",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B42533",
-          "quantity": 1.0,
+          "batch_no": "B55058",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 716.0
+      "total": 628.0
     },
     {
       "document_id": "CLAIM-005164-RX",

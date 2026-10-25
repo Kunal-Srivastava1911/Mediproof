@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Mohammed Goel",
-      "policy_no": "HLT-54-3592705",
+      "policy_no": "HLT-88-7371664",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-09-23",
       "discharge_date": "2024-09-27",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 76314.91
+      "claimed_amount": 41746.61
     },
     {
       "document_id": "CLAIM-005143-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID993130",
         "phone": "9651607076"
       },
-      "bill_no": "INV/2024/4735",
+      "bill_no": "INV/2024/5921",
       "bill_date": "2024-09-27",
       "admission_date": "2024-09-23",
       "discharge_date": "2024-09-27",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21725.17,
-          "amount": 21725.17,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8968.56,
-          "amount": 8968.56,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6697.55,
-          "amount": 6697.55,
+          "unit_price": 6320.05,
+          "amount": 6320.05,
           "is_non_payable": false
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 72318.96,
-      "discount": 0.0,
-      "tax": 3615.95,
-      "total": 75934.91
+      "subtotal": 41247.73,
+      "discount": 2062.39,
+      "tax": 1959.27,
+      "total": 41144.61
     },
     {
       "document_id": "CLAIM-005143-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/7222",
+      "bill_no": "PH/2024/7533",
       "bill_date": "2024-09-25",
       "patient_name": "Mohammed Goell",
-      "prescription_ref": "RX2202",
+      "prescription_ref": "RX6247",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B28222",
-          "quantity": 1.0,
+          "batch_no": "B39881",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B92270",
-          "quantity": 3.0,
+          "batch_no": "B14204",
+          "quantity": 2.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 36.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B68775",
+          "batch_no": "B92270",
           "quantity": 1.0,
           "mrp": 96.0,
           "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B51982",
-          "quantity": 2.0,
+          "batch_no": "B68775",
+          "quantity": 1.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 44.0
         }
       ],
-      "total": 380.0
+      "total": 602.0
     },
     {
       "document_id": "CLAIM-005143-RX",

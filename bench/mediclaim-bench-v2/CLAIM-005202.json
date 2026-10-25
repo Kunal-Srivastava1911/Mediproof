@@ -20,7 +20,7 @@
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-22",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66474.44
+      "claimed_amount": 34114.07
     },
     {
       "document_id": "CLAIM-005202-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID218424",
         "phone": "9892781478"
       },
-      "bill_no": "INV/2024/1781",
+      "bill_no": "INV/2024/6581",
       "bill_date": "2024-11-22",
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-22",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21887.07,
-          "amount": 21887.07,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8826.69,
-          "amount": 8826.69,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6625.65,
-          "amount": 6625.65,
+          "unit_price": 6367.15,
+          "amount": 6367.15,
           "is_non_payable": false
         },
         {
@@ -116,18 +100,18 @@
           "is_non_payable": true
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         }
       ],
-      "subtotal": 62608.99,
+      "subtotal": 31786.73,
       "discount": 0.0,
-      "tax": 3130.45,
-      "total": 65739.44
+      "tax": 1589.34,
+      "total": 33376.07
     },
     {
       "document_id": "CLAIM-005202-DISCH",
@@ -167,40 +151,40 @@
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
       "bill_no": "PH/2024/8680",
-      "bill_date": "2024-11-22",
+      "bill_date": "2024-11-19",
       "patient_name": "Quincy Dey",
       "prescription_ref": "RX5531",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B90244",
-          "quantity": 3.0,
+          "batch_no": "B77044",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 435.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B80426",
+          "batch_no": "B97526",
           "quantity": 3.0,
           "mrp": 24.0,
           "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B73467",
-          "quantity": 1.0,
+          "batch_no": "B24851",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B98392",
-          "quantity": 3.0,
+          "batch_no": "B87030",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 735.0
+      "total": 738.0
     },
     {
       "document_id": "CLAIM-005202-RX",

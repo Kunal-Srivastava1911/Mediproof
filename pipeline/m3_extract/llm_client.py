@@ -68,6 +68,10 @@ class LLMError(RuntimeError):
     """The provider returned no usable answer (refusal, truncation, API error)."""
 
 
+class QuotaExhausted(LLMError):
+    """The provider's quota is used up (e.g. a free tier's daily limit): stop calling it."""
+
+
 @dataclass
 class LLMResponse:
     text: str
@@ -80,8 +84,10 @@ def _key_for(model: str, prompt: str) -> str:
 
 
 def _load_dotenv(path: Path = _REPO_ROOT / ".env") -> None:
-    """Load KEY=VALUE lines from the repo's .env without overriding the real environment."""
-    if not path.exists():
+    """Load KEY=VALUE lines from the repo's .env without overriding the real environment.
+    Skipped when MEDIPROOF_NO_DOTENV=1 (the test suite sets it, so a developer's keys and
+    LLM settings never leak into tests)."""
+    if os.getenv("MEDIPROOF_NO_DOTENV") == "1" or not path.exists():
         return
     for line in path.read_text(encoding="utf-8").splitlines():
         line = line.split("#", 1)[0].strip()
@@ -122,6 +128,11 @@ class LLMClient:
         self.live_calls = 0
         self._sdk = None
         self._last_call = 0.0
+        self.quota_exhausted = False
+        # "combined": one call covers all five specialist areas (2 calls/claim incl. the
+        # skeptic) — the default on Gemini's free tier; "separate": one call per agent.
+        self.agent_mode = os.getenv(
+            "LLM_AGENT_MODE", "combined" if self.provider == "gemini" else "separate")
 
     def _fixture_path(self, key: str) -> Path:
         return self.fixtures_dir / f"{key}.json"
@@ -251,18 +262,27 @@ class LLMClient:
             response_mime_type="application/json" if schema else None,
             response_json_schema=schema,
         )
+        if self.quota_exhausted:
+            raise QuotaExhausted("Gemini quota already exhausted this run; not calling again")
         client = self._gemini()
-        for attempt in range(5):
+        for attempt in range(3):
             self._pace()
             try:
                 resp = client.models.generate_content(model=self.model, contents=parts,
                                                       config=config)
                 break
             except errors.APIError as exc:
-                if exc.code == 429 and attempt < 4:
-                    time.sleep(min(60, 10 * (attempt + 1)))  # free-tier per-minute quota
+                msg = str(exc.message or exc)
+                if exc.code == 429 and ("per day" in msg.lower() or "perday" in msg.lower()
+                                        or attempt == 2):
+                    # A daily quota won't recover by waiting: stop, don't keep hammering.
+                    self.quota_exhausted = True
+                    raise QuotaExhausted(f"Gemini quota exhausted (429): {msg[:200]}") from exc
+                # 429 per-minute quota or 500/503 overload: back off, at most 3 tries.
+                if exc.code in (429, 500, 503) and attempt < 2:
+                    time.sleep(30 * (attempt + 1))
                     continue
-                raise LLMError(f"Gemini API error {exc.code}: {exc.message}") from exc
+                raise LLMError(f"Gemini API error {exc.code}: {msg[:200]}") from exc
         if not resp.candidates:
             raise LLMError("Gemini returned no answer (prompt blocked)")
         reason = str(resp.candidates[0].finish_reason or "")

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "David Palan",
-      "policy_no": "HLT-51-5462819",
+      "policy_no": "HLT-34-7113525",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-09-27",
       "discharge_date": "2024-09-30",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 65569.53
+      "claimed_amount": 34120.46
     },
     {
       "document_id": "CLAIM-005064-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID378407",
         "phone": "9810038560"
       },
-      "bill_no": "INV/2024/7643",
+      "bill_no": "INV/2024/4001",
       "bill_date": "2024-09-30",
       "admission_date": "2024-09-27",
       "discharge_date": "2024-09-30",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21361.17,
-          "amount": 21361.17,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9048.96,
-          "amount": 9048.96,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6039.81,
-          "amount": 6039.81,
+          "unit_price": 6214.16,
+          "amount": 6214.16,
           "is_non_payable": false
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 62019.55,
+      "subtotal": 31933.77,
       "discount": 0.0,
-      "tax": 3100.98,
-      "total": 65120.53
+      "tax": 1596.69,
+      "total": 33530.46
     },
     {
       "document_id": "CLAIM-005064-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5760",
-      "bill_date": "2024-09-27",
+      "bill_no": "PH/2024/6835",
+      "bill_date": "2024-09-29",
       "patient_name": "David Palan",
-      "prescription_ref": "RX5630",
+      "prescription_ref": "RX6064",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B79823",
-          "quantity": 1.0,
+          "batch_no": "B97296",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B56680",
-          "quantity": 1.0,
+          "batch_no": "B63150",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B34792",
-          "quantity": 2.0,
+          "batch_no": "B14158",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B95141",
-          "quantity": 2.0,
+          "batch_no": "B22771",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 449.0
+      "total": 590.0
     },
     {
       "document_id": "CLAIM-005064-RX",

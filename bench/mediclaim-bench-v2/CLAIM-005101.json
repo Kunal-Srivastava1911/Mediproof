@@ -20,7 +20,7 @@
       "admission_date": "2024-10-25",
       "discharge_date": "2024-10-29",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 76589.1
+      "claimed_amount": 46281.43
     },
     {
       "document_id": "CLAIM-005101-BILL",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23565.58,
-          "amount": 23565.58,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9691.94,
-          "amount": 9691.94,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6427.16,
-          "amount": 6427.16,
+          "unit_price": 6855.44,
+          "amount": 6855.44,
           "is_non_payable": false
         },
         {
@@ -124,18 +108,18 @@
           "is_non_payable": true
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         }
       ],
-      "subtotal": 76295.84,
-      "discount": 3814.79,
-      "tax": 3624.05,
-      "total": 76105.1
+      "subtotal": 43616.6,
+      "discount": 0.0,
+      "tax": 2180.83,
+      "total": 45797.43
     },
     {
       "document_id": "CLAIM-005101-DISCH",

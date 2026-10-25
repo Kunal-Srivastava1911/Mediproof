@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Nisha Singh",
-      "policy_no": "HLT-23-7347580",
+      "policy_no": "HLT-49-2826095",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-11-09",
       "discharge_date": "2024-11-12",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 71860.4
+      "claimed_amount": 43232.11
     },
     {
       "document_id": "CLAIM-005133-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID362865",
         "phone": "9399822574"
       },
-      "bill_no": "INV/2024/9621",
+      "bill_no": "INV/2024/8315",
       "bill_date": "2024-11-12",
       "admission_date": "2024-11-09",
       "discharge_date": "2024-11-12",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22974.37,
-          "amount": 22974.37,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8508.94,
-          "amount": 8508.94,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 5988.28,
-          "amount": 5988.28,
+          "unit_price": 6683.45,
+          "amount": 6683.45,
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63785.86,
-      "discount": 3189.29,
-      "tax": 3029.83,
-      "total": 71126.4
+      "subtotal": 33147.72,
+      "discount": 0.0,
+      "tax": 1657.39,
+      "total": 42305.11
     },
     {
       "document_id": "CLAIM-005133-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/8982",
-      "bill_date": "2024-11-10",
+      "bill_no": "PH/2024/4181",
+      "bill_date": "2024-11-12",
       "patient_name": "Nisha Singh",
-      "prescription_ref": "RX3421",
+      "prescription_ref": "RX5843",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B50902",
-          "quantity": 2.0,
+          "batch_no": "B56917",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B32406",
-          "quantity": 1.0,
+          "batch_no": "B91309",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B61531",
+          "batch_no": "B78972",
           "quantity": 3.0,
           "mrp": 96.0,
           "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B84231",
+          "batch_no": "B88304",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 734.0
+      "total": 927.0
     },
     {
       "document_id": "CLAIM-005133-RX",

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Nathan Sabharwal",
-      "policy_no": "HLT-50-5835426",
+      "policy_no": "HLT-64-6276139",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-13",
       "discharge_date": "2024-10-16",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 67856.97
+      "claimed_amount": 34639.34
     },
     {
       "document_id": "CLAIM-005224-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID920055",
         "phone": "9743910300"
       },
-      "bill_no": "INV/2024/8641",
+      "bill_no": "INV/2024/8258",
       "bill_date": "2024-10-16",
       "admission_date": "2024-10-13",
       "discharge_date": "2024-10-16",
@@ -84,28 +84,20 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22557.58,
-          "amount": 22557.58,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8740.29,
-          "amount": 8740.29,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6581.12,
-          "amount": 6581.12,
+          "unit_price": 6562.2,
+          "amount": 6562.2,
           "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         },
         {
           "description": "Gloves & Disposables",
@@ -114,20 +106,12 @@
           "unit_price": 450.0,
           "amount": 450.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 63995.21,
+      "subtotal": 32378.42,
       "discount": 0.0,
-      "tax": 3199.76,
-      "total": 67194.97
+      "tax": 1618.92,
+      "total": 33997.34
     },
     {
       "document_id": "CLAIM-005224-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/7067",
+      "bill_no": "PH/2024/7872",
       "bill_date": "2024-10-16",
       "patient_name": "Nathan Sabharwal",
-      "prescription_ref": "RX7916",
+      "prescription_ref": "RX7067",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B76095",
+          "batch_no": "B69912",
           "quantity": 2.0,
           "mrp": 145.0,
           "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B83838",
-          "quantity": 2.0,
+          "batch_no": "B76095",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B64215",
+          "batch_no": "B83838",
           "quantity": 2.0,
           "mrp": 96.0,
           "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B64976",
-          "quantity": 3.0,
+          "batch_no": "B64215",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 662.0
+      "total": 642.0
     },
     {
       "document_id": "CLAIM-005224-RX",

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Warda Khanna",
-      "policy_no": "HLT-69-2747145",
+      "policy_no": "HLT-94-1800057",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-09-13",
       "discharge_date": "2024-09-16",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66190.6
+      "claimed_amount": 33735.64
     },
     {
       "document_id": "CLAIM-005113-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID178052",
         "phone": "9713497588"
       },
-      "bill_no": "INV/2024/8703",
+      "bill_no": "INV/2024/4266",
       "bill_date": "2024-09-16",
       "admission_date": "2024-09-13",
       "discharge_date": "2024-09-16",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22687.35,
-          "amount": 22687.35,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9251.84,
-          "amount": 9251.84,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6907.35,
-          "amount": 6907.35,
+          "unit_price": 6599.96,
+          "amount": 6599.96,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 65620.65,
-      "discount": 3281.03,
-      "tax": 3116.98,
-      "total": 65456.6
+      "subtotal": 33374.07,
+      "discount": 1668.7,
+      "tax": 1585.27,
+      "total": 33290.64
     },
     {
       "document_id": "CLAIM-005113-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/2064",
+      "bill_no": "PH/2024/9943",
       "bill_date": "2024-09-20",
       "patient_name": "Warda Khanna",
-      "prescription_ref": "RX1781",
+      "prescription_ref": "RX2064",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B50899",
-          "quantity": 2.0,
+          "batch_no": "B56310",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B81483",
-          "quantity": 1.0,
+          "batch_no": "B50899",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B72734",
-          "quantity": 3.0,
+          "batch_no": "B81483",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B81549",
+          "batch_no": "B72734",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 734.0
+      "total": 445.0
     },
     {
       "document_id": "CLAIM-005113-RX",

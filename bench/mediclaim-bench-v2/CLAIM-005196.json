@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Warda Mitter",
-      "policy_no": "HLT-33-8980085",
+      "policy_no": "HLT-71-5942805",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-12-10",
       "discharge_date": "2024-12-13",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66795.44
+      "claimed_amount": 34345.62
     },
     {
       "document_id": "CLAIM-005196-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID922629",
         "phone": "9451934388"
       },
-      "bill_no": "INV/2024/7472",
+      "bill_no": "INV/2024/2610",
       "bill_date": "2024-12-13",
       "admission_date": "2024-12-10",
       "discharge_date": "2024-12-13",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22210.4,
-          "amount": 22210.4,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8890.24,
-          "amount": 8890.24,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6042.78,
-          "amount": 6042.78,
+          "unit_price": 6461.21,
+          "amount": 6461.21,
           "is_non_payable": false
         },
         {
-          "description": "Gloves & Disposables",
+          "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63141.37,
+      "subtotal": 32309.16,
       "discount": 0.0,
-      "tax": 3157.07,
-      "total": 66298.44
+      "tax": 1615.46,
+      "total": 33924.62
     },
     {
       "document_id": "CLAIM-005196-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5266",
-      "bill_date": "2024-12-11",
+      "bill_no": "PH/2024/5807",
+      "bill_date": "2024-12-10",
       "patient_name": "Warda Mitter",
-      "prescription_ref": "RX2167",
+      "prescription_ref": "RX5198",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B89212",
+          "batch_no": "B26492",
           "quantity": 1.0,
           "mrp": 145.0,
           "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B48458",
-          "quantity": 3.0,
+          "batch_no": "B90346",
+          "quantity": 2.0,
           "mrp": 24.0,
-          "amount": 72.0
+          "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B73054",
-          "quantity": 2.0,
+          "batch_no": "B15609",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B31371",
-          "quantity": 2.0,
+          "batch_no": "B87830",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 497.0
+      "total": 421.0
     },
     {
       "document_id": "CLAIM-005196-RX",

@@ -20,7 +20,7 @@
       "admission_date": "2024-09-27",
       "discharge_date": "2024-10-01",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 78548.8
+      "claimed_amount": 44602.81
     },
     {
       "document_id": "CLAIM-005110-BILL",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22613.04,
-          "amount": 22613.04,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9513.14,
-          "amount": 9513.14,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6781.67,
-          "amount": 6781.67,
+          "unit_price": 6578.34,
+          "amount": 6578.34,
           "is_non_payable": false
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 74480.76,
+      "subtotal": 42151.25,
       "discount": 0.0,
-      "tax": 3724.04,
-      "total": 78204.8
+      "tax": 2107.56,
+      "total": 44258.81
     },
     {
       "document_id": "CLAIM-005110-DISCH",

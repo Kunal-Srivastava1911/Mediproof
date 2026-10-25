@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Tara Ram",
-      "policy_no": "HLT-20-9257372",
+      "policy_no": "HLT-29-2204335",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-15",
       "discharge_date": "2024-11-19",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 161798.24
+      "claimed_amount": 92167.36
     },
     {
       "document_id": "CLAIM-005145-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID249579",
         "phone": "9391043305"
       },
-      "bill_no": "INV/2024/3872",
+      "bill_no": "INV/2024/8439",
       "bill_date": "2024-11-19",
       "admission_date": "2024-11-15",
       "discharge_date": "2024-11-19",
@@ -56,7 +56,7 @@
           "category": "room",
           "quantity": 3.0,
           "unit_price": 3686.46,
-          "amount": 11059.38,
+          "amount": 55296.9,
           "is_non_payable": false
         },
         {
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20403.62,
-          "amount": 102018.1,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8290.58,
-          "amount": 8290.58,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6250.04,
-          "amount": 6250.04,
+          "unit_price": 5935.6,
+          "amount": 5935.6,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 450.0,
           "amount": 450.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 153607.85,
+      "subtotal": 87222.25,
       "discount": 0.0,
-      "tax": 7680.39,
-      "total": 161288.24
+      "tax": 4361.11,
+      "total": 91583.36
     },
     {
       "document_id": "CLAIM-005145-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5031",
-      "bill_date": "2024-11-19",
+      "bill_no": "PH/2024/6595",
+      "bill_date": "2024-11-18",
       "patient_name": "Tara Ram",
-      "prescription_ref": "RX7486",
+      "prescription_ref": "RX9232",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B88824",
-          "quantity": 1.0,
+          "batch_no": "B89290",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B86152",
-          "quantity": 2.0,
+          "batch_no": "B71817",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 36.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B29974",
-          "quantity": 3.0,
+          "batch_no": "B84216",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B55550",
+          "batch_no": "B88824",
           "quantity": 1.0,
           "mrp": 44.0,
           "amount": 44.0
         }
       ],
-      "total": 510.0
+      "total": 584.0
     },
     {
       "document_id": "CLAIM-005145-RX",
@@ -342,7 +326,7 @@
     {
       "fault_type": "inflated_line_item",
       "severity": "critical",
-      "description": "Billed amount for 'Surgeon / Procedure Fee' is far above quantity x unit price.",
+      "description": "Billed amount for 'Room Rent (Semi-Private)' is far above quantity x unit price.",
       "document_ids": [
         "CLAIM-005145-BILL"
       ],

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Kalpit Peri",
-      "policy_no": "HLT-14-5963292",
+      "policy_no": "HLT-84-7486355",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-10-13",
       "discharge_date": "2024-10-16",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 73208.57
+      "claimed_amount": 41281.23
     },
     {
       "document_id": "CLAIM-005163-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID469467",
         "phone": "9478440758"
       },
-      "bill_no": "INV/2024/5389",
+      "bill_no": "INV/2024/3605",
       "bill_date": "2024-10-16",
       "admission_date": "2024-10-13",
       "discharge_date": "2024-10-16",
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21562.18,
-          "amount": 21562.18,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8394.17,
-          "amount": 8394.17,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6899.46,
-          "amount": 6899.46,
+          "unit_price": 6272.63,
+          "amount": 6272.63,
           "is_non_payable": false
-        },
-        {
-          "description": "Administrative / Record Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
-          "is_non_payable": true
         },
         {
           "description": "Gloves & Disposables",
@@ -122,12 +98,20 @@
           "unit_price": 450.0,
           "amount": 450.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 69199.59,
+      "subtotal": 38616.41,
       "discount": 0.0,
-      "tax": 3459.98,
-      "total": 72659.57
+      "tax": 1930.82,
+      "total": 40547.23
     },
     {
       "document_id": "CLAIM-005163-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/7334",
-      "bill_date": "2024-10-13",
+      "bill_no": "PH/2024/1736",
+      "bill_date": "2024-10-16",
       "patient_name": "Kalpit Peri",
-      "prescription_ref": "RX1954",
+      "prescription_ref": "RX1234",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B98325",
-          "quantity": 1.0,
+          "batch_no": "B25816",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B56188",
-          "quantity": 3.0,
+          "batch_no": "B98325",
+          "quantity": 1.0,
           "mrp": 24.0,
-          "amount": 72.0
+          "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B51902",
+          "batch_no": "B56188",
           "quantity": 3.0,
           "mrp": 96.0,
           "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B11876",
-          "quantity": 1.0,
+          "batch_no": "B51902",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 132.0
         }
       ],
-      "total": 549.0
+      "total": 734.0
     },
     {
       "document_id": "CLAIM-005163-RX",

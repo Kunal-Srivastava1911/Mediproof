@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Tanish Sood",
-      "policy_no": "HLT-61-7941925",
+      "policy_no": "HLT-95-4571691",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-22",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 63680.84
+      "claimed_amount": 35393.76
     },
     {
       "document_id": "CLAIM-005096-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID743461",
         "phone": "9883906157"
       },
-      "bill_no": "INV/2024/2471",
+      "bill_no": "INV/2024/6370",
       "bill_date": "2024-11-22",
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-22",
@@ -84,28 +84,20 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20495.26,
-          "amount": 20495.26,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9677.82,
-          "amount": 9677.82,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6305.51,
-          "amount": 6305.51,
+          "unit_price": 5962.26,
+          "amount": 5962.26,
           "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
         },
         {
           "description": "Administrative / Record Charges",
@@ -114,20 +106,12 @@
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 63191.82,
-      "discount": 3159.59,
-      "tax": 3001.61,
-      "total": 63033.84
+      "subtotal": 32825.49,
+      "discount": 0.0,
+      "tax": 1641.27,
+      "total": 34466.76
     },
     {
       "document_id": "CLAIM-005096-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/6393",
-      "bill_date": "2024-11-21",
+      "bill_no": "PH/2024/5940",
+      "bill_date": "2024-11-19",
       "patient_name": "Tanish Sood",
-      "prescription_ref": "RX1066",
+      "prescription_ref": "RX1648",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B24867",
+          "batch_no": "B90062",
           "quantity": 3.0,
           "mrp": 145.0,
           "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B49527",
+          "batch_no": "B21771",
           "quantity": 3.0,
           "mrp": 24.0,
           "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B97822",
-          "quantity": 1.0,
+          "batch_no": "B46058",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B73309",
-          "quantity": 1.0,
+          "batch_no": "B24867",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 132.0
         }
       ],
-      "total": 647.0
+      "total": 927.0
     },
     {
       "document_id": "CLAIM-005096-RX",

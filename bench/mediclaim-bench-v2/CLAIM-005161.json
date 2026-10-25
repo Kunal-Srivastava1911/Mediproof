@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Ridhi Hans",
-      "policy_no": "HLT-77-4331732",
+      "policy_no": "HLT-55-7846162",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-09-09",
       "discharge_date": "2024-09-13",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 73988.32
+      "claimed_amount": 42656.9
     },
     {
       "document_id": "CLAIM-005161-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID844254",
         "phone": "9828088973"
       },
-      "bill_no": "INV/2024/2303",
+      "bill_no": "INV/2024/7246",
       "bill_date": "2024-09-13",
       "admission_date": "2024-09-09",
       "discharge_date": "2024-09-13",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21064.51,
-          "amount": 21064.51,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9652.65,
-          "amount": 9652.65,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6833.05,
-          "amount": 6833.05,
+          "unit_price": 6127.86,
+          "amount": 6127.86,
           "is_non_payable": false
         },
         {
@@ -116,11 +100,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Attendant Meal Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 73644.43,
-      "discount": 3682.22,
-      "tax": 3498.11,
-      "total": 73460.32
+      "subtotal": 42072.08,
+      "discount": 2103.6,
+      "tax": 1998.42,
+      "total": 41966.9
     },
     {
       "document_id": "CLAIM-005161-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/6769",
+      "bill_no": "PH/2024/1786",
       "bill_date": "2024-09-17",
       "patient_name": "Ridhi Hans",
-      "prescription_ref": "RX7685",
+      "prescription_ref": "RX9219",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B25204",
-          "quantity": 1.0,
+          "batch_no": "B93723",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B86228",
-          "quantity": 3.0,
+          "batch_no": "B29355",
+          "quantity": 2.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 36.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B21439",
-          "quantity": 3.0,
+          "batch_no": "B86228",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B75759",
-          "quantity": 1.0,
+          "batch_no": "B21439",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 132.0
         }
       ],
-      "total": 528.0
+      "total": 690.0
     },
     {
       "document_id": "CLAIM-005161-RX",

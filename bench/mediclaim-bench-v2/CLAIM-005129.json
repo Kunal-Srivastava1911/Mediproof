@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Anthony Sood",
-      "policy_no": "HLT-30-2707112",
+      "policy_no": "HLT-38-1249997",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-12-04",
       "discharge_date": "2024-12-08",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 97273.09
+      "claimed_amount": 56877.01
     },
     {
       "document_id": "CLAIM-005129-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID226672",
         "phone": "9916740651"
       },
-      "bill_no": "INV/2024/2937",
+      "bill_no": "INV/2024/9793",
       "bill_date": "2024-12-08",
       "admission_date": "2024-12-04",
       "discharge_date": "2024-12-08",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22020.05,
-          "amount": 22020.05,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9511.54,
-          "amount": 9511.54,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 5949.25,
-          "amount": 5949.25,
+          "unit_price": 6405.83,
+          "amount": 6405.83,
           "is_non_payable": false
         },
         {
@@ -132,18 +116,18 @@
           "is_non_payable": true
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22020.05,
-          "amount": 22020.05,
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3564.09,
+          "amount": 10692.27,
           "is_non_payable": false
         }
       ],
-      "subtotal": 95864.7,
-      "discount": 3692.23,
-      "tax": 4608.62,
-      "total": 96781.09
+      "subtotal": 53461.91,
+      "discount": 0.0,
+      "tax": 2673.1,
+      "total": 56135.01
     },
     {
       "document_id": "CLAIM-005129-DISCH",
@@ -184,41 +168,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/1244",
-      "bill_date": "2024-12-07",
+      "bill_no": "PH/2024/3219",
+      "bill_date": "2024-12-05",
       "patient_name": "Anthony Sood",
-      "prescription_ref": "RX9828",
+      "prescription_ref": "RX3889",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B61971",
-          "quantity": 1.0,
+          "batch_no": "B25501",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B54491",
-          "quantity": 1.0,
+          "batch_no": "B30840",
+          "quantity": 2.0,
           "mrp": 18.0,
-          "amount": 18.0
+          "amount": 36.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B27752",
-          "quantity": 3.0,
+          "batch_no": "B38385",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B39047",
-          "quantity": 1.0,
+          "batch_no": "B81432",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 492.0
+      "total": 742.0
     },
     {
       "document_id": "CLAIM-005129-RX",
@@ -350,7 +334,7 @@
     {
       "fault_type": "duplicate_billing",
       "severity": "warning",
-      "description": "Line item 'Surgeon / Procedure Fee' appears more than once on the bill.",
+      "description": "Line item 'Room Rent (Semi-Private)' appears more than once on the bill.",
       "document_ids": [
         "CLAIM-005129-BILL"
       ],

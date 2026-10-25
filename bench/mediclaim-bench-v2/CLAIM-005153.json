@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Nathan Sahota",
-      "policy_no": "HLT-65-8145575",
+      "policy_no": "HLT-46-2858339",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-06",
       "discharge_date": "2024-10-09",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 88590.42
+      "claimed_amount": 43957.33
     },
     {
       "document_id": "CLAIM-005153-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID990370",
         "phone": "9253648727"
       },
-      "bill_no": "INV/2024/3409",
+      "bill_no": "INV/2024/6464",
       "bill_date": "2024-10-09",
       "admission_date": "2024-10-06",
       "discharge_date": "2024-10-09",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21605.17,
-          "amount": 21605.17,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8635.65,
-          "amount": 8635.65,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6633.4,
-          "amount": 6633.4,
+          "unit_price": 6285.14,
+          "amount": 6285.14,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": true
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
+          "description": "ICU Charges",
+          "category": "room",
           "quantity": 1.0,
-          "unit_price": 21605.17,
-          "amount": 21605.17,
+          "unit_price": 9188.45,
+          "amount": 9188.45,
           "is_non_payable": false
         }
       ],
-      "subtotal": 83687.07,
+      "subtotal": 40981.27,
       "discount": 0.0,
-      "tax": 4184.35,
-      "total": 87871.42
+      "tax": 2049.06,
+      "total": 43030.33
     },
     {
       "document_id": "CLAIM-005153-DISCH",
@@ -174,41 +158,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/8319",
+      "bill_no": "PH/2024/5677",
       "bill_date": "2024-10-09",
       "patient_name": "Nathan Sahota",
-      "prescription_ref": "RX9343",
+      "prescription_ref": "RX2943",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B16208",
+          "batch_no": "B29272",
           "quantity": 3.0,
           "mrp": 145.0,
           "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B25548",
-          "quantity": 2.0,
+          "batch_no": "B85173",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B24518",
-          "quantity": 2.0,
+          "batch_no": "B64192",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B77981",
-          "quantity": 1.0,
+          "batch_no": "B16208",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 132.0
         }
       ],
-      "total": 719.0
+      "total": 927.0
     },
     {
       "document_id": "CLAIM-005153-RX",
@@ -340,7 +324,7 @@
     {
       "fault_type": "duplicate_billing",
       "severity": "warning",
-      "description": "Line item 'Surgeon / Procedure Fee' appears more than once on the bill.",
+      "description": "Line item 'ICU Charges' appears more than once on the bill.",
       "document_ids": [
         "CLAIM-005153-BILL"
       ],

@@ -20,7 +20,7 @@
       "admission_date": "2024-10-10",
       "discharge_date": "2024-10-13",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66335.6
+      "claimed_amount": 33155.7
     },
     {
       "document_id": "CLAIM-005174-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID173062",
         "phone": "9265573201"
       },
-      "bill_no": "INV/2024/7696",
+      "bill_no": "INV/2024/4234",
       "bill_date": "2024-10-13",
       "admission_date": "2024-10-10",
       "discharge_date": "2024-10-13",
@@ -84,28 +84,20 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23278.28,
-          "amount": 23278.28,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9537.5,
-          "amount": 9537.5,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6731.29,
-          "amount": 6731.29,
+          "unit_price": 6771.86,
+          "amount": 6771.86,
           "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         },
         {
           "description": "Attendant Meal Charges",
@@ -114,20 +106,12 @@
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 65766.01,
-      "discount": 3288.3,
-      "tax": 3123.89,
-      "total": 65601.6
+      "subtotal": 32840.8,
+      "discount": 1642.04,
+      "tax": 1559.94,
+      "total": 32758.7
     },
     {
       "document_id": "CLAIM-005174-DISCH",
@@ -167,40 +151,40 @@
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
       "bill_no": "PH/2024/8424",
-      "bill_date": "2024-10-11",
+      "bill_date": "2024-10-13",
       "patient_name": "Nakul Keer",
       "prescription_ref": "RX3388",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B41876",
-          "quantity": 2.0,
+          "batch_no": "B64263",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B39072",
+          "batch_no": "B30888",
           "quantity": 1.0,
           "mrp": 24.0,
           "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B30244",
-          "quantity": 3.0,
+          "batch_no": "B96386",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B87407",
+          "batch_no": "B30244",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 734.0
+      "total": 397.0
     },
     {
       "document_id": "CLAIM-005174-RX",

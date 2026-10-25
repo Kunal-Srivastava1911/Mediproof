@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Rushil Tak",
-      "policy_no": "HLT-83-8766188",
+      "policy_no": "HLT-22-8766188",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-23",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 77336.7
+      "claimed_amount": 42243.98
     },
     {
       "document_id": "CLAIM-005234-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID732937",
         "phone": "9205076812"
       },
-      "bill_no": "INV/2024/3072",
+      "bill_no": "INV/2024/3684",
       "bill_date": "2024-11-23",
       "admission_date": "2024-11-19",
       "discharge_date": "2024-11-23",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21640.13,
-          "amount": 21640.13,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9619.46,
-          "amount": 9619.46,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6231.96,
-          "amount": 6231.96,
+          "unit_price": 6295.31,
+          "amount": 6295.31,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
           "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 73158.76,
-      "discount": 0.0,
-      "tax": 3657.94,
-      "total": 76816.7
+      "subtotal": 41812.52,
+      "discount": 2090.63,
+      "tax": 1986.09,
+      "total": 41707.98
     },
     {
       "document_id": "CLAIM-005234-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/2999",
+      "bill_no": "PH/2024/9286",
       "bill_date": "2024-11-22",
       "patient_name": "Rushil Tak",
-      "prescription_ref": "RX2621",
+      "prescription_ref": "RX2999",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B66171",
+          "batch_no": "B60007",
           "quantity": 1.0,
           "mrp": 142.0,
           "amount": 142.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B72847",
-          "quantity": 3.0,
+          "batch_no": "B66171",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B94598",
-          "quantity": 2.0,
+          "batch_no": "B72847",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B76288",
-          "quantity": 3.0,
+          "batch_no": "B94598",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 520.0
+      "total": 536.0
     },
     {
       "document_id": "CLAIM-005234-RX",

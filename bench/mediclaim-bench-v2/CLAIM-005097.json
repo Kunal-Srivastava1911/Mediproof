@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Nitara Dugar",
-      "policy_no": "HLT-77-3027709",
+      "policy_no": "HLT-29-5815079",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-11-03",
       "discharge_date": "2024-11-06",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 157116.43
+      "claimed_amount": 78427.47
     },
     {
       "document_id": "CLAIM-005097-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID274239",
         "phone": "9492589301"
       },
-      "bill_no": "INV/2024/4165",
+      "bill_no": "INV/2024/2257",
       "bill_date": "2024-11-06",
       "admission_date": "2024-11-03",
       "discharge_date": "2024-11-06",
@@ -48,7 +48,7 @@
           "category": "room",
           "quantity": 1.0,
           "unit_price": 10255.94,
-          "amount": 10255.94,
+          "amount": 51279.7,
           "is_non_payable": false
         },
         {
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21416.58,
-          "amount": 107082.9,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8879.25,
-          "amount": 8879.25,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 5942.81,
-          "amount": 5942.81,
+          "unit_price": 6230.28,
+          "amount": 6230.28,
           "is_non_payable": false
-        },
-        {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
         },
         {
           "description": "Administrative / Record Charges",
@@ -122,12 +98,20 @@
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 149115.65,
+      "subtotal": 74314.73,
       "discount": 0.0,
-      "tax": 7455.78,
-      "total": 156571.43
+      "tax": 3715.74,
+      "total": 78030.47
     },
     {
       "document_id": "CLAIM-005097-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/5702",
-      "bill_date": "2024-11-04",
+      "bill_no": "PH/2024/5831",
+      "bill_date": "2024-11-06",
       "patient_name": "Nitara Dugar",
-      "prescription_ref": "RX8136",
+      "prescription_ref": "RX6180",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B25467",
+          "batch_no": "B35322",
           "quantity": 1.0,
           "mrp": 145.0,
           "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B95379",
+          "batch_no": "B27585",
           "quantity": 1.0,
           "mrp": 24.0,
           "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B48654",
-          "quantity": 3.0,
+          "batch_no": "B37837",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B29608",
-          "quantity": 2.0,
+          "batch_no": "B93963",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 545.0
+      "total": 397.0
     },
     {
       "document_id": "CLAIM-005097-RX",
@@ -332,7 +316,7 @@
     {
       "fault_type": "inflated_line_item",
       "severity": "critical",
-      "description": "Billed amount for 'Surgeon / Procedure Fee' is far above quantity x unit price.",
+      "description": "Billed amount for 'ICU Charges' is far above quantity x unit price.",
       "document_ids": [
         "CLAIM-005097-BILL"
       ],

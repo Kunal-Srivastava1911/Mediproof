@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Darpan Prabhu",
-      "policy_no": "HLT-36-6330160",
+      "policy_no": "HLT-77-4422970",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-11-15",
       "discharge_date": "2024-11-18",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 65247.34
+      "claimed_amount": 34676.84
     },
     {
       "document_id": "CLAIM-005088-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID664817",
         "phone": "9157978945"
       },
-      "bill_no": "INV/2024/7082",
+      "bill_no": "INV/2024/8306",
       "bill_date": "2024-11-18",
       "admission_date": "2024-11-15",
       "discharge_date": "2024-11-18",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23118.8,
-          "amount": 23118.8,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9508.13,
-          "amount": 9508.13,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6277.23,
-          "amount": 6277.23,
+          "unit_price": 6725.47,
+          "amount": 6725.47,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 64573.78,
-      "discount": 3228.69,
-      "tax": 3067.25,
-      "total": 64412.34
+      "subtotal": 32395.09,
+      "discount": 0.0,
+      "tax": 1619.75,
+      "total": 34014.84
     },
     {
       "document_id": "CLAIM-005088-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/6195",
+      "bill_no": "PH/2024/3559",
       "bill_date": "2024-11-17",
       "patient_name": "Darpan Prabhu",
-      "prescription_ref": "RX9668",
+      "prescription_ref": "RX6195",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B65398",
-          "quantity": 3.0,
+          "batch_no": "B99636",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 435.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B60971",
-          "quantity": 1.0,
+          "batch_no": "B41437",
+          "quantity": 2.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B96552",
-          "quantity": 3.0,
+          "batch_no": "B76147",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B30473",
-          "quantity": 2.0,
+          "batch_no": "B48793",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         }
       ],
-      "total": 835.0
+      "total": 662.0
     },
     {
       "document_id": "CLAIM-005088-RX",

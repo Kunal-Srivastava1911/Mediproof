@@ -60,6 +60,17 @@ AGENT_SCHEMA: dict = {
     }}},
 }
 
+def _combined_schema() -> dict:
+    """AGENT_SCHEMA plus an `area` on each finding, for the one-call-covers-all mode."""
+    schema = json.loads(json.dumps(AGENT_SCHEMA))
+    item = schema["properties"]["findings"]["items"]
+    item["properties"]["area"] = {"type": "string", "enum": list(AGENT_ROLES_KEYS)}
+    item["required"] = ["area", *item["required"]]
+    return schema
+
+
+AGENT_ROLES_KEYS = ("billing", "clinical_record", "pharmacy", "timeline", "identity")
+
 SKEPTIC_SCHEMA: dict = {
     "type": "object",
     "additionalProperties": False,
@@ -67,11 +78,12 @@ SKEPTIC_SCHEMA: dict = {
     "properties": {"reviews": {"type": "array", "items": {
         "type": "object",
         "additionalProperties": False,
-        "required": ["index", "upheld", "reason"],
+        # Reason first, then a two-word verdict: small models confuse a bare boolean.
+        "required": ["index", "reason", "verdict"],
         "properties": {
             "index": {"type": "integer"},
-            "upheld": {"type": "boolean"},
             "reason": {"type": "string"},
+            "verdict": {"type": "string", "enum": ["real_problem", "not_a_problem"]},
         },
     }}},
 }
@@ -83,6 +95,10 @@ other. You never judge whether treatment was medically necessary, never decide c
 payment, and never describe anything as fraud. Every finding is a review item for a human.
 
 How to report:
+- Report only problems. Never report that something is consistent, correct or matches —
+  if everything in your area agrees, return an empty list.
+- The claim form's amount claimed is the hospital bill total plus the pharmacy bills; it is
+  not expected to equal the hospital bill alone.
 - Report only problems you can prove from the documents. Each finding needs at least one
   quote copied character-for-character from the document whose id you cite (at most 25
   words). For a contradiction, quote both sides, each with its own document id.
@@ -125,11 +141,15 @@ AGENT_ROLES: dict[str, str] = {
 SKEPTIC_SYSTEM = """\
 You are a skeptical second reviewer of proposed documentation review items for a health-
 insurance claim file. For each proposed item, decide whether the documents really show the
-problem. Reject it (upheld=false) when the quotes do not support it, when the difference is
-only formatting (12 Sep 2024 vs 12/09/2024), when it is an initial or abbreviation of the
-same name, when another document in the file resolves it, or when it asks for a clinical or
-coverage judgment rather than a documentation check. Otherwise uphold it. Give a one-sentence
-reason either way. Return one review per proposed item, using its index."""
+problem. First write a one-sentence reason, then the verdict:
+- "not_a_problem" when the quotes do not support it, when the difference is only formatting
+  (12 Sep 2024 vs 12/09/2024), when it is an initial or abbreviation of the same name, when
+  another document resolves it, when the item only says things are consistent, or when it
+  asks for a clinical or coverage judgment rather than a documentation check;
+- "real_problem" when the documents genuinely disagree or something billed or referenced
+  is missing.
+Count days carefully: "shifted to the ward on day N of admission" means N-1 days in ICU.
+Return one review per proposed item, using its index."""
 
 
 @dataclass
@@ -180,26 +200,52 @@ def _content(dossier: str, instruction: str) -> list[dict]:
     ]
 
 
+COMBINED_ROLE = (
+    "Cover all five areas below and label each finding with its `area`.\n"
+    + "\n".join(f"- {name}: {role}" for name, role in AGENT_ROLES.items())
+)
+
+
+def _collect(run: AgentRun, reply: dict, default_agent: str | None) -> None:
+    for item in reply.get("findings", []):
+        try:
+            run.proposals.append(Proposal(
+                agent=item.get("area") or default_agent, type=item["type"],
+                severity=item["severity"], title=item["title"].strip(),
+                detail=item["detail"].strip(),
+                quotes=[q for q in item.get("quotes", []) if q.get("quote")],
+                check_kind=item["check"]["kind"], check_values=item["check"]["values"],
+            ))
+        except (KeyError, TypeError, AttributeError):
+            continue  # one malformed item never sinks the rest
+
+
 def run_specialists(client: LLMClient, dossier: str) -> AgentRun:
-    """Run each specialist once over the dossier. A failed agent is skipped, never fatal."""
+    """Run the specialists over the dossier — one call each, or one combined call on free
+    tiers (`client.agent_mode`). A failed call is skipped, never fatal; an exhausted quota
+    stops further calls."""
     run = AgentRun()
+    if getattr(client, "agent_mode", "separate") == "combined":
+        try:
+            reply = client.complete_json(AUDITOR_SYSTEM, _content(dossier, COMBINED_ROLE),
+                                         _combined_schema())
+        except Exception as exc:  # noqa: BLE001
+            run.skipped.append(f"combined: {type(exc).__name__}: {str(exc)[:160]}")
+            return run
+        run.agents_run = list(AGENT_ROLES)
+        _collect(run, reply, None)
+        return run
     for name, role in AGENT_ROLES.items():
+        if getattr(client, "quota_exhausted", False):
+            run.skipped.append(f"{name}: quota exhausted")
+            continue
         try:
             reply = client.complete_json(AUDITOR_SYSTEM, _content(dossier, role), AGENT_SCHEMA)
         except Exception as exc:  # noqa: BLE001 - replay miss, budget, API error, bad JSON
-            run.skipped.append(f"{name}: {type(exc).__name__}")
+            run.skipped.append(f"{name}: {type(exc).__name__}: {str(exc)[:160]}")
             continue
         run.agents_run.append(name)
-        for item in reply.get("findings", []):
-            try:
-                run.proposals.append(Proposal(
-                    agent=name, type=item["type"], severity=item["severity"],
-                    title=item["title"].strip(), detail=item["detail"].strip(),
-                    quotes=[q for q in item.get("quotes", []) if q.get("quote")],
-                    check_kind=item["check"]["kind"], check_values=item["check"]["values"],
-                ))
-            except (KeyError, TypeError, AttributeError):
-                continue  # one malformed item never sinks the rest
+        _collect(run, reply, name)
     return run
 
 
@@ -207,6 +253,8 @@ def run_skeptic(client: LLMClient, dossier: str, proposals: list[Proposal]) -> b
     """Ask the skeptic to cross-examine every proposal (in place). False if it couldn't run."""
     if not proposals:
         return True
+    if getattr(client, "quota_exhausted", False):
+        return False
     listing = json.dumps([
         {"index": i, "agent": p.agent, "type": p.type, "title": p.title, "detail": p.detail,
          "quotes": p.quotes, "check": {"kind": p.check_kind, "values": p.check_values}}
@@ -223,6 +271,8 @@ def run_skeptic(client: LLMClient, dossier: str, proposals: list[Proposal]) -> b
     for review in reply.get("reviews", []):
         i = review.get("index")
         if isinstance(i, int) and 0 <= i < len(proposals):
-            proposals[i].skeptic = {"upheld": bool(review.get("upheld")),
+            upheld = review.get("verdict") == "real_problem" if "verdict" in review \
+                else bool(review.get("upheld"))
+            proposals[i].skeptic = {"upheld": upheld,
                                     "reason": str(review.get("reason", "")).strip()}
     return True

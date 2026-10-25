@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Gayathri Balay",
-      "policy_no": "HLT-78-3316589",
+      "policy_no": "HLT-96-2047750",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-10-30",
       "discharge_date": "2024-11-02",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 75274.58
+      "claimed_amount": 42571.28
     },
     {
       "document_id": "CLAIM-005061-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID787928",
         "phone": "9558658952"
       },
-      "bill_no": "INV/2024/8290",
+      "bill_no": "INV/2024/2243",
       "bill_date": "2024-11-02",
       "admission_date": "2024-10-30",
       "discharge_date": "2024-11-02",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23325.78,
-          "amount": 23325.78,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8374.05,
-          "amount": 8374.05,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6113.76,
-          "amount": 6113.76,
+          "unit_price": 6785.68,
+          "amount": 6785.68,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 64047.22,
+      "subtotal": 33019.31,
       "discount": 0.0,
-      "tax": 3202.36,
-      "total": 74749.58
+      "tax": 1650.97,
+      "total": 42170.28
     },
     {
       "document_id": "CLAIM-005061-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/2023",
-      "bill_date": "2024-10-30",
+      "bill_no": "PH/2024/3640",
+      "bill_date": "2024-10-31",
       "patient_name": "Gayathri Balay",
-      "prescription_ref": "RX1531",
+      "prescription_ref": "RX7431",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B50415",
+          "batch_no": "B68327",
           "quantity": 1.0,
           "mrp": 145.0,
           "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B99330",
-          "quantity": 2.0,
+          "batch_no": "B15453",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B94945",
-          "quantity": 3.0,
+          "batch_no": "B50415",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B61452",
-          "quantity": 1.0,
+          "batch_no": "B99330",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 525.0
+      "total": 401.0
     },
     {
       "document_id": "CLAIM-005061-RX",

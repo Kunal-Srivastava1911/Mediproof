@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Harshil Sandal",
-      "policy_no": "HLT-98-1082530",
+      "policy_no": "HLT-47-1082530",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-09-06",
       "discharge_date": "2024-09-09",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 67220.01
+      "claimed_amount": 33446.02
     },
     {
       "document_id": "CLAIM-005227-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID266709",
         "phone": "9328453202"
       },
-      "bill_no": "INV/2024/4541",
+      "bill_no": "INV/2024/5880",
       "bill_date": "2024-09-09",
       "admission_date": "2024-09-06",
       "discharge_date": "2024-09-09",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22071.53,
-          "amount": 22071.53,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8280.73,
-          "amount": 8280.73,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6413.07,
-          "amount": 6413.07,
+          "unit_price": 6420.81,
+          "amount": 6420.81,
           "is_non_payable": false
         },
         {
-          "description": "Attendant Meal Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63365.72,
-      "discount": 0.0,
-      "tax": 3168.29,
-      "total": 66534.01
+      "subtotal": 32871.2,
+      "discount": 1643.56,
+      "tax": 1561.38,
+      "total": 32789.02
     },
     {
       "document_id": "CLAIM-005227-DISCH",
@@ -166,38 +150,38 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/4826",
-      "bill_date": "2024-09-08",
+      "bill_no": "PH/2024/2332",
+      "bill_date": "2024-09-06",
       "patient_name": "Harshil Sandal",
-      "prescription_ref": "RX5766",
+      "prescription_ref": "RX4826",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B10197",
-          "quantity": 2.0,
+          "batch_no": "B50774",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B35959",
-          "quantity": 3.0,
+          "batch_no": "B10197",
+          "quantity": 2.0,
           "mrp": 24.0,
-          "amount": 72.0
+          "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B86347",
-          "quantity": 2.0,
+          "batch_no": "B35959",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B93325",
-          "quantity": 1.0,
+          "batch_no": "B86347",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         },
         {
           "drug_name": "Clopidogrel 75mg",
@@ -207,7 +191,7 @@
           "amount": 88.0
         }
       ],
-      "total": 686.0
+      "total": 657.0
     },
     {
       "document_id": "CLAIM-005227-RX",

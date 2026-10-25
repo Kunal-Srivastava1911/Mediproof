@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Sathvik Dhar",
-      "policy_no": "HLT-19-9638609",
+      "policy_no": "HLT-59-4961671",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-11-25",
       "discharge_date": "2024-11-28",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 69742.82
+      "claimed_amount": 40517.6
     },
     {
       "document_id": "CLAIM-005117-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID830648",
         "phone": "9566368011"
       },
-      "bill_no": "INV/2024/1945",
+      "bill_no": "INV/2024/1701",
       "bill_date": "2024-11-28",
       "admission_date": "2024-11-25",
       "discharge_date": "2024-11-28",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23139.06,
-          "amount": 23139.06,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8553.14,
-          "amount": 8553.14,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6085.24,
-          "amount": 6085.24,
+          "unit_price": 6731.36,
+          "amount": 6731.36,
           "is_non_payable": false
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 68884.75,
-      "discount": 3143.02,
-      "tax": 3287.09,
-      "total": 69028.82
+      "subtotal": 37838.67,
+      "discount": 0.0,
+      "tax": 1891.93,
+      "total": 39730.6
     },
     {
       "document_id": "CLAIM-005117-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/4868",
-      "bill_date": "2024-11-26",
+      "bill_no": "PH/2024/9890",
+      "bill_date": "2024-11-25",
       "patient_name": "Sathvik Dhar",
-      "prescription_ref": "RX4577",
+      "prescription_ref": "RX2976",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B13978",
-          "quantity": 2.0,
+          "batch_no": "B17566",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 290.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B12533",
-          "quantity": 2.0,
+          "batch_no": "B41110",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B25810",
-          "quantity": 3.0,
+          "batch_no": "B13978",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B82808",
+          "batch_no": "B12533",
           "quantity": 2.0,
           "mrp": 44.0,
           "amount": 88.0
         }
       ],
-      "total": 714.0
+      "total": 787.0
     },
     {
       "document_id": "CLAIM-005117-RX",

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Jack Uppal",
-      "policy_no": "HLT-66-1321822",
+      "policy_no": "HLT-89-2950760",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-09-20",
       "discharge_date": "2024-09-26",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 75405.9
+      "claimed_amount": 41636.87
     },
     {
       "document_id": "CLAIM-005135-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID571299",
         "phone": "9369709035"
       },
-      "bill_no": "INV/2024/4112",
+      "bill_no": "INV/2024/9298",
       "bill_date": "2024-09-26",
       "admission_date": "2024-09-22",
       "discharge_date": "2024-09-26",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20465.39,
-          "amount": 20465.39,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8433.91,
-          "amount": 8433.91,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6871.92,
-          "amount": 6871.92,
+          "unit_price": 5953.57,
+          "amount": 5953.57,
           "is_non_payable": false
         },
         {
@@ -116,11 +100,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Attendant Meal Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 71319.9,
-      "discount": 0.0,
-      "tax": 3566.0,
-      "total": 74885.9
+      "subtotal": 41352.25,
+      "discount": 2067.61,
+      "tax": 1964.23,
+      "total": 41248.87
     },
     {
       "document_id": "CLAIM-005135-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/4456",
-      "bill_date": "2024-09-25",
+      "bill_no": "PH/2024/5201",
+      "bill_date": "2024-09-24",
       "patient_name": "Jack Uppal",
-      "prescription_ref": "RX8990",
+      "prescription_ref": "RX4095",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B60826",
+          "batch_no": "B93816",
           "quantity": 1.0,
           "mrp": 142.0,
           "amount": 142.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B47651",
-          "quantity": 3.0,
+          "batch_no": "B63246",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B34763",
-          "quantity": 2.0,
+          "batch_no": "B60826",
+          "quantity": 1.0,
           "mrp": 96.0,
-          "amount": 192.0
+          "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B25240",
+          "batch_no": "B47651",
           "quantity": 3.0,
           "mrp": 44.0,
           "amount": 132.0
         }
       ],
-      "total": 520.0
+      "total": 388.0
     },
     {
       "document_id": "CLAIM-005135-RX",

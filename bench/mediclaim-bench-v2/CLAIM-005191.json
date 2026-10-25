@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Oni Ravi",
-      "policy_no": "HLT-14-4440935",
+      "policy_no": "HLT-78-3225414",
       "hospital_name": "Lotus Valley Health Centre",
       "admission_date": "2024-09-28",
       "discharge_date": "2024-10-02",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 71390.15
+      "claimed_amount": 41498.2
     },
     {
       "document_id": "CLAIM-005191-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID169261",
         "phone": "9889350956"
       },
-      "bill_no": "INV/2024/5290",
+      "bill_no": "INV/2024/8346",
       "bill_date": "2024-10-02",
       "admission_date": "2024-09-28",
       "discharge_date": "2024-10-02",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20783.22,
-          "amount": 20783.22,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9700.63,
-          "amount": 9700.63,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6087.69,
-          "amount": 6087.69,
+          "unit_price": 6046.03,
+          "amount": 6046.03,
           "is_non_payable": false
         },
         {
@@ -116,11 +100,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 71162.05,
-      "discount": 3558.1,
-      "tax": 3380.2,
-      "total": 70984.15
+      "subtotal": 40936.54,
+      "discount": 2046.83,
+      "tax": 1944.49,
+      "total": 40834.2
     },
     {
       "document_id": "CLAIM-005191-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/4551",
+      "bill_no": "PH/2024/4077",
       "bill_date": "2024-09-29",
       "patient_name": "Oni Ravii",
-      "prescription_ref": "RX4201",
+      "prescription_ref": "RX6546",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B68436",
-          "quantity": 1.0,
+          "batch_no": "B44322",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B81176",
-          "quantity": 2.0,
+          "batch_no": "B28456",
+          "quantity": 3.0,
           "mrp": 18.0,
-          "amount": 36.0
+          "amount": 54.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B54368",
+          "batch_no": "B68436",
           "quantity": 1.0,
           "mrp": 96.0,
           "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B27386",
-          "quantity": 3.0,
+          "batch_no": "B81176",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 406.0
+      "total": 664.0
     },
     {
       "document_id": "CLAIM-005191-RX",

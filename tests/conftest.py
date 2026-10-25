@@ -1,6 +1,14 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
+
+# Tests are hermetic: never read the developer's .env, never inherit live LLM settings.
+os.environ["MEDIPROOF_NO_DOTENV"] = "1"
+for _var in ("LLM_LIVE", "LLM_PROVIDER", "LLM_MODEL", "LLM_AGENT_MODE", "LLM_BUDGET_USD",
+             "LLM_MIN_INTERVAL_S", "LLM_PRICE_IN", "LLM_PRICE_OUT", "GEMINI_API_KEY",
+             "GOOGLE_API_KEY", "ANTHROPIC_API_KEY"):
+    os.environ.pop(_var, None)
 from types import SimpleNamespace
 
 import pytest

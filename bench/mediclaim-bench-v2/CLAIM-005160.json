@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Eta Saran",
-      "policy_no": "HLT-65-5134424",
+      "policy_no": "HLT-90-1866984",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-23",
       "discharge_date": "2024-10-26",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66905.08
+      "claimed_amount": 34737.2
     },
     {
       "document_id": "CLAIM-005160-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID361471",
         "phone": "9526309591"
       },
-      "bill_no": "INV/2024/1957",
+      "bill_no": "INV/2024/5434",
       "bill_date": "2024-10-26",
       "admission_date": "2024-10-23",
       "discharge_date": "2024-10-26",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21951.68,
-          "amount": 21951.68,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8345.87,
-          "amount": 8345.87,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6854.47,
-          "amount": 6854.47,
+          "unit_price": 6385.94,
+          "amount": 6385.94,
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63041.98,
+      "subtotal": 32425.9,
       "discount": 0.0,
-      "tax": 3152.1,
-      "total": 66194.08
+      "tax": 1621.3,
+      "total": 34047.2
     },
     {
       "document_id": "CLAIM-005160-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/2926",
-      "bill_date": "2024-10-26",
+      "bill_no": "PH/2024/2920",
+      "bill_date": "2024-10-25",
       "patient_name": "Eta Saran",
-      "prescription_ref": "RX5659",
+      "prescription_ref": "RX4853",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B53521",
-          "quantity": 3.0,
+          "batch_no": "B89762",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 435.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B90620",
-          "quantity": 2.0,
+          "batch_no": "B66500",
+          "quantity": 1.0,
           "mrp": 24.0,
-          "amount": 48.0
+          "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B40830",
-          "quantity": 1.0,
+          "batch_no": "B53521",
+          "quantity": 3.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B16773",
-          "quantity": 3.0,
+          "batch_no": "B90620",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 88.0
         }
       ],
-      "total": 711.0
+      "total": 690.0
     },
     {
       "document_id": "CLAIM-005160-RX",

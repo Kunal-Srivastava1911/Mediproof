@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Amol Zacharia",
-      "policy_no": "HLT-21-3851505",
+      "policy_no": "HLT-43-2462344",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-12-03",
       "discharge_date": "2024-12-07",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 89028.23
+      "claimed_amount": 58923.98
     },
     {
       "document_id": "CLAIM-005091-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID200681",
         "phone": "9943278540"
       },
-      "bill_no": "INV/2024/9402",
+      "bill_no": "INV/2024/5704",
       "bill_date": "2024-12-07",
       "admission_date": "2024-12-03",
       "discharge_date": "2024-12-07",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23475.37,
-          "amount": 23475.37,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9176.88,
-          "amount": 9176.88,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6809.76,
-          "amount": 6809.76,
+          "unit_price": 6829.2,
+          "amount": 6829.2,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 87918.98,
-      "discount": 3770.19,
-      "tax": 4207.44,
-      "total": 88356.23
+      "subtotal": 55436.17,
+      "discount": 0.0,
+      "tax": 2771.81,
+      "total": 58207.98
     },
     {
       "document_id": "CLAIM-005091-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/3056",
+      "bill_no": "PH/2024/3707",
       "bill_date": "2024-12-07",
       "patient_name": "Amol Zacharia",
-      "prescription_ref": "RX5305",
+      "prescription_ref": "RX3056",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B55027",
+          "batch_no": "B77219",
           "quantity": 3.0,
           "mrp": 142.0,
           "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B10018",
-          "quantity": 1.0,
+          "batch_no": "B82687",
+          "quantity": 3.0,
           "mrp": 18.0,
-          "amount": 18.0
+          "amount": 54.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B31662",
-          "quantity": 1.0,
+          "batch_no": "B36630",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 96.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B84721",
-          "quantity": 3.0,
+          "batch_no": "B13000",
+          "quantity": 1.0,
           "mrp": 44.0,
-          "amount": 132.0
+          "amount": 44.0
         }
       ],
-      "total": 672.0
+      "total": 716.0
     },
     {
       "document_id": "CLAIM-005091-RX",

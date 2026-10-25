@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Kavya Verma",
-      "policy_no": "HLT-22-5406614",
+      "policy_no": "HLT-89-9691607",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-11-01",
       "discharge_date": "2024-11-05",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 77335.42
+      "claimed_amount": 45345.92
     },
     {
       "document_id": "CLAIM-005009-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID199441",
         "phone": "9215638259"
       },
-      "bill_no": "INV/2024/8565",
+      "bill_no": "INV/2024/7090",
       "bill_date": "2024-11-05",
       "admission_date": "2024-11-01",
       "discharge_date": "2024-11-05",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21779.38,
-          "amount": 21779.38,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8395.47,
-          "amount": 8395.47,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6427.63,
-          "amount": 6427.63,
+          "unit_price": 6335.82,
+          "amount": 6335.82,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
           "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 72906.11,
+      "subtotal": 42489.45,
       "discount": 0.0,
-      "tax": 3645.31,
-      "total": 76551.42
+      "tax": 2124.47,
+      "total": 44613.92
     },
     {
       "document_id": "CLAIM-005009-DISCH",
@@ -176,38 +160,38 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/9487",
-      "bill_date": "2024-11-05",
+      "bill_no": "PH/2024/6333",
+      "bill_date": "2024-11-04",
       "patient_name": "Kavya Verma",
-      "prescription_ref": "RX2913",
+      "prescription_ref": "RX3203",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B14040",
+          "batch_no": "B81161",
           "quantity": 2.0,
           "mrp": 142.0,
           "amount": 284.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B38558",
+          "batch_no": "B14040",
           "quantity": 2.0,
           "mrp": 18.0,
           "amount": 36.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B58132",
-          "quantity": 3.0,
+          "batch_no": "B38558",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B27625",
-          "quantity": 2.0,
+          "batch_no": "B58132",
+          "quantity": 3.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 132.0
         },
         {
           "drug_name": "Clopidogrel 75mg",
@@ -217,7 +201,7 @@
           "amount": 88.0
         }
       ],
-      "total": 784.0
+      "total": 732.0
     },
     {
       "document_id": "CLAIM-005009-RX",

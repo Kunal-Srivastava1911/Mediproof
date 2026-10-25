@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Chakrika Sharma",
-      "policy_no": "HLT-13-4141699",
+      "policy_no": "HLT-68-5269089",
       "hospital_name": "Sunrise Multispeciality Hospital",
       "admission_date": "2024-12-11",
       "discharge_date": "2024-12-15",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 173872.37
+      "claimed_amount": 84819.63
     },
     {
       "document_id": "CLAIM-005025-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID700822",
         "phone": "9719106788"
       },
-      "bill_no": "INV/2024/6053",
+      "bill_no": "INV/2024/9695",
       "bill_date": "2024-12-15",
       "admission_date": "2024-12-11",
       "discharge_date": "2024-12-15",
@@ -56,7 +56,7 @@
           "category": "room",
           "quantity": 3.0,
           "unit_price": 3363.03,
-          "amount": 10089.09,
+          "amount": 50445.45,
           "is_non_payable": false
         },
         {
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23695.82,
-          "amount": 118479.1,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8795.93,
-          "amount": 8795.93,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6432.51,
-          "amount": 6432.51,
+          "unit_price": 6893.33,
+          "amount": 6893.33,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
           "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 600.0,
           "amount": 600.0,
           "is_non_payable": true
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         }
       ],
-      "subtotal": 168790.23,
-      "discount": 3700.35,
-      "tax": 8254.49,
-      "total": 173344.37
+      "subtotal": 82182.38,
+      "discount": 2091.3,
+      "tax": 4004.55,
+      "total": 84095.63
     },
     {
       "document_id": "CLAIM-005025-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/5169",
+      "bill_no": "PH/2024/1889",
       "bill_date": "2024-12-12",
       "patient_name": "Chakrika Sharma",
-      "prescription_ref": "RX7692",
+      "prescription_ref": "RX4373",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B71626",
-          "quantity": 1.0,
+          "batch_no": "B50430",
+          "quantity": 3.0,
           "mrp": 142.0,
-          "amount": 142.0
+          "amount": 426.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B44166",
-          "quantity": 3.0,
+          "batch_no": "B34691",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 54.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B17113",
-          "quantity": 3.0,
+          "batch_no": "B99076",
+          "quantity": 2.0,
           "mrp": 96.0,
-          "amount": 288.0
+          "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B70330",
-          "quantity": 1.0,
+          "batch_no": "B86281",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 528.0
+      "total": 724.0
     },
     {
       "document_id": "CLAIM-005025-RX",
@@ -342,7 +326,7 @@
     {
       "fault_type": "inflated_line_item",
       "severity": "critical",
-      "description": "Billed amount for 'Surgeon / Procedure Fee' is far above quantity x unit price.",
+      "description": "Billed amount for 'Room Rent (Semi-Private)' is far above quantity x unit price.",
       "document_ids": [
         "CLAIM-005025-BILL"
       ],

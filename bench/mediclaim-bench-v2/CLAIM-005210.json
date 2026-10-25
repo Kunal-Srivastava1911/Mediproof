@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Gaurika Pandya",
-      "policy_no": "HLT-74-9191600",
+      "policy_no": "HLT-82-7166606",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-09-03",
       "discharge_date": "2024-09-07",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 78002.66
+      "claimed_amount": 43139.9
     },
     {
       "document_id": "CLAIM-005210-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID457072",
         "phone": "9832256359"
       },
-      "bill_no": "INV/2024/8982",
+      "bill_no": "INV/2024/6500",
       "bill_date": "2024-09-07",
       "admission_date": "2024-09-03",
       "discharge_date": "2024-09-07",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21869.45,
-          "amount": 21869.45,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8442.2,
-          "amount": 8442.2,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6566.94,
-          "amount": 6566.94,
+          "unit_price": 6362.02,
+          "amount": 6362.02,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 450.0,
           "amount": 450.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 73623.49,
-      "discount": 0.0,
-      "tax": 3681.17,
-      "total": 77304.66
+      "subtotal": 42806.92,
+      "discount": 2140.35,
+      "tax": 2033.33,
+      "total": 42699.9
     },
     {
       "document_id": "CLAIM-005210-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/7022",
+      "bill_no": "PH/2024/7166",
       "bill_date": "2024-09-03",
       "patient_name": "Gaurika Pandya",
-      "prescription_ref": "RX5196",
+      "prescription_ref": "RX1883",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B73350",
-          "quantity": 3.0,
+          "batch_no": "B73863",
+          "quantity": 1.0,
           "mrp": 142.0,
-          "amount": 426.0
+          "amount": 142.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B52228",
-          "quantity": 2.0,
+          "batch_no": "B93299",
+          "quantity": 1.0,
           "mrp": 18.0,
-          "amount": 36.0
+          "amount": 18.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B59329",
+          "batch_no": "B60211",
           "quantity": 2.0,
           "mrp": 96.0,
           "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B83855",
-          "quantity": 1.0,
+          "batch_no": "B45111",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 698.0
+      "total": 440.0
     },
     {
       "document_id": "CLAIM-005210-RX",

@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Jeet Sandal",
-      "policy_no": "HLT-61-3065246",
+      "policy_no": "HLT-39-2147765",
       "hospital_name": "Meridian Speciality Hospital",
       "admission_date": "2024-10-25",
       "discharge_date": "2024-10-28",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 61145.54
+      "claimed_amount": 33744.28
     },
     {
       "document_id": "CLAIM-005132-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID276375",
         "phone": "9335183453"
       },
-      "bill_no": "INV/2024/2511",
+      "bill_no": "INV/2024/4396",
       "bill_date": "2024-10-28",
       "admission_date": "2024-10-25",
       "discharge_date": "2024-10-28",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 20469.87,
-          "amount": 20469.87,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9194.46,
-          "amount": 9194.46,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6048.71,
-          "amount": 6048.71,
+          "unit_price": 5954.87,
+          "amount": 5954.87,
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 60796.53,
-      "discount": 3039.83,
-      "tax": 2887.84,
-      "total": 60644.54
+      "subtotal": 31338.36,
+      "discount": 0.0,
+      "tax": 1566.92,
+      "total": 32905.28
     },
     {
       "document_id": "CLAIM-005132-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/8963",
-      "bill_date": "2024-10-26",
+      "bill_no": "PH/2024/4838",
+      "bill_date": "2024-10-28",
       "patient_name": "Jeet Sandal",
-      "prescription_ref": "RX2292",
+      "prescription_ref": "RX1321",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B40062",
-          "quantity": 1.0,
+          "batch_no": "B41436",
+          "quantity": 3.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 435.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B19323",
-          "quantity": 1.0,
+          "batch_no": "B95107",
+          "quantity": 3.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 72.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B66786",
+          "batch_no": "B84286",
           "quantity": 3.0,
           "mrp": 96.0,
           "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B89234",
+          "batch_no": "B88252",
           "quantity": 1.0,
           "mrp": 44.0,
           "amount": 44.0
         }
       ],
-      "total": 501.0
+      "total": 839.0
     },
     {
       "document_id": "CLAIM-005132-RX",

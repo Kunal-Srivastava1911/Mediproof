@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Ekiya Subramaniam",
-      "policy_no": "HLT-98-6763367",
+      "policy_no": "HLT-72-2867942",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-10-05",
       "discharge_date": "2024-10-08",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 66257.96
+      "claimed_amount": 33327.36
     },
     {
       "document_id": "CLAIM-005099-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID270187",
         "phone": "9131606707"
       },
-      "bill_no": "INV/2024/1570",
+      "bill_no": "INV/2024/1820",
       "bill_date": "2024-10-08",
       "admission_date": "2024-10-05",
       "discharge_date": "2024-10-13",
@@ -84,36 +84,12 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22763.35,
-          "amount": 22763.35,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8883.91,
-          "amount": 8883.91,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6102.99,
-          "amount": 6102.99,
+          "unit_price": 6622.06,
+          "amount": 6622.06,
           "is_non_payable": false
-        },
-        {
-          "description": "Gloves & Disposables",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 450.0,
-          "amount": 450.0,
-          "is_non_payable": true
         },
         {
           "description": "Administrative / Record Charges",
@@ -122,12 +98,20 @@
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 62532.34,
+      "subtotal": 31404.15,
       "discount": 0.0,
-      "tax": 3126.62,
-      "total": 65658.96
+      "tax": 1570.21,
+      "total": 32974.36
     },
     {
       "document_id": "CLAIM-005099-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/2824",
-      "bill_date": "2024-10-06",
+      "bill_no": "PH/2024/3467",
+      "bill_date": "2024-10-07",
       "patient_name": "Ekiya Subramaniam",
-      "prescription_ref": "RX4919",
+      "prescription_ref": "RX2366",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B24827",
-          "quantity": 3.0,
+          "batch_no": "B14561",
+          "quantity": 1.0,
           "mrp": 145.0,
-          "amount": 435.0
+          "amount": 145.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B50836",
+          "batch_no": "B81795",
           "quantity": 1.0,
           "mrp": 24.0,
           "amount": 24.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B29737",
+          "batch_no": "B31664",
           "quantity": 1.0,
           "mrp": 96.0,
           "amount": 96.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B74033",
-          "quantity": 1.0,
+          "batch_no": "B41489",
+          "quantity": 2.0,
           "mrp": 44.0,
-          "amount": 44.0
+          "amount": 88.0
         }
       ],
-      "total": 599.0
+      "total": 353.0
     },
     {
       "document_id": "CLAIM-005099-RX",

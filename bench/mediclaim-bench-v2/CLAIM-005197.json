@@ -20,7 +20,7 @@
       "admission_date": "2024-12-09",
       "discharge_date": "2024-12-13",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 81090.04
+      "claimed_amount": 46089.1
     },
     {
       "document_id": "CLAIM-005197-BILL",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 23701.21,
-          "amount": 23701.21,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9661.37,
-          "amount": 9661.37,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6866.55,
-          "amount": 6866.55,
+          "unit_price": 6894.9,
+          "amount": 6894.9,
           "is_non_payable": false
         },
         {
@@ -116,26 +100,26 @@
           "is_non_payable": false
         },
         {
-          "description": "Attendant Meal Charges",
-          "category": "consumable",
-          "quantity": 1.0,
-          "unit_price": 600.0,
-          "amount": 600.0,
-          "is_non_payable": true
-        },
-        {
           "description": "Administrative / Record Charges",
           "category": "consumable",
           "quantity": 1.0,
           "unit_price": 300.0,
           "amount": 300.0,
           "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
         }
       ],
-      "subtotal": 76605.75,
+      "subtotal": 43271.52,
       "discount": 0.0,
-      "tax": 3830.29,
-      "total": 80436.04
+      "tax": 2163.58,
+      "total": 45435.1
     },
     {
       "document_id": "CLAIM-005197-DISCH",

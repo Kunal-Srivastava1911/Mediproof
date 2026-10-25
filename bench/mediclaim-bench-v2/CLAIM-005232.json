@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Umang Mammen",
-      "policy_no": "HLT-62-6817940",
+      "policy_no": "HLT-88-4831243",
       "hospital_name": "Silverline Medical College Hospital",
       "admission_date": "2024-09-09",
       "discharge_date": "2024-09-13",
       "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
-      "claimed_amount": 76378.91
+      "claimed_amount": 44548.01
     },
     {
       "document_id": "CLAIM-005232-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID600831",
         "phone": "9624376970"
       },
-      "bill_no": "INV/2024/6709",
+      "bill_no": "INV/2024/7052",
       "bill_date": "2024-09-13",
       "admission_date": "2024-09-09",
       "discharge_date": "2024-09-13",
@@ -84,27 +84,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 21668.38,
-          "amount": 21668.38,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 9083.22,
-          "amount": 9083.22,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6125.17,
-          "amount": 6125.17,
+          "unit_price": 6303.53,
+          "amount": 6303.53,
           "is_non_payable": false
         },
         {
@@ -116,11 +100,11 @@
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Attendant Meal Charges",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
           "is_non_payable": true
         },
         {
@@ -132,10 +116,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 72288.49,
+      "subtotal": 42015.25,
       "discount": 0.0,
-      "tax": 3614.42,
-      "total": 75902.91
+      "tax": 2100.76,
+      "total": 44116.01
     },
     {
       "document_id": "CLAIM-005232-DISCH",
@@ -176,41 +160,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "CarePlus Chemists",
       "pharmacy_address": "12 Station Road, Noida 201301",
-      "bill_no": "PH/2024/4741",
-      "bill_date": "2024-09-11",
+      "bill_no": "PH/2024/6309",
+      "bill_date": "2024-09-13",
       "patient_name": "Umang Mammen",
-      "prescription_ref": "RX3750",
+      "prescription_ref": "RX7573",
       "line_items": [
         {
           "drug_name": "Amoxicillin + Clavulanate 625mg",
-          "batch_no": "B14279",
+          "batch_no": "B28653",
           "quantity": 1.0,
           "mrp": 142.0,
           "amount": 142.0
         },
         {
           "drug_name": "Paracetamol 500mg",
-          "batch_no": "B91189",
+          "batch_no": "B55673",
           "quantity": 3.0,
           "mrp": 18.0,
           "amount": 54.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B87459",
+          "batch_no": "B21868",
           "quantity": 2.0,
           "mrp": 96.0,
           "amount": 192.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B89989",
-          "quantity": 2.0,
+          "batch_no": "B93522",
+          "quantity": 1.0,
           "mrp": 44.0,
-          "amount": 88.0
+          "amount": 44.0
         }
       ],
-      "total": 476.0
+      "total": 432.0
     },
     {
       "document_id": "CLAIM-005232-RX",

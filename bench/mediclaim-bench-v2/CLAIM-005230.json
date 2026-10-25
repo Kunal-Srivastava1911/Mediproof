@@ -15,12 +15,12 @@
       "template_id": "claimform-a",
       "doc_type": "claim_form",
       "insured_name": "Ekaja Chopra",
-      "policy_no": "HLT-69-7870074",
+      "policy_no": "HLT-26-4472918",
       "hospital_name": "Greenfield Care Institute",
       "admission_date": "2024-11-25",
       "discharge_date": "2024-11-28",
       "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
-      "claimed_amount": 67026.12
+      "claimed_amount": 35339.24
     },
     {
       "document_id": "CLAIM-005230-BILL",
@@ -38,7 +38,7 @@
         "patient_id": "UHID121518",
         "phone": "9890281897"
       },
-      "bill_no": "INV/2024/3352",
+      "bill_no": "INV/2024/7007",
       "bill_date": "2024-11-28",
       "admission_date": "2024-11-25",
       "discharge_date": "2024-11-28",
@@ -84,35 +84,19 @@
           "is_non_payable": false
         },
         {
-          "description": "Surgeon / Procedure Fee",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 22534.56,
-          "amount": 22534.56,
-          "is_non_payable": false
-        },
-        {
-          "description": "OT Charges",
-          "category": "procedure",
-          "quantity": 1.0,
-          "unit_price": 8481.2,
-          "amount": 8481.2,
-          "is_non_payable": false
-        },
-        {
           "description": "Pharmacy (in-patient)",
           "category": "pharmacy",
           "quantity": 1.0,
-          "unit_price": 6028.68,
-          "amount": 6028.68,
+          "unit_price": 6555.51,
+          "amount": 6555.51,
           "is_non_payable": false
         },
         {
-          "description": "Administrative / Record Charges",
+          "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
-          "unit_price": 300.0,
-          "amount": 300.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
           "is_non_payable": true
         },
         {
@@ -124,10 +108,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 63315.35,
+      "subtotal": 32976.42,
       "discount": 0.0,
-      "tax": 3165.77,
-      "total": 66481.12
+      "tax": 1648.82,
+      "total": 34625.24
     },
     {
       "document_id": "CLAIM-005230-DISCH",
@@ -166,41 +150,41 @@
       "doc_type": "pharmacy_bill",
       "pharmacy_name": "WellMed Pharmacy",
       "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
-      "bill_no": "PH/2024/4391",
+      "bill_no": "PH/2024/8976",
       "bill_date": "2024-11-28",
       "patient_name": "Ekaja Chopra",
-      "prescription_ref": "RX4015",
+      "prescription_ref": "RX7221",
       "line_items": [
         {
           "drug_name": "Regular Insulin 40IU/ml",
-          "batch_no": "B99843",
-          "quantity": 1.0,
+          "batch_no": "B28822",
+          "quantity": 2.0,
           "mrp": 145.0,
-          "amount": 145.0
+          "amount": 290.0
         },
         {
           "drug_name": "Metformin 500mg",
-          "batch_no": "B72795",
-          "quantity": 1.0,
+          "batch_no": "B23071",
+          "quantity": 2.0,
           "mrp": 24.0,
-          "amount": 24.0
+          "amount": 48.0
         },
         {
           "drug_name": "Pantoprazole 40mg",
-          "batch_no": "B73811",
+          "batch_no": "B31708",
           "quantity": 3.0,
           "mrp": 96.0,
           "amount": 288.0
         },
         {
           "drug_name": "Ondansetron 4mg",
-          "batch_no": "B27093",
+          "batch_no": "B89403",
           "quantity": 2.0,
           "mrp": 44.0,
           "amount": 88.0
         }
       ],
-      "total": 545.0
+      "total": 714.0
     },
     {
       "document_id": "CLAIM-005230-RX",
