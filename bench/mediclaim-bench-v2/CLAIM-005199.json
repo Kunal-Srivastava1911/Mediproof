@@ -1,0 +1,288 @@
+{
+  "claim_id": "CLAIM-005199",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5199,
+  "patient": {
+    "name": "Pranit Jain",
+    "age": 72,
+    "gender": "M",
+    "patient_id": "UHID367782",
+    "phone": "9196829518"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005199-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Pranit Jain",
+      "policy_no": "HLT-86-1055313",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 65265.3
+    },
+    {
+      "document_id": "CLAIM-005199-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Pranit Jain",
+        "age": 72,
+        "gender": "M",
+        "patient_id": "UHID367782",
+        "phone": "9196829518"
+      },
+      "bill_no": "INV/2024/4178",
+      "bill_date": "2024-09-13",
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3741.62,
+          "amount": 11224.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 746.77,
+          "amount": 2240.31,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1180.61,
+          "amount": 3541.83,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2574.4,
+          "amount": 2574.4,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 23517.57,
+          "amount": 23517.57,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9566.42,
+          "amount": 9566.42,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6524.9,
+          "amount": 6524.9,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 61740.29,
+      "discount": 0.0,
+      "tax": 3087.01,
+      "total": 64827.3
+    },
+    {
+      "document_id": "CLAIM-005199-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Pranit Jain",
+        "age": 72,
+        "gender": "M",
+        "patient_id": "UHID367782",
+        "phone": "9196829518"
+      },
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 10 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 10 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005199-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/9142",
+      "bill_date": "2024-09-10",
+      "patient_name": "Pranit Jain",
+      "prescription_ref": "RX5981",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B72904",
+          "quantity": 2.0,
+          "mrp": 78.0,
+          "amount": 156.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B88791",
+          "quantity": 2.0,
+          "mrp": 22.0,
+          "amount": 44.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B25585",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B47891",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B65220",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 438.0
+    },
+    {
+      "document_id": "CLAIM-005199-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Pranit Jain",
+        "age": 72,
+        "gender": "M",
+        "patient_id": "UHID367782",
+        "phone": "9196829518"
+      },
+      "prescription_date": "2024-09-13",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_lab_report",
+      "severity": "warning",
+      "description": "Bill includes investigation charges but no lab report is present in the file.",
+      "document_ids": [
+        "CLAIM-005199-LAB0",
+        "CLAIM-005199-LAB1",
+        "CLAIM-005199-IMG0"
+      ],
+      "expected_finding": "missing_lab_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-e"
+  }
+}

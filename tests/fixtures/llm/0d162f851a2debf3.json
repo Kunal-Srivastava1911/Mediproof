@@ -1,0 +1,9 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The pharmacy bill is from a different city than the hospital and was not included in the hospital bill total, representing a genuine discrepancy or missing documentation context for an in-patient claim.",
+      "verdict": "real_problem"
+    }
+  ]
+}

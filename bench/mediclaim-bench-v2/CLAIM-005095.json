@@ -1,0 +1,339 @@
+{
+  "claim_id": "CLAIM-005095",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5095,
+  "patient": {
+    "name": "Tripti Sibal",
+    "age": 61,
+    "gender": "F",
+    "patient_id": "UHID434589",
+    "phone": "9989838376"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005095-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Tripti Sibal",
+      "policy_no": "HLT-15-9548259",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-09-16",
+      "discharge_date": "2024-09-19",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 61256.54
+    },
+    {
+      "document_id": "CLAIM-005095-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tripti Sibal",
+        "age": 61,
+        "gender": "F",
+        "patient_id": "UHID434589",
+        "phone": "9989838376"
+      },
+      "bill_no": "INV/2024/7769",
+      "bill_date": "2024-09-19",
+      "admission_date": "2024-09-16",
+      "discharge_date": "2024-09-19",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3597.52,
+          "amount": 10792.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 778.85,
+          "amount": 2336.55,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1285.25,
+          "amount": 3855.75,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2292.48,
+          "amount": 2292.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21439.86,
+          "amount": 21439.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8538.12,
+          "amount": 8538.12,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5948.05,
+          "amount": 5948.05,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 57903.37,
+      "discount": 0.0,
+      "tax": 2895.17,
+      "total": 60798.54
+    },
+    {
+      "document_id": "CLAIM-005095-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tripti Sibal",
+        "age": 61,
+        "gender": "F",
+        "patient_id": "UHID434589",
+        "phone": "9989838376"
+      },
+      "admission_date": "2024-09-16",
+      "discharge_date": "2024-09-19",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 16 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 16 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005095-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/5082",
+      "bill_date": "2024-09-16",
+      "patient_name": "Tripti Sibal",
+      "prescription_ref": "RX6239",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B79710",
+          "quantity": 3.0,
+          "mrp": 78.0,
+          "amount": 234.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B43433",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B41465",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B11330",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B98286",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 458.0
+    },
+    {
+      "document_id": "CLAIM-005095-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tripti Sibal",
+        "age": 61,
+        "gender": "F",
+        "patient_id": "UHID434589",
+        "phone": "9989838376"
+      },
+      "prescription_date": "2024-09-19",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005095-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Tripti Sibal",
+        "age": 61,
+        "gender": "F",
+        "patient_id": "UHID434589",
+        "phone": "9989838376"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-19",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005095-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Tripti Sibal",
+        "age": 61,
+        "gender": "F",
+        "patient_id": "UHID434589",
+        "phone": "9989838376"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-19",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_imaging_report",
+      "severity": "warning",
+      "description": "An imaging study is billed and described in the discharge summary, but its report is not in the file.",
+      "document_ids": [
+        "CLAIM-005095-IMG0"
+      ],
+      "expected_finding": "missing_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

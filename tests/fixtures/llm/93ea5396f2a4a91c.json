@@ -1,0 +1,87 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Hospital bill subtotal and total mismatch",
+      "detail": "The hospital bill subtotal and tax calculation does not equal the stated total payable.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Subtotal ₹ 78252.92\nDiscount ₹ 0.00\nTax (5%) ₹ 3912.65\nTotal Payable ₹ 82165.57"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Duplicate surgeon fee billed on hospital bill",
+      "detail": "Surgeon / Procedure Fee is listed twice identically on the hospital bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "5 Surgeon / Procedure Fee procedure 1 20918.85 20918.85\n6 OT Charges procedure 1 9508.07 9508.07\n7 Pharmacy (in-patient) pharmacy 1 6195.23 6195.23\n8 USG Abdomen investigation 1 1800.00 1800.00\n9 Attendant Meal Charges (non-payable) consumable 1 600.00 600.00\n10 Administrative / Record Charges (non-payable) consumable 1 300.00 300.00\n11 Surgeon / Procedure Fee procedure 1 20918.85 20918.85"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Claim form amount claimed does not match bills total",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and pharmacy invoice.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 82843.57"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable ₹ 82165.57"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total ₹ 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Outside pharmacy bill location and date review",
+      "detail": "The pharmacy bill is from a different city and date relative to the hospital stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001 Date: 16 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Admission Date 13 Sep 2024 Discharge Date 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-09-16",
+          "2024-09-13"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

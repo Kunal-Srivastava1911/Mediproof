@@ -1,0 +1,24 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The subtotal of 78252.92 plus tax of 3912.65 equals 82165.57, so the bill arithmetic is correct.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The surgeon procedure fee appears twice as line items 5 and 11, indicating a duplicate charge on the bill.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The hospital bill total of 82165.57 plus the pharmacy bill of 678.00 equals 82843.57, which matches the amount claimed exactly.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The pharmacy bill is from Bengaluru while the hospital is in Noida, and the discharge prescription matches these outside pharmacy items, indicating an issue with outside medicines purchased upon discharge.",
+      "verdict": "real_problem"
+    }
+  ]
+}

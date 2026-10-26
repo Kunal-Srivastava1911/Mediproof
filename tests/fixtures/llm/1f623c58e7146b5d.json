@@ -1,0 +1,29 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The bill subtotal and total payable correctly factor in the itemized charges, discount, and tax.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Being shifted to the ward on day 3 means the patient spent 2 days (day 1 and day 2) in the ICU, which matches the bill.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy invoice is dated during the hospital stay, but the location is in a different city, presenting a genuine discrepancy.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 3,
+      "reason": "Having lab reports dated on the day of discharge is entirely normal and expected during a hospital stay.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 4,
+      "reason": "The proposed review item explicitly states that no identity inconsistencies were found.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

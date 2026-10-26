@@ -1,0 +1,65 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount Claimed does not match sum of hospital bill and pharmacy bill",
+      "detail": "The claim form states an amount claimed of 60878.77, but the hospital bill total payable of 60200.77 plus the pharmacy bill of 678.00 sums to 60878.77, showing a discrepancy or arithmetic mismatch against the claimed total depending on items included.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable \u20B9 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total \u20B9 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed USG Abdomen lacks a standalone report",
+      "detail": "The hospital bill includes an USG Abdomen charge, but no standalone USG Abdomen report document is found in the file (only mentioned in the discharge summary).",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "USG Abdomen investigation 1 1800.00 1800.00"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "USG"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy invoice outside hospital location and admission window",
+      "detail": "The pharmacy bill is from Bengaluru while the hospital and patient are in Noida, and the pharmacy invoice date (16 Sep 2024) is on discharge day for outside purchase.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001 Date: 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

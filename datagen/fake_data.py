@@ -89,6 +89,13 @@ class Scenario:
     drug_keys: list[str]
     lab_panels: list[str]
     los_days: int = 3  # typical length of stay
+    # Narrative ingredients for the discharge summary's "Course in Hospital".
+    presenting: str = "the above complaints"
+    management: str = "standard medical management"
+    icu_days: int = 0  # days in ICU before transfer to the ward
+    surgical: bool = False  # only procedural admissions bill surgeon/procedure and OT fees
+    # (study, finding, day-of-admission offset) — each is billed and has a radiology report.
+    imaging: tuple[tuple[str, str, int], ...] = ()
 
 
 SCENARIOS: list[Scenario] = [
@@ -100,6 +107,10 @@ SCENARIOS: list[Scenario] = [
         drug_keys=["ceftriaxone", "metronidazole", "paracetamol", "pantoprazole", "ondansetron"],
         lab_panels=["Complete Blood Count", "Serum Electrolytes"],
         los_days=3,
+        presenting="right lower abdominal pain, fever and vomiting",
+        management="IV antibiotics, analgesics and surgical care",
+        imaging=(("USG Abdomen", "an inflamed, non-compressible appendix", 0),),
+        surgical=True,
     ),
     Scenario(
         key="acute_mi",
@@ -109,6 +120,12 @@ SCENARIOS: list[Scenario] = [
         drug_keys=["aspirin", "clopidogrel", "atorvastatin", "enoxaparin", "pantoprazole"],
         lab_panels=["Cardiac Troponin I", "Lipid Profile", "Complete Blood Count"],
         los_days=4,
+        presenting="central chest pain radiating to the left arm",
+        management="dual antiplatelet therapy, anticoagulation and cardiac monitoring",
+        icu_days=2,
+        imaging=(("2D Echocardiography", "inferior wall hypokinesia with an ejection fraction "
+                  "of 48%", 1),),
+        surgical=True,  # PTCA: procedure fee + cath-lab (OT) charges
     ),
     Scenario(
         key="pneumonia",
@@ -118,6 +135,10 @@ SCENARIOS: list[Scenario] = [
         drug_keys=["amoxiclav", "paracetamol", "pantoprazole", "ondansetron"],
         lab_panels=["Complete Blood Count", "C-Reactive Protein"],
         los_days=4,
+        presenting="fever, productive cough and breathlessness",
+        management="IV antibiotics, oxygen support and chest physiotherapy",
+        icu_days=1,
+        imaging=(("CT Chest", "right lower lobe consolidation", 1),),
     ),
     Scenario(
         key="dka",
@@ -127,8 +148,18 @@ SCENARIOS: list[Scenario] = [
         drug_keys=["insulin_reg", "metformin", "pantoprazole", "ondansetron"],
         lab_panels=["Blood Glucose", "Serum Electrolytes", "Arterial Blood Gas"],
         los_days=3,
+        presenting="vomiting, abdominal pain and drowsiness",
+        management="IV fluids, an insulin infusion and electrolyte correction",
+        icu_days=1,
     ),
 ]
+
+# Per-study imaging charge (billed as an investigation line).
+IMAGING_PRICES: dict[str, float] = {
+    "USG Abdomen": 1800.0,
+    "2D Echocardiography": 3200.0,
+    "CT Chest": 4500.0,
+}
 
 
 @dataclass(frozen=True)
@@ -151,6 +182,9 @@ BASE_CHARGES: list[ChargeItem] = [
     ChargeItem("OT Charges", "procedure", 9000.0),
     ChargeItem("Pharmacy (in-patient)", "pharmacy", 6400.0),
 ]
+
+# Billed per ICU day; the semi-private room line then covers only the ward days.
+ICU_CHARGE = ChargeItem("ICU Charges", "room", 9500.0, per_day=True)
 
 NON_PAYABLE_CONSUMABLES: list[ChargeItem] = [
     ChargeItem("Gloves & Disposables", "consumable", 450.0, non_payable=True),

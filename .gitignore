@@ -24,6 +24,8 @@ htmlcov/
 # Datagen / data (generated + real samples NEVER committed)
 data/
 !data/.gitkeep
+testing_data/
+synthetic_data/
 real_samples/
 *.pdf
 !tests/**/*.pdf

@@ -8,6 +8,9 @@ Endpoints:
   POST /claims/{id}/review     apply a reviewer correction (logged as training data)
   POST /claims/{id}/approve    mark the claim reviewed — approved
   POST /claims/{id}/deny       mark the claim reviewed — denied
+  POST /claims/{id}/findings/{fid}/decision   confirm / dismiss / promote one review item
+  GET  /claims/{id}/checklist?lang=en|hi      the patient's fix-it checklist
+  POST /claims/{id}/ask        claim chat: answers only from the file, with verified quotes
   GET  /healthz                liveness
 
 Async is FastAPI BackgroundTasks (Celery/Redis is a documented upgrade path, not MVP).
@@ -23,14 +26,18 @@ from uuid import uuid4
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlmodel import Session, select
 
-from api.db import ClaimRow, CorrectionRow, init_db, make_engine
+from api.db import ClaimRow, CorrectionRow, FindingDecisionRow, init_db, make_engine
+from api.patient import ask, checklist
 from api.service import apply_correction
 from pipeline import run_pipeline
+from pipeline.m3_extract.llm_client import BudgetExceeded, LLMClient, LLMError, MissingFixture
+from pipeline.m4_audit import build_evidence_map, build_timeline
 from pipeline.orchestrator import DEFAULT_CLAIM_TYPE
 from schemas.claim import ClaimFile, ClaimStatus, Correction
+from schemas.findings import FindingDecision, FindingOrigin
 
 
 class ReviewIn(BaseModel):
@@ -44,11 +51,27 @@ class DecisionIn(BaseModel):
     reviewer: str | None = None
 
 
-def create_app(database_url: str | None = None, storage_dir: str | None = None) -> FastAPI:
+class FindingDecisionIn(BaseModel):
+    decision: FindingDecision = FindingDecision.confirmed
+    reason: str | None = None
+    promote: bool = Field(default=False, description="show a held-back agent item")
+    reviewer: str | None = None
+
+
+class AskIn(BaseModel):
+    question: str = Field(min_length=1, max_length=500)
+
+
+def create_app(
+    database_url: str | None = None,
+    storage_dir: str | None = None,
+    llm_client: LLMClient | None = None,
+) -> FastAPI:
     engine = make_engine(database_url or os.getenv("DATABASE_URL", "sqlite:///./data/mediproof.db"))
     init_db(engine)
     storage = Path(storage_dir or os.getenv("MEDIPROOF_STORAGE", "./data/uploads"))
     storage.mkdir(parents=True, exist_ok=True)
+    llm = llm_client or LLMClient()  # one client per app: LLM_BUDGET_USD caps the process
 
     app = FastAPI(title="MediProof API", version="0.1.0",
                   description="Claim-readiness audit engine — documentation QA, not adjudication.")
@@ -57,7 +80,8 @@ def create_app(database_url: str | None = None, storage_dir: str | None = None) 
 
     def _process(claim_id: str, pdf_path: str, claim_type: str) -> None:
         try:
-            claim = run_pipeline(pdf_path, claim_id=claim_id, claim_type=claim_type)
+            claim = run_pipeline(pdf_path, claim_id=claim_id, claim_type=claim_type,
+                                 llm_client=llm)
             graph, status = claim.model_dump_json(), claim.status.value
         except Exception as exc:  # never leave a claim stuck; record the failure
             graph, status = json.dumps({"claim_id": claim_id, "error": str(exc)}), \
@@ -175,6 +199,81 @@ def create_app(database_url: str | None = None, storage_dir: str | None = None) 
             session.add(row)
             session.commit()
         return json.loads(updated)
+
+    def _load(session: Session, claim_id: str) -> tuple[ClaimRow, ClaimFile]:
+        row = session.get(ClaimRow, claim_id)
+        if row is None or not row.graph or row.graph == "{}":
+            raise HTTPException(404, f"claim {claim_id} not processed")
+        if row.status == ClaimStatus.failed.value:
+            raise HTTPException(409, f"claim {claim_id} failed to process")
+        return row, ClaimFile.model_validate_json(row.graph)
+
+    @app.post("/claims/{claim_id}/findings/{finding_id}/decision")
+    def decide_finding(claim_id: str, finding_id: str, body: FindingDecisionIn) -> dict:
+        """Confirm, dismiss or promote one review item; logged as verifier training data."""
+        with Session(engine) as session:
+            row, claim = _load(session, claim_id)
+            finding = next((f for f in claim.findings if f.id == finding_id), None)
+            if finding is None:
+                raise HTTPException(404, f"finding {finding_id} not found")
+            finding.decision = body.decision
+            finding.decision_reason = body.reason
+            if body.promote and finding.held_back:
+                finding.held_back = False
+                finding.origin = FindingOrigin.reviewer
+                finding.verified_by.append("promoted by reviewer")
+                finding.trail.append("Promoted to a review item by a reviewer.")
+            claim.timeline = build_timeline(claim.documents, claim.findings)
+            claim.evidence_map = build_evidence_map(claim.documents, claim.findings)
+            row.graph = claim.model_dump_json()
+            session.add(row)
+            session.add(FindingDecisionRow(
+                claim_id=claim_id, finding_id=finding_id, finding_type=finding.type.value,
+                origin=finding.origin.value, verifier_score=finding.verifier_score,
+                decision=body.decision.value, reason=body.reason, promoted=body.promote,
+                reviewer=body.reviewer))
+            session.commit()
+            return json.loads(row.graph)
+
+    @app.get("/claims/{claim_id}/checklist")
+    def get_checklist(claim_id: str, lang: str = "en") -> dict:
+        """The patient's fix-it checklist: verified, patient-facing, not-dismissed items."""
+        with Session(engine) as session:
+            row = session.get(ClaimRow, claim_id)
+            if row is None:
+                raise HTTPException(404, f"claim {claim_id} not found")
+            if not row.graph or row.graph == "{}" or row.status == ClaimStatus.failed.value:
+                return {"claim_id": claim_id, "lang": lang, "status": row.status,
+                        "ready": False, "items": []}
+            claim = ClaimFile.model_validate_json(row.graph)
+            status = row.status
+        out = checklist(claim, lang, llm)
+        return {**out, "status": status, "ready": True,
+                "audit_note": claim.audit.note if claim.audit else None}
+
+    @app.post("/claims/{claim_id}/ask")
+    def ask_claim(claim_id: str, body: AskIn) -> dict:
+        """Claim chat: answers only from this claim's documents, with verified quotes."""
+        from pipeline.m1_ingest import ingest_pdf
+        from pipeline.m4_audit.agents import build_dossier
+
+        with Session(engine) as session:
+            _, claim = _load(session, claim_id)
+        pdf_path = storage / f"{claim_id}.pdf"
+        if not pdf_path.exists():
+            raise HTTPException(404, f"claim {claim_id} pdf not found")
+        ir = ingest_pdf(pdf_path, claim_id=claim_id)
+        by_page = {p.page: p for p in ir.pages}
+        texts = {d.document_id: " ".join(by_page[p].text for p in d.page_range if p in by_page)
+                 for d in claim.documents}
+        try:
+            return ask(body.question, build_dossier(ir, claim.documents), texts, llm)
+        except MissingFixture as exc:
+            raise HTTPException(503, "Claim chat needs an AI model: set GEMINI_API_KEY or "
+                                     "ANTHROPIC_API_KEY, and LLM_LIVE=1, on the API "
+                                     "server.") from exc
+        except (BudgetExceeded, LLMError, ValueError) as exc:
+            raise HTTPException(503, f"Claim chat is unavailable right now ({exc}).") from exc
 
     @app.post("/claims/{claim_id}/approve")
     def approve_claim(claim_id: str, decision: DecisionIn | None = None) -> dict:

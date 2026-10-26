@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% from "_letterhead.html" import letterhead %}
+{% block content %}
+{{ letterhead("Health Insurance Claim Form", "Part A: to be completed by the insured", none,
+              "Claim Form", doc.document_id, none, initials) }}
+
+<div class="doc-heading">Claim Form (Part A)</div>
+
+<div class="info-grid">
+  <div class="row"><span class="k">Insured Name</span><span class="v">{{ doc.insured_name }}</span></div>
+  <div class="row"><span class="k">Policy No</span><span class="v">{{ doc.policy_no }}</span></div>
+  <div class="row"><span class="k">Hospital</span><span class="v">{{ doc.hospital_name }}</span></div>
+  <div class="row"><span class="k">Date of Admission</span><span class="v">{{ doc.admission_date.strftime("%d/%m/%Y") }}</span></div>
+  <div class="row"><span class="k">Date of Discharge</span><span class="v">{{ doc.discharge_date.strftime("%d/%m/%Y") }}</span></div>
+  <div class="row"><span class="k">Amount Claimed</span><span class="v">{{ "%.2f"|format(doc.claimed_amount) }}</span></div>
+</div>
+
+<div class="section">
+  <h3>Break-up of the amount claimed</h3>
+  <p>Hospital bill total and pharmacy bills (medicines bought outside the hospital),
+     as enclosed.</p>
+</div>
+
+<div class="section">
+  <h3>Diagnosis as stated by the insured</h3>
+  <p>{{ doc.diagnosis_text }}</p>
+</div>
+
+<div class="section">
+  <h3>Declaration by the insured</h3>
+  <p>I declare that the information given in this form is true and complete, and that the
+     enclosed bills, reports and prescriptions relate to this hospitalisation.</p>
+</div>
+
+<div class="sign-row">
+  <div class="sign-box"><div class="sign-line"></div>Signature of the insured</div>
+</div>
+{% endblock %}

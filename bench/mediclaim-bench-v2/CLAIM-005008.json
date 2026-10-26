@@ -1,0 +1,355 @@
+{
+  "claim_id": "CLAIM-005008",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5008,
+  "patient": {
+    "name": "Gaurangi Memon",
+    "age": 21,
+    "gender": "F",
+    "patient_id": "UHID722877",
+    "phone": "9525380133"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005008-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Gaurangi Memon",
+      "policy_no": "HLT-16-2307511",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-26",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 63650.02
+    },
+    {
+      "document_id": "CLAIM-005008-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "bill_no": "INV/2024/6442",
+      "bill_date": "2024-09-26",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-26",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3319.01,
+          "amount": 9957.03,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 830.34,
+          "amount": 2491.02,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1204.5,
+          "amount": 3613.5,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2416.13,
+          "amount": 2416.13,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 23053.99,
+          "amount": 23053.99,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9601.11,
+          "amount": 9601.11,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6395.33,
+          "amount": 6395.33,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 60078.11,
+      "discount": 0.0,
+      "tax": 3003.91,
+      "total": 63082.02
+    },
+    {
+      "document_id": "CLAIM-005008-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-26",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 23 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 23 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005008-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/4454",
+      "bill_date": "2024-09-24",
+      "patient_name": "Gaurangi Memon",
+      "prescription_ref": "RX7048",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B24798",
+          "quantity": 3.0,
+          "mrp": 78.0,
+          "amount": 234.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B44560",
+          "quantity": 2.0,
+          "mrp": 22.0,
+          "amount": 44.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B20083",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B75256",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B99851",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 568.0
+    },
+    {
+      "document_id": "CLAIM-005008-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "prescription_date": "2024-09-26",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005008-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-26",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005008-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-26",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005008-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Gaurangi Memon",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID722877",
+        "phone": "9525380133"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-23",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-b"
+  }
+}

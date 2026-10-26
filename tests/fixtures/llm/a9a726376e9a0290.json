@@ -1,0 +1,123 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount differs from sum of bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000408-DOC01",
+          "quote": "Amount Claimed 35133.12"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC02",
+          "quote": "Total Payable \u2014 34520.12"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC04",
+          "quote": "Total \u2014 613.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "ICU and room stay duration mismatch",
+      "detail": "The discharge summary indicates the patient was in the ICU on day 1 and shifted to the ward on day 2, but the hospital bill lists 1 ICU day and 2 room rent days for a 3-night stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000408-DOC03",
+          "quote": "Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC02",
+          "quote": "1 ICU Charges room 1 9546.68 9546.68\n2 Room Rent (Semi-Private) room 2 3549.88 7099.76"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "2",
+          "1"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Outside pharmacy purchase predates admission",
+      "detail": "The outside pharmacy invoice is dated before the hospital admission date.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000408-DOC04",
+          "quote": "Date: 16 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC01",
+          "quote": "Date of Admission 15/10/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-10-16",
+          "2024-10-15",
+          "2024-10-18"
+        ]
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Claim form date format uses slash while documents use dash",
+      "detail": "The claim form uses slash-formatted dates which differ from the standard format in other files.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000408-DOC01",
+          "quote": "Date of Admission 15/10/2024"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC02",
+          "quote": "Admission Date 15 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-15",
+          "15/10/2024"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "info",
+      "title": "Patient identity is consistent across all documents",
+      "detail": "No identity discrepancies found across documents.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000408-DOC01",
+          "quote": "Insured Name Libni Khalsa"
+        },
+        {
+          "document_id": "CLAIM-000408-DOC02",
+          "quote": "Patient Name Libni Khalsa UHID UHID660103"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

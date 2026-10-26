@@ -1,0 +1,53 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount differs from total bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and pharmacy bills.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000414-DOC01",
+          "quote": "Amount Claimed 32793.37"
+        },
+        {
+          "document_id": "CLAIM-000414-DOC02",
+          "quote": "Total Payable \u20B9 32251.37"
+        },
+        {
+          "document_id": "CLAIM-000414-DOC04",
+          "quote": "Total \u20B9 542.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "cross_document_contradiction",
+      "severity": "warning",
+      "title": "ICU stay duration in bill differs from clinical record",
+      "detail": "The hospital bill lists 1 ICU day, whereas the discharge summary narrative states the patient was managed in the ICU and shifted to the ward on day 2 of admission.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000414-DOC02",
+          "quote": "ICU Charges room 1 9801.00 9801.00"
+        },
+        {
+          "document_id": "CLAIM-000414-DOC03",
+          "quote": "Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "1",
+          "2"
+        ]
+      },
+      "area": "clinical_record"
+    }
+  ]
+}

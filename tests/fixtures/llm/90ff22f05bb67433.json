@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The hospital bill total plus the outside pharmacy bill correctly matches the total amount claimed on the claim form.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The lack of a standalone USG report is a documentation omission for a billed investigation.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy invoice is geographically disconnected from the hospital location and lacks justification for being purchased elsewhere on discharge day.",
+      "verdict": "real_problem"
+    }
+  ]
+}

@@ -23,11 +23,16 @@ model (`schemas/documents.py`), every field carrying confidence + (after M3.5) b
 
 ## LLM client (`llm_client.py`)
 
-Every call goes through one thin client: **record/replay** to `tests/fixtures/llm/`
-(deterministic, free, offline; live only when `LLM_LIVE=1` with `GEMINI_API_KEY`), a hard
-**budget cap** `LLM_BUDGET_USD` checked *before* each live call, and graceful failure — a
-missing fixture or malformed reply degrades to `value=None, confidence=0`. **The pipeline
-never crashes on the LLM.**
+Every call goes through one thin client — **Gemini** (`LLM_PROVIDER=gemini`, `google-genai`
+SDK, default `gemini-3.8-flash`, free tier: paced by `LLM_MIN_INTERVAL_S` and retried on 429)
+or **Claude** (`LLM_PROVIDER=anthropic`, Anthropic SDK, default `claude-opus-5-5`):
+**record/replay** to `tests/fixtures/llm/` (deterministic, free, offline; live only when
+`LLM_LIVE=1` with `GEMINI_API_KEY` or `ANTHROPIC_API_KEY` set or in `.env`), a hard
+**budget cap** `LLM_BUDGET_USD` checked
+*before* each live call with spend booked from real token usage, structured JSON outputs
+(`complete_json`, used by the M4 agents), server-side refusal fallback (`LLM_FALLBACKS`),
+and graceful failure — a missing fixture or malformed reply degrades to
+`value=None, confidence=0`. **The pipeline never crashes on the LLM.**
 
 ## M3.5 Value Grounding (`grounding.py`) — implemented
 

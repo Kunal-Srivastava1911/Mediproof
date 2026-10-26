@@ -1,0 +1,334 @@
+{
+  "claim_id": "CLAIM-005212",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5212,
+  "patient": {
+    "name": "Saumya Lad",
+    "age": 67,
+    "gender": "F",
+    "patient_id": "UHID434699",
+    "phone": "9903069525"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005212-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Saumya Lad",
+      "policy_no": "HLT-56-2970145",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-12-11",
+      "discharge_date": "2024-12-15",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 42235.32
+    },
+    {
+      "document_id": "CLAIM-005212-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "bill_no": "INV/2024/2400",
+      "bill_date": "2024-12-15",
+      "admission_date": "2024-12-11",
+      "discharge_date": "2024-12-15",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9083.04,
+          "amount": 9083.04,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3645.6,
+          "amount": 10936.8,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 742.86,
+          "amount": 2971.44,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1234.98,
+          "amount": 4939.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2316.46,
+          "amount": 2316.46,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6128.48,
+          "amount": 6128.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 41926.14,
+      "discount": 2096.31,
+      "tax": 1991.49,
+      "total": 41821.32
+    },
+    {
+      "document_id": "CLAIM-005212-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "admission_date": "2024-12-11",
+      "discharge_date": "2024-12-15",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 11 Dec 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 12 Dec 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005212-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/9548",
+      "bill_date": "2024-12-11",
+      "patient_name": "Saumya Lad",
+      "prescription_ref": "RX9760",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B94980",
+          "quantity": 1.0,
+          "mrp": 142.0,
+          "amount": 142.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B90874",
+          "quantity": 2.0,
+          "mrp": 18.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B46608",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B92336",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 414.0
+    },
+    {
+      "document_id": "CLAIM-005212-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "prescription_date": "2024-12-15",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005212-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-15",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005212-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-15",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005212-IMG0",
+      "template_id": "hospital-d",
+      "doc_type": "lab_report",
+      "lab_name": "Silverline Medical College Hospital Radiology",
+      "patient": {
+        "name": "Saumya Lad",
+        "age": 67,
+        "gender": "F",
+        "patient_id": "UHID434699",
+        "phone": "9903069525"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-12",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-b"
+  }
+}

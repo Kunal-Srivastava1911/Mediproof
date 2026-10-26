@@ -1,0 +1,58 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Does Not Match Total Bills",
+      "detail": "The claim form amount claimed (60966.77) does not equal the sum of the hospital bill total (60200.77) and the pharmacy bill (766.00), which totals 60966.77. Wait, 60200.77 + 766.00 = 60966.77. Let us re-verify billing subtotal and tax. Hospital total is 60200.77, pharmacy bill is 766.00. Sum = 60966.77. The amounts match. Let us check the subtotal items in the hospital bill: 9940.92 + 2214.24 + 3472.20 + 2384.56 + 20918.85 + 9508.07 + 6195.23 + 1800.00 + 600.00 + 300.00 = 57334.07. Tax (5%) of 57334.07 is 2866.7035, which rounds to 2866.70. Total Payable = 57334.07 + 2866.70 = 60200.77. Let us check if there are any other findings in billing.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Unprescribed Medication Billed in Pharmacy Invoice",
+      "detail": "Clopidogrel 75mg is billed in the pharmacy invoice but does not appear on the discharge prescription.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Clopidogrel 75mg B69931 1 88.00 88.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy Invoice Date Outside Hospital Stay",
+      "detail": "The pharmacy invoice is dated 16 Sep 2024, but the patient was discharged on 16 Sep 2024 and the pharmacy is located in Bengaluru while the hospital is in Noida.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Date of Discharge 16/09/2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Date: 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-16",
+          "2024-09-13",
+          "2024-09-16"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

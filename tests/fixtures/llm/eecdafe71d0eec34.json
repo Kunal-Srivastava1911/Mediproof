@@ -1,0 +1,42 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed differs from sum of bills",
+      "detail": "The claim form amount claimed (148737.94) does not match the sum of the hospital final bill total payable (148059.94) and the pharmacy bill total (678.00), which equals 148737.94. Wait, 148059.94 + 678.00 = 148737.94, actually they match. Let us check the hospital bill subtotal and tax: 141009.47 + 7050.47 = 148059.94. Let us report instead the missing USG Abdomen report as it was billed separately.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 148737.94"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill location outside hospital city",
+      "detail": "The pharmacy bill is from Bengaluru while the hospital and patient are in Noida, and the discharge date is 16 Sep 2024 while the pharmacy bill date is also 16 Sep 2024, creating a geographic temporal impossibility.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001 Date: 16 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Plot 22, Sector 18, Noida 201301 No: Date: INV/2024/2653 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "timeline"
+    }
+  ]
+}

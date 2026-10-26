@@ -12,6 +12,7 @@ from datagen import inject_fault, sample_claim
 from datagen.faults import maybe_inject_fault
 from schemas.ground_truth import (
     FAULT_TO_FINDING,
+    ClaimFormGT,
     DischargeSummaryGT,
     FaultType,
     HospitalBillGT,
@@ -110,6 +111,63 @@ def test_drug_diagnosis_mismatch_adds_marker_drug_to_noncardiac_claim():
     pharm = _first(claim, PharmacyBillGT)
     names = " ".join(ln.drug_name.lower() for ln in pharm.line_items)
     assert any(marker in names for marker in fd.SPECIALTY_MARKER_DRUGS)
+
+
+def _with_scenario(key):
+    """First seed whose claim uses the given clinical scenario."""
+    for s in range(1, 500):
+        claim = sample_claim(seed=s)
+        disch = _first(claim, DischargeSummaryGT)
+        if disch.diagnosis_text == next(sc.diagnosis_text for sc in fd.SCENARIOS
+                                        if sc.key == key):
+            return s, claim
+    raise AssertionError(key)
+
+
+def test_claim_form_date_mismatch_moves_only_the_claim_form():
+    claim = sample_claim(seed=SEED)
+    inject_fault(claim, seed=SEED, fault_type=FaultType.claim_form_date_mismatch)
+    form = _first(claim, ClaimFormGT)
+    bill = _first(claim, HospitalBillGT)
+    assert form.admission_date < bill.admission_date
+    assert _first(claim, DischargeSummaryGT).admission_date == bill.admission_date
+
+
+def test_pharmacy_after_discharge_dates_the_bill_past_discharge():
+    claim = sample_claim(seed=SEED)
+    inject_fault(claim, seed=SEED, fault_type=FaultType.pharmacy_after_discharge)
+    discharge = _first(claim, DischargeSummaryGT).discharge_date
+    assert _first(claim, PharmacyBillGT).bill_date > discharge
+
+
+def test_icu_days_mismatch_keeps_the_bill_exact_but_contradicts_the_narrative():
+    seed, claim = _with_scenario("pneumonia")
+    inject_fault(claim, seed=seed, fault_type=FaultType.icu_days_mismatch)
+    assert claim.faults[0].fault_type is FaultType.icu_days_mismatch
+    bill = _first(claim, HospitalBillGT)
+    icu = next(i for i in bill.line_items if i.description == fd.ICU_CHARGE.description)
+    assert icu.quantity > _first(claim, DischargeSummaryGT).icu_days
+    for i in bill.line_items:  # still internally exact: only the narrative disagrees
+        assert round(i.unit_price * i.quantity, 2) == i.amount
+    assert round(sum(i.amount for i in bill.line_items), 2) == bill.subtotal
+    assert _first(claim, ClaimFormGT).claimed_amount == fd.money(
+        bill.total + _first(claim, PharmacyBillGT).total)
+
+
+def test_missing_imaging_report_keeps_the_lab_reports():
+    seed, claim = _with_scenario("pneumonia")
+    inject_fault(claim, seed=seed, fault_type=FaultType.missing_imaging_report)
+    labs = [d for d in claim.documents if isinstance(d, LabReportGT)]
+    assert labs and all(d.kind == "lab" for d in labs)
+    assert _first(claim, DischargeSummaryGT).imaging  # still described in the narrative
+
+
+def test_name_variant_is_one_letter_off():
+    claim = sample_claim(seed=SEED)
+    inject_fault(claim, seed=SEED, fault_type=FaultType.name_variant)
+    variant = _first(claim, PharmacyBillGT).patient_name
+    assert variant != claim.patient.name
+    assert abs(len(variant) - len(claim.patient.name)) == 1
 
 
 def test_maybe_inject_respects_rate_bounds():

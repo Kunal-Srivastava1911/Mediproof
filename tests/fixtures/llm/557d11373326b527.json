@@ -1,0 +1,67 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total payable and pharmacy bill total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000310-DOC01",
+          "quote": "Amount Claimed 59227.51"
+        },
+        {
+          "document_id": "CLAIM-000310-DOC02",
+          "quote": "Total Payable \u20B9 58633.51"
+        },
+        {
+          "document_id": "CLAIM-000310-DOC04",
+          "quote": "Total \u20B9 594.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed investigation lacks report",
+      "detail": "Investigation Charges are billed on the hospital bill, but no corresponding lab or investigation report for these charges is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000310-DOC02",
+          "quote": "Investigation Charges investigation 1 2528.68 2528.68"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy items billed without prescription",
+      "detail": "Medications on the pharmacy invoice do not have a matching prescription dated prior to or during the pharmacy bill date in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000310-DOC04",
+          "quote": "Ceftriaxone Injection 1g B58516 3 78.00 234.00"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "prescription"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

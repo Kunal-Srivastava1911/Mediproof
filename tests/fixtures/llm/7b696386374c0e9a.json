@@ -1,0 +1,101 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "warning",
+      "title": "Hospital Bill Total Differs from Claim Form Amount Claimed",
+      "detail": "The hospital bill total payable plus the pharmacy bill does not match the amount claimed on the claim form.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000202-DOC01",
+          "quote": "Amount Claimed 39439.74"
+        },
+        {
+          "document_id": "CLAIM-000202-DOC02",
+          "quote": "Total Payable ₹ 39106.74"
+        },
+        {
+          "document_id": "CLAIM-000202-DOC04",
+          "quote": "Total ₹ 333.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Billed ICU Days Differ from Discharge Summary Narrative",
+      "detail": "The hospital bill charges for 2 ICU days, whereas the discharge summary states the patient was managed in the ICU and shifted to the ward on day 2 of admission.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000202-DOC02",
+          "quote": "1 ICU Charges room 2 8794.84 17589.68"
+        },
+        {
+          "document_id": "CLAIM-000202-DOC03",
+          "quote": "Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "2",
+          "1"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy Invoice Location and Date Context",
+      "detail": "The pharmacy invoice is from a chemist in Noida, whereas the hospital is in Pune, and the invoice is dated on discharge day.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000202-DOC04",
+          "quote": "12 Station Road, Noida 201301 Date: 19 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-000202-DOC02",
+          "quote": "3 FC Road, Pune 411004"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-19",
+          "2024-10-19"
+        ]
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "info",
+      "title": "Lab Reports Dated on Discharge Date",
+      "detail": "All diagnostic lab reports are dated 19 Oct 2024, which is the discharge date.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000202-DOC06",
+          "quote": "Accredited Diagnostic Laboratory Date: 19 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-000202-DOC03",
+          "quote": "Discharge Date 19 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-19",
+          "2024-10-19"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

@@ -6,12 +6,20 @@ router library): `main.tsx` renders `ReviewApp` when the path starts with `/revi
 
 ## Submitter site (`/`)
 
-For claimants. Two things, nothing more:
+For claimants, in **English or Hindi** (header toggle):
 
-1. **submit** — upload a single claim PDF → `POST /claims`. On success the returned **Claim ID**
-   is shown prominently (it is the only way to check on the claim later; there is no saved list).
-2. **check status** — enter a Claim ID → `GET /claims/{id}/status`. The pipeline's granular states
-   are hidden from claimants and collapsed into exactly **three buckets** (`lib.submitterBucket`):
+1. **check a claim** — upload a single claim PDF → `POST /claims`. The **Claim ID** is shown
+   prominently, then the page polls the status while the claim is checked.
+2. **fix-it checklist** — `GET /claims/{id}/checklist?lang=` — only verified, patient-facing
+   items: a plain-language title, the detail, *what to do*, and the evidence (document · page ·
+   quote, with **View page** opening the page with the box highlighted). Items can be marked
+   done. If the AI cross-checks didn't run on the file, the page says only standard checks ran.
+3. **claim chat** — `POST /claims/{id}/ask`: answers come only from the file, with the quoted
+   source; "Ask about this" on an item pre-fills the question. If Claude isn't configured on the
+   server, the chat says so.
+4. **look up a claim** — enter a Claim ID → `GET /claims/{id}/status`, and reopen its checklist.
+   The pipeline's granular states are hidden from claimants and collapsed into exactly **three
+   buckets** (`lib.submitterBucket`):
    - **Not reviewed** (received / processing / processed / needs_review / **failed**)
    - **Reviewed — denied**
    - **Reviewed — approved**
@@ -30,6 +38,18 @@ The HITL dashboard. Scope is capped at the **four core interactions** on purpose
 4. **approve / deny** — record the review decision. Unlike the old client-only button, these now
    **persist** via `POST /claims/{id}/approve` and `POST /claims/{id}/deny`, which set the claim's
    status (`approved` / `denied`). Reviewer-site-only.
+
+Plus the agent-auditor views:
+
+- **review items** show who raised them (rule or which agent), what verified them, the verifier
+  score; clicking one opens its **proof** (each quote, found-on-page or not — click to jump to
+  its box), **How was this found?** (the trail), and **Confirm / Dismiss (reason) / Promote**
+  (`POST /claims/{id}/findings/{fid}/decision`).
+- **held back by verification** — agent items below the calibrated threshold, reviewer-only.
+- **Timeline** tab — every dated event from every document on one calendar; disagreeing cells
+  open their item. **Evidence map** tab — the claim evidence graph as facts × documents.
+- a banner states what the agent auditor ran (agents, Claude calls, spend, threshold) or why
+  it was skipped.
 
 ## Run it
 

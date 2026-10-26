@@ -1,4 +1,4 @@
-import type { ClaimFile, ClaimSummary } from "./types";
+import type { ChatAnswer, Checklist, ClaimFile, ClaimSummary, FindingDecision } from "./types";
 
 // VITE_API_BASE may arrive as a bare host (e.g. Render injects "mediproof-api.onrender.com"
 // via fromService); prepend https so fetch treats it as an absolute origin, not a path.
@@ -51,4 +51,32 @@ export const api = {
 
   deny: (id: string) =>
     fetch(`${API}/claims/${id}/deny`, { method: "POST" }).then((r) => json<ClaimFile>(r)),
+
+  decide: (
+    id: string,
+    findingId: string,
+    body: { decision: FindingDecision; reason?: string; promote?: boolean; reviewer?: string },
+  ) =>
+    fetch(`${API}/claims/${id}/findings/${findingId}/decision`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then((r) => json<ClaimFile>(r)),
+
+  checklist: (id: string, lang: "en" | "hi") =>
+    fetch(`${API}/claims/${id}/checklist?lang=${lang}`).then((r) => json<Checklist>(r)),
+
+  // Resolves to the answer, or rejects with the server's explanation (e.g. Claude not set up).
+  ask: async (id: string, question: string): Promise<ChatAnswer> => {
+    const res = await fetch(`${API}/claims/${id}/ask`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      throw new Error((body as { detail?: string }).detail ?? `${res.status} ${res.statusText}`);
+    }
+    return res.json() as Promise<ChatAnswer>;
+  },
 };

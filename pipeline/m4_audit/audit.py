@@ -107,6 +107,54 @@ def _date_inconsistent(docs, params):
     return hits
 
 
+def _stay(docs) -> tuple[DocumentRecord | None, object, object]:
+    """The admission/discharge window per the bill (else the discharge summary)."""
+    for doc_type in (DocType.hospital_bill, DocType.discharge_summary):
+        d = _first(docs, doc_type)
+        if d and d.extracted.admission_date.value and d.extracted.discharge_date.value:
+            return d, d.extracted.admission_date, d.extracted.discharge_date
+    return None, None, None
+
+
+@rule("claim_form_dates")
+def _claim_form_dates(docs, params):
+    form = _first(docs, DocType.claim_form)
+    ref, admit, disch = _stay(docs)
+    if not form or not ref:
+        return []
+    hits = []
+    for attr, ref_field in (("admission_date", admit), ("discharge_date", disch)):
+        ff = getattr(form.extracted, attr)
+        if ff.value and ff.value != ref_field.value:
+            hits.append(RuleHit(
+                detail=f"{attr.replace('_', ' ').capitalize()} on the claim form is "
+                       f"{ff.value:%d %b %Y}; the {ref.doc_type.value.replace('_', ' ')} says "
+                       f"{ref_field.value:%d %b %Y}; requires review.",
+                document_ids=[form.document_id, ref.document_id],
+                evidence=[*ff.evidence, *ref_field.evidence]))
+    return hits
+
+
+@rule("pharmacy_outside_stay")
+def _pharmacy_outside_stay(docs, params):
+    ref, admit, disch = _stay(docs)
+    if not ref:
+        return []
+    grace = params.get("grace_days", 0)
+    hits = []
+    for pharm in _all(docs, DocType.pharmacy_bill):
+        bd = pharm.extracted.bill_date
+        if not bd.value:
+            continue
+        if (bd.value - disch.value).days > grace or bd.value < admit.value:
+            hits.append(RuleHit(
+                detail=f"Pharmacy bill dated {bd.value:%d %b %Y} falls outside the stay "
+                       f"({admit.value:%d %b %Y} to {disch.value:%d %b %Y}); requires review.",
+                document_ids=[pharm.document_id, ref.document_id],
+                evidence=[*bd.evidence, *disch.evidence]))
+    return hits
+
+
 @rule("bill_arithmetic_mismatch")
 def _bill_arithmetic(docs, params):
     bill = _first(docs, DocType.hospital_bill)
@@ -235,5 +283,8 @@ def run_audit(docs: list[DocumentRecord], config: dict | None = None) -> list[Fi
                 evidence=hit.evidence,
                 document_ids=hit.document_ids,
                 rule_id=spec["id"],
+                verified_by=["deterministic rule"],
+                patient_facing=spec.get("patient_facing", True),
+                trail=[f"Deterministic rule {spec['id']} (runs on every claim, no AI call)."],
             ))
     return findings

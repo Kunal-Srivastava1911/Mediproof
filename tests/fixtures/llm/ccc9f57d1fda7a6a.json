@@ -1,0 +1,69 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000311-DOC01",
+          "quote": "Amount Claimed 44673.42"
+        },
+        {
+          "document_id": "CLAIM-000311-DOC02",
+          "quote": "Total Payable ₹ 44073.42"
+        },
+        {
+          "document_id": "CLAIM-000311-DOC04",
+          "quote": "Total ₹ 600.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing Investigation Report for Billed Investigation Charges",
+      "detail": "The hospital bill includes investigation charges, but no corresponding lab report for general investigations is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000311-DOC02",
+          "quote": "Investigation Charges investigation 1 2266.85 2266.85"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing Laboratory Report for Complete Blood Count Panel Date",
+      "detail": "The lab report date is outside the admission window.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000311-DOC06",
+          "quote": "Date: 09 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-10-09",
+          "2024-10-05",
+          "2024-10-09"
+        ]
+      },
+      "area": "clinical_record"
+    }
+  ]
+}

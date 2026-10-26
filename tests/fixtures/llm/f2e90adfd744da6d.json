@@ -1,0 +1,29 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000307-DOC01",
+          "quote": "Amount Claimed 44308.28"
+        },
+        {
+          "document_id": "CLAIM-000307-DOC02",
+          "quote": "Total Payable \u20B9 43724.28"
+        },
+        {
+          "document_id": "CLAIM-000307-DOC04",
+          "quote": "Total \u20B9 584.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    }
+  ]
+}

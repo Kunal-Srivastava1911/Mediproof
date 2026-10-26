@@ -1,0 +1,400 @@
+{
+  "claim_id": "CLAIM-005181",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5181,
+  "patient": {
+    "name": "Gavin Sharaf",
+    "age": 52,
+    "gender": "M",
+    "patient_id": "UHID693219",
+    "phone": "9922762396"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005181-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Gavin Sharaf",
+      "policy_no": "HLT-57-1243248",
+      "hospital_name": "Greenfield Care Institute",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 86776.95
+    },
+    {
+      "document_id": "CLAIM-005181-BILL",
+      "template_id": "hospital-b",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "bill_no": "INV/2024/6166",
+      "bill_date": "2024-12-13",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 10047.25,
+          "amount": 20094.5,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3445.67,
+          "amount": 6891.34,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 833.16,
+          "amount": 3332.64,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1169.24,
+          "amount": 4676.96,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2208.59,
+          "amount": 2208.59,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22501.92,
+          "amount": 22501.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9303.34,
+          "amount": 9303.34,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6271.14,
+          "amount": 6271.14,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 79230.43,
+      "discount": 0.0,
+      "tax": 3961.52,
+      "total": 85691.95
+    },
+    {
+      "document_id": "CLAIM-005181-DISCH",
+      "template_id": "hospital-b",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 09 Dec 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 10 Dec 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005181-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6748",
+      "bill_date": "2024-12-10",
+      "patient_name": "Gavin Sharaf",
+      "prescription_ref": "RX2075",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B32678",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B72453",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B14505",
+          "quantity": 1.0,
+          "mrp": 65.0,
+          "amount": 65.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B96434",
+          "quantity": 2.0,
+          "mrp": 310.0,
+          "amount": 620.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B81489",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        }
+      ],
+      "total": 1085.0
+    },
+    {
+      "document_id": "CLAIM-005181-RX",
+      "template_id": "hospital-b",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "prescription_date": "2024-12-13",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005181-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005181-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005181-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005181-IMG0",
+      "template_id": "hospital-b",
+      "doc_type": "lab_report",
+      "lab_name": "Greenfield Care Institute Radiology",
+      "patient": {
+        "name": "Gavin Sharaf",
+        "age": 52,
+        "gender": "M",
+        "patient_id": "UHID693219",
+        "phone": "9922762396"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-10",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "bill_arithmetic_error",
+      "severity": "warning",
+      "description": "Stated bill total does not equal subtotal - discount + tax.",
+      "document_ids": [
+        "CLAIM-005181-BILL"
+      ],
+      "expected_finding": "bill_arithmetic_mismatch"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-b",
+    "discharge_summary": "hospital-b",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-b",
+    "lab_report": "lab-b"
+  }
+}

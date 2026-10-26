@@ -1,0 +1,401 @@
+{
+  "claim_id": "CLAIM-005003",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5003,
+  "patient": {
+    "name": "Tanmayi Mane",
+    "age": 53,
+    "gender": "F",
+    "patient_id": "UHID558273",
+    "phone": "9685287098"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005003-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Tanmayi Mane",
+      "policy_no": "HLT-33-1433658",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-10-22",
+      "discharge_date": "2024-10-26",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 85017.16
+    },
+    {
+      "document_id": "CLAIM-005003-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "bill_no": "INV/2024/8992",
+      "bill_date": "2024-10-26",
+      "admission_date": "2024-10-22",
+      "discharge_date": "2024-10-28",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9033.84,
+          "amount": 18067.68,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3753.29,
+          "amount": 7506.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 856.26,
+          "amount": 3425.04,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1160.46,
+          "amount": 4641.84,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2396.15,
+          "amount": 2396.15,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 23626.08,
+          "amount": 23626.08,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9066.58,
+          "amount": 9066.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6869.25,
+          "amount": 6869.25,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 79699.2,
+      "discount": 0.0,
+      "tax": 3984.96,
+      "total": 83684.16
+    },
+    {
+      "document_id": "CLAIM-005003-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "admission_date": "2024-10-22",
+      "discharge_date": "2024-10-26",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 22 Oct 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 23 Oct 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005003-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/8958",
+      "bill_date": "2024-10-23",
+      "patient_name": "Tanmayi Mane",
+      "prescription_ref": "RX2726",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B66337",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B42105",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B38184",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B30814",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B56013",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        }
+      ],
+      "total": 1333.0
+    },
+    {
+      "document_id": "CLAIM-005003-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "prescription_date": "2024-10-26",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005003-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-26",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005003-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-26",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005003-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-26",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005003-IMG0",
+      "template_id": "hospital-d",
+      "doc_type": "lab_report",
+      "lab_name": "Silverline Medical College Hospital Radiology",
+      "patient": {
+        "name": "Tanmayi Mane",
+        "age": 53,
+        "gender": "F",
+        "patient_id": "UHID558273",
+        "phone": "9685287098"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-23",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "date_mismatch",
+      "severity": "warning",
+      "description": "Discharge date on the bill does not match the discharge summary.",
+      "document_ids": [
+        "CLAIM-005003-BILL",
+        "CLAIM-005003-DISCH"
+      ],
+      "expected_finding": "date_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-b"
+  }
+}

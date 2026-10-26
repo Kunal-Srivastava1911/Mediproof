@@ -6,6 +6,7 @@ import statistics
 from pathlib import Path
 
 from evals.harness import Report, coverage_accuracy_curve
+from schemas.ground_truth import HELD_OUT_FAULTS
 
 _START = "<!-- BENCHMARK:START -->"
 _END = "<!-- BENCHMARK:END -->"
@@ -42,17 +43,48 @@ def render_markdown(report: Report) -> str:
         lines.append(f"| {t} | {_pct(ec, et)} | {_pct(nc, nt)} |")
     lines.append(f"| **all** | **{_pct(*tot_e)}** | **{_pct(*tot_n)}** |\n")
 
-    # audit
-    lines.append("**Audit engine** (per fault type, vs injected ground truth)\n")
-    lines.append("| Fault type | Recall |")
-    lines.append("|---|---|")
-    for fault in sorted(report.fault_recall):
+    # audit: open-world split, rules only vs rules + verified agents
+    agents_ran = report.agent_claims > 0
+    lines.append("**Audit engine** (recall per fault family, vs injected ground truth; "
+                 "★ = held-out family, no rule written for it)\n")
+    lines.append("| Fault family | Rules only | Rules + agents |")
+    lines.append("|---|---|---|")
+    held = {f.value for f in HELD_OUT_FAULTS}
+    groups = {"seen": [0, 0, 0], "held-out": [0, 0, 0]}  # caught_rules, caught_all, total
+    for fault in sorted(report.fault_recall, key=lambda f: (f in held, f)):
         c, t = report.fault_recall[fault]
-        lines.append(f"| {fault} | {_pct(c, t)} ({c}/{t}) |")
-    fp_rate = report.clean_false_positives / report.n_clean if report.n_clean else 0.0
+        rc, _ = report.fault_recall_rules.get(fault, [0, t])
+        g = groups["held-out" if fault in held else "seen"]
+        g[0] += rc
+        g[1] += c
+        g[2] += t
+        both = f"{_pct(c, t)} ({c}/{t})" if agents_ran else "not run"
+        lines.append(f"| {fault}{' ★' if fault in held else ''} | {_pct(rc, t)} ({rc}/{t}) "
+                     f"| {both} |")
+    for name, (rc, c, t) in groups.items():
+        if t:
+            both = f"**{_pct(c, t)}**" if agents_ran else "not run"
+            lines.append(f"| **all {name}** | **{_pct(rc, t)}** | {both} |")
     lines.append("")
-    lines.append(f"- **False-positive rate on clean files:** {fp_rate:.2f} severe review items "
-                 f"per clean claim ({report.clean_false_positives} across {report.n_clean}).\n")
+    n = report.n_clean or 1
+    lines.append(f"- **Severe review items shown on clean files:** "
+                 f"{report.clean_false_positives / n:.2f} per clean claim "
+                 f"({report.clean_fp_rules} from rules, {report.clean_fp_agents} from agents, "
+                 f"across {report.n_clean} clean claims).")
+    if agents_ran:
+        lines.append(f"- **Clean claims showing ≥ 1 agent item:** {report.clean_with_agent_item}"
+                     f"/{report.n_clean}; agent items held back by the verifier: "
+                     f"{report.held_back}.")
+        lines.append(f"- **Agent auditor model:** `{report.agent_model}` — the agent column "
+                     f"measures this model, not any other.")
+        lines.append(f"- **Agent auditor cost:** {report.llm_calls} LLM calls, "
+                     f"${report.llm_cost_usd:.2f} live spend this run "
+                     f"(replayed and free-tier calls cost $0).\n")
+    else:
+        lines.append(f"- **Agent auditor: not run in this eval.** "
+                     f"{report.agent_note or ''} The rules-only column is the baseline the "
+                     f"agents are measured against; held-out families are 0% for rules by "
+                     f"design.\n")
 
     # coverage-accuracy
     curve = coverage_accuracy_curve(report.coverage_points)

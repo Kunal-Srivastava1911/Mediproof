@@ -1,0 +1,10 @@
+{
+  "threshold": 0.775001,
+  "feasible": true,
+  "alpha": 0.1,
+  "n_calibration": 20,
+  "empirical_risk": 0.0,
+  "risk_bound": 0.0476,
+  "method": "conformal risk control: P(clean claim shows >= 1 agent item) <= alpha",
+  "calibrated_at": "2026-10-25T19:40:37Z"
+}

@@ -1,0 +1,24 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of hospital total payable (31094.78) and pharmacy bill (638.00) equals 31732.78, which matches the amount claimed.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Lab reports for blood glucose, serum electrolytes, and arterial blood gas are present in the file.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "Shifted to the ward on day 2 means 1 day in ICU (10th) and 2 days in the ward (11th and 12th), which perfectly aligns with 2 days of room rent billed.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The pharmacy bill date of 10 Nov 2024 is exactly the same as the admission date of 10 Nov 2024 and does not fall outside the window.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

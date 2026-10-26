@@ -1,0 +1,34 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claimed amount equals the sum of the hospital bill total and the separate pharmacy bill, so the difference is explained by itemized billing.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The complete blood count and serum electrolyte lab reports are indeed present in the record.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The discharge summary mentions the procedure and the lack of a standalone operative note does not invalidate the medical record documentation provided.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The pharmacy bill is from a different city than the treating hospital, indicating that outside pharmacy bills were purchased elsewhere.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 4,
+      "reason": "The claim form states admission on 05/09/2024, whereas the hospital bill and discharge summary clearly state admission on 09 Sep 2024.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 5,
+      "reason": "The item only states that things are consistent across documents.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

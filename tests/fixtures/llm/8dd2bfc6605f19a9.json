@@ -1,0 +1,57 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount Claimed Mismatch",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total payable and the pharmacy bill total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000413-DOC01",
+          "quote": "Amount Claimed 31807.18"
+        },
+        {
+          "document_id": "CLAIM-000413-DOC02",
+          "quote": "Total Payable \u2022 31290.18"
+        },
+        {
+          "document_id": "CLAIM-000413-DOC04",
+          "quote": "Total \u2022 517.00"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "31807.18",
+          "31807.18"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy Bill Date Outside Hospital Stay Window",
+      "detail": "The pharmacy bill is dated during the hospital stay, but the pharmacy is located in Bengaluru while the hospital is in Noida, requiring review for an in-patient purchase.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000413-DOC04",
+          "quote": "Date: 09 Nov 2024"
+        },
+        {
+          "document_id": "CLAIM-000413-DOC02",
+          "quote": "Admission Date 07 Nov 2024 Discharge Date 10 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-09",
+          "2024-11-07",
+          "2024-11-10"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

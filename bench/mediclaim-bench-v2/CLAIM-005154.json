@@ -1,0 +1,324 @@
+{
+  "claim_id": "CLAIM-005154",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5154,
+  "patient": {
+    "name": "Neha Vyas",
+    "age": 63,
+    "gender": "F",
+    "patient_id": "UHID947032",
+    "phone": "9447925964"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005154-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Neha Vyas",
+      "policy_no": "HLT-21-9352255",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-09-22",
+      "discharge_date": "2024-09-25",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 33085.35
+    },
+    {
+      "document_id": "CLAIM-005154-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "bill_no": "INV/2024/2671",
+      "bill_date": "2024-09-25",
+      "admission_date": "2024-09-22",
+      "discharge_date": "2024-09-25",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9827.34,
+          "amount": 9827.34,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3682.66,
+          "amount": 7365.32,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 802.46,
+          "amount": 2407.38,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1105.73,
+          "amount": 3317.19,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2239.26,
+          "amount": 2239.26,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6216.92,
+          "amount": 6216.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 32423.41,
+      "discount": 1621.17,
+      "tax": 1540.11,
+      "total": 32342.35
+    },
+    {
+      "document_id": "CLAIM-005154-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "admission_date": "2024-09-22",
+      "discharge_date": "2024-09-25",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 22 Sep 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005154-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/5513",
+      "bill_date": "2024-09-25",
+      "patient_name": "Neha Vyas",
+      "prescription_ref": "RX7919",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B67383",
+          "quantity": 3.0,
+          "mrp": 145.0,
+          "amount": 435.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B36408",
+          "quantity": 3.0,
+          "mrp": 24.0,
+          "amount": 72.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B75617",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B90314",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 743.0
+    },
+    {
+      "document_id": "CLAIM-005154-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "prescription_date": "2024-09-25",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005154-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-25",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005154-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-25",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005154-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Neha Vyas",
+        "age": 63,
+        "gender": "F",
+        "patient_id": "UHID947032",
+        "phone": "9447925964"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-25",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-c",
+    "lab_report": "lab-a"
+  }
+}

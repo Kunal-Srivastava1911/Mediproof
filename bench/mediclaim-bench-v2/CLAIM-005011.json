@@ -1,0 +1,400 @@
+{
+  "claim_id": "CLAIM-005011",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5011,
+  "patient": {
+    "name": "Harinakshi Borde",
+    "age": 72,
+    "gender": "F",
+    "patient_id": "UHID309767",
+    "phone": "9148937926"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005011-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Harinakshi Borde",
+      "policy_no": "HLT-64-9862306",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-10-26",
+      "discharge_date": "2024-10-30",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 78634.82
+    },
+    {
+      "document_id": "CLAIM-005011-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "bill_no": "INV/2024/1679",
+      "bill_date": "2024-10-30",
+      "admission_date": "2024-10-26",
+      "discharge_date": "2024-10-30",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9266.5,
+          "amount": 18533.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3262.88,
+          "amount": 6525.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 798.92,
+          "amount": 3195.68,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1276.31,
+          "amount": 5105.24,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2439.6,
+          "amount": 2439.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21402.25,
+          "amount": 21402.25,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9290.37,
+          "amount": 9290.37,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6622.33,
+          "amount": 6622.33,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 77364.23,
+      "discount": 3868.21,
+      "tax": 3674.8,
+      "total": 77170.82
+    },
+    {
+      "document_id": "CLAIM-005011-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "admission_date": "2024-10-26",
+      "discharge_date": "2024-10-30",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 26 Oct 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 27 Oct 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005011-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/7182",
+      "bill_date": "2024-10-26",
+      "patient_name": "Harinakshi Sharma",
+      "prescription_ref": "RX1212",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B73774",
+          "quantity": 3.0,
+          "mrp": 12.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B81877",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B18583",
+          "quantity": 2.0,
+          "mrp": 65.0,
+          "amount": 130.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B89669",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B84360",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        }
+      ],
+      "total": 1464.0
+    },
+    {
+      "document_id": "CLAIM-005011-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "prescription_date": "2024-10-30",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005011-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005011-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005011-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005011-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Harinakshi Borde",
+        "age": 72,
+        "gender": "F",
+        "patient_id": "UHID309767",
+        "phone": "9148937926"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-27",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "name_mismatch",
+      "severity": "warning",
+      "description": "Patient name on the pharmacy bill differs from the rest of the claim.",
+      "document_ids": [
+        "CLAIM-005011-PHARM"
+      ],
+      "expected_finding": "name_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-a"
+  }
+}

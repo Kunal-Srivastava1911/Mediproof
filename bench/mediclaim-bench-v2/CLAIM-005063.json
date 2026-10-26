@@ -1,0 +1,366 @@
+{
+  "claim_id": "CLAIM-005063",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5063,
+  "patient": {
+    "name": "Wridesh Pau",
+    "age": 38,
+    "gender": "M",
+    "patient_id": "UHID879215",
+    "phone": "9983616780"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005063-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Wridesh Pau",
+      "policy_no": "HLT-73-3610576",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-09-08",
+      "discharge_date": "2024-09-14",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 61853.97
+    },
+    {
+      "document_id": "CLAIM-005063-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "bill_no": "INV/2024/4452",
+      "bill_date": "2024-09-14",
+      "admission_date": "2024-09-11",
+      "discharge_date": "2024-09-14",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3559.18,
+          "amount": 10677.54,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 857.4,
+          "amount": 2572.2,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1255.99,
+          "amount": 3767.97,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2221.55,
+          "amount": 2221.55,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 23432.89,
+          "amount": 23432.89,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9551.86,
+          "amount": 9551.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6623.83,
+          "amount": 6623.83,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 61547.84,
+      "discount": 3077.39,
+      "tax": 2923.52,
+      "total": 61393.97
+    },
+    {
+      "document_id": "CLAIM-005063-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "admission_date": "2024-09-11",
+      "discharge_date": "2024-09-14",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 11 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 11 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005063-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/3868",
+      "bill_date": "2024-09-12",
+      "patient_name": "Wridesh Pau",
+      "prescription_ref": "RX9209",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B56656",
+          "quantity": 1.0,
+          "mrp": 78.0,
+          "amount": 78.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B43845",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B92233",
+          "quantity": 2.0,
+          "mrp": 18.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B31776",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B95142",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 460.0
+    },
+    {
+      "document_id": "CLAIM-005063-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "prescription_date": "2024-09-14",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005063-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-14",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005063-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-14",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005063-IMG0",
+      "template_id": "hospital-d",
+      "doc_type": "lab_report",
+      "lab_name": "Silverline Medical College Hospital Radiology",
+      "patient": {
+        "name": "Wridesh Pau",
+        "age": 38,
+        "gender": "M",
+        "patient_id": "UHID879215",
+        "phone": "9983616780"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-11",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "claim_form_date_mismatch",
+      "severity": "warning",
+      "description": "Admission date on the claim form differs from the hospital bill and discharge summary.",
+      "document_ids": [
+        "CLAIM-005063-CF",
+        "CLAIM-005063-BILL"
+      ],
+      "expected_finding": "date_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

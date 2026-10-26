@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total payable (32976.91) and the pharmacy bill total (445.00) equals the amount claimed (33421.91), so there is no arithmetic mismatch.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is from a different city than the hospital, which represents a genuine discrepancy for outside medicines during hospitalization.",
+      "verdict": "real_problem"
+    }
+  ]
+}

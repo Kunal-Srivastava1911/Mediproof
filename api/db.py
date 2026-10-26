@@ -37,6 +37,24 @@ class CorrectionRow(SQLModel, table=True):
     at: datetime = Field(default_factory=datetime.utcnow)
 
 
+class FindingDecisionRow(SQLModel, table=True):
+    """A reviewer's confirm / dismiss / promote on one review item — verifier training data."""
+
+    __tablename__ = "finding_decisions"
+
+    id: int | None = Field(default=None, primary_key=True)
+    claim_id: str = Field(index=True)
+    finding_id: str
+    finding_type: str
+    origin: str
+    verifier_score: float | None = None
+    decision: str
+    reason: str | None = None
+    promoted: bool = False
+    reviewer: str | None = None
+    at: datetime = Field(default_factory=datetime.utcnow)
+
+
 def make_engine(database_url: str) -> Engine:
     connect_args = {"check_same_thread": False} if database_url.startswith("sqlite") else {}
     return create_engine(database_url, connect_args=connect_args)

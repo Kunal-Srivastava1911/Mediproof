@@ -1,0 +1,324 @@
+{
+  "claim_id": "CLAIM-005196",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5196,
+  "patient": {
+    "name": "Warda Mitter",
+    "age": 22,
+    "gender": "F",
+    "patient_id": "UHID922629",
+    "phone": "9451934388"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005196-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Warda Mitter",
+      "policy_no": "HLT-71-5942805",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-12-10",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 34345.62
+    },
+    {
+      "document_id": "CLAIM-005196-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "bill_no": "INV/2024/2610",
+      "bill_date": "2024-12-13",
+      "admission_date": "2024-12-10",
+      "discharge_date": "2024-12-13",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9362.89,
+          "amount": 9362.89,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3447.19,
+          "amount": 6894.38,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 801.46,
+          "amount": 2404.38,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1256.15,
+          "amount": 3768.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2517.85,
+          "amount": 2517.85,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6461.21,
+          "amount": 6461.21,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 32309.16,
+      "discount": 0.0,
+      "tax": 1615.46,
+      "total": 33924.62
+    },
+    {
+      "document_id": "CLAIM-005196-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "admission_date": "2024-12-10",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 10 Dec 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005196-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/5807",
+      "bill_date": "2024-12-10",
+      "patient_name": "Warda Mitter",
+      "prescription_ref": "RX5198",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B26492",
+          "quantity": 1.0,
+          "mrp": 145.0,
+          "amount": 145.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B90346",
+          "quantity": 2.0,
+          "mrp": 24.0,
+          "amount": 48.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B15609",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B87830",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 421.0
+    },
+    {
+      "document_id": "CLAIM-005196-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "prescription_date": "2024-12-13",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005196-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005196-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005196-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Warda Mitter",
+        "age": 22,
+        "gender": "F",
+        "patient_id": "UHID922629",
+        "phone": "9451934388"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

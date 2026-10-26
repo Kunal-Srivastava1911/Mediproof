@@ -11,6 +11,18 @@
   },
   "documents": [
     {
+      "document_id": "CLAIM-000042-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Advik Maharaj",
+      "policy_no": "HLT-22-7022674",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-09-09",
+      "discharge_date": "2024-09-12",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 60904.07
+    },
+    {
       "document_id": "CLAIM-000042-BILL",
       "template_id": "hospital-a",
       "doc_type": "hospital_bill",
@@ -88,6 +100,14 @@
           "is_non_payable": false
         },
         {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
           "description": "Gloves & Disposables",
           "category": "consumable",
           "quantity": 1.0,
@@ -104,10 +124,10 @@
           "is_non_payable": true
         }
       ],
-      "subtotal": 55857.21,
+      "subtotal": 57657.21,
       "discount": 0.0,
-      "tax": 2792.86,
-      "total": 58650.07
+      "tax": 2882.86,
+      "total": 60540.07
     },
     {
       "document_id": "CLAIM-000042-DISCH",
@@ -135,7 +155,12 @@
         "Laparoscopic appendicectomy"
       ],
       "treating_doctor": "Dr. S. Reddy",
-      "doctor_reg_no": "TNMC/55210"
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 09 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 09 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
     },
     {
       "document_id": "CLAIM-000042-PHARM",
@@ -262,7 +287,8 @@
         }
       ],
       "report_date": "2024-09-12",
-      "referring_doctor": "Dr. S. Reddy"
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
     },
     {
       "document_id": "CLAIM-000042-LAB1",
@@ -287,11 +313,39 @@
         }
       ],
       "report_date": "2024-09-12",
-      "referring_doctor": "Dr. S. Reddy"
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-000042-IMG0",
+      "template_id": "hospital-a",
+      "doc_type": "lab_report",
+      "lab_name": "Sunrise Multispeciality Hospital Radiology",
+      "patient": {
+        "name": "Advik Maharaj",
+        "age": 68,
+        "gender": "M",
+        "patient_id": "UHID207473",
+        "phone": "9826600539"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-09",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "imaging"
     }
   ],
   "faults": [],
   "template_meta": {
+    "claim_form": "claimform-a",
     "hospital_bill": "hospital-a",
     "discharge_summary": "hospital-a",
     "pharmacy_bill": "pharmacy-b",

@@ -1,0 +1,339 @@
+{
+  "claim_id": "CLAIM-005141",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5141,
+  "patient": {
+    "name": "Faras Sethi",
+    "age": 60,
+    "gender": "M",
+    "patient_id": "UHID510802",
+    "phone": "9747703648"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005141-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Faras Sethi",
+      "policy_no": "HLT-19-6931006",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-05",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 63637.65
+    },
+    {
+      "document_id": "CLAIM-005141-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Faras Sethi",
+        "age": 60,
+        "gender": "M",
+        "patient_id": "UHID510802",
+        "phone": "9747703648"
+      },
+      "bill_no": "INV/2024/9928",
+      "bill_date": "2024-12-05",
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-05",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3387.25,
+          "amount": 10161.75,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 737.68,
+          "amount": 2213.04,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1240.42,
+          "amount": 3721.26,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2487.44,
+          "amount": 2487.44,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22889.85,
+          "amount": 22889.85,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9598.81,
+          "amount": 9598.81,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6418.47,
+          "amount": 6418.47,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 60340.62,
+      "discount": 0.0,
+      "tax": 3017.03,
+      "total": 63357.65
+    },
+    {
+      "document_id": "CLAIM-005141-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Faras Sethi",
+        "age": 60,
+        "gender": "M",
+        "patient_id": "UHID510802",
+        "phone": "9747703648"
+      },
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-05",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 02 Dec 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 02 Dec 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005141-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/7298",
+      "bill_date": "2024-12-04",
+      "patient_name": "Faras Sethi",
+      "prescription_ref": "RX7108",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B44902",
+          "quantity": 1.0,
+          "mrp": 78.0,
+          "amount": 78.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B64897",
+          "quantity": 2.0,
+          "mrp": 22.0,
+          "amount": 44.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B41665",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B54866",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B25758",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 280.0
+    },
+    {
+      "document_id": "CLAIM-005141-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Faras Sethi",
+        "age": 60,
+        "gender": "M",
+        "patient_id": "UHID510802",
+        "phone": "9747703648"
+      },
+      "prescription_date": "2024-12-05",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005141-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Faras Sethi",
+        "age": 60,
+        "gender": "M",
+        "patient_id": "UHID510802",
+        "phone": "9747703648"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-05",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005141-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Faras Sethi",
+        "age": 60,
+        "gender": "M",
+        "patient_id": "UHID510802",
+        "phone": "9747703648"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-05",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_imaging_report",
+      "severity": "warning",
+      "description": "An imaging study is billed and described in the discharge summary, but its report is not in the file.",
+      "document_ids": [
+        "CLAIM-005141-IMG0"
+      ],
+      "expected_finding": "missing_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-b"
+  }
+}

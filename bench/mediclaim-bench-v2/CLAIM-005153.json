@@ -1,0 +1,342 @@
+{
+  "claim_id": "CLAIM-005153",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5153,
+  "patient": {
+    "name": "Nathan Sahota",
+    "age": 61,
+    "gender": "M",
+    "patient_id": "UHID990370",
+    "phone": "9253648727"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005153-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Nathan Sahota",
+      "policy_no": "HLT-46-2858339",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-10-06",
+      "discharge_date": "2024-10-09",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 43957.33
+    },
+    {
+      "document_id": "CLAIM-005153-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "bill_no": "INV/2024/6464",
+      "bill_date": "2024-10-09",
+      "admission_date": "2024-10-06",
+      "discharge_date": "2024-10-09",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9188.45,
+          "amount": 9188.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3328.93,
+          "amount": 6657.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 806.02,
+          "amount": 2418.06,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1259.48,
+          "amount": 3778.44,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2414.87,
+          "amount": 2414.87,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6285.14,
+          "amount": 6285.14,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9188.45,
+          "amount": 9188.45,
+          "is_non_payable": false
+        }
+      ],
+      "subtotal": 40981.27,
+      "discount": 0.0,
+      "tax": 2049.06,
+      "total": 43030.33
+    },
+    {
+      "document_id": "CLAIM-005153-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "admission_date": "2024-10-06",
+      "discharge_date": "2024-10-09",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 06 Oct 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005153-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/5677",
+      "bill_date": "2024-10-09",
+      "patient_name": "Nathan Sahota",
+      "prescription_ref": "RX2943",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B29272",
+          "quantity": 3.0,
+          "mrp": 145.0,
+          "amount": 435.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B85173",
+          "quantity": 3.0,
+          "mrp": 24.0,
+          "amount": 72.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B64192",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B16208",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 927.0
+    },
+    {
+      "document_id": "CLAIM-005153-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "prescription_date": "2024-10-09",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005153-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-09",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005153-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-09",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005153-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Nathan Sahota",
+        "age": 61,
+        "gender": "M",
+        "patient_id": "UHID990370",
+        "phone": "9253648727"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-09",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "duplicate_billing",
+      "severity": "warning",
+      "description": "Line item 'ICU Charges' appears more than once on the bill.",
+      "document_ids": [
+        "CLAIM-005153-BILL"
+      ],
+      "expected_finding": "duplicate_line_item"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-e",
+    "lab_report": "lab-b"
+  }
+}

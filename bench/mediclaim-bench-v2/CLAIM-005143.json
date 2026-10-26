@@ -1,0 +1,344 @@
+{
+  "claim_id": "CLAIM-005143",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5143,
+  "patient": {
+    "name": "Mohammed Goel",
+    "age": 44,
+    "gender": "M",
+    "patient_id": "UHID993130",
+    "phone": "9651607076"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005143-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Mohammed Goel",
+      "policy_no": "HLT-88-7371664",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 41746.61
+    },
+    {
+      "document_id": "CLAIM-005143-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "bill_no": "INV/2024/5921",
+      "bill_date": "2024-09-27",
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9666.29,
+          "amount": 9666.29,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3378.68,
+          "amount": 10136.04,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 736.79,
+          "amount": 2947.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1111.25,
+          "amount": 4445.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2333.19,
+          "amount": 2333.19,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6320.05,
+          "amount": 6320.05,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 41247.73,
+      "discount": 2062.39,
+      "tax": 1959.27,
+      "total": 41144.61
+    },
+    {
+      "document_id": "CLAIM-005143-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "admission_date": "2024-09-23",
+      "discharge_date": "2024-09-27",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 23 Sep 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 24 Sep 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005143-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/7533",
+      "bill_date": "2024-09-25",
+      "patient_name": "Mohammed Goell",
+      "prescription_ref": "RX6247",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B39881",
+          "quantity": 3.0,
+          "mrp": 142.0,
+          "amount": 426.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B14204",
+          "quantity": 2.0,
+          "mrp": 18.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B92270",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B68775",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 602.0
+    },
+    {
+      "document_id": "CLAIM-005143-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "prescription_date": "2024-09-27",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005143-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-27",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005143-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-27",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005143-IMG0",
+      "template_id": "hospital-c",
+      "doc_type": "lab_report",
+      "lab_name": "Lotus Valley Health Centre Radiology",
+      "patient": {
+        "name": "Mohammed Goel",
+        "age": 44,
+        "gender": "M",
+        "patient_id": "UHID993130",
+        "phone": "9651607076"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-24",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "name_variant",
+      "severity": "warning",
+      "description": "Patient name on the pharmacy bill is spelled slightly differently from the rest of the claim.",
+      "document_ids": [
+        "CLAIM-005143-PHARM"
+      ],
+      "expected_finding": "name_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-c",
+    "lab_report": "lab-a"
+  }
+}

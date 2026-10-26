@@ -9,7 +9,7 @@ export PYTHONPATH := $(CURDIR)
 
 .PHONY: help venv install install-dev install-pipeline datagen-sample datagen-bulk \
         test test-fast test-datagen test-schemas test-pipeline test-m1 test-m2 test-m3 \
-        test-m4 test-m5 eval demo lint fmt clean
+        test-m4 test-m5 eval eval-live calibrate bench demo lint fmt clean
 
 help:
 	@echo "MediProof targets:"
@@ -66,7 +66,20 @@ test-m3:
 	$(PYTHON) -m pytest tests/pipeline/test_m3_extract.py tests/pipeline/test_m3_grounding.py -v
 
 test-m4:
-	$(PYTHON) -m pytest tests/pipeline/test_m4_audit.py -v
+	$(PYTHON) -m pytest tests/pipeline/test_m4_audit.py tests/pipeline/test_m4_agents.py -v
+
+bench:
+	$(PYTHON) -m datagen.cli bulk --count 240 --start-seed 5000 --fault-rate 0.5 --balanced \
+		--gt-only --out bench/mediclaim-bench-v2
+
+calibrate:
+	$(PYTHON) -m evals.cli --out data/bench_eval --calibrate 20 --alpha 0.1
+
+# Live Claude run: calibrate the verifier threshold, then evaluate (records fixtures as it
+# goes, capped by LLM_BUDGET_USD). Needs ANTHROPIC_API_KEY.
+eval-live:
+	LLM_LIVE=1 $(PYTHON) -m evals.cli --out data/bench_eval --calibrate 20 --alpha 0.1 \
+		--readme README.md --results evals/RESULTS.md
 
 test-m5:
 	$(PYTHON) -m pytest tests/pipeline/test_m5_complete.py -v

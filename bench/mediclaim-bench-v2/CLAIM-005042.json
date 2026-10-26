@@ -1,0 +1,390 @@
+{
+  "claim_id": "CLAIM-005042",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5042,
+  "patient": {
+    "name": "Zilmil Baria",
+    "age": 21,
+    "gender": "F",
+    "patient_id": "UHID472881",
+    "phone": "9384474205"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005042-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Zilmil Baria",
+      "policy_no": "HLT-77-8622756",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-11-17",
+      "discharge_date": "2024-11-21",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 84036.72
+    },
+    {
+      "document_id": "CLAIM-005042-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "bill_no": "INV/2024/4974",
+      "bill_date": "2024-11-21",
+      "admission_date": "2024-11-17",
+      "discharge_date": "2024-11-21",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9919.99,
+          "amount": 19839.98,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3682.79,
+          "amount": 7365.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 853.65,
+          "amount": 3414.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1256.89,
+          "amount": 5027.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2457.18,
+          "amount": 2457.18,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21016.02,
+          "amount": 21016.02,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9304.28,
+          "amount": 9304.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6812.63,
+          "amount": 6812.63,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 79337.83,
+      "discount": 0.0,
+      "tax": 3966.89,
+      "total": 83304.72
+    },
+    {
+      "document_id": "CLAIM-005042-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "admission_date": "2024-11-17",
+      "discharge_date": "2024-11-21",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 17 Nov 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 18 Nov 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005042-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/6780",
+      "bill_date": "2024-11-21",
+      "patient_name": "Zilmil Baria",
+      "prescription_ref": "RX5633",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B91860",
+          "quantity": 1.0,
+          "mrp": 12.0,
+          "amount": 12.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B89593",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B34422",
+          "quantity": 2.0,
+          "mrp": 65.0,
+          "amount": 130.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B84048",
+          "quantity": 1.0,
+          "mrp": 310.0,
+          "amount": 310.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B51499",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        }
+      ],
+      "total": 732.0
+    },
+    {
+      "document_id": "CLAIM-005042-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "prescription_date": "2024-11-21",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005042-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-21",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005042-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-21",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005042-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-21",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005042-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Zilmil Baria",
+        "age": 21,
+        "gender": "F",
+        "patient_id": "UHID472881",
+        "phone": "9384474205"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-18",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-a"
+  }
+}

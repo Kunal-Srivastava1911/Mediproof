@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% from "_letterhead.html" import letterhead %}
 {% block content %}
-{{ letterhead(doc.lab_name, "Accredited Diagnostic Laboratory", none,
-              "Lab Report", doc.document_id, doc.report_date.strftime("%d %b %Y"), initials) }}
+{% set imaging = doc.kind == "imaging" %}
+{{ letterhead(doc.lab_name, "Department of Radiology" if imaging else "Accredited Diagnostic Laboratory", none,
+              "Radiology Report" if imaging else "Lab Report", doc.document_id, doc.report_date.strftime("%d %b %Y"), initials) }}
 
-<div class="doc-heading">Laboratory Report</div>
+<div class="doc-heading">{{ "Radiology Report" if imaging else "Laboratory Report" }}</div>
 
 <div class="info-grid">
   <div class="row"><span class="k">Patient Name</span><span class="v">{{ doc.patient.name }}</span></div>

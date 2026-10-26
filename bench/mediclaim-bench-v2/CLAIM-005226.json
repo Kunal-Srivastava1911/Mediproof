@@ -1,0 +1,390 @@
+{
+  "claim_id": "CLAIM-005226",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5226,
+  "patient": {
+    "name": "Banjeet Tank",
+    "age": 55,
+    "gender": "M",
+    "patient_id": "UHID405123",
+    "phone": "9183462550"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005226-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Banjeet Tank",
+      "policy_no": "HLT-38-6983461",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-06",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 77654.26
+    },
+    {
+      "document_id": "CLAIM-005226-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "bill_no": "INV/2024/4835",
+      "bill_date": "2024-12-06",
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-06",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 8874.63,
+          "amount": 17749.26,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3345.78,
+          "amount": 6691.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 815.81,
+          "amount": 3263.24,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1238.07,
+          "amount": 4952.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2582.75,
+          "amount": 2582.75,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21549.14,
+          "amount": 21549.14,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9176.88,
+          "amount": 9176.88,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6066.48,
+          "amount": 6066.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 76131.59,
+      "discount": 3806.58,
+      "tax": 3616.25,
+      "total": 75941.26
+    },
+    {
+      "document_id": "CLAIM-005226-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "admission_date": "2024-12-02",
+      "discharge_date": "2024-12-06",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 02 Dec 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 03 Dec 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005226-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6101",
+      "bill_date": "2024-12-05",
+      "patient_name": "Banjeet Tank",
+      "prescription_ref": "RX2011",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B91437",
+          "quantity": 3.0,
+          "mrp": 12.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B12724",
+          "quantity": 3.0,
+          "mrp": 88.0,
+          "amount": 264.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B56354",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B86991",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B26577",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        }
+      ],
+      "total": 1713.0
+    },
+    {
+      "document_id": "CLAIM-005226-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "prescription_date": "2024-12-06",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005226-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-06",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005226-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-06",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005226-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-06",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005226-IMG0",
+      "template_id": "hospital-a",
+      "doc_type": "lab_report",
+      "lab_name": "Sunrise Multispeciality Hospital Radiology",
+      "patient": {
+        "name": "Banjeet Tank",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID405123",
+        "phone": "9183462550"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-03",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-b"
+  }
+}

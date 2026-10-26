@@ -1,0 +1,335 @@
+{
+  "claim_id": "CLAIM-005099",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5099,
+  "patient": {
+    "name": "Ekiya Subramaniam",
+    "age": 70,
+    "gender": "F",
+    "patient_id": "UHID270187",
+    "phone": "9131606707"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005099-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Ekiya Subramaniam",
+      "policy_no": "HLT-72-2867942",
+      "hospital_name": "Greenfield Care Institute",
+      "admission_date": "2024-10-05",
+      "discharge_date": "2024-10-08",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 33327.36
+    },
+    {
+      "document_id": "CLAIM-005099-BILL",
+      "template_id": "hospital-b",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "bill_no": "INV/2024/1820",
+      "bill_date": "2024-10-08",
+      "admission_date": "2024-10-05",
+      "discharge_date": "2024-10-13",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 9500.22,
+          "amount": 9500.22,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3229.96,
+          "amount": 6459.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 789.17,
+          "amount": 2367.51,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1148.97,
+          "amount": 3446.91,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2257.53,
+          "amount": 2257.53,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6622.06,
+          "amount": 6622.06,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 31404.15,
+      "discount": 0.0,
+      "tax": 1570.21,
+      "total": 32974.36
+    },
+    {
+      "document_id": "CLAIM-005099-DISCH",
+      "template_id": "hospital-b",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "admission_date": "2024-10-05",
+      "discharge_date": "2024-10-08",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 05 Oct 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005099-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/3467",
+      "bill_date": "2024-10-07",
+      "patient_name": "Ekiya Subramaniam",
+      "prescription_ref": "RX2366",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B14561",
+          "quantity": 1.0,
+          "mrp": 145.0,
+          "amount": 145.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B81795",
+          "quantity": 1.0,
+          "mrp": 24.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B31664",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B41489",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 353.0
+    },
+    {
+      "document_id": "CLAIM-005099-RX",
+      "template_id": "hospital-b",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "prescription_date": "2024-10-08",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005099-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-08",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005099-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-08",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005099-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Ekiya Subramaniam",
+        "age": 70,
+        "gender": "F",
+        "patient_id": "UHID270187",
+        "phone": "9131606707"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-08",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "date_mismatch",
+      "severity": "warning",
+      "description": "Discharge date on the bill does not match the discharge summary.",
+      "document_ids": [
+        "CLAIM-005099-BILL",
+        "CLAIM-005099-DISCH"
+      ],
+      "expected_finding": "date_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-b",
+    "discharge_summary": "hospital-b",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-b",
+    "lab_report": "lab-a"
+  }
+}

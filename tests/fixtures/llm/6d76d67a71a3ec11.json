@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total (43692.02) and the pharmacy bill (522.00) equals 44214.02, which matches the amount claimed on the claim form.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Being shifted to the ward on day 2 of admission (after 1 day in ICU) is fully consistent with 1 day of ICU charges and 3 days of room rent for a 4-day stay from 15 Oct to 19 Oct.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The discharge prescription date is 19 Oct 2024, which correctly matches the patient's discharge date of 19 Oct 2024.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

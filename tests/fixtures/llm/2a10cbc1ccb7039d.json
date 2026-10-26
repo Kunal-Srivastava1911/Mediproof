@@ -1,0 +1,24 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The hospital bill total payable of 39106.74 plus the pharmacy bill of 333.00 equals 39439.74, which exactly matches the amount claimed on the claim form.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Being shifted to the ward on day 2 of admission means the patient spent 1 full day in the ICU, making 2 billed ICU days an overcharge.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The claim form states pharmacy bills bought outside the hospital are enclosed, and buying outside medication on discharge day from a different city is plausible and not a documentation contradiction.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "Lab reports being printed or finalized on the discharge date is a common administrative practice and does not represent a documentation contradiction.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount does not match hospital bill and pharmacy bills sum",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total and the pharmacy bills.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000417-DOC01",
+          "quote": "Amount Claimed 60209.52"
+        },
+        {
+          "document_id": "CLAIM-000417-DOC02",
+          "quote": "Total Payable \u20B9 59689.52"
+        },
+        {
+          "document_id": "CLAIM-000417-DOC04",
+          "quote": "Total \u20B9 520.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy bill address location differs from hospital location",
+      "detail": "The pharmacy bill is from Noida while the hospital and patient address are in Bengaluru.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000417-DOC02",
+          "quote": "14 MG Road, Indiranagar, Bengaluru 560038"
+        },
+        {
+          "document_id": "CLAIM-000417-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill location outside hospital city during admission",
+      "detail": "Pharmacy invoice location is in Noida on the date of discharge in Bengaluru.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000417-DOC02",
+          "quote": "Discharge Date 15 Dec 2024"
+        },
+        {
+          "document_id": "CLAIM-000417-DOC04",
+          "quote": "Date: 15 Dec 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "timeline"
+    }
+  ]
+}

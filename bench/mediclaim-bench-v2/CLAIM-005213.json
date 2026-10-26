@@ -1,0 +1,365 @@
+{
+  "claim_id": "CLAIM-005213",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5213,
+  "patient": {
+    "name": "Raksha Seth",
+    "age": 44,
+    "gender": "F",
+    "patient_id": "UHID900537",
+    "phone": "9308204274"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005213-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Raksha Seth",
+      "policy_no": "HLT-45-4353947",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-09-29",
+      "discharge_date": "2024-10-02",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 61590.44
+    },
+    {
+      "document_id": "CLAIM-005213-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "bill_no": "INV/2024/3161",
+      "bill_date": "2024-10-02",
+      "admission_date": "2024-09-29",
+      "discharge_date": "2024-10-02",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3269.58,
+          "amount": 9808.74,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 852.12,
+          "amount": 2556.36,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1210.98,
+          "amount": 3632.94,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2236.52,
+          "amount": 2236.52,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22006.48,
+          "amount": 22006.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8610.4,
+          "amount": 8610.4,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6810.41,
+          "amount": 6810.41,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 58211.85,
+      "discount": 0.0,
+      "tax": 2910.59,
+      "total": 61122.44
+    },
+    {
+      "document_id": "CLAIM-005213-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "admission_date": "2024-09-29",
+      "discharge_date": "2024-10-02",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 29 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 29 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005213-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/8593",
+      "bill_date": "2024-10-01",
+      "patient_name": "Raksha Set",
+      "prescription_ref": "RX2463",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B84645",
+          "quantity": 2.0,
+          "mrp": 78.0,
+          "amount": 156.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B83823",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B21833",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B33116",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B25318",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 468.0
+    },
+    {
+      "document_id": "CLAIM-005213-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "prescription_date": "2024-10-02",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005213-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-02",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005213-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-02",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005213-IMG0",
+      "template_id": "hospital-c",
+      "doc_type": "lab_report",
+      "lab_name": "Lotus Valley Health Centre Radiology",
+      "patient": {
+        "name": "Raksha Seth",
+        "age": 44,
+        "gender": "F",
+        "patient_id": "UHID900537",
+        "phone": "9308204274"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-29",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "name_variant",
+      "severity": "warning",
+      "description": "Patient name on the pharmacy bill is spelled slightly differently from the rest of the claim.",
+      "document_ids": [
+        "CLAIM-005213-PHARM"
+      ],
+      "expected_finding": "name_inconsistent"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-c",
+    "lab_report": "lab-a"
+  }
+}

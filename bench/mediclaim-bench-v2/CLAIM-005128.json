@@ -1,0 +1,390 @@
+{
+  "claim_id": "CLAIM-005128",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5128,
+  "patient": {
+    "name": "Januja Goda",
+    "age": 40,
+    "gender": "F",
+    "patient_id": "UHID571156",
+    "phone": "9298174201"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005128-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Januja Goda",
+      "policy_no": "HLT-21-2974859",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 78907.62
+    },
+    {
+      "document_id": "CLAIM-005128-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "bill_no": "INV/2024/5386",
+      "bill_date": "2024-12-13",
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9834.79,
+          "amount": 19669.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3271.79,
+          "amount": 6543.58,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 804.32,
+          "amount": 3217.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1215.12,
+          "amount": 4860.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2423.73,
+          "amount": 2423.73,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20975.33,
+          "amount": 20975.33,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9302.24,
+          "amount": 9302.24,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6549.51,
+          "amount": 6549.51,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 77641.73,
+      "discount": 3882.09,
+      "tax": 3687.98,
+      "total": 77447.62
+    },
+    {
+      "document_id": "CLAIM-005128-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "admission_date": "2024-12-09",
+      "discharge_date": "2024-12-13",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 09 Dec 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 10 Dec 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005128-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/8384",
+      "bill_date": "2024-12-10",
+      "patient_name": "Januja Goda",
+      "prescription_ref": "RX3172",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B63878",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B38828",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B31848",
+          "quantity": 2.0,
+          "mrp": 65.0,
+          "amount": 130.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B48336",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B97956",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        }
+      ],
+      "total": 1460.0
+    },
+    {
+      "document_id": "CLAIM-005128-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "prescription_date": "2024-12-13",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005128-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005128-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005128-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-13",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005128-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Januja Goda",
+        "age": 40,
+        "gender": "F",
+        "patient_id": "UHID571156",
+        "phone": "9298174201"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-10",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-a"
+  }
+}

@@ -1,0 +1,401 @@
+{
+  "claim_id": "CLAIM-005019",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5019,
+  "patient": {
+    "name": "Aditya Sha",
+    "age": 23,
+    "gender": "M",
+    "patient_id": "UHID342651",
+    "phone": "9137499531"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005019-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Aditya Sha",
+      "policy_no": "HLT-31-2103684",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-12-07",
+      "discharge_date": "2024-12-11",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 84708.39
+    },
+    {
+      "document_id": "CLAIM-005019-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "bill_no": "INV/2024/7484",
+      "bill_date": "2024-12-11",
+      "admission_date": "2024-12-07",
+      "discharge_date": "2024-12-11",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 8861.15,
+          "amount": 26583.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 3574.28,
+          "amount": 3574.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 816.12,
+          "amount": 3264.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1271.35,
+          "amount": 5085.4,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2542.13,
+          "amount": 2542.13,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22425.53,
+          "amount": 22425.53,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9173.34,
+          "amount": 9173.34,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6384.43,
+          "amount": 6384.43,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 83283.04,
+      "discount": 3899.81,
+      "tax": 3969.16,
+      "total": 83352.39
+    },
+    {
+      "document_id": "CLAIM-005019-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "admission_date": "2024-12-07",
+      "discharge_date": "2024-12-11",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 07 Dec 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 08 Dec 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005019-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/3697",
+      "bill_date": "2024-12-11",
+      "patient_name": "Aditya Sha",
+      "prescription_ref": "RX9342",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B41581",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B80861",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B13661",
+          "quantity": 2.0,
+          "mrp": 65.0,
+          "amount": 130.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B43639",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B56971",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        }
+      ],
+      "total": 1356.0
+    },
+    {
+      "document_id": "CLAIM-005019-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "prescription_date": "2024-12-11",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005019-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-11",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005019-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-11",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005019-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-11",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005019-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Aditya Sha",
+        "age": 23,
+        "gender": "M",
+        "patient_id": "UHID342651",
+        "phone": "9137499531"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-12-08",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "icu_days_mismatch",
+      "severity": "critical",
+      "description": "Bill charges 3 ICU days; the discharge summary documents 2.",
+      "document_ids": [
+        "CLAIM-005019-BILL",
+        "CLAIM-005019-DISCH"
+      ],
+      "expected_finding": "unsupported_by_documentation"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-b"
+  }
+}

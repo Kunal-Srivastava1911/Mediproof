@@ -1,0 +1,90 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and the pharmacy invoice.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Date of Discharge 16/09/2024 Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable ₹ 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total ₹ 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "missing_report",
+      "severity": "warning",
+      "title": "USG Abdomen report missing",
+      "detail": "An USG Abdomen is billed and mentioned in the discharge summary, but the report is not found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "8 USG Abdomen investigation 1 1800.00 1800.00"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC03",
+          "quote": "USG Abdomen on 13 Sep 2024 showed an inflamed, non-compressible appendix."
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "USG Abdomen"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "missing_report",
+      "severity": "warning",
+      "title": "Investigation report missing",
+      "detail": "General investigation charges are billed, but the corresponding investigation reports are not found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "4 Investigation Charges investigation 1 2384.56 2384.56"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy bill from outside pharmacy does not match discharge prescription",
+      "detail": "An outside pharmacy bill from WellMed Pharmacy includes medicines, but no external prescription matching this pharmacy invoice is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "WellMed Pharmacy PHARMACY INVOICE"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "WellMed Pharmacy"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed differs from the sum of bills",
+      "detail": "The amount claimed on the claim form does not equal the hospital bill total plus the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000305-DOC01",
+          "quote": "Amount Claimed 79643.34"
+        },
+        {
+          "document_id": "CLAIM-000305-DOC02",
+          "quote": "Total Payable ₹ 78834.34"
+        },
+        {
+          "document_id": "CLAIM-000305-DOC04",
+          "quote": "Total ₹ 809.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "ICU stay duration in hospital bill differs from discharge summary",
+      "detail": "The hospital bill charges for 2 ICU days, whereas the discharge summary states the patient was shifted to the ward on day 3 of admission.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000305-DOC02",
+          "quote": "ICU Charges room 2 8995.90 17991.80"
+        },
+        {
+          "document_id": "CLAIM-000305-DOC03",
+          "quote": "Shifted to the ward on day 3 of admission"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "2",
+          "3"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "critical",
+      "title": "Pharmacy bill date falls outside admission window",
+      "detail": "The pharmacy bill is dated prior to the admission date.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000305-DOC04",
+          "quote": "Date: 26 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000305-DOC01",
+          "quote": "Date of Admission 25/09/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-26",
+          "2024-09-25",
+          "2024-09-29"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

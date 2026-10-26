@@ -1,0 +1,334 @@
+{
+  "claim_id": "CLAIM-005048",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5048,
+  "patient": {
+    "name": "Aadi Mukherjee",
+    "age": 63,
+    "gender": "M",
+    "patient_id": "UHID800515",
+    "phone": "9282419383"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005048-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Aadi Mukherjee",
+      "policy_no": "HLT-34-4209927",
+      "hospital_name": "Meridian Speciality Hospital",
+      "admission_date": "2024-11-10",
+      "discharge_date": "2024-11-14",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 43006.97
+    },
+    {
+      "document_id": "CLAIM-005048-BILL",
+      "template_id": "hospital-e",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "bill_no": "INV/2024/7737",
+      "bill_date": "2024-11-14",
+      "admission_date": "2024-11-10",
+      "discharge_date": "2024-11-14",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10017.36,
+          "amount": 10017.36,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3278.95,
+          "amount": 9836.85,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 800.05,
+          "amount": 3200.2,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1140.69,
+          "amount": 4562.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2491.69,
+          "amount": 2491.69,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6853.65,
+          "amount": 6853.65,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 42212.51,
+      "discount": 2110.63,
+      "tax": 2005.09,
+      "total": 42106.97
+    },
+    {
+      "document_id": "CLAIM-005048-DISCH",
+      "template_id": "hospital-e",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "admission_date": "2024-11-10",
+      "discharge_date": "2024-11-14",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "course_in_hospital": "Admitted on 10 Nov 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 11 Nov 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005048-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/5573",
+      "bill_date": "2024-11-12",
+      "patient_name": "Aadi Mukherjee",
+      "prescription_ref": "RX9266",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B43960",
+          "quantity": 3.0,
+          "mrp": 142.0,
+          "amount": 426.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B39063",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B14566",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B11496",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 900.0
+    },
+    {
+      "document_id": "CLAIM-005048-RX",
+      "template_id": "hospital-e",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Meridian Speciality Hospital",
+        "address": "9 Park Street, Kolkata 700016",
+        "registration_no": "WB/HOSP/2013/3390"
+      },
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "prescription_date": "2024-11-14",
+      "doctor": "Dr. R. Kulkarni",
+      "doctor_reg_no": "MMC/40233",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005048-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-14",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005048-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-14",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005048-IMG0",
+      "template_id": "hospital-e",
+      "doc_type": "lab_report",
+      "lab_name": "Meridian Speciality Hospital Radiology",
+      "patient": {
+        "name": "Aadi Mukherjee",
+        "age": 63,
+        "gender": "M",
+        "patient_id": "UHID800515",
+        "phone": "9282419383"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-11",
+      "referring_doctor": "Dr. R. Kulkarni",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-e",
+    "discharge_summary": "hospital-e",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-e",
+    "lab_report": "lab-b"
+  }
+}

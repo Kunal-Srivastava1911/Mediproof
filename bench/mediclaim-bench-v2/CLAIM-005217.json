@@ -1,0 +1,345 @@
+{
+  "claim_id": "CLAIM-005217",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5217,
+  "patient": {
+    "name": "Vedika Morar",
+    "age": 58,
+    "gender": "F",
+    "patient_id": "UHID696953",
+    "phone": "9511941489"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005217-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Vedika Morar",
+      "policy_no": "HLT-51-5069030",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-10-24",
+      "discharge_date": "2024-10-28",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 59727.89
+    },
+    {
+      "document_id": "CLAIM-005217-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "bill_no": "INV/2024/1542",
+      "bill_date": "2024-10-28",
+      "admission_date": "2024-10-24",
+      "discharge_date": "2024-10-28",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 9935.04,
+          "amount": 29805.12,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 3697.31,
+          "amount": 3697.31,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 806.59,
+          "amount": 3226.36,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1272.62,
+          "amount": 5090.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2482.39,
+          "amount": 2482.39,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6871.09,
+          "amount": 6871.09,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 56422.75,
+      "discount": 0.0,
+      "tax": 2821.14,
+      "total": 59243.89
+    },
+    {
+      "document_id": "CLAIM-005217-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "admission_date": "2024-10-24",
+      "discharge_date": "2024-10-28",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 24 Oct 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 25 Oct 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005217-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/9182",
+      "bill_date": "2024-10-27",
+      "patient_name": "Vedika Morar",
+      "prescription_ref": "RX8660",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B52305",
+          "quantity": 1.0,
+          "mrp": 142.0,
+          "amount": 142.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B16749",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B13711",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B90182",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 484.0
+    },
+    {
+      "document_id": "CLAIM-005217-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "prescription_date": "2024-10-28",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005217-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-28",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005217-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-28",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005217-IMG0",
+      "template_id": "hospital-d",
+      "doc_type": "lab_report",
+      "lab_name": "Silverline Medical College Hospital Radiology",
+      "patient": {
+        "name": "Vedika Morar",
+        "age": 58,
+        "gender": "F",
+        "patient_id": "UHID696953",
+        "phone": "9511941489"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-25",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "icu_days_mismatch",
+      "severity": "critical",
+      "description": "Bill charges 3 ICU days; the discharge summary documents 1.",
+      "document_ids": [
+        "CLAIM-005217-BILL",
+        "CLAIM-005217-DISCH"
+      ],
+      "expected_finding": "unsupported_by_documentation"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

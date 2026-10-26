@@ -1,0 +1,24 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "Adding up the individual line items in the hospital bill correctly results in the subtotal of 59916.34 and adding the 5% tax of 2995.82 gives the total payable of 62912.16.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The sum of the hospital total payable (62912.16) and the pharmacy bill (552.00) equals 63464.16, which exactly matches the amount claimed.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy bill is from Noida while the hospital and inpatient stay occurred in Chennai, meaning these outside medicines could not have been legitimately used for this hospital admission.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The dates match correctly, but the geographic discrepancy indicates a real problem with the validity of the pharmacy bill.",
+      "verdict": "real_problem"
+    }
+  ]
+}

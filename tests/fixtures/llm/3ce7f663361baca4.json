@@ -1,0 +1,74 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount Claimed Mismatch",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital bill total and pharmacy bills.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable ₹ 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total ₹ 678.00"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "60878.77",
+          "60878.77"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "cross_document_contradiction",
+      "severity": "warning",
+      "title": "External Pharmacy Outside Hospital Location",
+      "detail": "The pharmacy bill is from a different city than the hospital, requiring review of outside pharmacy purchases.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Plot 22, Sector 18, Noida 201301"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "warning",
+      "title": "Patient Name Spelling Variation",
+      "detail": "The patient's name has a spelling variation on the pharmacy invoice compared to other documents.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Ishani Balasubramanian"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Ishani Balasubramaniann"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

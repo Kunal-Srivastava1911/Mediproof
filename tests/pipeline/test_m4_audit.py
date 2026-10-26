@@ -12,7 +12,7 @@ from schemas.claim import DocumentRecord
 from schemas.common import DocType, Severity
 from schemas.documents import ExtractedBillLine, ExtractedHospitalBill
 from schemas.findings import FindingType
-from schemas.ground_truth import FAULT_TO_FINDING, FaultType
+from schemas.ground_truth import FAULT_TO_FINDING, HELD_OUT_FAULTS, FaultType
 
 # ---------------------------------------------------------------- config parity (fast)
 
@@ -70,8 +70,8 @@ def _audit_for(rc):
 
 
 @pytest.mark.slow
-@pytest.mark.parametrize("fault", [f.value for f in FaultType])
-def test_each_injected_fault_raises_expected_finding(render_claim_factory, fault):
+@pytest.mark.parametrize("fault", [f.value for f in FaultType if f not in HELD_OUT_FAULTS])
+def test_each_seen_fault_raises_expected_finding(render_claim_factory, fault):
     rc = render_claim_factory(42, fault)
     injected = rc.claim.faults[0].fault_type          # actual fault (may fall back)
     expected = FAULT_TO_FINDING[injected]
@@ -81,6 +81,18 @@ def test_each_injected_fault_raises_expected_finding(render_claim_factory, fault
     # the finding that matches carries evidence a human can click through to
     match = next(f for f in findings if f.type == expected)
     assert match.document_ids
+
+
+@pytest.mark.slow
+@pytest.mark.parametrize("fault", [f.value for f in HELD_OUT_FAULTS])
+def test_rule_pack_has_no_rule_for_held_out_faults(render_claim_factory, fault):
+    """The open-world split: no YAML rule catches a held-out family (seed 5 is pneumonia,
+    so the ICU and imaging recipes apply)."""
+    rc = render_claim_factory(5, fault)
+    injected = rc.claim.faults[0].fault_type
+    assert injected in HELD_OUT_FAULTS
+    severe = [f for f in _audit_for(rc) if f.severity in (Severity.warning, Severity.critical)]
+    assert not severe, [f.type.value for f in severe]
 
 
 @pytest.mark.slow

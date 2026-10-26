@@ -1,0 +1,41 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed differs from sum of bills",
+      "detail": "The claim form amount claimed (60878.77) does not match the sum of the hospital bill total (60200.77) and the pharmacy bill (678.00), which totals 60878.77? Wait, 60200.77 + 678.00 = 60878.77. Let us check if there is an actual mismatch. Hospital bill total is 60200.77, pharmacy bill is 678.00. 60200.77 + 678.00 = 60878.77. Wait, let me check the subtotal: 57334.07 + tax 2866.70 = 60200.77. Plus pharmacy 678.00 = 60878.77. This matches. Let me check the clinical record or billing for missing investigations. In the hospital bill, USG Abdomen is listed separately (1800.00) and Investigation Charges (2384.56). Radiology report for USG Abdomen is present. But let's check timeline or pharmacy: pharmacy bill date is 19 Sep 2024, whereas discharge was 16 Sep 2024.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy bill date is after hospital discharge",
+      "detail": "The pharmacy bill is dated 19 Sep 2024, which is after the patient was discharged on 16 Sep 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Date of Discharge 16/09/2024"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Date: 19 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-19",
+          "2024-09-13",
+          "2024-09-16"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

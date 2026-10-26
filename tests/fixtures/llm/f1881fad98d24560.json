@@ -1,0 +1,29 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The pharmacy bill is from a different city (Noida) than the hospital in Bengaluru, indicating medications bought outside the hospital as claimed.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Admission from 16 Nov to 20 Nov is 4 days total; being shifted to the ward on day 3 of admission means 2 days in ICU and 2 days in the ward, matching the bill exactly.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The medications listed on the pharmacy invoice (Aspirin, Clopidogrel, Atorvastatin, Enoxaparin, Pantoprazole) match the prescription exactly.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "Lab reports dated on the discharge date (20 Nov 2024) fall entirely within the inpatient stay window of 16 Nov to 20 Nov 2024.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 4,
+      "reason": "The proposed item explicitly states that no identity discrepancies were found and everything is consistent.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim form amount claimed does not match hospital and pharmacy bill total",
+      "detail": "The amount claimed on the claim form (33587.09) does not match the sum of the hospital bill total payable (33085.09) and the pharmacy bill (502.00), which totals 33587.09. Wait, 33085.09 + 502.00 = 33587.09. Let us check the hospital bill total again. Subtotal is 31509.61, tax is 1575.48, total payable is 33085.09. Plus pharmacy bill of 502.00 is 33587.09. Actually, let us check the hospital bill subtotal items: 8867.01 + 6919.90 + 2290.65 + 3538.59 + 2233.32 + 6610.14 + 600.00 + 450.00 = 31509.61. Subtotal + Tax (1575.48) = 33085.09. Claim form says Amount Claimed 33587.09. 33085.09 + 502.00 = 33587.09. The claim amount is correct. No error here.",
+      "quotes": [],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Investigation charges billed without matching lab reports",
+      "detail": "The hospital bill includes Investigation Charges, but the file lacks corresponding reports for some investigations.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000406-DOC02",
+          "quote": "Investigation Charges investigation 1 2233.32 2233.32"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill date precedes admission date",
+      "detail": "The pharmacy bill is dated 03 Nov 2024, which is the admission date, but was purchased outside. This is chronologically valid, but requires review for pre-admission timing if applicable.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000406-DOC04",
+          "quote": "Date: 03 Nov 2024"
+        },
+        {
+          "document_id": "CLAIM-000406-DOC01",
+          "quote": "Date of Admission 03/11/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-11-03",
+          "2024-11-03"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

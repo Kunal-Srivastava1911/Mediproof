@@ -1,0 +1,390 @@
+{
+  "claim_id": "CLAIM-005060",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5060,
+  "patient": {
+    "name": "Peter Sant",
+    "age": 55,
+    "gender": "M",
+    "patient_id": "UHID847944",
+    "phone": "9164726942"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005060-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Peter Sant",
+      "policy_no": "HLT-68-8172330",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-09-28",
+      "discharge_date": "2024-10-02",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 83618.9
+    },
+    {
+      "document_id": "CLAIM-005060-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "bill_no": "INV/2024/7306",
+      "bill_date": "2024-10-02",
+      "admission_date": "2024-09-28",
+      "discharge_date": "2024-10-02",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9182.9,
+          "amount": 18365.8,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3688.43,
+          "amount": 7376.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 743.14,
+          "amount": 2972.56,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1272.57,
+          "amount": 5090.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2516.66,
+          "amount": 2516.66,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21868.45,
+          "amount": 21868.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9483.7,
+          "amount": 9483.7,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6808.45,
+          "amount": 6808.45,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 78582.76,
+      "discount": 0.0,
+      "tax": 3929.14,
+      "total": 82511.9
+    },
+    {
+      "document_id": "CLAIM-005060-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "admission_date": "2024-09-28",
+      "discharge_date": "2024-10-02",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 28 Sep 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 29 Sep 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005060-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/2688",
+      "bill_date": "2024-09-29",
+      "patient_name": "Peter Sant",
+      "prescription_ref": "RX3461",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B75161",
+          "quantity": 1.0,
+          "mrp": 12.0,
+          "amount": 12.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B16477",
+          "quantity": 1.0,
+          "mrp": 88.0,
+          "amount": 88.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B64334",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B61382",
+          "quantity": 2.0,
+          "mrp": 310.0,
+          "amount": 620.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B73608",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        }
+      ],
+      "total": 1107.0
+    },
+    {
+      "document_id": "CLAIM-005060-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "prescription_date": "2024-10-02",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005060-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-02",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005060-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-02",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005060-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-02",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005060-IMG0",
+      "template_id": "hospital-c",
+      "doc_type": "lab_report",
+      "lab_name": "Lotus Valley Health Centre Radiology",
+      "patient": {
+        "name": "Peter Sant",
+        "age": 55,
+        "gender": "M",
+        "patient_id": "UHID847944",
+        "phone": "9164726942"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-29",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-c",
+    "lab_report": "lab-b"
+  }
+}

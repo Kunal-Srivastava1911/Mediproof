@@ -1,0 +1,352 @@
+{
+  "claim_id": "CLAIM-005033",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5033,
+  "patient": {
+    "name": "Max Dixit",
+    "age": 32,
+    "gender": "M",
+    "patient_id": "UHID758648",
+    "phone": "9309369024"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005033-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Max Dixit",
+      "policy_no": "HLT-68-8832487",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-10-10",
+      "discharge_date": "2024-10-14",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 52698.81
+    },
+    {
+      "document_id": "CLAIM-005033-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "bill_no": "INV/2024/9354",
+      "bill_date": "2024-10-14",
+      "admission_date": "2024-10-10",
+      "discharge_date": "2024-10-14",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8853.81,
+          "amount": 8853.81,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3282.87,
+          "amount": 9848.61,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 799.47,
+          "amount": 3197.88,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1124.22,
+          "amount": 4496.88,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2272.16,
+          "amount": 2272.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6076.63,
+          "amount": 6076.63,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3282.87,
+          "amount": 9848.61,
+          "is_non_payable": false
+        }
+      ],
+      "subtotal": 49844.58,
+      "discount": 0.0,
+      "tax": 2492.23,
+      "total": 52336.81
+    },
+    {
+      "document_id": "CLAIM-005033-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "admission_date": "2024-10-10",
+      "discharge_date": "2024-10-14",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 10 Oct 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 11 Oct 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005033-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/8171",
+      "bill_date": "2024-10-10",
+      "patient_name": "Max Dixit",
+      "prescription_ref": "RX7500",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B76493",
+          "quantity": 1.0,
+          "mrp": 142.0,
+          "amount": 142.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B73910",
+          "quantity": 2.0,
+          "mrp": 18.0,
+          "amount": 36.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B24038",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B78359",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 362.0
+    },
+    {
+      "document_id": "CLAIM-005033-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "prescription_date": "2024-10-14",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005033-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-14",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005033-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-14",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005033-IMG0",
+      "template_id": "hospital-c",
+      "doc_type": "lab_report",
+      "lab_name": "Lotus Valley Health Centre Radiology",
+      "patient": {
+        "name": "Max Dixit",
+        "age": 32,
+        "gender": "M",
+        "patient_id": "UHID758648",
+        "phone": "9309369024"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-11",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "duplicate_billing",
+      "severity": "warning",
+      "description": "Line item 'Room Rent (Semi-Private)' appears more than once on the bill.",
+      "document_ids": [
+        "CLAIM-005033-BILL"
+      ],
+      "expected_finding": "duplicate_line_item"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-c",
+    "lab_report": "lab-b"
+  }
+}

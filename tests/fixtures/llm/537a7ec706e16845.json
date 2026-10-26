@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital bill total and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Amount Claimed 60878.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC02",
+          "quote": "Total Payable \u20B9 60200.77"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Total \u20B9 678.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "warning",
+      "title": "Patient Name Mismatch on Pharmacy Bill",
+      "detail": "The patient name on the pharmacy bill differs from the name recorded across the rest of the claim file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000200-DOC01",
+          "quote": "Ishani Balasubramanian"
+        },
+        {
+          "document_id": "CLAIM-000200-DOC04",
+          "quote": "Ishani Das"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

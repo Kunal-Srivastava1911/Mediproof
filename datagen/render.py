@@ -18,9 +18,9 @@ from schemas.ground_truth import ClaimGroundTruth
 _TEMPLATE_DIR = Path(__file__).parent / "templates"
 
 # Doc types with an HTML template. The renderer skips any type not listed here cleanly
-# rather than guessing a layout. (claim_form / id_document / pre_auth have no ground-truth
-# model yet, so they are intentionally absent — adding them is a schema change, human-owned.)
+# rather than guessing a layout. (id_document / pre_auth have no ground-truth model yet.)
 TEMPLATE_FOR: dict[DocType, str] = {
+    DocType.claim_form: "claim_form.html",
     DocType.hospital_bill: "hospital_bill.html",
     DocType.discharge_summary: "discharge_summary.html",
     DocType.pharmacy_bill: "pharmacy_bill.html",
@@ -47,6 +47,8 @@ def _org_name(doc) -> str:
         return doc.pharmacy_name
     if hasattr(doc, "lab_name"):
         return doc.lab_name
+    if hasattr(doc, "policy_no"):
+        return "Health Insurance Claim Form"
     return "MediProof"
 
 

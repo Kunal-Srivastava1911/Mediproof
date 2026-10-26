@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The quote shows that the claimed amount and the sum of the hospital payable and pharmacy bill match perfectly.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy invoice is from a completely different city than the hospital where treatment took place, indicating an external pharmacy purchase during or around hospitalization.",
+      "verdict": "real_problem"
+    }
+  ]
+}

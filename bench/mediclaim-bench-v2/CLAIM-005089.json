@@ -1,0 +1,401 @@
+{
+  "claim_id": "CLAIM-005089",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5089,
+  "patient": {
+    "name": "Mohini Ganguly",
+    "age": 32,
+    "gender": "F",
+    "patient_id": "UHID512127",
+    "phone": "9301809221"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005089-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Mohini Ganguly",
+      "policy_no": "HLT-18-4842632",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-09-30",
+      "discharge_date": "2024-10-04",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 80457.2
+    },
+    {
+      "document_id": "CLAIM-005089-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "bill_no": "INV/2024/9387",
+      "bill_date": "2024-10-04",
+      "admission_date": "2024-09-30",
+      "discharge_date": "2024-10-04",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9088.51,
+          "amount": 18177.02,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3329.39,
+          "amount": 6658.78,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 852.9,
+          "amount": 3411.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1175.23,
+          "amount": 4700.92,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2350.82,
+          "amount": 2350.82,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20703.11,
+          "amount": 20703.11,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8904.16,
+          "amount": 8904.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6535.21,
+          "amount": 6535.21,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 75691.62,
+      "discount": 0.0,
+      "tax": 3784.58,
+      "total": 79476.2
+    },
+    {
+      "document_id": "CLAIM-005089-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "admission_date": "2024-09-30",
+      "discharge_date": "2024-10-04",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 30 Sep 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 01 Oct 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005089-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/4199",
+      "bill_date": "2024-10-06",
+      "patient_name": "Mohini Ganguly",
+      "prescription_ref": "RX6205",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B72398",
+          "quantity": 1.0,
+          "mrp": 12.0,
+          "amount": 12.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B71583",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B14009",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B10576",
+          "quantity": 1.0,
+          "mrp": 310.0,
+          "amount": 310.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B41083",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        }
+      ],
+      "total": 981.0
+    },
+    {
+      "document_id": "CLAIM-005089-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "prescription_date": "2024-10-04",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005089-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-04",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005089-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-04",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005089-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-04",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005089-IMG0",
+      "template_id": "hospital-c",
+      "doc_type": "lab_report",
+      "lab_name": "Lotus Valley Health Centre Radiology",
+      "patient": {
+        "name": "Mohini Ganguly",
+        "age": 32,
+        "gender": "F",
+        "patient_id": "UHID512127",
+        "phone": "9301809221"
+      },
+      "panel_name": "2D Echocardiography",
+      "results": [
+        {
+          "test_name": "2D Echocardiography",
+          "value": "Impression: inferior wall hypokinesia with an ejection fraction of 48%",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-01",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "pharmacy_after_discharge",
+      "severity": "warning",
+      "description": "Pharmacy bill is dated after the discharge date.",
+      "document_ids": [
+        "CLAIM-005089-PHARM",
+        "CLAIM-005089-DISCH"
+      ],
+      "expected_finding": "temporal_inconsistency"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-c",
+    "lab_report": "lab-b"
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "claim_id": "CLAIM-005045",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5045,
+  "patient": {
+    "name": "Aahana Dey",
+    "age": 76,
+    "gender": "F",
+    "patient_id": "UHID666125",
+    "phone": "9778250404"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005045-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Aahana Dey",
+      "policy_no": "HLT-75-8118036",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-09-06",
+      "discharge_date": "2024-09-10",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 76291.32
+    },
+    {
+      "document_id": "CLAIM-005045-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "bill_no": "INV/2024/6562",
+      "bill_date": "2024-09-10",
+      "admission_date": "2024-09-06",
+      "discharge_date": "2024-09-10",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9109.89,
+          "amount": 18219.78,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3296.0,
+          "amount": 6592.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 738.12,
+          "amount": 2952.48,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1268.88,
+          "amount": 5075.52,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2488.69,
+          "amount": 2488.69,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 21329.25,
+          "amount": 21329.25,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8420.31,
+          "amount": 8420.31,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6095.1,
+          "amount": 6095.1,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 75123.13,
+      "discount": 3756.16,
+      "tax": 3568.35,
+      "total": 74935.32
+    },
+    {
+      "document_id": "CLAIM-005045-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "admission_date": "2024-09-06",
+      "discharge_date": "2024-09-10",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 06 Sep 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 07 Sep 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005045-PHARM",
+      "template_id": "pharmacy-a",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "WellMed Pharmacy",
+      "pharmacy_address": "Shop 4, MG Road, Bengaluru 560001",
+      "bill_no": "PH/2024/6056",
+      "bill_date": "2024-09-06",
+      "patient_name": "Aahana Dey",
+      "prescription_ref": "RX8036",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B47767",
+          "quantity": 2.0,
+          "mrp": 12.0,
+          "amount": 24.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B95141",
+          "quantity": 2.0,
+          "mrp": 88.0,
+          "amount": 176.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B49436",
+          "quantity": 2.0,
+          "mrp": 65.0,
+          "amount": 130.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B60900",
+          "quantity": 3.0,
+          "mrp": 310.0,
+          "amount": 930.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B66798",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        }
+      ],
+      "total": 1356.0
+    },
+    {
+      "document_id": "CLAIM-005045-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "prescription_date": "2024-09-10",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005045-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "panel_name": "Cardiac Troponin I",
+      "results": [
+        {
+          "test_name": "Cardiac Troponin I",
+          "value": "2.86",
+          "unit": "ng/mL",
+          "reference_range": "< 0.04",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005045-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "panel_name": "Lipid Profile",
+      "results": [
+        {
+          "test_name": "Lipid Profile",
+          "value": "Total 214, LDL 142, HDL 38, TG 176",
+          "unit": "mg/dL",
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005045-LAB2",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Aahana Dey",
+        "age": 76,
+        "gender": "F",
+        "patient_id": "UHID666125",
+        "phone": "9778250404"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_imaging_report",
+      "severity": "warning",
+      "description": "An imaging study is billed and described in the discharge summary, but its report is not in the file.",
+      "document_ids": [
+        "CLAIM-005045-IMG0"
+      ],
+      "expected_finding": "missing_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-a",
+    "prescription": "hospital-a",
+    "lab_report": "lab-b"
+  }
+}

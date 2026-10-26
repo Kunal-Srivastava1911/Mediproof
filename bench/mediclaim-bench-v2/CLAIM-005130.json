@@ -1,0 +1,355 @@
+{
+  "claim_id": "CLAIM-005130",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5130,
+  "patient": {
+    "name": "Harinakshi Shan",
+    "age": 64,
+    "gender": "F",
+    "patient_id": "UHID184481",
+    "phone": "9974664429"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005130-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Harinakshi Shan",
+      "policy_no": "HLT-47-6157077",
+      "hospital_name": "Greenfield Care Institute",
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 63875.25
+    },
+    {
+      "document_id": "CLAIM-005130-BILL",
+      "template_id": "hospital-b",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "bill_no": "INV/2024/4538",
+      "bill_date": "2024-09-13",
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3642.34,
+          "amount": 10927.02,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 821.91,
+          "amount": 2465.73,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1121.66,
+          "amount": 3364.98,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2539.83,
+          "amount": 2539.83,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22978.29,
+          "amount": 22978.29,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9300.31,
+          "amount": 9300.31,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5995.98,
+          "amount": 5995.98,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 60422.14,
+      "discount": 0.0,
+      "tax": 3021.11,
+      "total": 63443.25
+    },
+    {
+      "document_id": "CLAIM-005130-DISCH",
+      "template_id": "hospital-b",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "admission_date": "2024-09-10",
+      "discharge_date": "2024-09-13",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 10 Sep 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 10 Sep 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005130-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6579",
+      "bill_date": "2024-09-13",
+      "patient_name": "Harinakshi Shan",
+      "prescription_ref": "RX8814",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B60155",
+          "quantity": 2.0,
+          "mrp": 78.0,
+          "amount": 156.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B82715",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B56060",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B42802",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B24691",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 432.0
+    },
+    {
+      "document_id": "CLAIM-005130-RX",
+      "template_id": "hospital-b",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "prescription_date": "2024-09-13",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005130-LAB0",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-13",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005130-LAB1",
+      "template_id": "lab-b",
+      "doc_type": "lab_report",
+      "lab_name": "ClearView Labs",
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-13",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005130-IMG0",
+      "template_id": "hospital-b",
+      "doc_type": "lab_report",
+      "lab_name": "Greenfield Care Institute Radiology",
+      "patient": {
+        "name": "Harinakshi Shan",
+        "age": 64,
+        "gender": "F",
+        "patient_id": "UHID184481",
+        "phone": "9974664429"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-10",
+      "referring_doctor": "Dr. S. Reddy",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-b",
+    "discharge_summary": "hospital-b",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-b",
+    "lab_report": "lab-b"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "findings": [
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy Location Differs from Hospital Location",
+      "detail": "The pharmacy bill is from a chemist in Noida, whereas the hospital and treatment occurred in Bengaluru.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000411-DOC02",
+          "quote": "14 MG Road, Indiranagar, Bengaluru 560038"
+        },
+        {
+          "document_id": "CLAIM-000411-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Ward Day Mismatch in Discharge Summary",
+      "detail": "The discharge summary states the patient was shifted to the ward on day 3 of admission (18 Nov 2024), but the hospital bill charges for 2 days of ICU and 2 days of Semi-Private room.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000411-DOC03",
+          "quote": "Shifted to the ward on day 3 of admission and remained stable in the ward until discharge."
+        },
+        {
+          "document_id": "CLAIM-000411-DOC02",
+          "quote": "1 ICU Charges room 2 10011.60 20023.20"
+        },
+        {
+          "document_id": "CLAIM-000411-DOC02",
+          "quote": "2 Room Rent (Semi-Private) room 2 3632.56 7265.12"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "2",
+          "3"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy Bill Medications Differ from Prescription",
+      "detail": "Medications listed on the pharmacy invoice do not match the medications prescribed on the discharge prescription.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000411-DOC04",
+          "quote": "1 Aspirin 75mg B16258 1 12.00 12.00"
+        },
+        {
+          "document_id": "CLAIM-000411-DOC05",
+          "quote": "PRESCRIPTION (RX)"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Lab Report Dates Fall Outside Stay or Match Discharge Date",
+      "detail": "Laboratory reports are dated 20 Nov 2024, which is the discharge date, while some tests typically performed at admission are dated on discharge.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000411-DOC06",
+          "quote": "Report Date 20 Nov 2024 Referring Doctor Dr. M. Iyer"
+        },
+        {
+          "document_id": "CLAIM-000411-DOC01",
+          "quote": "Date of Admission 16/11/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-20",
+          "2024-11-16",
+          "2024-11-20"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "info",
+      "title": "Identity Details Consistent Across Documents",
+      "detail": "No identity discrepancies found across the files.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000411-DOC01",
+          "quote": "Agastya Narain"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

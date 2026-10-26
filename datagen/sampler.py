@@ -21,6 +21,7 @@ from schemas.common import DocType, Gender
 from schemas.ground_truth import (
     BillCategory,
     BillLineItem,
+    ClaimFormGT,
     ClaimGroundTruth,
     DischargeSummaryGT,
     HospitalBillGT,
@@ -60,15 +61,33 @@ def _build_bill(
     scenario: fd.Scenario, admit: date, discharge: date, doc_id: str,
 ) -> HospitalBillGT:
     los = max(1, (discharge - admit).days)
+    icu = min(scenario.icu_days, los - 1) if los > 1 else 0
     items: list[BillLineItem] = []
-    for ch in fd.BASE_CHARGES:
-        qty = los if ch.per_day else 1
+    # Medical admissions (no surgery) bill no surgeon/procedure or OT fees: the narrative and
+    # "Procedures Performed" would not support them (found by the agent auditor's first run).
+    charges = [ch for ch in fd.BASE_CHARGES
+               if scenario.surgical or ch.category != "procedure"]
+    if icu:
+        charges.insert(0, fd.ICU_CHARGE)
+    for ch in charges:
+        if ch is fd.ICU_CHARGE:
+            qty = icu
+        elif ch.description.startswith("Room Rent"):
+            qty = los - icu  # the room line covers the ward days only
+        else:
+            qty = los if ch.per_day else 1
         # small deterministic jitter on unit price (±8%)
         unit = fd.money(ch.unit_price * (1 + rng.uniform(-0.08, 0.08)))
         items.append(BillLineItem(
             description=ch.description, category=BillCategory(ch.category),
             quantity=qty, unit_price=unit, amount=fd.money(unit * qty),
             is_non_payable=ch.non_payable,
+        ))
+    for study, _, _ in scenario.imaging:
+        price = fd.IMAGING_PRICES[study]
+        items.append(BillLineItem(
+            description=study, category=BillCategory.investigation,
+            quantity=1, unit_price=price, amount=price,
         ))
     for ch in rng.sample(fd.NON_PAYABLE_CONSUMABLES, k=2):
         items.append(BillLineItem(
@@ -89,6 +108,31 @@ def _build_bill(
     )
 
 
+def _icu_days(scenario: fd.Scenario, admit: date, discharge: date) -> int:
+    los = max(1, (discharge - admit).days)
+    return min(scenario.icu_days, los - 1) if los > 1 else 0
+
+
+def course_in_hospital(scenario: fd.Scenario, admit: date, discharge: date) -> str:
+    """The per-claim clinical narrative, built from the same facts the bill is built from,
+    so a clean claim's narrative and bill always agree (the ICU/imaging faults break that)."""
+    icu = _icu_days(scenario, admit, discharge)
+    parts = [f"Admitted on {admit:%d %b %Y} with {scenario.presenting}."]
+    if icu:
+        parts.append(f"Managed in the ICU with {scenario.management}.")
+        parts.append(f"Shifted to the ward on day {icu + 1} of admission and remained stable "
+                     f"in the ward until discharge.")
+    else:
+        parts.append(f"Managed in the ward with {scenario.management}.")
+    for study, finding, day in scenario.imaging:
+        parts.append(f"{study} on {admit + timedelta(days=day):%d %b %Y} showed {finding}.")
+    for proc in scenario.procedures:
+        parts.append(f"Underwent {proc}.")
+    parts.append("Condition improved steadily and the patient was discharged in a stable "
+                 "condition.")
+    return " ".join(parts)
+
+
 def _build_discharge(
     patient: PatientInfo, hospital: fd.Institution, scenario: fd.Scenario,
     admit: date, discharge: date, doctor: tuple[str, str], doc_id: str,
@@ -99,6 +143,34 @@ def _build_discharge(
         admission_date=admit, discharge_date=discharge,
         diagnosis_text=scenario.diagnosis_text, icd10_codes=list(scenario.icd10_codes),
         procedures=list(scenario.procedures), treating_doctor=doctor[0], doctor_reg_no=doctor[1],
+        course_in_hospital=course_in_hospital(scenario, admit, discharge),
+        icu_days=_icu_days(scenario, admit, discharge),
+        imaging=[study for study, _, _ in scenario.imaging],
+    )
+
+
+def _build_imaging(
+    patient: PatientInfo, hospital: fd.Institution, study: str, finding: str,
+    report_date: date, doctor: tuple[str, str], doc_id: str,
+) -> LabReportGT:
+    return LabReportGT(
+        document_id=doc_id, template_id=hospital.template_id, kind="imaging",
+        lab_name=f"{hospital.name} Radiology", patient=patient, panel_name=study,
+        results=[LabResult(test_name=study, value=f"Impression: {finding}")],
+        report_date=report_date, referring_doctor=doctor[0],
+    )
+
+
+def _build_claim_form(
+    rng: random.Random, patient: PatientInfo, hospital: fd.Institution,
+    scenario: fd.Scenario, admit: date, discharge: date, claimed: float, doc_id: str,
+) -> ClaimFormGT:
+    return ClaimFormGT(
+        document_id=doc_id, template_id="claimform-a",
+        insured_name=patient.name,
+        policy_no=f"HLT-{rng.randint(10, 99)}-{rng.randint(1000000, 9999999)}",
+        hospital_name=hospital.name, admission_date=admit, discharge_date=discharge,
+        diagnosis_text=scenario.diagnosis_text, claimed_amount=claimed,
     )
 
 
@@ -185,9 +257,17 @@ def sample_claim(seed: int, claim_id: str | None = None) -> ClaimGroundTruth:
         _build_lab(patient, lab, panel, discharge, doctor, f"{claim_id}-LAB{i}")
         for i, panel in enumerate(scenario.lab_panels)
     ]
+    imaging = [
+        _build_imaging(patient, hospital, study, finding, admit + timedelta(days=day), doctor,
+                       f"{claim_id}-IMG{i}")
+        for i, (study, finding, day) in enumerate(scenario.imaging)
+    ]
+    claim_form = _build_claim_form(rng, patient, hospital, scenario, admit, discharge,
+                                   fd.money(bill.total + pharmacy_doc.total), f"{claim_id}-CF")
 
-    documents = [bill, discharge_doc, pharmacy_doc, prescription, *labs]
+    documents = [claim_form, bill, discharge_doc, pharmacy_doc, prescription, *labs, *imaging]
     template_meta = {
+        DocType.claim_form.value: claim_form.template_id,
         DocType.hospital_bill.value: hospital.template_id,
         DocType.discharge_summary.value: hospital.template_id,
         DocType.pharmacy_bill.value: pharmacy.template_id,

@@ -26,6 +26,7 @@ from schemas.common import Severity
 from schemas.ground_truth import (
     FAULT_TO_FINDING,
     BillLineItem,
+    ClaimFormGT,
     ClaimGroundTruth,
     DischargeSummaryGT,
     FaultLabel,
@@ -44,6 +45,11 @@ _SEVERITY: dict[FaultType, Severity] = {
     FaultType.name_mismatch: Severity.warning,
     FaultType.missing_lab_report: Severity.warning,
     FaultType.drug_diagnosis_mismatch: Severity.critical,
+    FaultType.claim_form_date_mismatch: Severity.warning,
+    FaultType.pharmacy_after_discharge: Severity.warning,
+    FaultType.icu_days_mismatch: Severity.critical,
+    FaultType.missing_imaging_report: Severity.warning,
+    FaultType.name_variant: Severity.warning,
 }
 
 
@@ -192,6 +198,115 @@ def _drug_diagnosis_mismatch(claim, rng) -> FaultLabel | None:
     return None
 
 
+# ------------------------------------------------- cross-document semantic / temporal recipes
+
+
+def _claim_form_date_mismatch(claim, rng) -> FaultLabel | None:
+    form = _first(claim, ClaimFormGT)
+    bill = _first(claim, HospitalBillGT)
+    if form is None or bill is None:
+        return None
+    form.admission_date = form.admission_date - timedelta(days=rng.randint(2, 4))
+    return _label(
+        FaultType.claim_form_date_mismatch,
+        "Admission date on the claim form differs from the hospital bill and discharge summary.",
+        [form.document_id, bill.document_id],
+    )
+
+
+def _pharmacy_after_discharge(claim, rng) -> FaultLabel | None:
+    pharm = _first(claim, PharmacyBillGT)
+    disch = _first(claim, DischargeSummaryGT)
+    if pharm is None or disch is None:
+        return None
+    pharm.bill_date = disch.discharge_date + timedelta(days=rng.randint(2, 4))
+    return _label(
+        FaultType.pharmacy_after_discharge,
+        "Pharmacy bill is dated after the discharge date.",
+        [pharm.document_id, disch.document_id],
+    )
+
+
+def _icu_days_mismatch(claim, rng) -> FaultLabel | None:
+    """Bill ICU days exceed what the narrative documents. The bill stays internally exact
+    and the length of stay is unchanged (ward days drop by the same amount where possible),
+    so only a reader of the discharge narrative can tell."""
+    bill = _first(claim, HospitalBillGT)
+    disch = _first(claim, DischargeSummaryGT)
+    if bill is None or disch is None or disch.icu_days == 0:
+        return None
+    icu = next((i for i in bill.line_items if i.description == fd.ICU_CHARGE.description), None)
+    room = next((i for i in bill.line_items if i.description.startswith("Room Rent")), None)
+    if icu is None:
+        return None
+    extra = 2 if room is not None and room.quantity > 2 else 1
+    icu.quantity += extra
+    icu.amount = fd.money(icu.unit_price * icu.quantity)
+    if room is not None and room.quantity > extra:
+        room.quantity -= extra
+        room.amount = fd.money(room.unit_price * room.quantity)
+    _reconcile_bill(bill)
+    return _label(
+        FaultType.icu_days_mismatch,
+        f"Bill charges {int(icu.quantity)} ICU days; the discharge summary documents "
+        f"{disch.icu_days}.",
+        [bill.document_id, disch.document_id],
+    )
+
+
+def _missing_imaging_report(claim, rng) -> FaultLabel | None:
+    imaging = [d for d in claim.documents if isinstance(d, LabReportGT) and d.kind == "imaging"]
+    if not imaging:
+        return None
+    removed = {d.document_id for d in imaging}
+    claim.documents = [d for d in claim.documents if d.document_id not in removed]
+    return _label(
+        FaultType.missing_imaging_report,
+        "An imaging study is billed and described in the discharge summary, but its report "
+        "is not in the file.",
+        sorted(removed),
+    )
+
+
+def _surname_variant(surname: str) -> str:
+    """A one-letter spelling variant ('Sharma' -> 'Sarma'), the kind fuzzy matching passes."""
+    lower = surname.lower()
+    i = lower.find("h", 1)
+    if i > 0:
+        return surname[:i] + surname[i + 1:]
+    for j in range(1, len(surname)):
+        if lower[j] == lower[j - 1]:
+            return surname[:j] + surname[j + 1:]
+    return surname + surname[-1]
+
+
+def _name_variant(claim, rng) -> FaultLabel | None:
+    pharm = _first(claim, PharmacyBillGT)
+    if pharm is None:
+        return None
+    parts = pharm.patient_name.split()
+    if len(parts) < 2:
+        return None
+    parts[-1] = _surname_variant(parts[-1])
+    pharm.patient_name = " ".join(parts)
+    return _label(
+        FaultType.name_variant,
+        "Patient name on the pharmacy bill is spelled slightly differently from the rest of "
+        "the claim.",
+        [pharm.document_id],
+    )
+
+
+def _resync_claim_form(claim: ClaimGroundTruth) -> None:
+    """Keep the claim form's claimed amount equal to bill + pharmacy totals, so a fault that
+    changes a total does not also create a second, unlabelled claim-form problem."""
+    form = _first(claim, ClaimFormGT)
+    bill = _first(claim, HospitalBillGT)
+    pharms = [d for d in claim.documents if isinstance(d, PharmacyBillGT)]
+    if form is not None and bill is not None:
+        form.claimed_amount = fd.money(bill.total + sum(p.total for p in pharms))
+
+
 # Try order is shuffled per seed; the first recipe that applies wins.
 _RECIPES = {
     FaultType.inflated_line_item: _inflate_line_item,
@@ -201,6 +316,11 @@ _RECIPES = {
     FaultType.name_mismatch: _name_mismatch,
     FaultType.missing_lab_report: _missing_lab_report,
     FaultType.drug_diagnosis_mismatch: _drug_diagnosis_mismatch,
+    FaultType.claim_form_date_mismatch: _claim_form_date_mismatch,
+    FaultType.pharmacy_after_discharge: _pharmacy_after_discharge,
+    FaultType.icu_days_mismatch: _icu_days_mismatch,
+    FaultType.missing_imaging_report: _missing_imaging_report,
+    FaultType.name_variant: _name_variant,
 }
 
 
@@ -223,6 +343,7 @@ def inject_fault(
     for ft in order:
         label = _RECIPES[ft](claim, rng)
         if label is not None:
+            _resync_claim_form(claim)
             claim.faults.append(label)
             return claim
     return claim  # nothing applicable (shouldn't happen for a standard claim)

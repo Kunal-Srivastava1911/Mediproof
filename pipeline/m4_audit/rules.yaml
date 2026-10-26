@@ -19,6 +19,24 @@ rules:
     title: "Admission/discharge dates inconsistent across documents"
     enabled: true
 
+  - id: claim_form_dates
+    type: date_inconsistent
+    severity: warning
+    title: "Claim form dates differ from the hospital records"
+    enabled: true
+
+  - id: pharmacy_outside_stay
+    type: temporal_inconsistency
+    severity: warning
+    title: "Pharmacy bill dated outside the hospital stay"
+    enabled: true
+    params:
+      grace_days: 0
+
+  # Held-out families (ICU days vs narrative, billed imaging with no report, one-letter name
+  # variants) deliberately have NO rule here: they measure what the agent auditor finds that
+  # nobody wrote a rule for (schemas.ground_truth.HELD_OUT_FAULTS).
+
   - id: bill_arithmetic_mismatch
     type: bill_arithmetic_mismatch
     severity: warning
@@ -61,6 +79,7 @@ rules:
     severity: info
     title: "Non-payable consumable billed"
     enabled: true
+    patient_facing: false      # a payability note for reviewers, not a patient to-do
     params:
       keywords: ["gloves", "disposables", "administrative", "record charges",
                  "attendant", "meal"]

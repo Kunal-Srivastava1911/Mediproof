@@ -1,0 +1,345 @@
+{
+  "claim_id": "CLAIM-005041",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5041,
+  "patient": {
+    "name": "Sai Mann",
+    "age": 77,
+    "gender": "M",
+    "patient_id": "UHID829679",
+    "phone": "9624526091"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005041-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Sai Mann",
+      "policy_no": "HLT-85-3088492",
+      "hospital_name": "Silverline Medical College Hospital",
+      "admission_date": "2024-09-04",
+      "discharge_date": "2024-09-08",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "claimed_amount": 42998.71
+    },
+    {
+      "document_id": "CLAIM-005041-BILL",
+      "template_id": "hospital-d",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "bill_no": "INV/2024/3672",
+      "bill_date": "2024-09-08",
+      "admission_date": "2024-09-04",
+      "discharge_date": "2024-09-08",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 10020.21,
+          "amount": 10020.21,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3445.92,
+          "amount": 10337.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 861.9,
+          "amount": 3447.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1148.66,
+          "amount": 4594.64,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2384.67,
+          "amount": 2384.67,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6151.67,
+          "amount": 6151.67,
+          "is_non_payable": false
+        },
+        {
+          "description": "CT Chest",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 4500.0,
+          "amount": 4500.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 42336.55,
+      "discount": 2116.83,
+      "tax": 2010.99,
+      "total": 42230.71
+    },
+    {
+      "document_id": "CLAIM-005041-DISCH",
+      "template_id": "hospital-d",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "admission_date": "2024-09-04",
+      "discharge_date": "2024-09-08",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "icd10_codes": [
+        "J18.1"
+      ],
+      "procedures": [
+        "Chest physiotherapy"
+      ],
+      "treating_doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "course_in_hospital": "Admitted on 04 Sep 2024 with fever, productive cough and breathlessness. Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. CT Chest on 05 Sep 2024 showed right lower lobe consolidation. Underwent Chest physiotherapy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": [
+        "CT Chest"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005041-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/3959",
+      "bill_date": "2024-09-11",
+      "patient_name": "Sai Mann",
+      "prescription_ref": "RX4389",
+      "line_items": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "batch_no": "B51782",
+          "quantity": 3.0,
+          "mrp": 142.0,
+          "amount": 426.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B19616",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B62689",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B91487",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 768.0
+    },
+    {
+      "document_id": "CLAIM-005041-RX",
+      "template_id": "hospital-d",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Silverline Medical College Hospital",
+        "address": "3 FC Road, Pune 411004",
+        "registration_no": "MH/HOSP/2016/6654"
+      },
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "prescription_date": "2024-09-08",
+      "doctor": "Dr. P. Banerjee",
+      "doctor_reg_no": "WBMC/11987",
+      "diagnosis_text": "Community-acquired pneumonia, right lower lobe",
+      "medications": [
+        {
+          "drug_name": "Amoxicillin + Clavulanate 625mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005041-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-08",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005041-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "panel_name": "C-Reactive Protein",
+      "results": [
+        {
+          "test_name": "C-Reactive Protein",
+          "value": "48",
+          "unit": "mg/L",
+          "reference_range": "< 5",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-08",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005041-IMG0",
+      "template_id": "hospital-d",
+      "doc_type": "lab_report",
+      "lab_name": "Silverline Medical College Hospital Radiology",
+      "patient": {
+        "name": "Sai Mann",
+        "age": 77,
+        "gender": "M",
+        "patient_id": "UHID829679",
+        "phone": "9624526091"
+      },
+      "panel_name": "CT Chest",
+      "results": [
+        {
+          "test_name": "CT Chest",
+          "value": "Impression: right lower lobe consolidation",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-05",
+      "referring_doctor": "Dr. P. Banerjee",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "pharmacy_after_discharge",
+      "severity": "warning",
+      "description": "Pharmacy bill is dated after the discharge date.",
+      "document_ids": [
+        "CLAIM-005041-PHARM",
+        "CLAIM-005041-DISCH"
+      ],
+      "expected_finding": "temporal_inconsistency"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-d",
+    "discharge_summary": "hospital-d",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-d",
+    "lab_report": "lab-a"
+  }
+}

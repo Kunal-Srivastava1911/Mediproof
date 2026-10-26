@@ -1,0 +1,298 @@
+{
+  "claim_id": "CLAIM-005125",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5125,
+  "patient": {
+    "name": "Indali Mani",
+    "age": 23,
+    "gender": "F",
+    "patient_id": "UHID134559",
+    "phone": "9410776977"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005125-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Indali Mani",
+      "policy_no": "HLT-20-2610635",
+      "hospital_name": "Greenfield Care Institute",
+      "admission_date": "2024-12-05",
+      "discharge_date": "2024-12-09",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "claimed_amount": 83286.84
+    },
+    {
+      "document_id": "CLAIM-005125-BILL",
+      "template_id": "hospital-b",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Indali Mani",
+        "age": 23,
+        "gender": "F",
+        "patient_id": "UHID134559",
+        "phone": "9410776977"
+      },
+      "bill_no": "INV/2024/3112",
+      "bill_date": "2024-12-09",
+      "admission_date": "2024-12-05",
+      "discharge_date": "2024-12-09",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 9517.86,
+          "amount": 19035.72,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3508.38,
+          "amount": 7016.76,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 803.82,
+          "amount": 3215.28,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 4.0,
+          "unit_price": 1154.83,
+          "amount": 4619.32,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2522.59,
+          "amount": 2522.59,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22456.98,
+          "amount": 22456.98,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 8479.94,
+          "amount": 8479.94,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6710.88,
+          "amount": 6710.88,
+          "is_non_payable": false
+        },
+        {
+          "description": "2D Echocardiography",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 3200.0,
+          "amount": 3200.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 78007.47,
+      "discount": 0.0,
+      "tax": 3900.37,
+      "total": 81907.84
+    },
+    {
+      "document_id": "CLAIM-005125-DISCH",
+      "template_id": "hospital-b",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Indali Mani",
+        "age": 23,
+        "gender": "F",
+        "patient_id": "UHID134559",
+        "phone": "9410776977"
+      },
+      "admission_date": "2024-12-05",
+      "discharge_date": "2024-12-09",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "icd10_codes": [
+        "I21.19"
+      ],
+      "procedures": [
+        "Coronary angiography",
+        "PTCA with drug-eluting stent"
+      ],
+      "treating_doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "course_in_hospital": "Admitted on 05 Dec 2024 with central chest pain radiating to the left arm. Managed in the ICU with dual antiplatelet therapy, anticoagulation and cardiac monitoring. Shifted to the ward on day 3 of admission and remained stable in the ward until discharge. 2D Echocardiography on 06 Dec 2024 showed inferior wall hypokinesia with an ejection fraction of 48%. Underwent Coronary angiography. Underwent PTCA with drug-eluting stent. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 2,
+      "imaging": [
+        "2D Echocardiography"
+      ]
+    },
+    {
+      "document_id": "CLAIM-005125-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/9702",
+      "bill_date": "2024-12-05",
+      "patient_name": "Indali Mani",
+      "prescription_ref": "RX1993",
+      "line_items": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "batch_no": "B30796",
+          "quantity": 1.0,
+          "mrp": 12.0,
+          "amount": 12.0
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "batch_no": "B36136",
+          "quantity": 3.0,
+          "mrp": 88.0,
+          "amount": 264.0
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "batch_no": "B34779",
+          "quantity": 3.0,
+          "mrp": 65.0,
+          "amount": 195.0
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "batch_no": "B74841",
+          "quantity": 2.0,
+          "mrp": 310.0,
+          "amount": 620.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B13912",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        }
+      ],
+      "total": 1379.0
+    },
+    {
+      "document_id": "CLAIM-005125-RX",
+      "template_id": "hospital-b",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Greenfield Care Institute",
+        "address": "Plot 22, Sector 18, Noida 201301",
+        "registration_no": "UP/HOSP/2014/8820"
+      },
+      "patient": {
+        "name": "Indali Mani",
+        "age": 23,
+        "gender": "F",
+        "patient_id": "UHID134559",
+        "phone": "9410776977"
+      },
+      "prescription_date": "2024-12-09",
+      "doctor": "Dr. S. Reddy",
+      "doctor_reg_no": "TNMC/55210",
+      "diagnosis_text": "Acute inferior wall myocardial infarction",
+      "medications": [
+        {
+          "drug_name": "Aspirin 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Clopidogrel 75mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Atorvastatin 10mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Enoxaparin Injection 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_lab_report",
+      "severity": "warning",
+      "description": "Bill includes investigation charges but no lab report is present in the file.",
+      "document_ids": [
+        "CLAIM-005125-LAB0",
+        "CLAIM-005125-LAB1",
+        "CLAIM-005125-LAB2",
+        "CLAIM-005125-IMG0"
+      ],
+      "expected_finding": "missing_lab_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-b",
+    "discharge_summary": "hospital-b",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-b"
+  }
+}

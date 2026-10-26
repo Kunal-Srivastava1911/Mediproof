@@ -1,0 +1,324 @@
+{
+  "claim_id": "CLAIM-005064",
+  "claim_type": "cashless_hospitalization",
+  "seed": 5064,
+  "patient": {
+    "name": "David Palan",
+    "age": 29,
+    "gender": "M",
+    "patient_id": "UHID378407",
+    "phone": "9810038560"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-005064-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "David Palan",
+      "policy_no": "HLT-34-7113525",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-09-27",
+      "discharge_date": "2024-09-30",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "claimed_amount": 34120.46
+    },
+    {
+      "document_id": "CLAIM-005064-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "bill_no": "INV/2024/4001",
+      "bill_date": "2024-09-30",
+      "admission_date": "2024-09-27",
+      "discharge_date": "2024-09-30",
+      "line_items": [
+        {
+          "description": "ICU Charges",
+          "category": "room",
+          "quantity": 1.0,
+          "unit_price": 8755.32,
+          "amount": 8755.32,
+          "is_non_payable": false
+        },
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 2.0,
+          "unit_price": 3542.09,
+          "amount": 7084.18,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 858.56,
+          "amount": 2575.68,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1286.2,
+          "amount": 3858.6,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2545.83,
+          "amount": 2545.83,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6214.16,
+          "amount": 6214.16,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 31933.77,
+      "discount": 0.0,
+      "tax": 1596.69,
+      "total": 33530.46
+    },
+    {
+      "document_id": "CLAIM-005064-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "admission_date": "2024-09-27",
+      "discharge_date": "2024-09-30",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "icd10_codes": [
+        "E11.10"
+      ],
+      "procedures": [
+        "IV fluid and insulin management"
+      ],
+      "treating_doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "course_in_hospital": "Admitted on 27 Sep 2024 with vomiting, abdominal pain and drowsiness. Managed in the ICU with IV fluids, an insulin infusion and electrolyte correction. Shifted to the ward on day 2 of admission and remained stable in the ward until discharge. Underwent IV fluid and insulin management. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 1,
+      "imaging": []
+    },
+    {
+      "document_id": "CLAIM-005064-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6835",
+      "bill_date": "2024-09-29",
+      "patient_name": "David Palan",
+      "prescription_ref": "RX6064",
+      "line_items": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "batch_no": "B97296",
+          "quantity": 2.0,
+          "mrp": 145.0,
+          "amount": 290.0
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "batch_no": "B63150",
+          "quantity": 3.0,
+          "mrp": 24.0,
+          "amount": 72.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B14158",
+          "quantity": 1.0,
+          "mrp": 96.0,
+          "amount": 96.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B22771",
+          "quantity": 3.0,
+          "mrp": 44.0,
+          "amount": 132.0
+        }
+      ],
+      "total": 590.0
+    },
+    {
+      "document_id": "CLAIM-005064-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "prescription_date": "2024-09-30",
+      "doctor": "Dr. A. Nair",
+      "doctor_reg_no": "KMC/34112",
+      "diagnosis_text": "Diabetic ketoacidosis in type 2 diabetes mellitus",
+      "medications": [
+        {
+          "drug_name": "Regular Insulin 40IU/ml",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metformin 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-005064-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "panel_name": "Blood Glucose",
+      "results": [
+        {
+          "test_name": "Blood Glucose",
+          "value": "412",
+          "unit": "mg/dL",
+          "reference_range": "70–140",
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005064-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-005064-LAB2",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "David Palan",
+        "age": 29,
+        "gender": "M",
+        "patient_id": "UHID378407",
+        "phone": "9810038560"
+      },
+      "panel_name": "Arterial Blood Gas",
+      "results": [
+        {
+          "test_name": "Arterial Blood Gas",
+          "value": "pH 7.21, HCO3 12 mmol/L, pCO2 28 mmHg",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-09-30",
+      "referring_doctor": "Dr. A. Nair",
+      "kind": "lab"
+    }
+  ],
+  "faults": [],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-a"
+  }
+}

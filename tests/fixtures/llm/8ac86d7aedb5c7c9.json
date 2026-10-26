@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill total (59689.52) and the pharmacy bill (520.00) equals the claimed amount (60209.52), meaning there is no arithmetic mismatch.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is from a different city than the hospital and the patient's treatment, indicating an unrelated or improperly enclosed outside pharmacy bill.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy invoice from Noida is dated on the same day the patient was discharged in Bengaluru, which supports a geographic inconsistency.",
+      "verdict": "real_problem"
+    }
+  ]
+}

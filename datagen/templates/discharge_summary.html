@@ -30,9 +30,9 @@
 
 <div class="section">
   <h3>Course in Hospital</h3>
-  <p>Patient was admitted with the above complaints, evaluated and managed as per standard
+  <p>{% if doc.course_in_hospital %}{{ doc.course_in_hospital }}{% else %}Patient was admitted with the above complaints, evaluated and managed as per standard
      protocol. Condition improved steadily and the patient was discharged in a stable
-     condition with advice to follow up in the out-patient department.</p>
+     condition with advice to follow up in the out-patient department.{% endif %}</p>
 </div>
 
 <div class="section">

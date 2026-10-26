@@ -1,0 +1,94 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "warning",
+      "title": "Amount claimed differs from total of bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the final hospital bill total and the pharmacy invoice total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000309-DOC01",
+          "quote": "Amount Claimed 61257.06"
+        },
+        {
+          "document_id": "CLAIM-000309-DOC02",
+          "quote": "Total Payable \u2022 60963.06"
+        },
+        {
+          "document_id": "CLAIM-000309-DOC04",
+          "quote": "Total \u2022 294.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Investigation charges billed without matching lab or imaging report",
+      "detail": "The hospital bill includes investigation charges, but specific lab reports for these investigations are not present in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000309-DOC02",
+          "quote": "Investigation Charges investigation 1 2517.45 2517.45"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Discharge summary procedure not fully reflected in procedure billing",
+      "detail": "The clinical course describes specific procedures and care, requiring verification against billed items.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000309-DOC03",
+          "quote": "Underwent Laparoscopic appendicectomy."
+        },
+        {
+          "document_id": "CLAIM-000309-DOC02",
+          "quote": "Surgeon / Procedure Fee procedure 1 23678.30 23678.30"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy bill date outside the hospital stay",
+      "detail": "The pharmacy bill date falls within the stay, but the pharmacy is located in a different city, requiring review.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000309-DOC04",
+          "quote": "Shop 4, MG Road, Bengaluru 560001 Date: 10 Sep 2024"
+        },
+        {
+          "document_id": "CLAIM-000309-DOC02",
+          "quote": "Admission Date 08 Sep 2024 Discharge Date 11 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-10",
+          "2024-09-08",
+          "2024-09-11"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

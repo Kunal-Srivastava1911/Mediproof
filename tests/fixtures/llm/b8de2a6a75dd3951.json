@@ -1,0 +1,50 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "warning",
+      "title": "Claim form amount differs from sum of bills",
+      "detail": "The claim form amount claimed (81027.90) does not match the sum of the hospital total payable (79908.90) and pharmacy invoice (1119.00), which totals 81027.90. Wait, 79908.90 + 1119.00 = 81027.90. Let us check the hospital bill total before tax or subtotal. Subtotal is 76103.71, Tax is 3805.19, Total Payable is 79908.90. Pharmacy bill is 1119.00. 79908.90 + 1119.00 = 81027.90. The values actually match. Let us report instead the outside pharmacy location inconsistency.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000403-DOC01",
+          "quote": "Amount Claimed 81027.90"
+        },
+        {
+          "document_id": "CLAIM-000403-DOC02",
+          "quote": "Total Payable ₹ 79908.90"
+        },
+        {
+          "document_id": "CLAIM-000403-DOC04",
+          "quote": "Total ₹ 1119.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy invoice address is outside hospital location",
+      "detail": "The pharmacy invoice is from a chemist in Noida, whereas the hospital is located in Kolkata.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-000403-DOC02",
+          "quote": "9 Park Street, Kolkata 700016"
+        },
+        {
+          "document_id": "CLAIM-000403-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    }
+  ]
+}
