@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital bill (56037.65) and pharmacy bill (336.00) equals 56373.65, which matches the amount claimed on the claim form.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill date of 26 Oct 2024 is the same day as the admission date of 26/10/2024 and does not precede it.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

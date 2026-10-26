@@ -1,0 +1,132 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "warning",
+      "title": "Claim form amount differs from bill totals",
+      "detail": "The claim form states an amount claimed of 60904.07, whereas the hospital bill total is 60540.07 and the pharmacy bill is 364.00, yielding a sum of 60904.07, but the hospital bill total payable on the bill itself is 60540.07.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC01",
+          "quote": "Amount Claimed 60904.07"
+        },
+        {
+          "document_id": "DEMO-DATES-DOC02",
+          "quote": "Total Payable ₹ 60540.07"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "60904.07",
+          "60540.07"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing lab report for complete blood count",
+      "detail": "The hospital bill includes investigation charges, but there is no separate billing line matching the complete blood count report, or alternatively, investigation reports lack a matching itemized bill detail.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC02",
+          "quote": "Investigation Charges investigation 1 2219.44 2219.44"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "info",
+      "title": "Clinical course mentions procedure without separate procedure report document",
+      "detail": "The clinical course describes a laparoscopic appendicectomy, but no standalone operative theatre notes document is attached.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC03",
+          "quote": "Underwent Laparoscopic appendicectomy."
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Operative"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy bill location mismatch",
+      "detail": "The pharmacy bill is from CarePlus Chemists in Noida, whereas the hospital is in Bengaluru.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC04",
+          "quote": "12 Station Road, Noida 201301"
+        },
+        {
+          "document_id": "DEMO-DATES-DOC02",
+          "quote": "SM 14 MG Road, Indiranagar, Bengaluru 560038"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "critical",
+      "title": "Admission date mismatch between claim form and hospital records",
+      "detail": "The claim form lists the admission date as 05/09/2024, whereas the hospital bill and discharge summary state 09 Sep 2024.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC01",
+          "quote": "Date of Admission 05/09/2024"
+        },
+        {
+          "document_id": "DEMO-DATES-DOC02",
+          "quote": "Admission Date 09 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-09-05",
+          "2024-09-09"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "info",
+      "title": "No identity discrepancies found",
+      "detail": "Patient name Advik Maharaj, age 68, and sex M are consistent across all documents.",
+      "quotes": [
+        {
+          "document_id": "DEMO-DATES-DOC01",
+          "quote": "Advik Maharaj"
+        },
+        {
+          "document_id": "DEMO-DATES-DOC02",
+          "quote": "Patient Name Advik Maharaj UHID UHID207473"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}
