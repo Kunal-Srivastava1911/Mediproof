@@ -1,0 +1,9 @@
+{
+  "answer": "You were in the ICU for 3 days according to your final in-patient bill.",
+  "sources": [
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC02",
+      "quote": "1 ICU Charges room 3 9803.94 29411.82"
+    }
+  ]
+}

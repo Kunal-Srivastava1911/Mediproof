@@ -1,0 +1,52 @@
+{
+  "findings": [
+    {
+      "type": "cross_document_contradiction",
+      "severity": "critical",
+      "title": "ICU Stay Duration Mismatch",
+      "detail": "The hospital bill charges for 3 days in the ICU, whereas the discharge summary narrative states the patient was transferred to the ward on day 2 of admission, indicating only 1 day of ICU stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-aea631ade5-DOC02",
+          "quote": "1 ICU Charges room 3 9288.30 27864.90"
+        },
+        {
+          "document_id": "CLAIM-aea631ade5-DOC03",
+          "quote": "Shifted to the ward on day 2 of admission and remained stable in the ward until discharge."
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "3",
+          "1"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy Bill Date Predates Prescription Date",
+      "detail": "The pharmacy invoice is dated 18 Oct 2024, which precedes the date of the prescription (19 Oct 2024) for the same medications.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-aea631ade5-DOC04",
+          "quote": "Date: 18 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-aea631ade5-DOC05",
+          "quote": "Date 19 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-18",
+          "2024-10-19"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "answer": "The admission dates in the documents differ: the claim form lists the admission date as 03/10/2024, whereas the hospital bill and discharge summary state 07 Oct 2024.",
+  "sources": [
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC01",
+      "quote": "Date of Admission 03/10/2024"
+    },
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC02",
+      "quote": "Admission Date 07 Oct 2024"
+    },
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC03",
+      "quote": "Admission Date 07 Oct 2024"
+    }
+  ]
+}

@@ -34,6 +34,7 @@ const T = {
     show: "Show checklist",
     chatTitle: "Ask about your claim",
     chatIntro: "Answers come only from your own documents, with the source quoted.",
+    answeredBy: "Answered by",
     chatLabel: "Your question",
     chatPlaceholder: "e.g. Why do my ICU charges need checking?",
     send: "Send",
@@ -68,6 +69,7 @@ const T = {
     show: "चेकलिस्ट दिखाएँ",
     chatTitle: "अपने क्लेम के बारे में पूछें",
     chatIntro: "जवाब सिर्फ़ आपके अपने दस्तावेज़ों से आते हैं, स्रोत के हवाले के साथ।",
+    answeredBy: "जवाब दिया",
     chatLabel: "आपका सवाल",
     chatPlaceholder: "जैसे: मेरे ICU शुल्क की जाँच क्यों ज़रूरी है?",
     send: "भेजें",
@@ -368,6 +370,9 @@ function ChatPanel({ claimId, lang, question, setQuestion }: {
                     <span className="font-semibold">{t.sources}</span>
                     {m.a.sources.map((s, j) => <q key={j} className="block font-serif">{s.quote}</q>)}
                   </div>
+                )}
+                {m.a.answered_by && (
+                  <div className="text-[11px] text-slate-500">{t.answeredBy}: {m.a.answered_by}</div>
                 )}
               </div>
             )}

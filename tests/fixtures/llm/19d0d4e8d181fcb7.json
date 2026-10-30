@@ -1,0 +1,9 @@
+{
+  "answer": "You were in the ICU for 1 day, as indicated by the ICU charges for 1 unit in the hospital bill.",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "1 ICU Charges room 1 9979.93 49899.65"
+    }
+  ]
+}

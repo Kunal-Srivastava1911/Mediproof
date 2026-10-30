@@ -16,7 +16,7 @@ import re
 
 from rapidfuzz import fuzz
 
-from pipeline.m3_extract.llm_client import LLMClient
+from pipeline.m3_extract.llm_client import LLMClient, quotes_found
 from schemas.claim import ClaimFile
 from schemas.findings import FindingDecision, FindingType
 
@@ -124,6 +124,16 @@ def _sources(claim: ClaimFile, finding, lang: str) -> list[dict]:
     return out
 
 
+def _translation_ok(reply: dict, details: list[str]) -> bool:
+    """Race check for the Hindi checklist: one translation per detail, and every number in
+    a detail (amounts, dates, counts) survives unchanged in its translation."""
+    out = reply.get("translations", [])
+    if len(out) != len(details):
+        return False
+    return all(set(re.findall(r"\d[\d,.]*\d|\d", d)) <= set(re.findall(r"\d[\d,.]*\d|\d", t))
+               for d, t in zip(details, out, strict=True))
+
+
 def checklist(claim: ClaimFile, lang: str = "en", client: LLMClient | None = None) -> dict:
     lang = lang if lang in LANGS else "en"
     items = patient_items(claim)
@@ -133,7 +143,7 @@ def checklist(claim: ClaimFile, lang: str = "en", client: LLMClient | None = Non
         try:
             reply = (client or LLMClient()).complete_json(
                 TRANSLATE_SYSTEM, "\n".join(f"{i + 1}. {d}" for i, d in enumerate(details)),
-                TRANSLATE_SCHEMA)
+                TRANSLATE_SCHEMA, accept=lambda r: _translation_ok(r, details))
             if len(reply.get("translations", [])) == len(details):
                 details, translated = reply["translations"], True
         except Exception:  # noqa: BLE001 - offline / no fixture: keep the English detail
@@ -185,7 +195,7 @@ def ask(question: str, dossier: str, doc_texts: dict[str, str], client: LLMClien
     reply = client.complete_json(ASK_SYSTEM, [
         {"type": "text", "text": dossier, "cache_control": {"type": "ephemeral"}},
         {"type": "text", "text": f"Question: {question.strip()}"},
-    ], ASK_SCHEMA)
+    ], ASK_SCHEMA, accept=lambda r: quotes_found(r, "\n".join(doc_texts.values())))
     sources = []
     for s in reply.get("sources", []):
         text = doc_texts.get(str(s.get("document_id")), "")
@@ -195,4 +205,8 @@ def ask(question: str, dossier: str, doc_texts: dict[str, str], client: LLMClien
     if reply.get("sources") and not sources:
         answer = ("I couldn't find support for an answer in your documents, so I won't guess. "
                   "Please ask the hospital directly.")
-    return {"answer": answer, "sources": sources}
+    out = {"answer": answer, "sources": sources}
+    last = getattr(client, "last_answer", None)
+    if getattr(client, "racing", False) and callable(last) and last():
+        out["answered_by"] = last()
+    return out

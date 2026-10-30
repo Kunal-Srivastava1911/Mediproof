@@ -24,7 +24,7 @@ model (`schemas/documents.py`), every field carrying confidence + (after M3.5) b
 ## LLM client (`llm_client.py`)
 
 Every call goes through one thin client — **Gemini** (`LLM_PROVIDER=gemini`, `google-genai`
-SDK, default `gemini-3.8-flash`, free tier: paced by `LLM_MIN_INTERVAL_S` and retried on 429)
+SDK, default `gemini-3.5-flash-lite`, free tier: paced by `LLM_MIN_INTERVAL_S` and retried on 429)
 or **Claude** (`LLM_PROVIDER=anthropic`, Anthropic SDK, default `claude-opus-5-5`):
 **record/replay** to `tests/fixtures/llm/` (deterministic, free, offline; live only when
 `LLM_LIVE=1` with `GEMINI_API_KEY` or `ANTHROPIC_API_KEY` set or in `.env`), a hard
@@ -33,6 +33,24 @@ or **Claude** (`LLM_PROVIDER=anthropic`, Anthropic SDK, default `claude-opus-5-5
 (`complete_json`, used by the M4 agents), server-side refusal fallback (`LLM_FALLBACKS`),
 and graceful failure — a missing fixture or malformed reply degrades to
 `value=None, confidence=0`. **The pipeline never crashes on the LLM.**
+
+Live Gemini calls can't hang or stall for long:
+
+- **Timeout** — each request is capped at `LLM_TIMEOUT_S` (default 90). A timeout is
+  retried once; a second one raises `LLMError`, so the agent step ends with a note instead
+  of leaving the claim stuck in `processing`.
+- **Rate-limit waits** — on a per-minute 429 the client waits the `retryDelay` Google sends
+  (+1s), capped at 120s; with no hint it falls back to 30s, then 60s. A daily-quota 429
+  stops further calls for the run.
+- **Progress log** — every live call logs start, duration, tokens and any wait on the
+  `mediproof.llm` logger (shown in the API window; `LLM_LOG_LEVEL=DEBUG` adds pacing waits):
+
+  ```
+  11:31:02 [llm] gemini:gemini-3.8-flash call 8a8da61cd2203490 started (live call #1 this run)
+  11:31:03 [llm] Gemini 429 (rate-limited); waiting 8s, retry 1/2
+  11:31:22 [llm] reply: 3210 tokens in / 840 out (incl. 412 thinking)
+  11:31:22 [llm] call 8a8da61cd2203490 done in 19.6s
+  ```
 
 ## M3.5 Value Grounding (`grounding.py`) — implemented
 

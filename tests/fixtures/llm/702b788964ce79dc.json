@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claim form lists an admission date of 03/10/2024, which directly contradicts the 07 Oct 2024 date recorded on the hospital bill and discharge summary.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The hospital bill total payable of 55901.63 plus the pharmacy bill of 530.00 mathematically equals the total amount claimed of 56431.63, so there is no discrepancy.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The slight spelling difference of 'Sundaramm' on the pharmacy invoice is a minor typographical error and does not constitute a real documentation discrepancy for the same patient.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

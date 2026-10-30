@@ -1,0 +1,9 @@
+{
+  "answer": "According to the hospital bill, you had 1 unit of ICU charges, indicating 1 day in the ICU.",
+  "sources": [
+    {
+      "document_id": "CLAIM-2d2d14a274-DOC02",
+      "quote": "1 ICU Charges room 1 9057.45 9057.45"
+    }
+  ]
+}

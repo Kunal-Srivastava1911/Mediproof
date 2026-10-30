@@ -1,0 +1,46 @@
+{
+  "findings": [
+    {
+      "type": "cross_document_contradiction",
+      "severity": "critical",
+      "title": "Billed ICU days exceed documented stay in ICU",
+      "detail": "The final in-patient bill charges for 3 days of ICU accommodation, but the discharge summary states the patient was shifted to the ward on day 2 of admission (1 day in ICU).",
+      "quotes": [
+        {
+          "document_id": "CLAIM-3d985c5d9a-DOC02",
+          "quote": "1 ICU Charges room 3 9288.30 27864.90"
+        },
+        {
+          "document_id": "CLAIM-3d985c5d9a-DOC03",
+          "quote": "Shifted to the ward on day 2 of admission and remained stable in the ward until discharge."
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": ["3", "1"]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy invoice dated prior to prescription",
+      "detail": "The pharmacy invoice from WellMed Pharmacy is dated 18 Oct 2024, which precedes the hospital discharge prescription dated 19 Oct 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-3d985c5d9a-DOC04",
+          "quote": "Date 18 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-3d985c5d9a-DOC05",
+          "quote": "Date 19 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": ["2024-10-18", "2024-10-19"]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

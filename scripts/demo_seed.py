@@ -1,7 +1,7 @@
 """Wait for the demo API to come up, then upload the seeded sample claim.
 
-Called by `make demo` / `./run.ps1 demo` after `docker compose up`. The sample PDF is
-rendered by datagen just before this runs (see the demo target).
+Called by `make demo` / `./run.ps1 demo` after `docker compose up`. The demo PDF is committed
+in tests/testpack/demo_claim.pdf so its recorded AI replies replay without a key.
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ import httpx
 
 API = "http://localhost:8000"
 UI = "http://localhost:5173"
-PDF = Path("data/demo/claim.pdf")
+PDF = Path("tests/testpack/demo_claim.pdf")  # committed, so its recorded AI replies match
 CLAIM_ID = "DEMO-0001"
 
 
@@ -32,7 +32,7 @@ def _wait_for_api(timeout_s: int = 120) -> None:
 
 def main() -> None:
     if not PDF.exists():
-        sys.exit(f"[demo] {PDF} not found — run the datagen step first")
+        sys.exit(f"[demo] {PDF} not found")
     print(f"[demo] waiting for API at {API} ...")
     _wait_for_api()
 

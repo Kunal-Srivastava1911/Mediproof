@@ -19,10 +19,10 @@ Storage is SQLite via SQLModel, schema written Postgres-compatible.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 from pathlib import Path
-from uuid import uuid4
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -104,9 +104,12 @@ def create_app(
         claim_id: str | None = None,
         claim_type: str = DEFAULT_CLAIM_TYPE,
     ) -> dict:
-        cid = claim_id or f"CLAIM-{uuid4().hex[:10]}"
+        data = await file.read()
+        # The id is part of every AI prompt, so it is derived from the file itself: the same
+        # PDF always gets the same id, and its recorded AI replies replay without a key.
+        cid = claim_id or f"CLAIM-{hashlib.sha256(data).hexdigest()[:10]}"
         dest = storage / f"{cid}.pdf"
-        dest.write_bytes(await file.read())
+        dest.write_bytes(data)
         with Session(engine) as session:
             session.merge(ClaimRow(id=cid, status=ClaimStatus.processing.value,
                                    claim_type=claim_type, graph="{}"))

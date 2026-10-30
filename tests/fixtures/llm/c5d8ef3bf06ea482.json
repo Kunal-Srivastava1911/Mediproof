@@ -1,0 +1,17 @@
+{
+  "answer": "MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. The admission dates in the documents disagree: the claim form states admission on \"01/12/2024\", while the hospital bill and discharge summary state admission on \"05 Dec 2024\".",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC01",
+      "quote": "Date of Admission 01/12/2024"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "Admission Date 05 Dec 2024"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC03",
+      "quote": "Admission Date 05 Dec 2024"
+    }
+  ]
+}

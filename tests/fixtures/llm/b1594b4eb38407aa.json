@@ -1,0 +1,13 @@
+{
+  "answer": "हाँ, एक दस्तावेज़ में नाम 'Vrinda Patel' लिखा है जबकि अन्य में 'Vrinda Sha' है।",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC04",
+      "quote": "Patient Name Vrinda Patel"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC01",
+      "quote": "Insured Name Vrinda Sha"
+    }
+  ]
+}

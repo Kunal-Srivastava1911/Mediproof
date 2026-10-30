@@ -1,0 +1,339 @@
+{
+  "claim_id": "CLAIM-009001",
+  "claim_type": "cashless_hospitalization",
+  "seed": 9001,
+  "patient": {
+    "name": "Nidhi Kulkarni",
+    "age": 57,
+    "gender": "F",
+    "patient_id": "UHID959466",
+    "phone": "9750831815"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-009001-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Nidhi Kulkarni",
+      "policy_no": "HLT-91-7299629",
+      "hospital_name": "Lotus Valley Health Centre",
+      "admission_date": "2024-10-08",
+      "discharge_date": "2024-10-11",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 59550.83
+    },
+    {
+      "document_id": "CLAIM-009001-BILL",
+      "template_id": "hospital-c",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nidhi Kulkarni",
+        "age": 57,
+        "gender": "F",
+        "patient_id": "UHID959466",
+        "phone": "9750831815"
+      },
+      "bill_no": "INV/2024/8276",
+      "bill_date": "2024-10-11",
+      "admission_date": "2024-10-08",
+      "discharge_date": "2024-10-11",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3250.3,
+          "amount": 9750.9,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 820.54,
+          "amount": 2461.62,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1155.75,
+          "amount": 3467.25,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2450.64,
+          "amount": 2450.64,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 22472.11,
+          "amount": 22472.11,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9397.2,
+          "amount": 9397.2,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 6250.86,
+          "amount": 6250.86,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Gloves & Disposables",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 450.0,
+          "amount": 450.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 59100.58,
+      "discount": 2955.03,
+      "tax": 2807.28,
+      "total": 58952.83
+    },
+    {
+      "document_id": "CLAIM-009001-DISCH",
+      "template_id": "hospital-c",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nidhi Kulkarni",
+        "age": 57,
+        "gender": "F",
+        "patient_id": "UHID959466",
+        "phone": "9750831815"
+      },
+      "admission_date": "2024-10-08",
+      "discharge_date": "2024-10-11",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 08 Oct 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 08 Oct 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-009001-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/3673",
+      "bill_date": "2024-10-09",
+      "patient_name": "Nidhi Kulkarni",
+      "prescription_ref": "RX7423",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B69757",
+          "quantity": 3.0,
+          "mrp": 78.0,
+          "amount": 234.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B61382",
+          "quantity": 3.0,
+          "mrp": 22.0,
+          "amount": 66.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B42418",
+          "quantity": 1.0,
+          "mrp": 18.0,
+          "amount": 18.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B26475",
+          "quantity": 2.0,
+          "mrp": 96.0,
+          "amount": 192.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B38999",
+          "quantity": 2.0,
+          "mrp": 44.0,
+          "amount": 88.0
+        }
+      ],
+      "total": 598.0
+    },
+    {
+      "document_id": "CLAIM-009001-RX",
+      "template_id": "hospital-c",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Lotus Valley Health Centre",
+        "address": "56 Anna Salai, Chennai 600002",
+        "registration_no": "TN/HOSP/2009/1132"
+      },
+      "patient": {
+        "name": "Nidhi Kulkarni",
+        "age": 57,
+        "gender": "F",
+        "patient_id": "UHID959466",
+        "phone": "9750831815"
+      },
+      "prescription_date": "2024-10-11",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-009001-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Nidhi Kulkarni",
+        "age": 57,
+        "gender": "F",
+        "patient_id": "UHID959466",
+        "phone": "9750831815"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-11",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-009001-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Nidhi Kulkarni",
+        "age": 57,
+        "gender": "F",
+        "patient_id": "UHID959466",
+        "phone": "9750831815"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-11",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "missing_imaging_report",
+      "severity": "warning",
+      "description": "An imaging study is billed and described in the discharge summary, but its report is not in the file.",
+      "document_ids": [
+        "CLAIM-009001-IMG0"
+      ],
+      "expected_finding": "missing_report"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-c",
+    "discharge_summary": "hospital-c",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-c",
+    "lab_report": "lab-a"
+  }
+}

@@ -1,0 +1,7 @@
+{
+ "models": [
+  "gemini-3.5-flash-lite"
+ ],
+ "rule": "no model met every bar; kept the single best scorer",
+ "scored": "2026-10-30"
+}

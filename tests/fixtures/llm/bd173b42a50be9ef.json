@@ -1,0 +1,17 @@
+{
+  "answer": "हाँ, दस्तावेज़ों में प्रवेश की तारीख अलग-अलग है। दावा प्रपत्र में प्रवेश की तारीख 03/10/2024 है, जबकि अस्पताल के बिल और डिस्चार्ज समरी में प्रवेश की तारीख 07 Oct 2024 है।",
+  "sources": [
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC01",
+      "quote": "Date of Admission 03/10/2024"
+    },
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC02",
+      "quote": "Admission Date 07 Oct 2024"
+    },
+    {
+      "document_id": "CLAIM-b93fc59a96-DOC03",
+      "quote": "Admission Date 07 Oct 2024"
+    }
+  ]
+}

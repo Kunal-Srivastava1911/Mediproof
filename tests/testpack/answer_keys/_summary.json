@@ -1,0 +1,367 @@
+[
+  {
+    "file": "01_APPROVER_AI-agent-finds-ICU-days-overbilled.pdf",
+    "claim_id": "CLAIM-009000",
+    "seed": 9000,
+    "patient": "Oviya Balay",
+    "injected": [
+      {
+        "fault": "icu_days_mismatch",
+        "expected_finding": "unsupported_by_documentation",
+        "detail": "Bill charges 3 ICU days; the discharge summary documents 1."
+      }
+    ],
+    "rules_only": {
+      "status": "processed",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "02_APPROVER_AI-agent-finds-missing-scan-report.pdf",
+    "claim_id": "CLAIM-009001",
+    "seed": 9001,
+    "patient": "Nidhi Kulkarni",
+    "injected": [
+      {
+        "fault": "missing_imaging_report",
+        "expected_finding": "missing_report",
+        "detail": "An imaging study is billed and described in the discharge summary, but its report is not in the file."
+      }
+    ],
+    "rules_only": {
+      "status": "processed",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "03_APPROVER_AI-held-back-item-to-promote__name-spelling-variant.pdf",
+    "claim_id": "CLAIM-009002",
+    "seed": 9002,
+    "patient": "Oscar Dhawan",
+    "injected": [
+      {
+        "fault": "name_variant",
+        "expected_finding": "name_inconsistent",
+        "detail": "Patient name on the pharmacy bill is spelled slightly differently from the rest of the claim."
+      }
+    ],
+    "rules_only": {
+      "status": "processed",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "04_APPROVER_AI-agent-agrees-with-rule__pharmacy-bill-after-discharge.pdf",
+    "claim_id": "CLAIM-009003",
+    "seed": 9003,
+    "patient": "Ayushman Viswanathan",
+    "injected": [
+      {
+        "fault": "pharmacy_after_discharge",
+        "expected_finding": "temporal_inconsistency",
+        "detail": "Pharmacy bill is dated after the discharge date."
+      }
+    ],
+    "rules_only": {
+      "status": "needs_review",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "temporal_inconsistency",
+          "severity": "warning",
+          "title": "Pharmacy bill dated outside the hospital stay",
+          "patient_facing": true
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "05_APPROVER_AI-false-alarm-control__clean-claim.pdf",
+    "claim_id": "CLAIM-009005",
+    "seed": 9005,
+    "patient": "Theodore Bhasin",
+    "injected": [],
+    "rules_only": {
+      "status": "processed",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "06_USER_AI-claim-chat__clean-claim-with-ICU-and-scan.pdf",
+    "claim_id": "CLAIM-009007",
+    "seed": 9007,
+    "patient": "Darsh Jaggi",
+    "injected": [],
+    "rules_only": {
+      "status": "processed",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "07_USER_AI-Hindi-checklist__three-problems.pdf",
+    "claim_id": "CLAIM-009004",
+    "seed": 9004,
+    "patient": "Vrinda Sha",
+    "injected": [
+      {
+        "fault": "inflated_line_item",
+        "expected_finding": "inflated_line_item",
+        "detail": "Billed amount for 'ICU Charges' is far above quantity x unit price."
+      },
+      {
+        "fault": "name_mismatch",
+        "expected_finding": "name_inconsistent",
+        "detail": "Patient name on the pharmacy bill differs from the rest of the claim."
+      },
+      {
+        "fault": "claim_form_date_mismatch",
+        "expected_finding": "date_inconsistent",
+        "detail": "Admission date on the claim form differs from the hospital bill and discharge summary."
+      }
+    ],
+    "rules_only": {
+      "status": "needs_review",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "name_inconsistent",
+          "severity": "warning",
+          "title": "Patient name inconsistent across documents",
+          "patient_facing": true
+        },
+        {
+          "type": "date_inconsistent",
+          "severity": "warning",
+          "title": "Claim form dates differ from the hospital records",
+          "patient_facing": true
+        },
+        {
+          "type": "inflated_line_item",
+          "severity": "critical",
+          "title": "Line item amount exceeds quantity x unit price",
+          "patient_facing": true
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  },
+  {
+    "file": "08_BOTH_AI-everything-at-once__rules-plus-hidden-faults.pdf",
+    "claim_id": "CLAIM-009009",
+    "seed": 9009,
+    "patient": "Kritika Sundaram",
+    "injected": [
+      {
+        "fault": "icu_days_mismatch",
+        "expected_finding": "unsupported_by_documentation",
+        "detail": "Bill charges 3 ICU days; the discharge summary documents 1."
+      },
+      {
+        "fault": "claim_form_date_mismatch",
+        "expected_finding": "date_inconsistent",
+        "detail": "Admission date on the claim form differs from the hospital bill and discharge summary."
+      },
+      {
+        "fault": "name_variant",
+        "expected_finding": "name_inconsistent",
+        "detail": "Patient name on the pharmacy bill is spelled slightly differently from the rest of the claim."
+      }
+    ],
+    "rules_only": {
+      "status": "needs_review",
+      "documents": [
+        "claim_form",
+        "hospital_bill",
+        "discharge_summary",
+        "pharmacy_bill",
+        "prescription",
+        "lab_report",
+        "lab_report",
+        "lab_report"
+      ],
+      "findings": [
+        {
+          "type": "date_inconsistent",
+          "severity": "warning",
+          "title": "Claim form dates differ from the hospital records",
+          "patient_facing": true
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        },
+        {
+          "type": "non_payable_consumable",
+          "severity": "info",
+          "title": "Non-payable consumable billed",
+          "patient_facing": false
+        }
+      ],
+      "audit_note": "Agent auditor skipped: no recorded AI responses for this file and live calls are off. Set GEMINI_API_KEY (free tier) or ANTHROPIC_API_KEY, and LLM_LIVE=1, to run it."
+    }
+  }
+]

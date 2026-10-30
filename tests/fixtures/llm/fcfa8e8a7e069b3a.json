@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "Investigation reports such as CBC and Serum Electrolytes are indeed present in the file.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill date of 11 Sep 2024 falls within the admission window of 09 Sep 2024 to 12 Sep 2024.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

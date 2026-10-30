@@ -17,7 +17,7 @@ import json
 from dataclasses import dataclass, field
 
 from pipeline.ir import ClaimIR
-from pipeline.m3_extract.llm_client import LLMClient
+from pipeline.m3_extract.llm_client import LLMClient, quotes_found
 from schemas.claim import DocumentRecord
 
 AGENT_FINDING_TYPES = [
@@ -228,7 +228,8 @@ def run_specialists(client: LLMClient, dossier: str) -> AgentRun:
     if getattr(client, "agent_mode", "separate") == "combined":
         try:
             reply = client.complete_json(AUDITOR_SYSTEM, _content(dossier, COMBINED_ROLE),
-                                         _combined_schema())
+                                         _combined_schema(),
+                                         accept=lambda r: quotes_found(r, dossier))
         except Exception as exc:  # noqa: BLE001
             run.skipped.append(f"combined: {type(exc).__name__}: {str(exc)[:160]}")
             return run
@@ -240,7 +241,8 @@ def run_specialists(client: LLMClient, dossier: str) -> AgentRun:
             run.skipped.append(f"{name}: quota exhausted")
             continue
         try:
-            reply = client.complete_json(AUDITOR_SYSTEM, _content(dossier, role), AGENT_SCHEMA)
+            reply = client.complete_json(AUDITOR_SYSTEM, _content(dossier, role), AGENT_SCHEMA,
+                                         accept=lambda r: quotes_found(r, dossier))
         except Exception as exc:  # noqa: BLE001 - replay miss, budget, API error, bad JSON
             run.skipped.append(f"{name}: {type(exc).__name__}: {str(exc)[:160]}")
             continue

@@ -80,6 +80,7 @@ export interface EvidenceCell {
 
 export interface AuditMeta {
   agents_run: string[];
+  model?: string | null; // provider:model, or the Gemini race and who won it
   llm_calls: number;
   llm_cost_usd: number;
   verifier_threshold?: number | null;
@@ -139,6 +140,7 @@ export interface Checklist {
 export interface ChatAnswer {
   answer: string;
   sources: Array<{ document_id: string; quote: string }>;
+  answered_by?: string; // model race winner, e.g. "gemini-3.8-flash, 4.1s"
 }
 
 export interface ClaimSummary {

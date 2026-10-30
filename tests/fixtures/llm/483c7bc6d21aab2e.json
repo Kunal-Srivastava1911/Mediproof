@@ -1,0 +1,29 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not equal the sum of the hospital total payable and the pharmacy bill total.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-2d2d14a274-DOC01",
+          "quote": "Amount Claimed 42996.03"
+        },
+        {
+          "document_id": "CLAIM-2d2d14a274-DOC02",
+          "quote": "Total Payable ₹ 42582.03"
+        },
+        {
+          "document_id": "CLAIM-2d2d14a274-DOC04",
+          "quote": "Total ₹ 414.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    }
+  ]
+}

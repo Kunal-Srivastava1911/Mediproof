@@ -1,0 +1,52 @@
+{
+  "findings": [
+    {
+      "type": "cross_document_contradiction",
+      "severity": "critical",
+      "title": "Billed ICU and room days contradict discharge summary",
+      "detail": "The hospital bill charges for 3 days of ICU care and 1 day of semi-private room rent, whereas the discharge summary states that the patient was shifted to the ward on day 2 of admission.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-4b49eb9b72-DOC02",
+          "quote": "1 ICU Charges room 3 9288.30 27864.90"
+        },
+        {
+          "document_id": "CLAIM-4b49eb9b72-DOC03",
+          "quote": "Shifted to the ward on day 2 of admission and remained stable in the ward until discharge."
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "3",
+          "1"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy invoice date precedes prescription date",
+      "detail": "The pharmacy bill is dated 18 Oct 2024, but the prescription for the dispensed discharge medications was issued on 19 Oct 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-4b49eb9b72-DOC04",
+          "quote": "Date 18 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-4b49eb9b72-DOC05",
+          "quote": "Date 19 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-18",
+          "2024-10-19"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

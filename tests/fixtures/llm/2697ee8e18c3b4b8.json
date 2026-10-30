@@ -1,0 +1,13 @@
+{
+  "answer": "Your name is listed differently on the pharmacy invoice as \"Vrinda Patel\" instead of \"Vrinda Sha\". Please note that MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. We do not give medical advice and cannot predict whether the insurer will pay.",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC04",
+      "quote": "Patient Name Vrinda Patel Bill No PH/2024/2979"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC01",
+      "quote": "Insured Name Vrinda Sha Policy No HLT-65-9735867"
+    }
+  ]
+}

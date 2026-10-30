@@ -1,0 +1,9 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The hospital bill includes a charge for USG Abdomen, but the corresponding radiology report is not included in the claim file.",
+      "verdict": "real_problem"
+    }
+  ]
+}

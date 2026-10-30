@@ -9,7 +9,7 @@ export PYTHONPATH := $(CURDIR)
 
 .PHONY: help venv install install-dev install-pipeline datagen-sample datagen-bulk \
         test test-fast test-datagen test-schemas test-pipeline test-m1 test-m2 test-m3 \
-        test-m4 test-m5 eval eval-live calibrate bench demo lint fmt clean
+        test-m4 test-m5 eval eval-live calibrate bench demo score-models record-testpack testpack-check lint fmt clean
 
 help:
 	@echo "MediProof targets:"
@@ -21,6 +21,9 @@ help:
 	@echo "  test-<module>   run one module's tests (e.g. make test-datagen)"
 	@echo "  eval            regenerate README benchmark tables"
 	@echo "  demo            build compose + seed a claim + open the dashboard"
+	@echo "  score-models    score Gemini models on tests/testpack, keep the accurate ones (key)"
+	@echo "  record-testpack race the kept models over the test pack + demo, record replies (key)"
+	@echo "  testpack-check  verify every test-pack AI feature replays with no key"
 
 venv:
 	python -m venv .venv
@@ -87,8 +90,16 @@ test-m5:
 eval:
 	$(PYTHON) -m evals.cli --out data/bench_eval --readme README.md --results evals/RESULTS.md
 
+score-models:
+	$(PYTHON) scripts/testpack.py score
+
+record-testpack:
+	$(PYTHON) scripts/testpack.py record
+
+testpack-check:
+	$(PYTHON) scripts/testpack.py check
+
 demo:
-	$(PYTHON) -m datagen.cli sample --fault inflated_line_item --out data/demo
 	docker compose up -d --build
 	$(PYTHON) scripts/demo_seed.py
 	@echo "Dashboard: http://localhost:5173   API: http://localhost:8000"

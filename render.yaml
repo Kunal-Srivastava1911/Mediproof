@@ -19,8 +19,10 @@ services:
     dockerCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /healthz
     envVars:
-      # Set a key in the Render dashboard (sync: false = never stored in this file), then
-      # set LLM_LIVE=1 to turn on the agent auditor, Hindi translation and claim chat.
+      # Recorded AI replies (tests/fixtures/llm/) replay with no key: the test pack and demo
+      # work as-is. For live AI on new uploads and new chat questions, set GEMINI_API_KEY in
+      # the Render dashboard (sync: false = never stored in this file) and LLM_LIVE=1. Live
+      # calls race the models in pipeline/m3_extract/race_models.json.
       - key: LLM_PROVIDER
         value: gemini
       - key: GEMINI_API_KEY

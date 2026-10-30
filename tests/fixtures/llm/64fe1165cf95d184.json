@@ -1,0 +1,21 @@
+{
+  "answer": "दस्तावेज़ों में विसंगतियां हैं; उदाहरण के लिए, दावा प्रपत्र (Claim Form) में प्रवेश की तिथि 01/12/2024 बताई गई है, जबकि अस्पताल के बिल और डिस्चार्ज समरी के अनुसार प्रवेश की तिथि 05 Dec 2024 है। साथ ही, फ़ार्मेसी इनवॉइस में मरीज का नाम 'Vrinda Patel' दर्ज है, जबकि अन्य सभी दस्तावेज़ों में नाम 'Vrinda Sha' है।",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC01",
+      "quote": "Date of Admission 01/12/2024"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "Admission Date 05 Dec 2024"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC04",
+      "quote": "Patient Name Vrinda Patel"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC03",
+      "quote": "Patient Name Vrinda Sha"
+    }
+  ]
+}

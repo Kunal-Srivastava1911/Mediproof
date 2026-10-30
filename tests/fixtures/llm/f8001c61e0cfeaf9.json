@@ -1,0 +1,13 @@
+{
+  "answer": "MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. Please note that the pharmacy invoice date is 06 Nov 2024, whereas the hospital discharge date is 03 Nov 2024.",
+  "sources": [
+    {
+      "document_id": "CLAIM-7377373227-DOC04",
+      "quote": "Date: 06 Nov 2024"
+    },
+    {
+      "document_id": "CLAIM-7377373227-DOC02",
+      "quote": "Discharge Date 03 Nov 2024"
+    }
+  ]
+}

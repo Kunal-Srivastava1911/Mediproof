@@ -73,7 +73,7 @@ def main(argv: list[str] | None = None) -> None:
                         help="target: P(clean claim shows >= 1 agent item) <= alpha")
     args = parser.parse_args(argv)
 
-    client = LLMClient()
+    client = LLMClient(race=False)  # published numbers stay single-model
     if args.calibrate:
         seeds = list(range(_CALIBRATION_START, _CALIBRATION_START + args.calibrate))
         print(f"[eval] calibrating on {len(seeds)} clean claims (alpha={args.alpha})...")

@@ -237,7 +237,7 @@ def build_and_score(
     """
     out_dir = Path(out_dir)
     report = Report()
-    client = llm_client or LLMClient()
+    client = llm_client or LLMClient(race=False)
     faulty_items = seeds_faulty.items() if isinstance(seeds_faulty, dict) else seeds_faulty
     plan: list[tuple[int, str | None]] = [(s, None) for s in seeds_clean]
     plan += [(s, fault) for s, fault in faulty_items]

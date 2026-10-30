@@ -32,12 +32,13 @@ def run_agent_audit(
     """Run the agent auditor. Never raises: anything that can't run is reported in `meta`."""
     threshold = load_threshold()
     result = AgentAuditResult(meta=AuditMeta(verifier_threshold=threshold,
-                                             model=f"{client.provider}:{client.model}"))
+                                             model=_describe(client)))
     if not agents_enabled():
         result.meta.note = "Agent auditor disabled (LLM_AGENTS=0)."
         return result
 
     calls0, spent0 = client.calls, client.spent_usd
+    answers0 = len(getattr(client, "answers", []))
     dossier = build_dossier(claim_ir, records)
     run = run_specialists(client, dossier)
     result.meta.agents_run = run.agents_run
@@ -58,4 +59,12 @@ def run_agent_audit(
         result.meta.note = "Skeptic agent did not run; scores treat its verdict as neutral."
     result.meta.llm_calls = client.calls - calls0
     result.meta.llm_cost_usd = round(client.spent_usd - spent0, 6)
+    won = client.answers_summary(answers0) if hasattr(client, "answers_summary") else None
+    if won:
+        result.meta.model = f"{result.meta.model}: {won}"
     return result
+
+
+def _describe(client) -> str:
+    describe = getattr(client, "describe", None)
+    return describe() if callable(describe) else f"{client.provider}:{client.model}"

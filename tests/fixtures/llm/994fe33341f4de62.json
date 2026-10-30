@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claimed amount correctly matches the sum of the hospital bill and pharmacy bill.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy bill is dated after the patient's discharge date, making it outside the hospitalisation window.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy invoice date falls after the date of discharge from the hospital.",
+      "verdict": "real_problem"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "answer": "MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. The hospital bill shows a subtotal of ₹ 139895.65, tax of ₹ 6994.78 (5%), and a total payable of ₹ 146890.43.",
+  "sources": [
+    {
+      "document_id": "DEMO-0001-DOC01",
+      "quote": "Subtotal ₹ 139895.65\nDiscount ₹ 0.00\nTax (5%) ₹ 6994.78\nTotal Payable ₹ 146890.43"
+    }
+  ]
+}

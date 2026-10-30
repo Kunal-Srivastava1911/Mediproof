@@ -9,6 +9,9 @@ COPY pyproject.toml README.md ./
 COPY schemas ./schemas
 COPY pipeline ./pipeline
 COPY api ./api
+# Recorded AI replies (model output only, no keys): lets the API replay the agent auditor,
+# Hindi translation and chat for recorded claims with no key. Path matches LLMClient's default.
+COPY tests/fixtures/llm ./tests/fixtures/llm
 
 RUN pip install --no-cache-dir -e ".[api,pipeline]"
 
