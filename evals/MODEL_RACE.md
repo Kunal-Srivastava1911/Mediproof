@@ -9,7 +9,9 @@ Re-scored from the committed race recordings (`testpack.py score --from-recordin
 ## The live demo
 
 The hosted demo (Render) races **`gemini-3.8-flash` and `gemini-3.6-flash`** live
-(`LLM_RACE_MODELS`). Flash-Lite is left out there: on the test pack it proposed a bill
+(`LLM_RACE_MODELS`). Flash-Lite is only a backup there (`LLM_RACE_FALLBACK`): it joins when
+neither has an accepted reply within 45 seconds, because the first live run on Render found
+both overloaded (a 504 timeout and repeated 503s). It is not a primary because on the test pack it proposed a bill
 arithmetic problem on nearly every file, including the clean ones. The verifier held all of
 those back, so nothing false reached a patient, but they show it is the weakest reader of the
 three. The committed recordings above (what a keyless clone replays) are still Flash-Lite's

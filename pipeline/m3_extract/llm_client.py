@@ -23,6 +23,11 @@ ignored. If no reply passes, the first one that parsed is used, since the pipeli
 unverifiable quotes anyway. A race reply is recorded under a model-agnostic key with a sidecar
 `<key>.race.json` naming the winner and its latency, so replays show who answered. Set
 `LLM_RACE=0` (the benchmark does) or pin `LLM_MODEL` for a single model.
+Backup tier: `LLM_RACE_FALLBACK` models (e.g. a lighter, less congested one) join the race
+when no primary has an accepted reply after `LLM_RACE_PATIENCE_S` (default 45) or when every
+primary has failed, so an overloaded model never leaves a claim without an answer.
+`LLM_PREFER_LIVE=1` calls the models even when a recording exists and falls back to the
+recording only if the live call fails (the hosted demo uses this).
 
 Record/replay: responses are keyed and cached under `tests/fixtures/llm/`. Tests and CI
 replay from fixtures — deterministic, free, fast. A live provider call happens **only** when
@@ -48,7 +53,7 @@ import re
 import threading
 import time
 from collections.abc import Callable
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -229,6 +234,10 @@ class LLMClient:
         racers = race_models() if (race_on and self.provider == "gemini"
                                    and not model and not os.getenv("LLM_MODEL")) else []
         self.race_models = racers  # one model is fine: scoring may keep just one
+        self.race_fallback = [m.strip() for m in os.getenv("LLM_RACE_FALLBACK", "").split(",")
+                              if m.strip() and m.strip() not in racers] if racers else []
+        self.race_patience_s = float(os.getenv("LLM_RACE_PATIENCE_S", "45"))
+        self.prefer_live = os.getenv("LLM_PREFER_LIVE") == "1"
         # Who answered each structured call this run: {"model", "seconds", "replayed"}.
         self.answers: list[dict] = []
         # "combined": one call covers all five specialist areas (2 calls/claim incl. the
@@ -299,36 +308,55 @@ class LLMClient:
         # recordings), so turning the race on never hides what is already recorded.
         hit = next((k for k in (race_key, single_key)
                     if k and self._fixture_path(k).exists()), None)
-        if hit:
-            self.calls += 1
-            text = self._fixture_path(hit).read_text(encoding="utf-8")
-            meta = self._read_race_meta(hit)
-            self.answers.append({"model": meta.get("winner", self.model),
-                                 "seconds": meta.get("seconds"), "replayed": True})
+        if hit and not (self.live and self.prefer_live):
+            text = self._replay(hit)
         elif not self.live:
             raise MissingFixture(f"no LLM fixture {race_key or single_key}.json and "
                                  "LLM_LIVE!=1 (run with LLM_LIVE=1 to record)")
         else:
-            prompt_chars = len(system) + len(json.dumps(content, ensure_ascii=False))
-            n = len(self.race_models) or 1
-            self._precheck(n * self._estimate_cost("x" * prompt_chars))
-            if self.racing:
-                text, cost, meta = self._race(system, content, schema, max_tokens, accept)
-                text = self._record(self._fixture_path(race_key), text, cost).text
-                self._fixture_path(race_key).with_suffix(".race.json").write_text(
-                    json.dumps(meta, indent=1), encoding="utf-8")
-                self.answers.append({"model": meta["winner"], "seconds": meta["seconds"],
-                                     "replayed": False})
-            else:
-                t0 = self._log_start(single_key)
-                text, cost = self._call_provider_json(system, content, schema, max_tokens)
-                secs = self._log_done(single_key, t0)
-                text = self._record(self._fixture_path(single_key), text, cost).text
-                self.answers.append({"model": self.model, "seconds": secs, "replayed": False})
+            try:
+                text = self._live_json(system, content, schema, max_tokens, accept,
+                                       race_key, single_key, record=hit is None)
+            except (LLMError, BudgetExceeded) as exc:
+                if not hit:
+                    raise
+                log.warning("live call failed (%s); using the recorded reply", exc)
+                text = self._replay(hit)
         try:
             return json.loads(text)
         except json.JSONDecodeError as exc:
             raise ValueError(f"LLM fixture {hit or single_key}.json is not valid JSON") from exc
+
+    def _replay(self, key: str) -> str:
+        self.calls += 1
+        meta = self._read_race_meta(key)
+        self.answers.append({"model": meta.get("winner", self.model),
+                             "seconds": meta.get("seconds"), "replayed": True})
+        return self._fixture_path(key).read_text(encoding="utf-8")
+
+    def _live_json(self, system, content, schema, max_tokens, accept, race_key, single_key,
+                   *, record: bool) -> str:
+        prompt_chars = len(system) + len(json.dumps(content, ensure_ascii=False))
+        n = len(self.race_models) + len(self.race_fallback) or 1
+        self._precheck(n * self._estimate_cost("x" * prompt_chars))
+        if self.racing:
+            text, cost, meta = self._race(system, content, schema, max_tokens, accept)
+            key, model, secs = race_key, meta["winner"], meta["seconds"]
+        else:
+            t0 = self._log_start(single_key)
+            text, cost = self._call_provider_json(system, content, schema, max_tokens)
+            key, model, secs, meta = single_key, self.model, self._log_done(single_key, t0), None
+        if record:
+            text = self._record(self._fixture_path(key), text, cost).text
+            if meta is not None:
+                self._fixture_path(key).with_suffix(".race.json").write_text(
+                    json.dumps(meta, indent=1), encoding="utf-8")
+        else:  # prefer-live over an existing recording: keep the recording as it was
+            self.spent_usd += cost
+            self.calls += 1
+            self.live_calls += 1
+        self.answers.append({"model": model, "seconds": secs, "replayed": False})
+        return text
 
     def last_answer(self) -> str | None:
         """'gemini-3.8-flash, 4.1s' for the most recent structured call, if any."""
@@ -361,42 +389,70 @@ class LLMClient:
 
     def _race(self, system: str, content, schema: dict, max_tokens: int,
               accept: Callable[[dict], bool] | None) -> tuple[str, float, dict]:
-        """Send one structured call to every race model at once; first accepted reply wins."""
-        log.info("race: %s", ", ".join(self.race_models))
+        """Send one structured call to every race model at once; first accepted reply wins.
+        Fallback models join after `race_patience_s` without an accepted reply, or as soon
+        as every primary has failed."""
+        log.info("race: %s%s", ", ".join(self.race_models),
+                 f" (backup: {', '.join(self.race_fallback)})" if self.race_fallback else "")
         t0 = time.monotonic()
-        pool = ThreadPoolExecutor(max_workers=len(self.race_models),
+        pool = ThreadPoolExecutor(max_workers=len(self.race_models) + len(self.race_fallback),
                                   thread_name_prefix="llm-race")
-        futures = {pool.submit(self._gemini_generate, system, content, schema, max_tokens,
-                               model=m): m for m in self.race_models}
+
+        def launch(models: list[str]) -> dict:
+            return {pool.submit(self._gemini_generate, system, content, schema, max_tokens,
+                                model=m): m for m in models}
+
+        futures = launch(self.race_models)
+        pending = set(futures)
+        backup_started = not self.race_fallback
         tried: dict[str, str] = {}
         fallback: tuple[str, float, str, float] | None = None
         winner: tuple[str, float, str, float] | None = None
         errors: list[Exception] = []
+
+        def start_backup(reason: str) -> None:
+            nonlocal backup_started
+            backup_started = True
+            log.info("race: %s; adding backup %s", reason, ", ".join(self.race_fallback))
+            new = launch(self.race_fallback)
+            futures.update(new)
+            pending.update(new)
+
         try:
-            for fut in as_completed(futures):
-                model, secs = futures[fut], time.monotonic() - t0
-                try:
-                    text, cost = fut.result()
-                    parsed = json.loads(text)
-                except Exception as exc:  # noqa: BLE001 - a racer failing just loses
-                    errors.append(exc)
-                    tried[model] = f"failed after {secs:.1f}s: {str(exc)[:120]}"
-                    log.info("race: %s failed after %.1fs (%s)", model, secs, exc)
+            while pending and winner is None:
+                timeout = None if backup_started else max(
+                    0.0, t0 + self.race_patience_s - time.monotonic())
+                done, _ = wait(pending, timeout=timeout, return_when=FIRST_COMPLETED)
+                if not done:
+                    start_backup(f"no accepted reply after {self.race_patience_s:.0f}s")
                     continue
-                ok = True
-                if accept is not None:
+                for fut in done:
+                    pending.discard(fut)
+                    model, secs = futures[fut], time.monotonic() - t0
                     try:
-                        ok = bool(accept(parsed))
-                    except Exception:  # noqa: BLE001 - a broken check rejects, never crashes
-                        ok = False
-                tried[model] = f"{'accepted' if ok else 'rejected by check'} at {secs:.1f}s"
-                if ok:
-                    winner = (text, cost, model, secs)
-                    break
-                fallback = fallback or (text, cost, model, secs)
+                        text, cost = fut.result()
+                        parsed = json.loads(text)
+                    except Exception as exc:  # noqa: BLE001 - a racer failing just loses
+                        errors.append(exc)
+                        tried[model] = f"failed after {secs:.1f}s: {str(exc)[:120]}"
+                        log.info("race: %s failed after %.1fs (%s)", model, secs, exc)
+                        continue
+                    ok = True
+                    if accept is not None:
+                        try:
+                            ok = bool(accept(parsed))
+                        except Exception:  # noqa: BLE001 - a broken check rejects
+                            ok = False
+                    tried[model] = f"{'accepted' if ok else 'rejected by check'} at {secs:.1f}s"
+                    if ok:
+                        winner = (text, cost, model, secs)
+                        break
+                    fallback = fallback or (text, cost, model, secs)
+                if winner is None and not pending and not backup_started:
+                    start_backup("no primary model gave an accepted reply")
         finally:
             pool.shutdown(wait=False, cancel_futures=True)  # losers finish in the background
-        for m in self.race_models:
+        for m in self.race_models + (self.race_fallback if backup_started else []):
             tried.setdefault(m, "still running when the race was decided")
         chosen = winner or fallback
         if chosen is None:

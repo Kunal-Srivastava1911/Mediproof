@@ -22,9 +22,10 @@ services:
     envVars:
       # Live AI: set GEMINI_API_KEY in the Render dashboard (sync: false = never stored in
       # this file). Every call races the LLM_RACE_MODELS; the first reply whose quotes are all
-      # found in the documents wins. LLM_FIXTURES points at an empty folder so the live demo
-      # always calls the models instead of replaying the committed recordings (set LLM_LIVE=0
-      # and remove LLM_FIXTURES to serve the recordings with no key).
+      # found in the documents wins. If none has one after LLM_RACE_PATIENCE_S, the
+      # LLM_RACE_FALLBACK model joins (Google's newest models are often overloaded on the free
+      # tier). LLM_PREFER_LIVE=1 calls the models even for the test pack and uses the committed
+      # recordings only if every live call fails (set LLM_LIVE=0 to serve them with no key).
       - key: LLM_PROVIDER
         value: gemini
       - key: GEMINI_API_KEY
@@ -35,8 +36,12 @@ services:
         value: "1"
       - key: LLM_RACE_MODELS
         value: gemini-3.8-flash,gemini-3.6-flash
-      - key: LLM_FIXTURES
-        value: /tmp/llm-live
+      - key: LLM_RACE_FALLBACK
+        value: gemini-3.5-flash-lite
+      - key: LLM_RACE_PATIENCE_S
+        value: "45"
+      - key: LLM_PREFER_LIVE
+        value: "1"
       - key: PORT
         value: "8000"
       - key: LLM_BUDGET_USD
