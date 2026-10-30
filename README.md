@@ -22,12 +22,14 @@
 The live site calls Gemini for real: every upload and every chat question is sent to
 **Gemini 3.8 Flash and 3.6 Flash at once**, and the first answer whose quotes are all found in
 your documents wins (the reviewer banner and each chat answer name the winner and its time).
-Any claim PDF works, not just the test pack.
+If neither has one within 45 seconds (Google's newest models are often overloaded on the free
+tier), the lighter Gemini 3.5 Flash-Lite joins the race as a backup. Any claim PDF works, not
+just the test pack.
 
 > [!NOTE]
 > Free hosting sleeps when idle, so the first load can take about a minute, and a claim takes
-> 1 to 2 minutes to process while the agents think. Google's free tier is occasionally
-> overloaded: if the banner says the AI could not run, upload the file again a little later.
+> 1 to 2 minutes to process while the agents think. If every model is down, the test-pack files
+> fall back to their recorded answers; for other files, upload again a little later.
 > Without a key (a fresh clone), the test-pack files replay recorded answers instead; see
 > [For reviewers](#for-reviewers-seeing-the-ai-features-without-a-key).
 

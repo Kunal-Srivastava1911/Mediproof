@@ -118,3 +118,50 @@ def test_quotes_found_checks_every_quote():
     assert quotes_found({"x": [{"quote": "1 day in the ICU"}]}, DOC)
     assert not quotes_found({"x": [{"quote": "1 day in the ICU"}, {"quote": "MRI brain"}]}, DOC)
     assert quotes_found({"answer": "no quotes at all"}, DOC)
+
+
+def test_backup_joins_when_every_primary_fails(tmp_path, monkeypatch):
+    monkeypatch.setenv("LLM_RACE_FALLBACK", "lite")
+    client = _client(tmp_path, monkeypatch, {
+        "big-a": (0.0, RuntimeError("503 high demand")),
+        "big-b": (0.05, RuntimeError("504 deadline")),
+        "lite": (0.0, _good()),
+    })
+    # the fake SDK looks models up in `behaviour`; the backup model is in it too
+    client.race_models = ["big-a", "big-b"]
+    client.race_fallback = ["lite"]
+    out = client.complete_json("sys", "q", SCHEMA, accept=lambda r: quotes_found(r, DOC))
+    assert out["answer"] == "1 day" and client.answers[-1]["model"] == "lite"
+
+
+def test_backup_joins_after_patience_and_can_win(tmp_path, monkeypatch):
+    client = _client(tmp_path, monkeypatch, {
+        "slow-big": (1.5, _good()), "lite": (0.0, _good()),
+    })
+    client.race_models, client.race_fallback, client.race_patience_s = ["slow-big"], ["lite"], 0.2
+    t0 = time.monotonic()
+    client.complete_json("sys", "q", SCHEMA)
+    assert client.answers[-1]["model"] == "lite" and time.monotonic() - t0 < 1.0
+
+
+def test_backup_not_used_when_primary_answers_in_time(tmp_path, monkeypatch):
+    client = _client(tmp_path, monkeypatch, {"big": (0.05, _good()), "lite": (0.0, _good())})
+    client.race_models, client.race_fallback, client.race_patience_s = ["big"], ["lite"], 5
+    client.complete_json("sys", "q", SCHEMA)
+    meta = json.loads(next(tmp_path.glob("*.race.json")).read_text())
+    assert meta["winner"] == "big" and "lite" not in meta["racers"]
+
+
+def test_prefer_live_uses_recording_only_when_live_fails(tmp_path, monkeypatch):
+    rec = _client(tmp_path, monkeypatch, {"a": (0.0, _good("spent 1 day in the ICU"))})
+    rec.complete_json("sys", "q", SCHEMA)
+    recorded = {p.name: p.read_text() for p in tmp_path.iterdir()}
+
+    monkeypatch.setenv("LLM_PREFER_LIVE", "1")
+    live = _client(tmp_path, monkeypatch, {"a": (0.0, json.dumps({"answer": "fresh"}))})
+    assert live.complete_json("sys", "q", SCHEMA)["answer"] == "fresh"
+    assert {p.name: p.read_text() for p in tmp_path.iterdir()} == recorded  # not overwritten
+
+    down = _client(tmp_path, monkeypatch, {"a": (0.0, RuntimeError("503"))})
+    assert down.complete_json("sys", "q", SCHEMA)["answer"] == "1 day"
+    assert down.answers[-1]["replayed"] is True
