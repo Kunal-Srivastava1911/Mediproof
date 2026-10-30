@@ -8,12 +8,35 @@
 ![license](https://img.shields.io/badge/license-Apache--2.0-green)
 ![data](https://img.shields.io/badge/data-synthetic%20only-brightgreen)
 
+## Try it live
+
+**Patient site: [mediproof-ui.onrender.com](https://mediproof-ui.onrender.com)** ·
+**Reviewer dashboard: [mediproof-ui.onrender.com/review](https://mediproof-ui.onrender.com/review)**
+
+1. Download any PDF from [`tests/testpack/`](tests/testpack). Each one is built to show one AI
+   feature; the [test-pack guide](tests/testpack/README.md) says what to expect from each.
+2. Upload it on the patient site, then open the reviewer dashboard to see the agent findings
+   with their proof (quotes on the page, code check, skeptic, verifier score).
+3. Switch the patient site to हिन्दी, and ask the claim chat the questions in the guide.
+
+The live site calls Gemini for real: every upload and every chat question is sent to
+**Gemini 3.8 Flash and 3.6 Flash at once**, and the first answer whose quotes are all found in
+your documents wins (the reviewer banner and each chat answer name the winner and its time).
+Any claim PDF works, not just the test pack.
+
+> [!NOTE]
+> Free hosting sleeps when idle, so the first load can take about a minute, and a claim takes
+> 1 to 2 minutes to process while the agents think. Google's free tier is occasionally
+> overloaded: if the banner says the AI could not run, upload the file again a little later.
+> Without a key (a fresh clone), the test-pack files replay recorded answers instead; see
+> [For reviewers](#for-reviewers-seeing-the-ai-features-without-a-key).
+
 MediProof takes a merged claim file — claim form, discharge summary, hospital bill, pharmacy
 bills, lab and radiology reports, prescriptions — and produces:
 
 1. **Structured JSON** of every extracted field, each with a confidence score and evidence.
 2. A severity-scored **audit** of documentation problems, from a deterministic rule pack
-   **plus a team of Claude agents** that read the whole file — narrative included — and
+   **plus a team of LLM agents** (Gemini or Claude) that read the whole file — narrative included — and
    must *prove* every item they raise (quotes found on the page, re-checked in code,
    cross-examined by a skeptic agent), with a **certified false-flag rate**.
 3. A **patient fix-it checklist** (English / हिन्दी) with the evidence for each item, and a

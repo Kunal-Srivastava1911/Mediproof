@@ -6,6 +6,15 @@ Re-scored from the committed race recordings (`testpack.py score --from-recordin
 |---|---|---|---|---|---|---|
 | `gemini-3.5-flash-lite` | 3/5 (missed 02:missing_imaging_report, 08:icu_days_mismatch) | 0 | 8/10 | ok | replayed | **yes** |
 
+## The live demo
+
+The hosted demo (Render) races **`gemini-3.8-flash` and `gemini-3.6-flash`** live
+(`LLM_RACE_MODELS`). Flash-Lite is left out there: on the test pack it proposed a bill
+arithmetic problem on nearly every file, including the clean ones. The verifier held all of
+those back, so nothing false reached a patient, but they show it is the weakest reader of the
+three. The committed recordings above (what a keyless clone replays) are still Flash-Lite's
+until the stronger models are scored.
+
 ## Not in the race yet
 
 The first live scoring run (2026-10-30, free tier) could not score the other candidates fairly:
