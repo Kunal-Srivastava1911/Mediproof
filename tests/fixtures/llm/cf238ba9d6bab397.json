@@ -1,0 +1,19 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claim form admission date of 01/12/2024 genuinely conflicts with the hospital bill admission date of 05 Dec 2024.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The amount claimed on the claim form does not match the total payable on the hospital bill.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The pharmacy invoice lists a completely different last name (Vrinda Patel) compared to the insured name Vrinda Sha on the other documents.",
+      "verdict": "real_problem"
+    }
+  ]
+}

@@ -102,13 +102,109 @@ def test_gemini_provider_records_structured_json(tmp_path, monkeypatch):
               {"type": "text", "text": "role"}]
     out = client.complete_json("system", blocks, schema)
 
-    assert client.provider == "gemini" and client.model == "gemini-3.8-flash"
+    assert client.provider == "gemini" and client.model == "gemini-3.5-flash-lite"
     assert out == {"findings": []} and client.spent_usd == 0.0     # free tier booked at $0
     assert seen["contents"] == ["dossier", "role"]
     assert seen["config"].response_json_schema == schema
     assert seen["config"].system_instruction == "system"
     replay = LLMClient(tmp_path, live=False)                           # recorded -> replays
     assert replay.complete_json("system", blocks, schema) == {"findings": []}
+
+
+def _gemini_client(tmp_path, monkeypatch, replies):
+    """A live Gemini client whose SDK plays `replies` in order (an exception is raised,
+    anything else returned); time.sleep is recorded instead of slept."""
+    from types import SimpleNamespace
+
+    from pipeline.m3_extract import llm_client
+
+    monkeypatch.setenv("LLM_PROVIDER", "gemini")
+    monkeypatch.setenv("LLM_MIN_INTERVAL_S", "0")
+    sleeps: list[float] = []
+    monkeypatch.setattr(llm_client.time, "sleep", sleeps.append)
+    queue = list(replies)
+
+    def generate_content(model, contents, config):
+        reply = queue.pop(0)
+        if isinstance(reply, BaseException):
+            raise reply
+        return reply
+
+    client = LLMClient(tmp_path, live=True)
+    client._sdk = SimpleNamespace(models=SimpleNamespace(generate_content=generate_content))
+    return client, sleeps
+
+
+def _gemini_ok(text='{"findings": []}'):
+    from types import SimpleNamespace
+
+    return SimpleNamespace(
+        candidates=[SimpleNamespace(finish_reason="STOP")], text=text,
+        usage_metadata=SimpleNamespace(prompt_token_count=10, candidates_token_count=5,
+                                       thoughts_token_count=2))
+
+
+def _rate_limited(retry_delay=None):
+    from google.genai import errors
+
+    details = [{"@type": "type.googleapis.com/google.rpc.RetryInfo",
+                "retryDelay": retry_delay}] if retry_delay else []
+    return errors.APIError(429, {"error": {
+        "code": 429, "message": "Quota exceeded for requests per minute.",
+        "status": "RESOURCE_EXHAUSTED", "details": details}})
+
+
+_SCHEMA = {"type": "object", "properties": {"findings": {"type": "array"}}}
+
+
+def test_retry_delay_parsed_from_rate_limit_body():
+    from pipeline.m3_extract.llm_client import _retry_delay_s
+
+    assert _retry_delay_s(_rate_limited("7s").details) == 7.0
+    assert _retry_delay_s(_rate_limited("6.5s").details) == 6.5
+    assert _retry_delay_s(_rate_limited().details) is None
+    assert _retry_delay_s(None) is None and _retry_delay_s("not json") is None
+
+
+def test_gemini_429_waits_the_suggested_delay_and_logs(tmp_path, monkeypatch, caplog):
+    client, sleeps = _gemini_client(tmp_path, monkeypatch, [_rate_limited("7s"), _gemini_ok()])
+    with caplog.at_level("INFO", logger="mediproof.llm"):
+        assert client.complete_json("system", "content", _SCHEMA) == {"findings": []}
+    assert sleeps == [8.0]                       # Google's 7s + 1s margin, not a fixed 30s
+    text = caplog.text
+    assert "started" in text and "rate-limited" in text and "waiting 8s" in text
+    assert "10 tokens in / 7 out" in text and "done in" in text
+
+
+def test_gemini_429_without_hint_falls_back_to_30s(tmp_path, monkeypatch):
+    client, sleeps = _gemini_client(tmp_path, monkeypatch, [_rate_limited(), _gemini_ok()])
+    client.complete_json("system", "content", _SCHEMA)
+    assert sleeps == [30.0]
+
+
+def test_gemini_timeout_retries_once_then_answers(tmp_path, monkeypatch):
+    import httpx
+
+    client, _ = _gemini_client(tmp_path, monkeypatch,
+                               [httpx.ReadTimeout("timed out"), _gemini_ok()])
+    assert client.complete_json("system", "content", _SCHEMA) == {"findings": []}
+
+
+def test_gemini_second_timeout_gives_up_without_recording(tmp_path, monkeypatch):
+    import httpx
+
+    from pipeline.m3_extract.llm_client import LLMError
+
+    client, _ = _gemini_client(tmp_path, monkeypatch, [httpx.ReadTimeout("timed out")] * 2
+                               + [_gemini_ok()])
+    with pytest.raises(LLMError, match="did not answer within 90s"):
+        client.complete_json("system", "content", _SCHEMA)
+    assert not list(tmp_path.glob("*.json"))     # nothing recorded on failure
+
+
+def test_gemini_timeout_is_configurable(tmp_path, monkeypatch):
+    monkeypatch.setenv("LLM_TIMEOUT_S", "45")
+    assert LLMClient(tmp_path, live=False).timeout_s == 45.0
 
 
 def test_budget_cap_hard_stops(tmp_path):

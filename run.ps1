@@ -6,6 +6,18 @@ $Root = $PSScriptRoot
 $Py = Join-Path $Root ".venv\Scripts\python.exe"
 $env:PYTHONPATH = $Root
 
+# First Python >= 3.11 on PATH: the py launcher, then python / python3.
+function Find-Python {
+    foreach ($cand in @("py -3.13", "py -3.12", "py -3.11", "python", "python3")) {
+        $parts = $cand.Split(" ")
+        if (-not (Get-Command $parts[0] -ErrorAction SilentlyContinue)) { continue }
+        $rest = if ($parts.Count -gt 1) { $parts[1..($parts.Count - 1)] } else { @() }
+        $ok = & $parts[0] @rest -c "import sys; print(sys.version_info >= (3, 11))" 2>$null
+        if ($ok -eq "True") { return , $parts }
+    }
+    return $null
+}
+
 function Need-Venv {
     if (-not (Test-Path $Py)) {
         Write-Host "No .venv found. Run: ./run.ps1 venv; ./run.ps1 install-dev" -ForegroundColor Yellow
@@ -22,9 +34,20 @@ switch ($Target) {
         "  datagen-bulk    render the benchmark set -> data/bench",
         "  test            run the full pytest suite",
         "  test-datagen    run datagen tests",
+        "  demo            build compose + seed a claim + open the dashboard",
+        "  score-models    score Gemini models on tests/testpack, keep the accurate ones (key)",
+        "  record-testpack race the kept models over the test pack + demo, record replies (key)",
+        "  testpack-check  verify every test-pack AI feature replays with no key",
+        "  ai-pack         score-models, then record-testpack, then testpack-check",
         "  lint / fmt      ruff check / format" | ForEach-Object { Write-Host $_ }
     }
-    "venv"           { & (Join-Path $env:LOCALAPPDATA "Programs\Python\Python311\python.exe") -m venv (Join-Path $Root ".venv") }
+    "venv"           {
+        $sys = Find-Python
+        if (-not $sys) { Write-Host "Python 3.11+ not found. Install it from python.org, then retry." -ForegroundColor Red; exit 1 }
+        $rest = if ($sys.Count -gt 1) { $sys[1..($sys.Count - 1)] } else { @() }
+        Write-Host "Creating .venv with: $($sys -join ' ')"
+        & $sys[0] @rest -m venv (Join-Path $Root ".venv")
+    }
     "install"        { Need-Venv; & $Py -m pip install -e $Root }
     "install-dev"    { Need-Venv; & $Py -m pip install -e "$Root[datagen,pipeline,api,dev]"; & $Py -m playwright install chromium }
     "install-pipeline" { Need-Venv; & $Py -m pip install -e "$Root[pipeline]" }
@@ -51,10 +74,19 @@ switch ($Target) {
     "api"            { Need-Venv; & $Py -m uvicorn api.app:app --reload }
     "demo"           {
         Need-Venv
-        & $Py -m datagen.cli sample --fault inflated_line_item --out data/demo
         docker compose up -d --build
         & $Py scripts/demo_seed.py
         Start-Process "http://localhost:5173"
+    }
+    "score-models"   { Need-Venv; & $Py scripts/testpack.py score }
+    "record-testpack" { Need-Venv; & $Py scripts/testpack.py record }
+    "testpack-check" { Need-Venv; & $Py scripts/testpack.py check }
+    "ai-pack"        {
+        Need-Venv
+        $env:PYTHONUTF8 = "1"
+        & $Py scripts/testpack.py score;  if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        & $Py scripts/testpack.py record; if ($LASTEXITCODE) { exit $LASTEXITCODE }
+        & $Py scripts/testpack.py check
     }
     "lint"           { Need-Venv; & $Py -m ruff check . }
     "fmt"            { Need-Venv; & $Py -m ruff format . }

@@ -8,11 +8,16 @@ logged to their own table as training data.
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime
+from pathlib import Path
 
 from sqlalchemy import Engine
 from sqlmodel import Field, SQLModel, create_engine
 
+
+def _utcnow() -> datetime:
+    """Timezone-aware UTC now (SQLAlchemy 2.1+ rejects naive datetimes)."""
+    return datetime.now(UTC)
 
 class ClaimRow(SQLModel, table=True):
     __tablename__ = "claims"
@@ -20,7 +25,7 @@ class ClaimRow(SQLModel, table=True):
     id: str = Field(primary_key=True)
     status: str = "processing"
     claim_type: str = "cashless_hospitalization"
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=_utcnow)
     graph: str = "{}"  # ClaimFile serialized to JSON
 
 
@@ -34,7 +39,7 @@ class CorrectionRow(SQLModel, table=True):
     old_value: str | None = None
     new_value: str | None = None
     reviewer: str | None = None
-    at: datetime = Field(default_factory=datetime.utcnow)
+    at: datetime = Field(default_factory=_utcnow)
 
 
 class FindingDecisionRow(SQLModel, table=True):
@@ -52,11 +57,14 @@ class FindingDecisionRow(SQLModel, table=True):
     reason: str | None = None
     promoted: bool = False
     reviewer: str | None = None
-    at: datetime = Field(default_factory=datetime.utcnow)
+    at: datetime = Field(default_factory=_utcnow)
 
 
 def make_engine(database_url: str) -> Engine:
     connect_args = {"check_same_thread": False} if database_url.startswith("sqlite") else {}
+    if database_url.startswith("sqlite:///") and ":memory:" not in database_url:
+        # data/ is gitignored, so a fresh clone has no folder for the SQLite file yet.
+        Path(database_url.removeprefix("sqlite:///")).parent.mkdir(parents=True, exist_ok=True)
     return create_engine(database_url, connect_args=connect_args)
 
 

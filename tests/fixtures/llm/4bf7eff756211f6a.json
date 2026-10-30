@@ -1,0 +1,29 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The claimed amount correctly matches the sum of the hospital payable total and the pharmacy bill.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "Being shifted to the ward on day 2 means 1 day in the ICU, which perfectly matches the 1 ICU unit and 3 room rent units on the bill.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The outside pharmacy invoice is dated during the admission window and matches the hospital stay, so lacking an explicit prescription reference document does not make it a real problem.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The item only states that the pharmacy bill date is consistent with being during the hospital stay.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 4,
+      "reason": "The minor spelling difference of dropping the 'h' in Dawan versus Dhawan is a trivial typographical variation on an outside bill.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}

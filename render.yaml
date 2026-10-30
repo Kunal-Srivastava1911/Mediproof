@@ -14,13 +14,17 @@ services:
     name: mediproof-api
     runtime: docker
     plan: free
+    region: singapore
     dockerfilePath: ./api/Dockerfile
     dockerContext: .
     dockerCommand: uvicorn api.app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /healthz
     envVars:
-      # Set a key in the Render dashboard (sync: false = never stored in this file), then
-      # set LLM_LIVE=1 to turn on the agent auditor, Hindi translation and claim chat.
+      # Live AI: set GEMINI_API_KEY in the Render dashboard (sync: false = never stored in
+      # this file). Every call races the LLM_RACE_MODELS; the first reply whose quotes are all
+      # found in the documents wins. LLM_FIXTURES points at an empty folder so the live demo
+      # always calls the models instead of replaying the committed recordings (set LLM_LIVE=0
+      # and remove LLM_FIXTURES to serve the recordings with no key).
       - key: LLM_PROVIDER
         value: gemini
       - key: GEMINI_API_KEY
@@ -28,7 +32,13 @@ services:
       - key: ANTHROPIC_API_KEY
         sync: false
       - key: LLM_LIVE
-        value: "0"
+        value: "1"
+      - key: LLM_RACE_MODELS
+        value: gemini-3.8-flash,gemini-3.6-flash
+      - key: LLM_FIXTURES
+        value: /tmp/llm-live
+      - key: PORT
+        value: "8000"
       - key: LLM_BUDGET_USD
         value: "1.00"
 

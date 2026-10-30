@@ -1,0 +1,8 @@
+{
+ "winner": "gemini-3.5-flash-lite",
+ "seconds": 4.92,
+ "verified": false,
+ "racers": {
+  "gemini-3.5-flash-lite": "rejected by check at 4.9s"
+ }
+}

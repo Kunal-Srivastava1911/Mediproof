@@ -1,0 +1,75 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total bills",
+      "detail": "The claim form amount claimed (60783.50) does not match the sum of the hospital bill total payable (60297.50) and pharmacy bill (486.00), which totals 60783.50. Wait, 60297.50 + 486.00 = 60783.50. Let's check hospital bill items: subtotal 57426.19 + tax 2871.31 = 60297.50. Pharmacy bill is 486.00. Total = 60783.50. Let's look for another discrepancy in billing: The hospital bill total payable is 60297.50, but let's check if there is an unbilled item or if everything matches. Wait, 60783.50 is indeed equal to 60297.50 + 486.00. Let's check another billing item or find a genuine problem. Is there a missing report? All investigations have reports. Let's check pharmacy bills date outside stay: Admission is 31/10/2024 to 03/11/2024. Pharmacy bill is dated 06 Nov 2024, after discharge.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7377373227-DOC01",
+          "quote": "Amount Claimed 60783.50"
+        },
+        {
+          "document_id": "CLAIM-7377373227-DOC02",
+          "quote": "Total Payable \u20B9 60297.50"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "warning",
+      "title": "Pharmacy bill date outside admission window",
+      "detail": "The pharmacy bill is dated 06 Nov 2024, which is after the discharge date of 03 Nov 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7377373227-DOC01",
+          "quote": "Date of Discharge 03/11/2024"
+        },
+        {
+          "document_id": "CLAIM-7377373227-DOC04",
+          "quote": "Date: 06 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-06",
+          "2024-10-31",
+          "2024-11-03"
+        ]
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy bill dated after discharge",
+      "detail": "Pharmacy invoice is dated 06 Nov 2024, three days post-discharge.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7377373227-DOC03",
+          "quote": "Discharge Date 03 Nov 2024"
+        },
+        {
+          "document_id": "CLAIM-7377373227-DOC04",
+          "quote": "Date: 06 Nov 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-11-06",
+          "2024-10-31",
+          "2024-11-03"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

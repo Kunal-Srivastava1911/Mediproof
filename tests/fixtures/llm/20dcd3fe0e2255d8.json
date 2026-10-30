@@ -1,0 +1,14 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The discharge summary explicitly notes the patient was transferred to the ward on day 2 of admission (equating to 1 day in the ICU), directly contradicting the 3 days of ICU care billed.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The pharmacy invoice is dated 18 Oct 2024, preceding the discharge prescription dated 19 Oct 2024 that purports to authorise it.",
+      "verdict": "real_problem"
+    }
+  ]
+}

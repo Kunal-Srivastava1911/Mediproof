@@ -1,0 +1,23 @@
+{
+  "findings": [
+    {
+      "type": "missing_report",
+      "severity": "warning",
+      "title": "USG Abdomen report missing from file",
+      "detail": "The hospital bill includes charges for a USG Abdomen investigation, but the corresponding ultrasonography imaging report is missing from the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-bece1df0ca-DOC02",
+          "quote": "USG Abdomen investigation 1 1800.00 1800.00"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "ultrasound"
+        ]
+      },
+      "area": "billing"
+    }
+  ]
+}

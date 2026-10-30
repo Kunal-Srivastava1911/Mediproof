@@ -1,0 +1,92 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claim Form Amount Claimed Differs from Sum of Bills",
+      "detail": "The amount claimed on the claim form does not match the sum of the hospital total payable and the pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC01",
+          "quote": "Amount Claimed 59550.83"
+        },
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC02",
+          "quote": "Total Payable \u20B9 58952.83"
+        },
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC04",
+          "quote": "Total \u20B9 598.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing Investigation Report for Billed USG Abdomen",
+      "detail": "The hospital bill includes charges for USG Abdomen, but the corresponding imaging report is not found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC02",
+          "quote": "8 USG Abdomen investigation 1 1800.00 1800.00"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "USG Abdomen"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing Investigation Report for Billed Investigation Charges",
+      "detail": "The hospital bill includes investigation charges, but no corresponding lab or investigation report is present for these specific items.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC02",
+          "quote": "4 Investigation Charges investigation 1 2450.64 2450.64"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy Invoice Date Outside Stay Window",
+      "detail": "The pharmacy invoice date is dated prior to the admission date.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC04",
+          "quote": "Date: 09 Oct 2024"
+        },
+        {
+          "document_id": "CLAIM-35ea75af8f-DOC01",
+          "quote": "Date of Admission 08/10/2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-10-09",
+          "2024-10-08",
+          "2024-10-11"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

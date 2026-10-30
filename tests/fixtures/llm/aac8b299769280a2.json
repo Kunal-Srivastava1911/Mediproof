@@ -1,0 +1,17 @@
+{
+  "answer": "MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. The hospital bill subtotal is ₹ 72,123.64, tax is ₹ 3,606.18, and the total payable is ₹ 75,729.82.",
+  "sources": [
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "Subtotal ₹ 72123.64"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "Tax (5%) ₹ 3606.18"
+    },
+    {
+      "document_id": "CLAIM-7b0ba89433-DOC02",
+      "quote": "Total Payable ₹ 75729.82"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "answer": "MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. The pharmacy invoice from CarePlus Chemists is dated 06 Nov 2024, which is after your discharge date of 03 Nov 2024.",
+  "sources": [
+    {
+      "document_id": "CLAIM-7377373227-DOC04",
+      "quote": "12 Station Road, Noida 201301 Date: 06 Nov 2024"
+    },
+    {
+      "document_id": "CLAIM-7377373227-DOC02",
+      "quote": "Discharge Date 03 Nov 2024"
+    }
+  ]
+}

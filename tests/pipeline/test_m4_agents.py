@@ -57,7 +57,8 @@ class _FakeClaude(LLMClient):
         super().__init__(tmp_path, live=False)
         self.replies = replies
 
-    def complete_json(self, system, content, schema, *, key=None, max_tokens=16000):
+    def complete_json(self, system, content, schema, *, key=None, max_tokens=16000,
+                      accept=None):
         self.calls += 1
         if system == SKEPTIC_SYSTEM:
             return self.replies.get("skeptic", {"reviews": []})
@@ -156,7 +157,8 @@ def test_combined_mode_is_one_call_and_keeps_areas(tmp_path):
     from pipeline.m4_audit.agents import run_specialists
 
     class _OneCall(LLMClient):
-        def complete_json(self, system, content, schema, *, key=None, max_tokens=16000):
+        def complete_json(self, system, content, schema, *, key=None, max_tokens=16000,
+                          accept=None):
             self.calls += 1
             assert "area" in schema["properties"]["findings"]["items"]["required"]
             return {"findings": [{"area": "timeline", "type": "date_inconsistent",

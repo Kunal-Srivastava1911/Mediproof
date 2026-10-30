@@ -244,8 +244,8 @@ function AuditBanner({ audit }: { audit: AuditMeta | null }) {
   }
   return (
     <div className="bg-slate-100 border-b border-slate-200 text-slate-700 px-6 py-2 text-sm">
-      Agent auditor: {audit.agents_run.length} specialist agents + skeptic · {audit.llm_calls} Claude
-      calls · ${audit.llm_cost_usd.toFixed(3)} live spend
+      Agent auditor: {audit.agents_run.length} specialist agents + skeptic · {audit.llm_calls} AI
+      calls{audit.model && <> · {audit.model}</>} · ${audit.llm_cost_usd.toFixed(3)} live spend
       {audit.verifier_threshold != null && <> · verifier threshold {audit.verifier_threshold.toFixed(2)}</>}
       {audit.note && <span className="ml-2 text-amber-800">{audit.note}</span>}
     </div>

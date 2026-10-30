@@ -1,0 +1,48 @@
+{
+  "findings": [
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Missing Investigation Report",
+      "detail": "Investigation charges are billed in the hospital bill, but no corresponding investigation report is found in the file for some tests.",
+      "quotes": [
+        {
+          "document_id": "DEMO-0001-DOC01",
+          "quote": "Investigation Charges investigation 1 2219.44 2219.44"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy Bill Date Outside Stay",
+      "detail": "The pharmacy bill is dated prior to the admission date.",
+      "quotes": [
+        {
+          "document_id": "DEMO-0001-DOC03",
+          "quote": "Date: 11 Sep 2024"
+        },
+        {
+          "document_id": "DEMO-0001-DOC01",
+          "quote": "Admission Date 09 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-11",
+          "2024-09-09",
+          "2024-09-12"
+        ]
+      },
+      "area": "timeline"
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "claim_id": "CLAIM-009003",
+  "claim_type": "cashless_hospitalization",
+  "seed": 9003,
+  "patient": {
+    "name": "Ayushman Viswanathan",
+    "age": 40,
+    "gender": "M",
+    "patient_id": "UHID515813",
+    "phone": "9720228596"
+  },
+  "documents": [
+    {
+      "document_id": "CLAIM-009003-CF",
+      "template_id": "claimform-a",
+      "doc_type": "claim_form",
+      "insured_name": "Ayushman Viswanathan",
+      "policy_no": "HLT-35-5673785",
+      "hospital_name": "Sunrise Multispeciality Hospital",
+      "admission_date": "2024-10-31",
+      "discharge_date": "2024-11-03",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "claimed_amount": 60783.5
+    },
+    {
+      "document_id": "CLAIM-009003-BILL",
+      "template_id": "hospital-a",
+      "doc_type": "hospital_bill",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "bill_no": "INV/2024/8148",
+      "bill_date": "2024-11-03",
+      "admission_date": "2024-10-31",
+      "discharge_date": "2024-11-03",
+      "line_items": [
+        {
+          "description": "Room Rent (Semi-Private)",
+          "category": "room",
+          "quantity": 3.0,
+          "unit_price": 3480.77,
+          "amount": 10442.31,
+          "is_non_payable": false
+        },
+        {
+          "description": "Nursing Charges",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 780.28,
+          "amount": 2340.84,
+          "is_non_payable": false
+        },
+        {
+          "description": "Doctor Visit / Consultation",
+          "category": "professional_fee",
+          "quantity": 3.0,
+          "unit_price": 1243.35,
+          "amount": 3730.05,
+          "is_non_payable": false
+        },
+        {
+          "description": "Investigation Charges",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 2362.88,
+          "amount": 2362.88,
+          "is_non_payable": false
+        },
+        {
+          "description": "Surgeon / Procedure Fee",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 20806.64,
+          "amount": 20806.64,
+          "is_non_payable": false
+        },
+        {
+          "description": "OT Charges",
+          "category": "procedure",
+          "quantity": 1.0,
+          "unit_price": 9136.25,
+          "amount": 9136.25,
+          "is_non_payable": false
+        },
+        {
+          "description": "Pharmacy (in-patient)",
+          "category": "pharmacy",
+          "quantity": 1.0,
+          "unit_price": 5907.22,
+          "amount": 5907.22,
+          "is_non_payable": false
+        },
+        {
+          "description": "USG Abdomen",
+          "category": "investigation",
+          "quantity": 1.0,
+          "unit_price": 1800.0,
+          "amount": 1800.0,
+          "is_non_payable": false
+        },
+        {
+          "description": "Administrative / Record Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 300.0,
+          "amount": 300.0,
+          "is_non_payable": true
+        },
+        {
+          "description": "Attendant Meal Charges",
+          "category": "consumable",
+          "quantity": 1.0,
+          "unit_price": 600.0,
+          "amount": 600.0,
+          "is_non_payable": true
+        }
+      ],
+      "subtotal": 57426.19,
+      "discount": 0.0,
+      "tax": 2871.31,
+      "total": 60297.5
+    },
+    {
+      "document_id": "CLAIM-009003-DISCH",
+      "template_id": "hospital-a",
+      "doc_type": "discharge_summary",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "admission_date": "2024-10-31",
+      "discharge_date": "2024-11-03",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "icd10_codes": [
+        "K35.80"
+      ],
+      "procedures": [
+        "Laparoscopic appendicectomy"
+      ],
+      "treating_doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "course_in_hospital": "Admitted on 31 Oct 2024 with right lower abdominal pain, fever and vomiting. Managed in the ward with IV antibiotics, analgesics and surgical care. USG Abdomen on 31 Oct 2024 showed an inflamed, non-compressible appendix. Underwent Laparoscopic appendicectomy. Condition improved steadily and the patient was discharged in a stable condition.",
+      "icu_days": 0,
+      "imaging": [
+        "USG Abdomen"
+      ]
+    },
+    {
+      "document_id": "CLAIM-009003-PHARM",
+      "template_id": "pharmacy-b",
+      "doc_type": "pharmacy_bill",
+      "pharmacy_name": "CarePlus Chemists",
+      "pharmacy_address": "12 Station Road, Noida 201301",
+      "bill_no": "PH/2024/6504",
+      "bill_date": "2024-11-06",
+      "patient_name": "Ayushman Viswanathan",
+      "prescription_ref": "RX4011",
+      "line_items": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "batch_no": "B18262",
+          "quantity": 1.0,
+          "mrp": 78.0,
+          "amount": 78.0
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "batch_no": "B27460",
+          "quantity": 1.0,
+          "mrp": 22.0,
+          "amount": 22.0
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "batch_no": "B50504",
+          "quantity": 3.0,
+          "mrp": 18.0,
+          "amount": 54.0
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "batch_no": "B61712",
+          "quantity": 3.0,
+          "mrp": 96.0,
+          "amount": 288.0
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "batch_no": "B93316",
+          "quantity": 1.0,
+          "mrp": 44.0,
+          "amount": 44.0
+        }
+      ],
+      "total": 486.0
+    },
+    {
+      "document_id": "CLAIM-009003-RX",
+      "template_id": "hospital-a",
+      "doc_type": "prescription",
+      "hospital": {
+        "name": "Sunrise Multispeciality Hospital",
+        "address": "14 MG Road, Indiranagar, Bengaluru 560038",
+        "registration_no": "KA/HOSP/2011/4471"
+      },
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "prescription_date": "2024-11-03",
+      "doctor": "Dr. M. Iyer",
+      "doctor_reg_no": "KMC/29981",
+      "diagnosis_text": "Acute appendicitis with localised peritonitis",
+      "medications": [
+        {
+          "drug_name": "Ceftriaxone Injection 1g",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Metronidazole 400mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Paracetamol 500mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Pantoprazole 40mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        },
+        {
+          "drug_name": "Ondansetron 4mg",
+          "strength": null,
+          "frequency": "1-0-1",
+          "duration": "5 days"
+        }
+      ]
+    },
+    {
+      "document_id": "CLAIM-009003-LAB0",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "panel_name": "Complete Blood Count",
+      "results": [
+        {
+          "test_name": "Complete Blood Count",
+          "value": "Hb 13.4 g/dL, TLC 8600 /µL, Platelets 2.4 lakh/µL",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-03",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-009003-LAB1",
+      "template_id": "lab-a",
+      "doc_type": "lab_report",
+      "lab_name": "PrecisionPath Diagnostics",
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "panel_name": "Serum Electrolytes",
+      "results": [
+        {
+          "test_name": "Serum Electrolytes",
+          "value": "Na 138 mmol/L, K 4.1 mmol/L, Cl 101 mmol/L",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-11-03",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "lab"
+    },
+    {
+      "document_id": "CLAIM-009003-IMG0",
+      "template_id": "hospital-a",
+      "doc_type": "lab_report",
+      "lab_name": "Sunrise Multispeciality Hospital Radiology",
+      "patient": {
+        "name": "Ayushman Viswanathan",
+        "age": 40,
+        "gender": "M",
+        "patient_id": "UHID515813",
+        "phone": "9720228596"
+      },
+      "panel_name": "USG Abdomen",
+      "results": [
+        {
+          "test_name": "USG Abdomen",
+          "value": "Impression: an inflamed, non-compressible appendix",
+          "unit": null,
+          "reference_range": null,
+          "flag": null
+        }
+      ],
+      "report_date": "2024-10-31",
+      "referring_doctor": "Dr. M. Iyer",
+      "kind": "imaging"
+    }
+  ],
+  "faults": [
+    {
+      "fault_type": "pharmacy_after_discharge",
+      "severity": "warning",
+      "description": "Pharmacy bill is dated after the discharge date.",
+      "document_ids": [
+        "CLAIM-009003-PHARM",
+        "CLAIM-009003-DISCH"
+      ],
+      "expected_finding": "temporal_inconsistency"
+    }
+  ],
+  "template_meta": {
+    "claim_form": "claimform-a",
+    "hospital_bill": "hospital-a",
+    "discharge_summary": "hospital-a",
+    "pharmacy_bill": "pharmacy-b",
+    "prescription": "hospital-a",
+    "lab_report": "lab-a"
+  }
+}

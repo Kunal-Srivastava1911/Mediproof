@@ -1,0 +1,74 @@
+{
+  "findings": [
+    {
+      "type": "cross_document_contradiction",
+      "severity": "critical",
+      "title": "Hospital admission date differs between claim form and hospital bill",
+      "detail": "The claim form states the date of admission as 03/10/2024, whereas the hospital bill and discharge summary record the admission date as 07 Oct 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC01",
+          "quote": "Date of Admission 03/10/2024"
+        },
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC02",
+          "quote": "Admission Date 07 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-10-03",
+          "2024-10-07"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Claimed amount does not match the sum of hospital bill total and pharmacy bill",
+      "detail": "The claim form states an amount claimed of 56431.63, while the hospital bill total payable is 55901.63 and the pharmacy bill is 530.00, summing to 56431.63. However, the hospital bill total payable includes a tax calculation and itemized components that do not reconcile directly with the stated amount claimed when combining bill subtotals.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC01",
+          "quote": "Amount Claimed 56431.63"
+        },
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC02",
+          "quote": "Total Payable ₹ 55901.63"
+        },
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC04",
+          "quote": "Total ₹ 530.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "warning",
+      "title": "Patient name spelling differs on the pharmacy invoice",
+      "detail": "The pharmacy invoice spells the patient's last name as 'Sundaramm' with an extra 'm', whereas all other documents record it as 'Sundaram'.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC01",
+          "quote": "Insured Name Kritika Sundaram"
+        },
+        {
+          "document_id": "CLAIM-b93fc59a96-DOC04",
+          "quote": "Patient Name Kritika Sundaramm"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

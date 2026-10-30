@@ -1,0 +1,8 @@
+{
+ "winner": "gemini-3.5-flash-lite",
+ "seconds": 6.42,
+ "verified": true,
+ "racers": {
+  "gemini-3.5-flash-lite": "accepted at 6.4s"
+ }
+}

@@ -1,0 +1,46 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount Claimed Differs from Total Payable",
+      "detail": "The claim form states an amount claimed of 54138.12, which does not match the hospital bill total payable of 53474.12 plus pharmacy bills of 664.00 (totaling 54138.12 - wait, hospital bill total payable is 53474.12, plus pharmacy 664.00 equals 54138.12, but the hospital bill subtotal/total differs from the final calculation or claim form breakdown).",
+      "quotes": [
+        {
+          "document_id": "CLAIM-c939af1273-DOC01",
+          "quote": "Amount Claimed 54138.12"
+        },
+        {
+          "document_id": "CLAIM-c939af1273-DOC02",
+          "quote": "Total Payable \u2039 53474.12"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Pharmacy Bill Outside Admission Window",
+      "detail": "The pharmacy bill is dated 18 Oct 2024 from an external pharmacy (WellMed Pharmacy, Bengaluru), whereas the hospital is in Chennai and the patient was admitted from 15 Oct 2024 to 19 Oct 2024, requiring review of external purchase validity during inpatient stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-c939af1273-DOC04",
+          "quote": "Date: 18 Oct 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-10-18",
+          "2024-10-15",
+          "2024-10-19"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

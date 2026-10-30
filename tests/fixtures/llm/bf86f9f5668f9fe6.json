@@ -1,0 +1,116 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from hospital bill and pharmacy bill sum",
+      "detail": "The claim form states an amount claimed of 40908.72, while the hospital bill total payable is 40448.72 and the pharmacy bill total is 460.00, summing to 40908.72. However, the hospital bill final subtotal is 40550.10, and after discount and tax the payable is 40448.72.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC01",
+          "quote": "Amount Claimed 40908.72"
+        },
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC02",
+          "quote": "Total Payable \u20B9 40448.72"
+        },
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC04",
+          "quote": "Total \u20B9 460.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Discharge summary ICU stay duration differs from hospital bill charges",
+      "detail": "The discharge summary states the patient was shifted to the ward on day 2 of admission (13 Sep 2024), implying 1 day in the ICU, but the hospital bill charges for 1 ICU charges room unit and 3 room rent semi-private units.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC03",
+          "quote": "Managed in the ICU with IV antibiotics, oxygen support and chest physiotherapy. Shifted to the ward on day 2 of admission"
+        },
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC02",
+          "quote": "1 ICU Charges room 1 8789.85 8789.85\n2 Room Rent (Semi-Private) room 3 3249.25 9747.75"
+        }
+      ],
+      "check": {
+        "kind": "count_mismatch",
+        "values": [
+          "1",
+          "3"
+        ]
+      },
+      "area": "clinical_record"
+    },
+    {
+      "type": "unmatched_medication",
+      "severity": "warning",
+      "title": "Pharmacy bill outside admission window without prescription reference",
+      "detail": "The pharmacy invoice from WellMed Pharmacy is dated 13 Sep 2024, but the prescription on record is dated 16 Sep 2024, and the pharmacy bill references Rx Ref RX9330 which does not appear in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC04",
+          "quote": "Date: 13 Sep 2024\nPatient Name Oscar Dawan Bill No PH/2024/8495 Rx Ref RX9330"
+        },
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC05",
+          "quote": "Date 16 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-09-13",
+          "2024-09-12",
+          "2024-09-16"
+        ]
+      },
+      "area": "pharmacy"
+    },
+    {
+      "type": "date_inconsistent",
+      "severity": "info",
+      "title": "Pharmacy bill date matches admission day 2 rather than discharge",
+      "detail": "Pharmacy bill is dated 13 Sep 2024 during the hospital stay.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC04",
+          "quote": "Date: 13 Sep 2024"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "name_inconsistent",
+      "severity": "warning",
+      "title": "Patient name spelling differs on pharmacy invoice",
+      "detail": "The pharmacy invoice spells the patient name as Oscar Dawan while all other documents spell it as Oscar Dhawan.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC04",
+          "quote": "Patient Name Oscar Dawan"
+        },
+        {
+          "document_id": "CLAIM-6c158ebc1e-DOC01",
+          "quote": "Insured Name Oscar Dhawan"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

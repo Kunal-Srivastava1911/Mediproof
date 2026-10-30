@@ -1,0 +1,70 @@
+{
+  "findings": [
+    {
+      "type": "cross_document_contradiction",
+      "severity": "critical",
+      "title": "Admission date mismatch between claim form and hospital bill",
+      "detail": "The claim form states an admission date of 01/12/2024, whereas the hospital bill and discharge summary record the admission date as 05 Dec 2024.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC01",
+          "quote": "Date of Admission 01/12/2024"
+        },
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC02",
+          "quote": "Admission Date 05 Dec 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_mismatch",
+        "values": [
+          "2024-12-01",
+          "2024-12-05"
+        ]
+      },
+      "area": "timeline"
+    },
+    {
+      "type": "cross_document_contradiction",
+      "severity": "warning",
+      "title": "Discharge date mismatch between claim form and hospital records",
+      "detail": "The claim form lists the discharge date as 08/12/2024, but the hospital bill total is calculated differently from the claim form amount claimed.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC01",
+          "quote": "Amount Claimed 76371.82"
+        },
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC02",
+          "quote": "Total Payable ₹ 75729.82"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "cross_document_contradiction",
+      "severity": "warning",
+      "title": "Patient name mismatch on pharmacy invoice",
+      "detail": "The pharmacy invoice lists the patient name as Vrinda Patel, whereas all other documents record the patient name as Vrinda Sha.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC01",
+          "quote": "Insured Name Vrinda Sha"
+        },
+        {
+          "document_id": "CLAIM-7b0ba89433-DOC04",
+          "quote": "Patient Name Vrinda Patel"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "identity"
+    }
+  ]
+}

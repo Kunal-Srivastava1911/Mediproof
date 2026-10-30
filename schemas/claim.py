@@ -6,7 +6,7 @@ types, M3 fills each document's `extracted`, M4 fills `findings`, M5 fills `comp
 
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from enum import Enum
 from typing import Literal
 
@@ -16,6 +16,10 @@ from schemas.common import DocType
 from schemas.documents import ExtractedDocument
 from schemas.findings import Finding
 
+
+def _utcnow() -> datetime:
+    """Timezone-aware UTC now (SQLAlchemy 2.1+ rejects naive datetimes)."""
+    return datetime.now(UTC)
 
 class ClaimStatus(str, Enum):
     received = "received"
@@ -68,7 +72,7 @@ class Correction(BaseModel):
     old_value: str | None = None
     new_value: str | None = None
     reviewer: str | None = None
-    at: datetime = Field(default_factory=datetime.utcnow)
+    at: datetime = Field(default_factory=_utcnow)
 
 
 class TimelineEvent(BaseModel):
@@ -110,7 +114,7 @@ class ClaimFile(BaseModel):
 
     claim_id: str
     status: ClaimStatus = ClaimStatus.received
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=_utcnow)
     pages: list[PageInfo] = Field(default_factory=list)
     documents: list[DocumentRecord] = Field(default_factory=list)
     findings: list[Finding] = Field(default_factory=list)

@@ -1,0 +1,73 @@
+{
+  "findings": [
+    {
+      "type": "bill_arithmetic_mismatch",
+      "severity": "critical",
+      "title": "Amount claimed differs from total bills",
+      "detail": "The claim form amount claimed does not equal the sum of the hospital bill total payable and pharmacy bill.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC01",
+          "quote": "Amount Claimed 42164.23"
+        },
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC02",
+          "quote": "Total Payable ₹ 41544.23"
+        },
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC04",
+          "quote": "Total ₹ 620.00"
+        }
+      ],
+      "check": {
+        "kind": "none",
+        "values": []
+      },
+      "area": "billing"
+    },
+    {
+      "type": "unsupported_by_documentation",
+      "severity": "warning",
+      "title": "Investigation charges billed without corresponding report",
+      "detail": "Investigation charges are billed in the hospital bill, but no matching report is found in the file.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC02",
+          "quote": "Investigation Charges investigation 1 2463.49 2463.49"
+        }
+      ],
+      "check": {
+        "kind": "missing_document",
+        "values": [
+          "Investigation"
+        ]
+      },
+      "area": "billing"
+    },
+    {
+      "type": "temporal_inconsistency",
+      "severity": "warning",
+      "title": "Pharmacy bill date outside hospital stay",
+      "detail": "The pharmacy bill is dated prior to the admission date.",
+      "quotes": [
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC04",
+          "quote": "Date: 06 Dec 2024"
+        },
+        {
+          "document_id": "CLAIM-8c1d34e725-DOC02",
+          "quote": "Admission Date 05 Dec 2024"
+        }
+      ],
+      "check": {
+        "kind": "date_outside_window",
+        "values": [
+          "2024-12-06",
+          "2024-12-05",
+          "2024-12-09"
+        ]
+      },
+      "area": "pharmacy"
+    }
+  ]
+}

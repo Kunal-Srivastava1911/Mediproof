@@ -1,0 +1,13 @@
+{
+  "answer": "A CT Chest scan was done on 16 Sep 2024 and the radiology report is in your file.",
+  "sources": [
+    {
+      "document_id": "CLAIM-2d2d14a274-DOC03",
+      "quote": "CT Chest on 16 Sep 2024 showed right lower lobe consolidation."
+    },
+    {
+      "document_id": "CLAIM-2d2d14a274-DOC08",
+      "quote": "CT Chest Impression: right lower lobe consolidation"
+    }
+  ]
+}

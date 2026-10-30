@@ -1,0 +1,17 @@
+{
+  "answer": "The total payable amount on the final in-patient bill is ₹ 146,890.43, which includes a subtotal of ₹ 139,895.65 and tax of ₹ 6,994.78. Please note that MediProof only checks that the documents are complete and consistent, and the insurer decides on payment. We never give medical advice and never predict whether the insurer will pay.",
+  "sources": [
+    {
+      "document_id": "DEMO-0001-DOC01",
+      "quote": "Subtotal ₹ 139895.65"
+    },
+    {
+      "document_id": "DEMO-0001-DOC01",
+      "quote": "Tax (5%) ₹ 6994.78"
+    },
+    {
+      "document_id": "DEMO-0001-DOC01",
+      "quote": "Total Payable ₹ 146890.43"
+    }
+  ]
+}

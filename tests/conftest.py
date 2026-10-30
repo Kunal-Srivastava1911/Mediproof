@@ -2,17 +2,21 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from types import SimpleNamespace
+
+import pytest
 
 # Tests are hermetic: never read the developer's .env, never inherit live LLM settings.
 os.environ["MEDIPROOF_NO_DOTENV"] = "1"
 for _var in ("LLM_LIVE", "LLM_PROVIDER", "LLM_MODEL", "LLM_AGENT_MODE", "LLM_BUDGET_USD",
              "LLM_MIN_INTERVAL_S", "LLM_PRICE_IN", "LLM_PRICE_OUT", "GEMINI_API_KEY",
-             "GOOGLE_API_KEY", "ANTHROPIC_API_KEY"):
+             "GOOGLE_API_KEY", "ANTHROPIC_API_KEY", "LLM_RACE_MODELS", "LLM_TIMEOUT_S"):
     os.environ.pop(_var, None)
-from types import SimpleNamespace
-
-import pytest
-
+# The unit-test fixtures under tests/ were recorded with Claude; a keyless run of the app
+# defaults to Gemini (the provider behind tests/fixtures/llm/), so pin the suite's baseline.
+# Tests that exercise another provider set LLM_PROVIDER themselves via monkeypatch.
+os.environ["LLM_PROVIDER"] = "anthropic"
+os.environ["LLM_RACE"] = "0"  # race tests opt in explicitly
 REPO_ROOT = Path(__file__).resolve().parents[1]
 GOLDEN_DIR = REPO_ROOT / "tests" / "golden"
 

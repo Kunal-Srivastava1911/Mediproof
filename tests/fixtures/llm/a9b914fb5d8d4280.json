@@ -1,0 +1,24 @@
+{
+  "reviews": [
+    {
+      "index": 0,
+      "reason": "The sum of the hospital total payable (58952.83) and pharmacy bill (598.00) equals 59550.83, which exactly matches the amount claimed on the claim form.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 1,
+      "reason": "The hospital bill includes USG Abdomen, but no USG Abdomen imaging report is attached to the claim file.",
+      "verdict": "real_problem"
+    },
+    {
+      "index": 2,
+      "reason": "The hospital bill includes general investigation charges, and the lab reports (CBC and serum electrolytes) are present in the file.",
+      "verdict": "not_a_problem"
+    },
+    {
+      "index": 3,
+      "reason": "The pharmacy invoice is dated 09 Oct 2024, which falls securely within the hospital stay dates of 08 Oct 2024 to 11 Oct 2024.",
+      "verdict": "not_a_problem"
+    }
+  ]
+}
